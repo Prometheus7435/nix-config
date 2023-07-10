@@ -16,7 +16,7 @@ This is my NixOS config using flakes. I'm taking a lot of the initial setup from
 I like ZFS and NixOS seems to have the easiest and most stable implementation of it I've come across. Due to the difference in licenses, ZFS can't be added to the Linux kernel like Btrfs is. To use it in most distros, you have to set it up yourself and the risk is all on you. Not fun. But NixOS has the modules addded by default and make it super easy to implement. Here's hoping that it's as stable long term as it's been short term.
 
 The only place where I won't be using ZFS is in the VMs. This is because there's no benefit from nesting ZFS, as it were. ZFS works better when it has direct access to the drives. So I'll be using boring ol' ext4 on the VMs. That way, I can take snapshots of the VMs using ZFS and not worry.
-** personal computer setup
+** Computers
 A lot of this will be the same, as I like my KDE and ZFS. The differences will largely come down to the specific hardware found in each. The status below is dependent on the status of the host config and this flake setup overall. For example, my laptop runs NixOS, but it's being managed in the more traditional configuration.nix in /etc/nixos way.
 
 Because I'm being cheeky; laptop is laptop, slatetop is a tablet, racktop is a server, virtualtop are VMs, handtop is a phone, and desktop is desktop.
@@ -28,8 +28,8 @@ Because I'm being cheeky; laptop is laptop, slatetop is a tablet, racktop is a s
 *** Tablet
 This'll be the first go of this process.
 
-** server on bare-metal
-Minimum install, maybe with the hardened kernel. Just need it to be no top of ZFS and run VMs. Like with many hobbies I take up, I tend to take the hard route. This server and the VMs are on different VLANs.
+** Host Server
+Minimum install, just need it to be on top of ZFS and run VMs. Like with many hobbies I take up, I tend to take the hard route. This server and the VMs are on different VLANs.
 
 ** Virtual Machines
 *** IOT
