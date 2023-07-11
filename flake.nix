@@ -59,7 +59,8 @@
         # "x86_64-darwin"  # no MacOS in this house
       ];
       # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-      stateVersion = "23.05";
+      stateVersion = "unstable";
+      # stateVersion = "23.05";
 
     in
     rec {
@@ -125,6 +126,19 @@
           };
           modules = [ ./nixos ];
         };
+
+        # named after the Type 6 class shuttle from the Enterprise D
+        fermi = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs stateVersion;
+            desktop = null;
+            hostid = "";  # head -c 8 /etc/machine-id
+            hostname = "fermi";
+            username = "starfleet";
+          };
+          modules = [ ./nixos ];
+        };
+
         # # FIXME replace with your hostname
         # your-hostname = nixpkgs.lib.nixosSystem {
         #   specialArgs = { inherit inputs outputs; };
@@ -147,7 +161,7 @@
             hostname = "akira";
             username = "shyfox";
           };
-          modules = [ ./home ];
+          modules = [ ./home-manager ];
         };
 
         "starfleet@starbase" = home-manager.lib.homeManagerConfiguration {
@@ -159,6 +173,17 @@
             username = "starfleet";
           };
           modules = [ ./home-manager ];
+
+        "starfleet@fermi" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs stateVersion;
+            desktop = null;
+            hostname = "fermi";
+            username = "starfleet";
+          };
+          modules = [ ./home-manager ];
+
         # # FIXME replace with your username@hostname
         # "your-username@your-hostname" = home-manager.lib.homeManagerConfiguration {
         #   pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
