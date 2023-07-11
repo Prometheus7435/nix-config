@@ -2,10 +2,10 @@
 This is my NixOS config using flakes. I'm taking a lot of the initial setup from [[https://github.com/wimpysworld/nix-config/tree/c44a1bd13868e759bb215f54ca1f3fe49eba6dae][Whimpy's]] config. I'm quite new to this and his setup is quite close to what I wanted anyway.
 
 * What do I want from me
+
 ** File System
 
 | *Hostname* | *OEM*    | *Model*             | *OS*  | *Filesystem* | *Role*     | *Status* |
-| ---------  | -------- | ------------------- | ----- | ------------ | ---------- | -------- |
 | phoenix    | Thinkpad | T14 AMD Gen 1       | NixOS | ZFS          | laptop     | WIP      |
 | starbase   | DIY      | AMD 3700X, AMD 580X | NixOS | ZFS          | racktop    | DONE     |
 | alpha      | VM       | VM                  | NixOS | ext4         | virtualtop | TODO     |
@@ -16,6 +16,11 @@ This is my NixOS config using flakes. I'm taking a lot of the initial setup from
 I like ZFS and NixOS seems to have the easiest and most stable implementation of it I've come across. Due to the difference in licenses, ZFS can't be added to the Linux kernel like Btrfs is. To use it in most distros, you have to set it up yourself and the risk is all on you. Not fun. But NixOS has the modules addded by default and make it super easy to implement. Here's hoping that it's as stable long term as it's been short term.
 
 The only place where I won't be using ZFS is in the VMs. This is because there's no benefit from nesting ZFS, as it were. ZFS works better when it has direct access to the drives. So I'll be using boring ol' ext4 on the VMs. That way, I can take snapshots of the VMs using ZFS and not worry.
+
+** Install
+
+Initially, I was using a bash script from [[https://github.com/mcdonc/.nixconfig/blob/master/prepsystem.sh][mcdonc]] to make a a basic config for a non-flake install. Now I'm using [[https://github.com/wimpysworld/nix-config/blob/c44a1bd13868e759bb215f54ca1f3fe49eba6dae/scripts/install.sh][Whimpy's install script]] that uses [[https://github.com/nix-community/disko/tree/master][Distro]] to build the root filesytem.
+
 ** Computers
 A lot of this will be the same, as I like my KDE and ZFS. The differences will largely come down to the specific hardware found in each. The status below is dependent on the status of the host config and this flake setup overall. For example, my laptop runs NixOS, but it's being managed in the more traditional configuration.nix in /etc/nixos way.
 
@@ -26,7 +31,7 @@ Because I'm being cheeky; laptop is laptop, slatetop is a tablet, racktop is a s
 *** Laptop
 
 *** Tablet
-This'll be the first go of this process.
+
 
 ** Host Server
 Minimum install, just need it to be on top of ZFS and run VMs. Like with many hobbies I take up, I tend to take the hard route. This server and the VMs are on different VLANs.

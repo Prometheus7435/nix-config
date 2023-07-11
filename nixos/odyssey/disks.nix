@@ -36,7 +36,6 @@
     zpool = {
       zroot = {
         type = "zpool";
-#        mode = "mirror";
         rootFsOptions = {
           compression = "lz4";
           "com.sun:auto-snapshot" = "false";
@@ -45,8 +44,15 @@
         postCreateHook = "zfs snapshot zroot@blank";
 
         datasets = {
-
-        };
+        #   encrypted = {
+        #     type = "zfs_fs";
+        #     options = {
+        #       mountpoint = "none";
+        #       encryption = "aes-256-gcm";
+        #       keyformat = "passphrase";
+        #       keylocation = "file:///tmp/secret.key";
+        #     };
+        # };
       };
     };
   };
