@@ -13,11 +13,12 @@
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono"]; })
     work-sans
-    joypixels
+    # joypixels
     ubuntu_font_family
+    source-code-pro
   ];
   # Accept the joypixels license
-  nixpkgs.config.joypixels.acceptLicense = true;
+  # nixpkgs.config.joypixels.acceptLicense = true;
 
   home.file = {
     "${config.xdg.configHome}/autostart/enable-flathub.desktop".text = "

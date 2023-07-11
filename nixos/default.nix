@@ -72,5 +72,6 @@
 #    autoUpgrade.enable = true;
     # autoUpgrade.allowReboot = true;
     stateVersion = stateVersion;
+    # stateVersion = stateVersion;
   };
 }
