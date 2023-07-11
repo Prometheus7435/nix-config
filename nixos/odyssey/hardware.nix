@@ -49,16 +49,17 @@
   # networking.interfaces.enp132s0f1.useDHCP = lib.mkDefault true;
   networking = {
     interfaces = {
+      eno1.useDHPC = lib.mkDefault true;
       enp3s0f0 = {
-        useDHCP = lib.mkDefault false;
-        ipv4 = {
-          addresses = [
-            {
-              address = "10.10.10.50";
-              prefixLength = 24;
-            };
-          ];
-        };
+        useDHCP = lib.mkDefault true;
+        # ipv4 = {
+        #   addresses = [
+        #     {
+        #       address = "10.10.10.50";
+        #       prefixLength = 24;
+        #     };
+        #   ];
+        # };
       };
     };
     defaultGateway = {
