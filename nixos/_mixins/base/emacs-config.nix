@@ -2,7 +2,7 @@
 
 {
   imports = [
-    inputs.emacs-overlay
+    # inputs.emacs-overlay
   ];
   services.emacs = {
     enable = true;
