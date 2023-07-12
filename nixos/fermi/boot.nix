@@ -25,7 +25,8 @@
     #   };
     #   timeout = 3;
     # };
-    zfs.extraPools = [ "vmpool" "alpha"];
+    zfs.extraPools = [ "vmpool" ];
+    zfs.extraPools = [ "alpha" ];
 #    zfs.forceImportRoot = false;
     supportedFilesystems = [ "zfs" ];
     # zfs.requestEncryptionCredentials = true;

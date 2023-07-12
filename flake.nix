@@ -173,7 +173,7 @@
             username = "starfleet";
           };
           modules = [ ./home-manager ];
-
+        };
         "starfleet@fermi" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
@@ -183,7 +183,7 @@
             username = "starfleet";
           };
           modules = [ ./home-manager ];
-
+        };
         # # FIXME replace with your username@hostname
         # "your-username@your-hostname" = home-manager.lib.homeManagerConfiguration {
         #   pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
@@ -193,7 +193,6 @@
         #     ./home-manager/home.nix
         #   ];
         # };
-      };
       };
     };
 }
