@@ -18,8 +18,10 @@
 
   environment.systemPackages = [
     # applications needed for the emacs packages to hook into
-    pkgs.python3Full.jedi
-    pkgs.python3Full.jedi-language-server
+    pkgs.python311Full
+    pkgs.python311Packages.jedi
+    # pkgs.python3Full.jedi
+    pkgs.python311Packages.jedi-language-server
     pkgs.texlive.combined.scheme-full
     pkgs.python3Full.black
   # ];
