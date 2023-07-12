@@ -3,7 +3,7 @@
   imports = [
     ./locale.nix
     ./nano.nix
-    ./emacs-config.nix
+    # ./emacs-config.nix
     ../services/fwupd.nix
     ../services/openssh.nix
     ../services/tailscale.nix
@@ -11,6 +11,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    emacs
     binutils
     curl
     desktop-file-utils
