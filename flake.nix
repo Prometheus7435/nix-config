@@ -12,8 +12,8 @@
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    # home-manager.url = "github:nix-community/home-manager/release-23.05";
+    # home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     # KDE Plasma
@@ -167,7 +167,7 @@
         "starfleet@starbase" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
-            inherit inputs outputs stateVersion;
+            inherit inputs outputs;
             desktop = null;
             hostname = "starbase";
             username = "starfleet";
