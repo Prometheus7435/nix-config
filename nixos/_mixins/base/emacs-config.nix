@@ -3,7 +3,7 @@
 {
   imports = [
     outputs.emacs-overlay
-  ]
+  ];
   services.emacs = {
     enable = true;
     package = pkgs.emacsUnstable; # replace with emacs-gtk, emacsUnstable, or a version provided by the community overlay if desired.
