@@ -21,9 +21,10 @@
     pkgs.python311Full
     pkgs.python311Packages.jedi
     # pkgs.python3Full.jedi
+    pkgs.python311Packages.black
     pkgs.python311Packages.jedi-language-server
     pkgs.texlive.combined.scheme-full
-    pkgs.python3Full.black
+
   # ];
     (pkgs.emacsWithPackagesFromUsePackage {
       package = pkgs.emacsUnstable;  # replace with pkgs.emacsPgtk, or another version if desired.
