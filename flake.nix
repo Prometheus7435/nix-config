@@ -177,7 +177,7 @@
         "starfleet@fermi" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
-            inherit inputs outputs stateVersion;
+            inherit inputs outputs;
             desktop = null;
             hostname = "fermi";
             username = "starfleet";
