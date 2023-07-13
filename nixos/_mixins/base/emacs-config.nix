@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, callPackage, outputs, emacs-overlay... }:
+{ config, inputs, pkgs, callPackage, outputs, emacs-overlay, ... }:
 
 {
   imports = [
