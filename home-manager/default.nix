@@ -33,7 +33,7 @@ in {
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.emacs-overlay
+      inputs.emacs-overlay.overlay
       # outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
