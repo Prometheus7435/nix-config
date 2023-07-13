@@ -14,21 +14,12 @@
       };
       timeout = 3;
     };
-    # loader = {
-    #   grub = {
-    #     enable = true;
-    #     devices = [ "nodev" ];
-    #     efiInstallAsRemovable = true;
-    #     efiSupport = true;
-    #     useOSProber = true;
-    #     configurationLimit = 10;
-    #   };
-    #   timeout = 3;
-    # };
-    zfs.extraPools = [ "vmpool" "alpha"];
-#    zfs.forceImportRoot = false;
+
     supportedFilesystems = [ "zfs" ];
-    # zfs.requestEncryptionCredentials = true;
+    zfs = {
+      extraPools = [ "vmpool" "alpha"];
+      requestEncryptionCredentials = true;
+    };
 
     kernelPackages = pkgs.linuxPackages;
 #    kernelParams = [ "mem_sleep_default=deep" ];
