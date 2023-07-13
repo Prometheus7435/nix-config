@@ -4,7 +4,7 @@
     loader = {
       systemd-boot = {
         enable = true;
-        configurationLimit = 10;
+        configurationLimit = 5;
         memtest86 = {
           enable = true;
         };
@@ -12,33 +12,14 @@
       efi = {
         canTouchEfiVariables = true;
       };
-      timeout = 3;
+      timeout = 2;
     };
-    # loader = {
-    #   grub = {
-    #     enable = true;
-    #     devices = [ "nodev" ];
-    #     efiInstallAsRemovable = true;
-    #     efiSupport = true;
-    #     useOSProber = true;
-    #     configurationLimit = 10;
-    #   };
-    #   timeout = 3;
-    # };
-    zfs.extraPools = [ "vmpool" ];
-    zfs.extraPools = [ "alpha" ];
-#    zfs.forceImportRoot = false;
-    supportedFilesystems = [ "zfs" ];
-    # zfs.requestEncryptionCredentials = true;
 
     kernelPackages = pkgs.linuxPackages;
-#    kernelParams = [ "mem_sleep_default=deep" ];
-    kernelParams = [ "mitigations=off" ];
-#    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+    # kernelParams = [ "mitigations=off" ];
     extraModulePackages = [];
 
     kernelModules = [
-      "kvm-intel"
       "acpi_call"
       "kvm-amd"
       "vhost_vsock"
@@ -60,13 +41,12 @@
         "nvme"
       ];
       kernelModules = [
-        "amdgpu"
+
       ];
     };
   };
 
-  services = {
-    zfs.autoScrub.enable = true;
-    fstrim.enable = true;
-  };
+  # services = {
+  #   fstrim.enable = true;
+  # };
 }
