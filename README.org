@@ -5,12 +5,12 @@ This is my NixOS config using flakes. I'm taking a lot of the initial setup from
 
 ** File System
 
-| *Hostname* | *OEM*    | *Model*             | *OS*  | *Filesystem* | *Role*     | *Status* |
-| phoenix    | Thinkpad | T14 AMD Gen 1       | NixOS | ZFS          | laptop     | WIP      |
-| starbase   | DIY      | AMD 3700X, AMD 580X | NixOS | ZFS          | racktop    | DONE     |
-| alpha      | VM       | VM                  | NixOS | ext4         | virtualtop | TODO     |
-| akira      | Thinkpad | X1 tablet Gen 3     | NixOS | ZFS          | slatetop   | TODO     |
-| odyssey    | Custom   | Custom              | NixOS | ZFS          | desktop    | WIP      |
+| *Hostname* | *OEM*    | *Model*         | *OS*  | *Filesystem* | *Role*   | *Status* |
+| phoenix    | Thinkpad | T14 AMD Gen 1   | NixOS | ZFS          | laptop   | WIP      |
+| starbase   | DIY      | AMD EPYC 7302   | NixOS | ZFS          | racktop  | DONE     |
+| fermi      | VM       | VM              | NixOS | ext4         | pihole   | TODO     |
+| akira      | Thinkpad | X1 tablet Gen 3 | NixOS | ZFS          | slatetop | TODO     |
+| odyssey    | Custom   | Custom          | NixOS | ZFS          | desktop  | WIP      |
 
 
 I like ZFS and NixOS seems to have the easiest and most stable implementation of it I've come across. Due to the difference in licenses, ZFS can't be added to the Linux kernel like Btrfs is. To use it in most distros, you have to set it up yourself and the risk is all on you. Not fun. But NixOS has the modules addded by default and make it super easy to implement. Here's hoping that it's as stable long term as it's been short term.
@@ -26,7 +26,7 @@ A lot of this will be the same, as I like my KDE and ZFS. The differences will l
 
 Because I'm being cheeky; laptop is laptop, slatetop is a tablet, racktop is a server, virtualtop are VMs, handtop is a phone, and desktop is desktop.
 
-*** Desktop
+*** [[./nixos/odyssey/][Desktop]]
 
 *** Laptop
 
@@ -40,4 +40,4 @@ Minimum install, just need it to be on top of ZFS and run VMs. Like with many ho
 *** IOT
 *** Home Assistant
 *** Personal Services
-*** PiHole
+*** [[./nixos/fermi/][PiHole]]
