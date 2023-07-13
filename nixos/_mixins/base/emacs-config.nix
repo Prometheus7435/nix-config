@@ -28,7 +28,7 @@
 
   # ];
     (pkgs.emacsWithPackagesFromUsePackage {
-      package = pkgs.emacsUnstable;  # replace with pkgs.emacsPgtk, or another version if desired.
+      package = pkgs.emacs-unstable;  # replace with pkgs.emacsPgtk, or another version if desired.
       # config = /home/zach/sync/dot_files/dot_emacs.d/init.el;
       config = ./emacs-config.org; # Org-Babel configs also supported
       alwaysEnsure = true;
