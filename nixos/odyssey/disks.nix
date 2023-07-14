@@ -1,4 +1,4 @@
-{ disks ? [ "/dev/nvme01" ], ... }: {
+{ disks ? [ "/dev/nvme0n1" ], ... }: {
   disko.devices = {
     disk = {
       nvme0 = {
@@ -38,10 +38,9 @@
         type = "zpool";
         rootFsOptions = {
           compression = "lz4";
-          ashift = "12";
           encryption = "on";
           keylocation = "prompt";
-          keyformat = "passphrase"
+          keyformat = "passphrase";
           "com.sun:auto-snapshot" = "false";
         };
         mountpoint = "/";
@@ -57,6 +56,7 @@
         #       keylocation = "file:///tmp/secret.key";
         #     };
         # };
+        };
       };
     };
   };

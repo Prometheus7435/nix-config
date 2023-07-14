@@ -15,7 +15,7 @@ else
 fi
 
 case "${TARGET_HOST}" in
-  starbase|akira) true;;
+  starbase|akira|fermi|odyssey) true;;
   *)
     echo "ERROR! ${TARGET_HOST} is not a supported host"
     exit 1

@@ -152,6 +152,17 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
+        "shyfox@odyssey" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs stateVersion;
+            desktop = "kde";
+            hostname = "akira";
+            username = "shyfox";
+          };
+          modules = [ ./home-manager ];
+        };
+
         # home-manager switch -b backup --flake $HOME/Zero/nix-config
         "shyfox@akira" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
