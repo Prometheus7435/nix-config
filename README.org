@@ -12,6 +12,7 @@ The big things I want is to have a consistent KDE setup using ZFS for the file s
 | [[./nixos/fermi/][fermi]]      | VM       | VM              | NixOS | ext4         | pihole   | TODO     |
 | akira      | Thinkpad | X1 tablet Gen 3 | NixOS | ZFS          | slatetop | TODO     |
 | [[./nixos/odyssey/][odyssey]]    | Custom   | Custom          | NixOS | ZFS          | desktop  | WIP      |
+| andoria    | VM       | VM              | NixOS | ext4         | IOT VM   | TODO     |
 
 
 I like ZFS and NixOS seems to have the easiest and most stable implementation of it I've come across. Due to the difference in licenses, ZFS can't be added to the Linux kernel like Btrfs is. To use it in most distros, you have to set it up yourself and the risk is all on you. Not fun. But NixOS has the modules addded by default and make it super easy to implement. Here's hoping that it's as stable long term as it's been short term.
@@ -44,3 +45,16 @@ Minimum install, just need it to be on top of ZFS and run VMs. Like with many ho
 *** Home Assistant
 *** Personal Services
 *** [[./nixos/fermi/][PiHole]]
+
+* Troubleshooting
+** Home-Manager
+I tried to rebuild the home-manager setup after a fresh install of starbase and it gave me an error. It said it could not find suitable profile directory even though the folder it was looking for exists. Turns out, it's looking for a different folder it doesn't tell you about. A simple
+
+#+begin_src bash
+  mkdir -p ~/.local/state/nix/profiles
+#+end_src
+
+rerun the command, and it's all good.
+
+Citation to solution:
+https://www.reddit.com/r/Nix/comments/1443k3o/home_manager_installation_could_not_find_suitable/
