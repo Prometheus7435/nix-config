@@ -13,7 +13,9 @@
 #    inputs.nixos-hardware.nixosModules.common-cpu-intel
     # inputs.nixos-hardware.nixosModules.common-gpu-amd
     # inputs.nixos-hardware.nixosModules.common-gpu-intel
-    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
+
+    # inputs.nixos-hardware.nixosModules.common-gpu-nvidia
+
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/services/pipewire.nix
@@ -142,7 +144,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
-      "nvidia-settings"
+      # "nvidia-settings"
     ];
 
   # Tell Xorg to use the nvidia driver
