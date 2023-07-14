@@ -46,12 +46,12 @@
     kdeconnect = {
       enable = true;
     };
-    plasma = {
-      enable = true;
-      # shortcuts = {
-      #   "ksmserver"."Lock Session" = ["Meta+L" "Screensaver"];
-      # };
-    };
+    # plasma = {
+    #   enable = true;
+    #   # shortcuts = {
+    #   #   "ksmserver"."Lock Session" = ["Meta+L" "Screensaver"];
+    #   # };
+    # };
   };
 
   # nixpkgs.config.allowUnfree = true;
