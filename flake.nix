@@ -94,7 +94,7 @@
         odyssey = nixpkgs.lib.nixosSystem {
           # sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs outputs stateVersion;
             desktop = "kde";
             hostid = "26dce576";  # head -c 8 /etc/machine-id
             hostname = "odyssey";
@@ -167,7 +167,7 @@
         "shyfox@akira" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
-            inherit inputs outputs stateVersion;
+            inherit inputs outputs;
             desktop = "kde";
             hostname = "akira";
             username = "shyfox";
