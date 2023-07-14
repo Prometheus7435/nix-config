@@ -151,11 +151,11 @@
   hardware.nvidia = {
 
     # Modesetting is needed for most wayland compositors
-    # modesetting.enable = true;
+    modesetting.enable = true;
 
 
     prime = {
-      nvidiaBusId = "PCI:45:00:0";
+      nvidiaBusId = "PCI:45:0:0";
     };
 
 
