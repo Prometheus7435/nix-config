@@ -30,7 +30,7 @@
       "acpi_call"
       "kvm-amd"
       "nvidia"
-      "amdgpu"
+      # "amdgpu"
       # "vhost_vsock"
     ];
 
