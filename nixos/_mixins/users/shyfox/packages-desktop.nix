@@ -7,7 +7,8 @@
   #   };
   # }
 
-  environment.systemPackages = with pkgs.unstable; [
+  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs.unstable; [
     authy
     # discord
     blender
