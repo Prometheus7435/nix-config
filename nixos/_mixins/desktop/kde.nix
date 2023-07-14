@@ -48,9 +48,9 @@
     };
     plasma = {
       enable = true;
-      shortcuts = {
-        "ksmserver"."Lock Session" = ["Meta+L" "Screensaver"];
-      };
+      # shortcuts = {
+      #   "ksmserver"."Lock Session" = ["Meta+L" "Screensaver"];
+      # };
     };
   };
 
