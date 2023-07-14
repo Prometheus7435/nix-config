@@ -1,6 +1,6 @@
-{ inputs, pkgs, username, ... }: {
+{ inputs, pkgs, plasma-manager, username, ... }: {
   imports = [
-    inputs.plasma-manager
+    # inputs.plasma-manager.overlay
     ../services/networkmanager.nix
   ];
 

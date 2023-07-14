@@ -24,6 +24,7 @@
       outputs.overlays.modifications
       # outputs.overlays.unstable-packages
       inputs.emacs-overlay.overlay
+      inputs.plasma-manager.overlay
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
