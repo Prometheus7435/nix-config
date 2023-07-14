@@ -64,8 +64,13 @@ Citation to solution:
 https://www.reddit.com/r/Nix/comments/1443k3o/home_manager_installation_could_not_find_suitable/
 
 * Inspirations
+
 [[https://github.com/wimpysworld/nix-config/tree/main][Wimpy's nix-config]] for the basis of all of this
+
 [[https://github.com/Misterio77/nix-starter-configs/tree/main][nix-starter-configs]] for an awesome flake templates
+
 [[https://github.com/mcdonc/p51-thinkpad-nixos/tree/main][mcdonc P51 config]] and [[https://www.youtube.com/playlist?list=PLa01scHy0YEmg8trm421aYq4OtPD8u1SN][YouTube series]] and install script
+
 [[https://www.youtube.com/playlist?list=PLa01scHy0YEmg8trm421aYq4OtPD8u1SN][Disko]] for bringing disk setup
+
 [[https://kressle.in/articles/][Ricky Kresslein]] for a bunch of docker setups
