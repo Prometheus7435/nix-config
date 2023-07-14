@@ -49,7 +49,12 @@
   # networking.interfaces.enp132s0f1.useDHCP = lib.mkDefault true;
   networking = {
     interfaces = {
-      eno1.useDHPC = lib.mkDefault true;
+      enp39s0.useDHPC = lib.mkDefault true;  # motherboard ethernet
+      # right fiber connection
+      enp35s0f0 = {
+        useDHCP = lib.mkDefault true;
+      };
+      # left fiber connection
       enp35s0f1 = {
         useDHCP = lib.mkDefault true;
         # ipv4 = {
