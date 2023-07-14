@@ -5,7 +5,7 @@
     hostId = hostid;
     useDHCP = lib.mkDefault true;
     firewall = {
-      enable = true;
+      enable = false;
     };
   };
 
