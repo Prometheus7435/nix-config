@@ -51,7 +51,7 @@
       shortcuts = {
         "ksmserver"."Lock Session" = ["Meta+L" "Screensaver"];
       };
-    }
+    };
   };
 
   # nixpkgs.config.allowUnfree = true;
@@ -63,5 +63,4 @@
   ];
 
   # services.xserver.desktopManager.plasma5.useQtScaling = true;
-
 }
