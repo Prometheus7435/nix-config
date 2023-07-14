@@ -25,7 +25,7 @@
 #    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
     extraModulePackages = [];
 
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" ]
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     kernelModules = [
       "acpi_call"
       "kvm-amd"
