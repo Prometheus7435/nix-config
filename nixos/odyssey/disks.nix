@@ -38,6 +38,10 @@
         type = "zpool";
         rootFsOptions = {
           compression = "lz4";
+          ashift = "12";
+          encryption = "on";
+          keylocation = "prompt";
+          keyformat = "passphrase"
           "com.sun:auto-snapshot" = "false";
         };
         mountpoint = "/";
