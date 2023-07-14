@@ -153,6 +153,7 @@
     # Modesetting is needed for most wayland compositors
     modesetting.enable = true;
 
+    prime.enable = false;
     # prime = {
     #   nvidiaBusId = "PCI:45:00:0";
     # };
