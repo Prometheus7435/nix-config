@@ -17,7 +17,7 @@
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/services/pipewire.nix
-    # ../_mixins/hardware/network-dhcp.nix
+    ../_mixins/hardware/network-dhcp.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -47,34 +47,36 @@
   # networking.interfaces.eno2.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp132s0f0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp132s0f1.useDHCP = lib.mkDefault true;
-  networking = {
-    interfaces = {
-      enp39s0.useDHPC = lib.mkDefault true;  # motherboard ethernet
-      # right fiber connection
-      enp35s0f0 = {
-        useDHCP = lib.mkDefault true;
-      };
-      # left fiber connection
-      enp35s0f1 = {
-        useDHCP = lib.mkDefault true;
-        # ipv4 = {
-        #   addresses = [
-        #     {
-        #       address = "10.10.10.50";
-        #       prefixLength = 24;
-        #     };
-        #   ];
-        # };
-      };
-    };
-    defaultGateway = {
-      address = "10.10.10.1";
-      interface = "enp35s0f1";
-    };
-    nameservers = [
-      "10.10.10.1"
-    ];
-  };
+
+
+  # networking = {
+  #   interfaces = {
+  #     enp39s0.useDHPC = lib.mkDefault true;  # motherboard ethernet
+  #     # right fiber connection
+  #     enp35s0f0 = {
+  #       useDHCP = lib.mkDefault true;
+  #     };
+  #     # left fiber connection
+  #     enp35s0f1 = {
+  #       useDHCP = lib.mkDefault true;
+  #       # ipv4 = {
+  #       #   addresses = [
+  #       #     {
+  #       #       address = "10.10.10.50";
+  #       #       prefixLength = 24;
+  #       #     };
+  #       #   ];
+  #       # };
+  #     };
+  #   };
+  #   defaultGateway = {
+  #     address = "10.10.10.1";
+  #     interface = "enp35s0f1";
+  #   };
+  #   nameservers = [
+  #     "10.10.10.1"
+  #   ];
+  # };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
