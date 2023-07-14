@@ -19,6 +19,7 @@
     supportedFilesystems = [ "zfs" ];
     # zfs.requestEncryptionCredentials = true;
 
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelPackages = pkgs.linuxPackages_zen;
 #    kernelParams = [ "mem_sleep_default=deep" ];
     kernelParams = [ "mitigations=off" ];
