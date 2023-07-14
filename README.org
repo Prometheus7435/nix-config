@@ -28,13 +28,6 @@ A lot of this will be the same, as I like my KDE and ZFS. The differences will l
 
 Because I'm being cheeky; laptop is laptop, slatetop is a tablet, racktop is a server, virtualtop are VMs, handtop is a phone, and desktop is desktop.
 
-*** [[./nixos/odyssey/][Desktop]]
-
-*** Laptop
-
-*** Tablet
-
-
 ** [[./nixos/starbase/][Host Server]]
 Minimum install, just need it to be on top of ZFS and run VMs. Like with many hobbies I take up, I tend to take the hard route. This server and the VMs are on different VLANs.
 
@@ -69,3 +62,10 @@ rerun the command, and it's all good.
 
 Citation to solution:
 https://www.reddit.com/r/Nix/comments/1443k3o/home_manager_installation_could_not_find_suitable/
+
+* Inspirations
+[[https://github.com/wimpysworld/nix-config/tree/main][Wimpy's nix-config]] for the basis of all of this
+[[https://github.com/Misterio77/nix-starter-configs/tree/main][nix-starter-configs]] for an awesome flake templates
+[[https://github.com/mcdonc/p51-thinkpad-nixos/tree/main][mcdonc P51 config]] and [[https://www.youtube.com/playlist?list=PLa01scHy0YEmg8trm421aYq4OtPD8u1SN][YouTube series]] and install script
+[[https://www.youtube.com/playlist?list=PLa01scHy0YEmg8trm421aYq4OtPD8u1SN][Disko]] for bringing disk setup
+[[https://kressle.in/articles/][Ricky Kresslein]] for a bunch of docker setups
