@@ -50,7 +50,7 @@
   networking = {
     interfaces = {
       eno1.useDHPC = lib.mkDefault true;
-      enp3s0f0 = {
+      enp35s0f1 = {
         useDHCP = lib.mkDefault true;
         # ipv4 = {
         #   addresses = [
@@ -64,7 +64,7 @@
     };
     defaultGateway = {
       address = "10.10.10.1";
-      interface = "enp3s0f0";
+      interface = "enp35s0f1";
     };
     nameservers = [
       "10.10.10.1"
