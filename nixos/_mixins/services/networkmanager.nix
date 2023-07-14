@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }: {
   # Use passed in hostid and hostname to configure basic networking
   networking = {
     hostName = hostname;
@@ -20,4 +20,6 @@
 #   };
 #   # Workaround https://github.com/NixOS/nixpkgs/issues/180175
 #   systemd.services.NetworkManager-wait-online.enable = false;
-# }
+  # }
+
+}
