@@ -63,6 +63,19 @@ rerun the command, and it's all good.
 Citation to solution:
 https://www.reddit.com/r/Nix/comments/1443k3o/home_manager_installation_could_not_find_suitable/
 
+** Git pulls
+
+When I've deployed this to my server, I kept running into an issue where I'd try to pull and couldn't because of a conflict. My guess is the flake.lock file was changed which caused a conflict. The way around that (assuming you don't mind losing the local branch) is to run
+
+#+begin_src bash
+  git fetch --all && git reset --hard origin/main
+#+end_src
+
+I use the main branch name instead of the default "master".
+
+Citation to solution:
+https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
+
 * Inspirations
 
 [[https://github.com/wimpysworld/nix-config/tree/main][Wimpy's nix-config]] for the basis of all of this
