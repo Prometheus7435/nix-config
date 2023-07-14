@@ -2,15 +2,16 @@
 This is my NixOS config using flakes. I'm taking a lot of the initial setup from [[https://github.com/wimpysworld/nix-config/tree/c44a1bd13868e759bb215f54ca1f3fe49eba6dae][Whimpy's]] config. I'm quite new to this and his setup is quite close to what I wanted anyway.
 
 * What do I want from me
+The big things I want is to have a consistent KDE setup using ZFS for the file system. And someday I'll figure out how the emacs-overlay works and then use that to replace my emacs org-babel config.
 
 ** File System
 
 | *Hostname* | *OEM*    | *Model*         | *OS*  | *Filesystem* | *Role*   | *Status* |
 | phoenix    | Thinkpad | T14 AMD Gen 1   | NixOS | ZFS          | laptop   | WIP      |
-| starbase   | DIY      | AMD EPYC 7302   | NixOS | ZFS          | racktop  | DONE     |
-| fermi      | VM       | VM              | NixOS | ext4         | pihole   | TODO     |
+| [[./nixos/starbase/][starbase]]   | DIY      | AMD EPYC 7302   | NixOS | ZFS          | racktop  | DONE     |
+| [[./nixos/fermi/][fermi]]      | VM       | VM              | NixOS | ext4         | pihole   | TODO     |
 | akira      | Thinkpad | X1 tablet Gen 3 | NixOS | ZFS          | slatetop | TODO     |
-| odyssey    | Custom   | Custom          | NixOS | ZFS          | desktop  | WIP      |
+| [[./nixos/odyssey/][odyssey]]    | Custom   | Custom          | NixOS | ZFS          | desktop  | WIP      |
 
 
 I like ZFS and NixOS seems to have the easiest and most stable implementation of it I've come across. Due to the difference in licenses, ZFS can't be added to the Linux kernel like Btrfs is. To use it in most distros, you have to set it up yourself and the risk is all on you. Not fun. But NixOS has the modules addded by default and make it super easy to implement. Here's hoping that it's as stable long term as it's been short term.
