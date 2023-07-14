@@ -96,7 +96,7 @@
           specialArgs = {
             inherit inputs outputs;
             desktop = "kde";
-            hostid = "";  # head -c 8 /etc/machine-id
+            hostid = "26dce576";  # head -c 8 /etc/machine-id
             hostname = "odyssey";
             username = "shyfox";
             # stateVersion = "unstable";
