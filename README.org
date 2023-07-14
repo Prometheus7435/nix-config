@@ -37,7 +37,7 @@ Because I'm being cheeky; laptop is laptop, slatetop is a tablet, racktop is a s
 ** [[./nixos/starbase/][Host Server]]
 Minimum install, just need it to be on top of ZFS and run VMs. Like with many hobbies I take up, I tend to take the hard route. This server and the VMs are on different VLANs.
 
-#TODO: clean up the files to only what's relevant.
+*** TODO clean up the files to only what's relevant.
 
 ** Virtual Machines
 *** IOT
