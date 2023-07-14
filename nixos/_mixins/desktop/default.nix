@@ -28,13 +28,14 @@
       powerline-fonts
       # nerdfonts
     ];
+  };
 
   programs = {
     firefox = {
       enable = true;
       package = pkgs.unstable.firefox;
     };
-  }
+  };
 
   environment.systemPackages = with pkgs; [
     vlc
@@ -66,7 +67,7 @@
     #     lcdfilter = "light";
     #   };
     # };
-  };
+  # };
 
   # Accept the joypixels license
   # nixpkgs.config.joypixels.acceptLicense = true;
