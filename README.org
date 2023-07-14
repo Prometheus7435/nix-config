@@ -47,7 +47,7 @@ Minimum install, just need it to be on top of ZFS and run VMs. Like with many ho
 *** [[./nixos/fermi/][PiHole]]
 
 * Machine Naming Convention
-Surely the most important subject, how to name all the things :D Why do this when you should treat mass deployments like cattle? Mostly so I can easily identify them in tailscale. Also, how many serve
+Surely the most important subject, how to name all the things :D Why do this when you should treat mass deployments like cattle? Mostly so I can easily identify them in tailscale. Also, how many servers do you admin?!
 
 I'm following the typical, something super nerdy thing I care deeply for. In this case, Star Trek.
 
