@@ -34,4 +34,5 @@ in
     packages = [ pkgs.home-manager ];
     shell = pkgs.fish;
   };
+  programs.fish.enable = true;
 }

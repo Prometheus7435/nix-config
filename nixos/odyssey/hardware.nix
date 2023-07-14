@@ -98,7 +98,7 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-    xone.enable = true;
+    # xone.enable = true;
 
     nvidia = {
       # Modesetting is needed for most wayland compositors
@@ -121,6 +121,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
+      "nvidia-settings"
     ];
 
   # Tell Xorg to use the nvidia driver
