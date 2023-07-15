@@ -1,4 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }: {
+
+  imports = [
+    ../_mixins/containers
+  ]
 #{ config, lib, pkgs, ... }: {
   boot = {
     loader = {
@@ -38,7 +42,7 @@
         "virtio_pci"
         "virtio_ring"
         "mpt3sas"
-        "nvme"
+        # "nvme"
       ];
       kernelModules = [
 
