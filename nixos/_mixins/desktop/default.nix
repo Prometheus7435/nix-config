@@ -35,6 +35,9 @@
       enable = true;
       # package = pkgs.unstable.firefox;
     };
+    steam = {
+      enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -42,6 +45,7 @@
     handbrake
     chromium
     libreoffice
+    steam
   ];
 
     # use fonts specified by user rather than default ones

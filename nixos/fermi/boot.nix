@@ -1,17 +1,17 @@
 { config, lib, pkgs, modulesPath, ... }: {
 
   imports = [
-    ../_mixins/containers
+    ../_mixins/containers/pihole.nix
   ]
 #{ config, lib, pkgs, ... }: {
   boot = {
     loader = {
       systemd-boot = {
         enable = true;
-        configurationLimit = 5;
-        memtest86 = {
-          enable = true;
-        };
+        configurationLimit = 3;
+        # memtest86 = {
+        #   enable = true;
+        # };
       };
       efi = {
         canTouchEfiVariables = true;

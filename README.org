@@ -76,6 +76,18 @@ I use the main branch name instead of the default "master".
 Citation to solution:
 https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
 
+** Nvidia
+
+My desktop has a Nvidia A4000 in it and when I was fresh installing NixOS on it I kept getting an error saying
+
+#+begin_src
+  When NVIDIA PRIME is enabled, the GPU bus IDs must be configured.
+#+end_src
+
+This was weird as I hadn't configured any dual GPU options which, as I read the [[https://nixos.wiki/wiki/Nvidia][wiki]], shouldn't occur. I smashed my head against the wall until I commented out nixos-hardware.nixosModules.common-gpu-nvidia, then it installed fine. My guess is that a config was being set even though I don't have any other GPUs except the A4000. So it didn't matter what was in my config, it would flag and fail.
+
+So now my Nvidia config is only declared in the hardware.nix for the desktop. If I, one day, move to a system that has dual graphics I may switch it back.
+
 * Inspirations
 
 [[https://github.com/wimpysworld/nix-config/tree/main][Wimpy's nix-config]] for the basis of all of this

@@ -33,6 +33,7 @@
     htop
     gtop
     btop
+    ffmpeg_6-full
     # # delete this when I figure out emacs overlay
     # emacs
   ];
