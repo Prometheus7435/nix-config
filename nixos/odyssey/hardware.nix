@@ -75,7 +75,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
-      "nvidia-settings"
+      # "nvidia-settings"
     ];
 
   # Tell Xorg to use the nvidia driver
