@@ -27,7 +27,7 @@
 
 #    zfs.forceImportRoot = false;
     supportedFilesystems = [ "zfs" ];
-    # zfs.requestEncryptionCredentials = true;
+    zfs.requestEncryptionCredentials = true;
 
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     # kernelPackages = pkgs.linuxPackages_zen;
