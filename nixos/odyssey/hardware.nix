@@ -10,10 +10,8 @@
 { config, inputs, lib, pkgs, username, modulesPath, ... }:
 {
   imports = [
-#    inputs.nixos-hardware.nixosModules.common-cpu-intel
     # inputs.nixos-hardware.nixosModules.common-gpu-amd
     # inputs.nixos-hardware.nixosModules.common-gpu-intel
-
     # inputs.nixos-hardware.nixosModules.common-gpu-nvidia
 
     inputs.nixos-hardware.nixosModules.common-pc
@@ -22,21 +20,6 @@
     ../_mixins/hardware/network-dhcp.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
-  # fileSystems."/" =
-  #   { device = "NIXROOT/root";
-  #     fsType = "zfs";
-  #   };
-
-  # fileSystems."/boot" =
-  #   { device = "/dev/disk/by-uuid/2BA9-CBA1";
-  #     fsType = "vfat";
-  #   };
-
-  # fileSystems."/home" =
-  #   { device = "NIXROOT/home";
-  #     fsType = "zfs";
-  #   };
 
   swapDevices = [ ];
 
@@ -81,96 +64,60 @@
   # };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  # hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.systemPackages = with pkgs; [
     nvtop  # top like program for gpus
     cudaPackages.cudatoolkit
   ];
 
+  # NVIDIA drivers are unfree.
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "nvidia-settings"
+    ];
+
+  # Tell Xorg to use the nvidia driver
+  services.xserver.videoDrivers = ["nvidia"];
+
+  # Make sure opengl is enabled
   hardware = {
+    cpu = {
+      amd = {
+        updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+      };
+    };
+
     bluetooth.enable = true;
     bluetooth.settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
       };
     };
-  };
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
 
-  #   opengl = {
-  #     enable = true;
-  #     driSupport = true;
-  #     driSupport32Bit = true;
-  #   };
-  #   # xone.enable = true;
+    nvidia = {
+      # Modesetting is needed for most wayland compositors
+      modesetting.enable = true;
 
-  #   nvidia = {
-  #     # Modesetting is needed for most wayland compositors
-  #     modesetting.enable = true;
+      prime = {
+        nvidiaBusId = "PCI:45:0:0";
+      };
 
-  #     prime = {
-  #       nvidiaBusId = "PCI:45:00:0";
-  #     };
-  #     # Use the open source version of the kernel module
-  #     # Only available on driver 515.43.04+
-  #     # open = true;
+      # Use the open source version of the kernel module
+      # Only available on driver 515.43.04+
+      # open = true;
 
-  #     # Enable the nvidia settings menu
-  #     nvidiaSettings = true;
+      # Enable the nvidia settings menu
+      nvidiaSettings = true;
 
-  #     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  #     package = config.boot.kernelPackages.nvidiaPackages.stable;
-  #   };
-
-  # };
-
-  # # NVIDIA drivers are unfree.
-  # nixpkgs.config.allowUnfreePredicate = pkg:
-  #   builtins.elem (lib.getName pkg) [
-  #     "nvidia-x11"
-  #     "nvidia-settings"
-  #   ];
-
-  # # Tell Xorg to use the nvidia driver
-  # services.xserver.videoDrivers = ["nvidia"];
-
-  # Make sure opengl is enabled
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  # NVIDIA drivers are unfree.
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-x11"
-      # "nvidia-settings"
-    ];
-
-  # Tell Xorg to use the nvidia driver
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia.prime.nvidiaBusId = "PCI:45:0:0";
-  hardware.nvidia = {
-
-    # Modesetting is needed for most wayland compositors
-    modesetting.enable = true;
-
-
-    # prime = {
-    #   nvidiaBusId = "PCI:45:0:0";
-    # };
-
-
-    # Use the open source version of the kernel module
-    # Only available on driver 515.43.04+
-    # open = true;
-
-    # Enable the nvidia settings menu
-    nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    # package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      # package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 }
