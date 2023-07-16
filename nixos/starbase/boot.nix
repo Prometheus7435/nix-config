@@ -31,7 +31,7 @@
       # "kvm-intel"
       "acpi_call"
       "kvm-amd"
-      # "vhost_vsock"
+      "vhost_vsock"
     ];
 
     initrd = {
