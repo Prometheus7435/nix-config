@@ -13,7 +13,7 @@
 {
   imports = [
 #    inputs.nixos-hardware.nixosModules.common-cpu-intel
-    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    # inputs.nixos-hardware.nixosModules.common-gpu-amd
     # inputs.nixos-hardware.nixosModules.common-gpu-intel
 #    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
     inputs.nixos-hardware.nixosModules.common-pc
@@ -23,21 +23,6 @@
     ../_mixins/hardware/network-dhcp.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
-  # fileSystems."/" =
-  #   { device = "NIXROOT/root";
-  #     fsType = "zfs";
-  #   };
-
-  # fileSystems."/boot" =
-  #   { device = "/dev/disk/by-uuid/2BA9-CBA1";
-  #     fsType = "vfat";
-  #   };
-
-  # fileSystems."/home" =
-  #   { device = "NIXROOT/home";
-  #     fsType = "zfs";
-  #   };
 
   swapDevices = [ ];
 
@@ -55,7 +40,7 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.systemPackages = with pkgs; [
-    # nvtop  # top like program for gpus
+    nvtop  # top like program for gpus
   ];
 
   hardware = {
