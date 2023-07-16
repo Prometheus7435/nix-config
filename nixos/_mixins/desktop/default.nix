@@ -46,7 +46,7 @@
     chromium
     libreoffice
     steam
-    ffmpeg_6-Full
+    ffmpeg_6-full
     calibre
 
     ccid
