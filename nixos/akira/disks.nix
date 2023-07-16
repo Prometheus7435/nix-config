@@ -1,4 +1,4 @@
-{ disks ? [ "/dev/sda" ], ... }: {
+{ disks ? [ "/dev/nvme0n1" ], ... }: {
   disko.devices = {
     disk = {
       nvme0 = {
@@ -11,7 +11,7 @@
             {
               name = "ESP";
               start = "0";
-              end = "4096MiB";  # way overkill because I'm tired of getting errors because I ran out of space
+              end = "2048MiB";
               fs-type = "fat32";
               bootable = true;
               content = {
@@ -22,7 +22,7 @@
             }
             {
               name = "zfs";
-              start = "4300MiB";
+              start = "2100MiB";
               end = "100%";
               content = {
                 type = "zfs";
@@ -36,16 +36,26 @@
     zpool = {
       zroot = {
         type = "zpool";
-#        mode = "mirror";
         rootFsOptions = {
           compression = "lz4";
+          encryption = "on";
+          keylocation = "prompt";
+          keyformat = "passphrase";
           "com.sun:auto-snapshot" = "false";
         };
         mountpoint = "/";
         postCreateHook = "zfs snapshot zroot@blank";
 
         datasets = {
-
+        #   encrypted = {
+        #     type = "zfs_fs";
+        #     options = {
+        #       mountpoint = "none";
+        #       encryption = "aes-256-gcm";
+        #       keyformat = "passphrase";
+        #       keylocation = "file:///tmp/secret.key";
+        #     };
+        # };
         };
       };
     };
