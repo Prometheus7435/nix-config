@@ -10,7 +10,8 @@
 { config, inputs, lib, pkgs, username, modulesPath, ... }:
 {
   imports = [
-   inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-gpu-intel
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
@@ -43,8 +44,39 @@
     };
     opengl = {
       enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for FF/Chromium)
+        vaapiVdpau
+        libvdpau-va-gl
+        intel-ocl
+        rocm-opencl-icd
+      ];
       driSupport = true;
       driSupport32Bit = true;
     };
+    sensor = {
+      # automatic screen orientation
+      iio = {
+        enable = true;
+      };
+    };
+  };
+  # Enable touchpad support (enabled default in most desktopManager).
+  services = {
+    xserver.libinput.enable = true;
+    tlp = {
+      settings = {
+        START_CHARGE_THRESH_BAT0 = "75";
+        STOP_CHARGE_THRESH_BAT0 = "80";
+      };
+    };
+    # fingerprint reader
+    fprintd.enable = true;
+
+  };
+  security = {
+    pam.services.login.fprintAuth = true;
+    pam.services.xscreensaver.fprintAuth = true;
   };
 }
