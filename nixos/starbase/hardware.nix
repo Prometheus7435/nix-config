@@ -55,7 +55,7 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.systemPackages = with pkgs; [
-    nvtop  # top like program for gpus
+    # nvtop  # top like program for gpus
   ];
 
   hardware = {
