@@ -11,7 +11,7 @@
             type = "partition";
             name = "ESP";
             start = "1MiB";
-            end = "100MiB";
+            end = "512MiB";
             bootable = true;
             content = {
               type = "filesystem";
@@ -22,7 +22,7 @@
           {
             name = "root";
             type = "partition";
-            start = "100MiB";
+            start = "513MiB";
             end = "100%";
             part-type = "primary";
             bootable = true;

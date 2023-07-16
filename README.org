@@ -50,6 +50,57 @@ The servers are named after starbases. The main one is named after the starbase 
 
 Smaller VMs are named after shuttlecraft classes, with the first being the Fermi acting as a pihole.
 
+* Installation
+
+ - Depending on how much you like to pipe to bash; either clone this repo, cd into it, and run
+
+#+begin_src bash
+  sh scripts/install.sh <hostname> <username>
+#+end_src
+
+or
+
+#+begin_src bash
+  curl -sL https://raw.githubusercontent.com/Prometheus7435/nix-config/main/scripts/install.sh | bash -s <hostname> <username>
+#+end_src
+
+ - The install script uses Disko to automatically partition and format the disks, then uses my flake via nixos-install to complete a full-system installation
+ - This flake is copied to the target user's home directory as ~/Zero/nix-config
+ - Make a cuppa
+ - Reboot
+ - Login and run rebuild-home (see below) from a terminal to complete the Home Manager configuration.
+
+#+begin_src bash
+  home-manager switch -b backup --flake $HOME/Zero/nix-config
+#+end_src
+
+* Applying Changes
+
+This is a copy of [[https://github.com/wimpysworld/nix-config/tree/main#applying-changes-][Whimpy's]] README.
+
+I clone this repo to ~/Zero/nix-config. NixOS and Home Manager changes are applied separately because I have some non-NixOS hosts.
+
+#+begin_src bash
+  gh repo clone wimpysworld/nix-config ~/Zero/nix-config
+#+end_src
+
+** NixOS snowflake
+
+A rebuild-host alias is provided that does the following:
+
+#+begin_src bash
+  sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
+#+end_src
+
+** Home Manager house
+
+A rebuild-home alias is provided that does the following:
+
+#+begin_src bash
+  home-manager switch -b backup --flake $HOME/Zero/nix-config
+#+end_src
+
+
 * Troubleshooting
 ** Home-Manager
 I tried to rebuild the home-manager setup after a fresh install of starbase and it gave me an error. It said it could not find suitable profile directory even though the folder it was looking for exists. Turns out, it's looking for a different folder it doesn't tell you about. A simple
