@@ -1,5 +1,5 @@
 { config, lib, pkgs, modulesPath, ... }: {
-#{ config, lib, pkgs, ... }: {
+
   boot = {
     loader = {
       grub = {
@@ -9,7 +9,7 @@
         efiSupport = true;
         useOSProber = true;
         configurationLimit = 8;
-        splashImage = ./bonsai.png;
+        # splashImage = ./bonsai.png;
       };
       timeout = 3;
       # systemd-boot = {
@@ -27,22 +27,15 @@
 
 #    zfs.forceImportRoot = false;
     supportedFilesystems = [ "zfs" ];
-    # zfs.requestEncryptionCredentials = true;
+    zfs.requestEncryptionCredentials = true;
 
-    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelPackages = pkgs.linuxPackages_zen;
-#    kernelParams = [ "mem_sleep_default=deep" ];
-    kernelParams = [ "mitigations=off" ];
-#    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
-    extraModulePackages = [];
+    kernelParams = [ "mem_sleep_default=deep" "mitigations=off"];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
 
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     kernelModules = [
       "acpi_call"
-      "kvm-amd"
-      "nvidia"
-      # "amdgpu"
-      # "vhost_vsock"
+      "kvm-intel"
     ];
 
     initrd = {
@@ -61,7 +54,7 @@
         "nvme"
       ];
       kernelModules = [
-        # "amdgpu"
+
       ];
     };
   };

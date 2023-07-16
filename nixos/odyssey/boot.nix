@@ -9,7 +9,7 @@
         efiSupport = true;
         useOSProber = true;
         configurationLimit = 8;
-        splashImage = ./bonsai.png;
+        # splashImage = ./bonsai.png;
       };
       timeout = 3;
       # systemd-boot = {

@@ -11,7 +11,7 @@
             {
               name = "ESP";
               start = "0";
-              end = "2048MiB";
+              end = "2048MiB";  # way overkill because I'm tired of getting errors because I ran out of space
               fs-type = "fat32";
               bootable = true;
               content = {
