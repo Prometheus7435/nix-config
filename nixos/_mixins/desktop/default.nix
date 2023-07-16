@@ -46,6 +46,7 @@
     chromium
     libreoffice
     steam
+    ffmpeg_6-Full
   ];
 
     # use fonts specified by user rather than default ones

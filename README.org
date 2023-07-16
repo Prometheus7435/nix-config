@@ -66,7 +66,7 @@ or
 
  - The install script uses Disko to automatically partition and format the disks, then uses my flake via nixos-install to complete a full-system installation
  - This flake is copied to the target user's home directory as ~/Zero/nix-config
- - Make a cuppa
+ - Find :coffee: in a nebula
  - Reboot
  - Login and run rebuild-home (see below) from a terminal to complete the Home Manager configuration.
 

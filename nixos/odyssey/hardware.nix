@@ -1,4 +1,4 @@
-# Motherboard:
+# Motherboard: MSI something
 # CPU: AMD 3700X
 # GPU: Nvidia A4000
 # RAM: 32GB 3200Mhz Tri-something
