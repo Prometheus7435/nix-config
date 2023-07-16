@@ -40,7 +40,7 @@ Minimum install, just need it to be on top of ZFS and run VMs. Like with many ho
 *** [[./nixos/fermi/][PiHole]]
 
 * Machine Naming Convention
-Surely the most important subject :'-) Why do this when you should treat mass deployments like cattle? Mostly so I can easily identify them in tailscale. Also, how many servers do you admin?!
+Surely the most important subject :laughing: Why do this when you should treat mass deployments like cattle? Mostly so I can easily identify them in tailscale. Also, how many servers do you admin?!
 
 I'm following the typical, something super nerdy thing I care deeply for. In this case, Star Trek.
 
@@ -102,7 +102,6 @@ A rebuild-home alias is provided that does the following:
 
 
 * Troubleshooting
-:notebook:
 ** Home-Manager
 I tried to rebuild the home-manager setup after a fresh install of starbase and it gave me an error. It said it could not find suitable profile directory even though the folder it was looking for exists. Turns out, it's looking for a different folder it doesn't tell you about. A simple
 
