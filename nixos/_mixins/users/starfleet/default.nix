@@ -6,6 +6,7 @@ in
    # Only include desktop components if one is supplied.
   imports = [
     ./packages-console.nix
+    ../services/nfs/server.nix
   ] ++ lib.optional (builtins.isString desktop) ./packages-desktop.nix;
 
   users.users.${username} = {

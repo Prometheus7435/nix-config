@@ -1,13 +1,12 @@
 { config, lib, pkgs, modulesPath, ... }: {
-#{ config, lib, pkgs, ... }: {
   boot = {
     loader = {
       systemd-boot = {
         enable = true;
         configurationLimit = 10;
-        # memtest86 = {
-        #   enable = true;
-        # };
+        memtest86 = {
+          enable = true;
+        };
       };
       efi = {
         canTouchEfiVariables = true;
@@ -21,7 +20,8 @@
       requestEncryptionCredentials = true;
     };
 
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = pkgs.linuxPackages;
 #    kernelParams = [ "mem_sleep_default=deep" ];
     kernelParams = [ "mitigations=off" ];
 #    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
@@ -50,7 +50,7 @@
         "nvme"
       ];
       kernelModules = [
-        # "amdgpu"
+        "amdgpu"
       ];
     };
   };
