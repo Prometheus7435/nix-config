@@ -31,7 +31,7 @@
     wget
     xdg-utils
     htop
-    unstable.ffmpeg_6-full
+    ffmpeg_5-full
     yt-dlp
     alacritty
     cpufrequtils  # allows turboing on cpu cores
