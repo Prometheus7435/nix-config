@@ -35,9 +35,9 @@
       enable = true;
       # package = pkgs.unstable.firefox;
     };
-    # steam = {
-    #   enable = true;
-    # };
+    steam = {
+      enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [

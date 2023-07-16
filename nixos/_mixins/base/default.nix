@@ -14,7 +14,7 @@
     emacs
     binutils
     curl
-    desktop-file-utils
+    # desktop-file-utils
     file
     git
     home-manager
@@ -27,9 +27,9 @@
     rsync
     unzip
     usbutils
-    v4l-utils
+    # v4l-utils
     wget
-    xdg-utils
+    # xdg-utils
     htop
     # ffmpeg_6-full
     yt-dlp
