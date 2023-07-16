@@ -31,22 +31,11 @@
     wget
     xdg-utils
     htop
-    gtop
-    btop
     ffmpeg_6-full
-    # # delete this when I figure out emacs overlay
-    # emacs
+    yt-dlp
+    alacritty
+    cpufrequtils  # allows turboing on cpu cores
   ];
-
-  # # Use passed in hostid and hostname to configure basic networking
-  # networking = {
-  #   hostName = hostname;
-  #   hostId = hostid;
-  #   useDHCP = lib.mkDefault true;
-  #   firewall = {
-  #     enable = false;
-  #   };
-  # };
 
   programs = {
     dconf.enable = true;
