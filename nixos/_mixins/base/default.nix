@@ -34,7 +34,7 @@
     # ffmpeg_6-full
     yt-dlp
     alacritty
-    cpufrequtils  # allows turboing on cpu cores
+    # cpufrequtils  # allows turboing on cpu cores
   ];
 
   programs = {

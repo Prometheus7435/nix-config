@@ -28,10 +28,10 @@
     extraModulePackages = [];
 
     kernelModules = [
-      "kvm-intel"
+      # "kvm-intel"
       "acpi_call"
       "kvm-amd"
-      "vhost_vsock"
+      # "vhost_vsock"
     ];
 
     initrd = {
@@ -50,7 +50,7 @@
         "nvme"
       ];
       kernelModules = [
-        "amdgpu"
+        # "amdgpu"
       ];
     };
   };
