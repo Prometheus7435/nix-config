@@ -101,7 +101,7 @@ A rebuild-home alias is provided that does the following:
 #+end_src
 
 
-* Troubleshooting
+* Troubleshooting :notebook:
 ** Home-Manager
 I tried to rebuild the home-manager setup after a fresh install of starbase and it gave me an error. It said it could not find suitable profile directory even though the folder it was looking for exists. Turns out, it's looking for a different folder it doesn't tell you about. A simple
 
