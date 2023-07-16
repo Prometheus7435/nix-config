@@ -11,7 +11,7 @@
             {
               name = "ESP";
               start = "0";
-              end = "64MiB";
+              end = "1024MiB";
               fs-type = "fat32";
               bootable = true;
               content = {
@@ -22,7 +22,7 @@
             }
             {
               name = "zfs";
-              start = "128MiB";
+              start = "1064MiB";
               end = "100%";
               content = {
                 type = "zfs";

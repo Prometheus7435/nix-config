@@ -11,7 +11,7 @@
             {
               name = "ESP";
               start = "0";
-              end = "2048MiB";  # way overkill because I'm tired of getting errors because I ran out of space
+              end = "1024MiB";  # way overkill because I'm tired of getting errors because I ran out of space
               fs-type = "fat32";
               bootable = true;
               content = {
@@ -22,7 +22,7 @@
             }
             {
               name = "zfs";
-              start = "2100MiB";
+              start = "1064MiB";
               end = "100%";
               content = {
                 type = "zfs";
