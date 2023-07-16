@@ -45,7 +45,7 @@
     handbrake
     chromium
     libreoffice
-    steam
+    # steam
     ffmpeg_6-full
     calibre
 
