@@ -16,7 +16,7 @@
     # inputs.nixos-hardware.nixosModules.common-gpu-amd
     # inputs.nixos-hardware.nixosModules.common-gpu-intel
 #    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
-    inputs.nixos-hardware.nixosModules.common-pc
+    # inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.nixos-hardware.nixosModules.supermicro
     ../_mixins/services/pipewire.nix
@@ -40,16 +40,16 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.systemPackages = with pkgs; [
-    nvtop  # top like program for gpus
+    # nvtop  # top like program for gpus
   ];
 
   hardware = {
-    bluetooth.enable = true;
-    bluetooth.settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-      };
-    };
+    # bluetooth.enable = true;
+    # bluetooth.settings = {
+    #   General = {
+    #     Enable = "Source,Sink,Media,Socket";
+    #   };
+    # };
 
     opengl = {
       enable = true;

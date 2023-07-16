@@ -32,8 +32,8 @@
     # xdg-utils
     htop
     # ffmpeg_6-full
-    yt-dlp
-    alacritty
+    # yt-dlp
+    # alacritty
     # cpufrequtils  # allows turboing on cpu cores
   ];
 
