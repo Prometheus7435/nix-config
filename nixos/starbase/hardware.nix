@@ -18,7 +18,7 @@
 #    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
-    # inputs.nixos-hardware.nixosModules.supermicro
+    inputs.nixos-hardware.nixosModules.supermicro
     ../_mixins/services/pipewire.nix
     ../_mixins/hardware/network-dhcp.nix
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -44,12 +44,12 @@
   ];
 
   hardware = {
-    # bluetooth.enable = true;
-    # bluetooth.settings = {
-    #   General = {
-    #     Enable = "Source,Sink,Media,Socket";
-    #   };
-    # };
+    bluetooth.enable = true;
+    bluetooth.settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
+    };
 
     opengl = {
       enable = true;
