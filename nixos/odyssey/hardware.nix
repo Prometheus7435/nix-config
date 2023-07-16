@@ -68,7 +68,7 @@
 
   environment.systemPackages = with pkgs; [
     nvtop  # top like program for gpus
-    cudaPackages.cudatoolkit
+    # cudaPackages.cudatoolkit
   ];
 
   # NVIDIA drivers are unfree.
