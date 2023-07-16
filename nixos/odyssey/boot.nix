@@ -70,4 +70,5 @@
     zfs.autoScrub.enable = true;
     fstrim.enable = true;
   };
+  nixpkgs.config.allowBroken = true;
 }
