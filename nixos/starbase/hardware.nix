@@ -20,7 +20,7 @@
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.nixos-hardware.nixosModules.supermicro
     ../_mixins/services/pipewire.nix
-    ../_mixins/hardware/network-dhcp.nix
+    # ../_mixins/hardware/network-dhcp.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -35,6 +35,21 @@
   # networking.interfaces.eno2.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp132s0f0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp132s0f1.useDHCP = lib.mkDefault true;
+
+  networking = {
+    hostName = hostname;
+    hostId = hostid;
+    useDHCP = lib.mkDefault true;
+    firewall = {
+      enable = false;
+    };
+    macvlans = {
+      iot = {
+        interface = "enp132s0f0";
+        mode = "bridge";
+      };
+    };
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
