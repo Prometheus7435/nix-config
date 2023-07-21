@@ -9,7 +9,7 @@
 # SATA:
 # SAS:
 
-{ config, inputs, lib, pkgs, username, modulesPath, hostname, hostid... }:
+{ config, inputs, lib, pkgs, username, modulesPath, hostname, hostid, ... }:
 {
   imports = [
 #    inputs.nixos-hardware.nixosModules.common-cpu-intel
