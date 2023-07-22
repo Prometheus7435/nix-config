@@ -4,7 +4,8 @@
     loader = {
       grub = {
         enable = true;
-        devices = [ "nodev" ];
+        device = "nodev";
+        # devices = [ "nodev" ];
         efiInstallAsRemovable = true;
         efiSupport = true;
         useOSProber = true;

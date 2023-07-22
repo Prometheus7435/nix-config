@@ -6,7 +6,6 @@
     # services.nfs.server.exports = ''
     enable = true;
     exports = ''
-      From Ubuntu server
       /mnt/alpha/nfs                  10.10.10.251(rw,nohide,sync,no_subtree_check)
       /mnt/alpha/nfs/zach             10.10.10.251(rw,nohide,sync,no_subtree_check)
       /mnt/alpha/media                10.10.10.251(rw,nohide,sync,no_subtree_check)
