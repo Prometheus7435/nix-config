@@ -158,7 +158,7 @@
           extraSpecialArgs = {
             inherit inputs outputs;
             desktop = "kde";
-            hostname = "akira";
+            hostname = "odyssey";
             username = "shyfox";
           };
           modules = [ ./home-manager ];
