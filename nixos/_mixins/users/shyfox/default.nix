@@ -14,6 +14,7 @@ in
     extraGroups = [
         "audio"
         "networkmanager"
+        "network"
         "users"
         "video"
         "wheel"
