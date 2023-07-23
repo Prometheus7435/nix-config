@@ -4,6 +4,9 @@
   ];
 
   networking = {
+    networkmanager = {
+      enable = true;  # Easiest to use and most distros use this by default.
+    };
     hostName = hostname;
     hostId = hostid;
     useDHCP = lib.mkDefault true;
