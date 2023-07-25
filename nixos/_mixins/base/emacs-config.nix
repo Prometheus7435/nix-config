@@ -12,7 +12,7 @@
     package = with pkgs; (emacsWithPackagesFromUsePackage
       {
       config = ./emacs-config.org;
-      package = pkgs.emacsGit;
+      package = pkgs.emacs-git;
       alwaysEnsure = false;
       }
     );
