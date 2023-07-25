@@ -13,7 +13,8 @@
       {
         config = ./emacs-init.el;
         # config = ./emacs-config.org;
-        package = pkgs.emacs-git;
+        # package = pkgs.emacs-git;
+        package = pkgs.emacs29;
         alwaysEnsure = false;
       }
     );
@@ -24,15 +25,16 @@
   #   defaultEditor = true;
   # };
 
-  # environment.systemPackages = with pkgs; [
-  #   # applications needed for the emacs packages to hook into
-  #   python311Full
-  #   python311Packages.jedi
-  #   python311Packages.black
-  #   python311Packages.jedi-language-server
-  #   texlive.combined.scheme-full
+  environment.systemPackages = with pkgs; [
+    # applications needed for the emacs packages to hook into
+    python311Full
+    python311Packages.jedi
+    python311Packages.black
+    python311Packages.jedi-language-server
 
-  # # ];
+    texlive.combined.scheme-full
+  ];
+
   #   (emacsWithPackagesFromUsePackage {
   #     # package = pkgs.emacs-unstable;  # replace with pkgs.emacsPgtk, or another version if desired.
   #     # config = /home/zach/sync/dot_files/dot_emacs.d/init.el;

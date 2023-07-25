@@ -11,7 +11,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    emacs
+    # emacs
     binutils
     curl
     # desktop-file-utils
