@@ -13,8 +13,8 @@
       {
         config = ./emacs-init.el;
         # config = ./emacs-config.org;
-        package = pkgs.emacs-git;
-        # package = pkgs.emacs29;
+        # package = pkgs.emacs-git;
+        package = pkgs.emacs-unstable;
         alwaysEnsure = false;
       }
     );
