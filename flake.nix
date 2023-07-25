@@ -1,5 +1,6 @@
 {
-  description = "My NixOS config that's 'inspired' from Wimpy's NixOS and Home Manager Configuration basing from the nix-starter-config";
+  description =
+    "My NixOS config that's 'inspired' from Wimpy's NixOS and Home Manager Configuration basing from the nix-starter-config";
 
   inputs = {
     # Nixpkgs
@@ -40,16 +41,8 @@
     #TODO: KDE overlay
   };
 
-  outputs = {
-    self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      nixos-hardware,
-      nix-software-center,
-      emacs-overlay,
-      plasma-manager,
-      ... } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware
+    , nix-software-center, emacs-overlay, plasma-manager, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -63,20 +56,17 @@
       # stateVersion = "unstable";
       stateVersion = "23.05";
 
-    in
-    rec {
+    in rec {
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
-      );
+        in import ./pkgs { inherit pkgs; });
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
       devShells = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; }
-      );
+        in import ./shell.nix { inherit pkgs; });
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
@@ -97,7 +87,7 @@
           specialArgs = {
             inherit inputs outputs stateVersion;
             desktop = "kde";
-            hostid = "26dce576";  # head -c 8 /etc/machine-id
+            hostid = "26dce576"; # head -c 8 /etc/machine-id
             hostname = "odyssey";
             username = "shyfox";
             # stateVersion = "unstable";
@@ -110,7 +100,7 @@
           specialArgs = {
             inherit inputs outputs stateVersion;
             desktop = "kde";
-            hostid = "1a74de91";  # head -c 8 /etc/machine-id
+            hostid = "1a74de91"; # head -c 8 /etc/machine-id
             hostname = "akira";
             username = "shyfox";
           };
@@ -121,7 +111,7 @@
           specialArgs = {
             inherit inputs outputs stateVersion;
             desktop = null;
-            hostid = "2accc22f";  # head -c 8 /etc/machine-id
+            hostid = "2accc22f"; # head -c 8 /etc/machine-id
             hostname = "starbase";
             username = "starfleet";
           };
@@ -133,7 +123,7 @@
           specialArgs = {
             inherit inputs outputs stateVersion;
             desktop = null;
-            hostid = "";  # head -c 8 /etc/machine-id
+            hostid = ""; # head -c 8 /etc/machine-id
             hostname = "fermi";
             username = "starfleet";
           };

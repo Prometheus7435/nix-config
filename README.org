@@ -12,7 +12,7 @@ The big things I want is to have a consistent KDE setup using ZFS for the file s
 | [[./nixos/starbase/][starbase]]   | DIY      | AMD EPYC 7302   | NixOS | ZFS          | racktop  | DONE     |
 | [[./nixos/fermi/][fermi]]      | VM       | VM              | NixOS | ext4         | pihole   | TODO     |
 | [[./nixos/akira][akira]]      | Thinkpad | X1 tablet Gen 3 | NixOS | ZFS          | slatetop | DONE     |
-| [[./nixos/odyssey/][odyssey]]    | Custom   | Custom          | NixOS | ZFS          | desktop  | Done     |
+| [[./nixos/odyssey/][odyssey]]    | Custom   | Custom          | NixOS | ZFS          | desktop  | DONE     |
 | mars       | VM       | VM              | NixOS | ext4         | IOT VM   | TODO     |
 
 
@@ -139,6 +139,13 @@ My desktop has a Nvidia A4000 in it and when I was fresh installing NixOS on it 
 This was weird as I hadn't configured any dual GPU options which, as I read the [[https://nixos.wiki/wiki/Nvidia][wiki]], shouldn't occur. I smashed my head against the wall until I commented out nixos-hardware.nixosModules.common-gpu-nvidia, then it installed fine. My guess is that a config was being set even though I don't have any other GPUs except the A4000. So it didn't matter what was in my config, it would flag and fail.
 
 So now my Nvidia config is only declared in the hardware.nix for the desktop. If I, one day, move to a system that has dual graphics I may switch it back.
+
+** Emacs Overlay
+Oh, so many issues in getting this to work. Frustratingly, it seems to be one of those things that once you figure it out it's clear as day. But until then...
+
+One thing is that it has to incorporate flakes in some capacitiy. This is what stopped me on my non-flake converted laptop. Second thing is that the [[https://github.com/nix-community/emacs-overlay/tree/master][emacs-overlay documentation]] is not the clearest on setting everything up together. I ended up basing it off the docs and a [[https://github.com/SheetKey/nixos-dotfiles/blob/fca59e6bb311a95d52f4bd4bbeff5d7be8266a7d/configuration.nix#L117][config]] from a [[https://www.reddit.com/r/NixOS/comments/uzcfjz/comment/iafrnlu/][reddit thread]] to get it up.
+
+Side issue that's hit me a couple of times. If you specify a version of some package, make sure you remove any other package references for that. For this, I had emacs as an install package in the [[./nixos/_mixins/base/default.nix][default.nix]] which overrode the specific emacs version I had set in [[./nixos/_mixins/base/emacs-config.nix][emacs-config.nix]]. This also bit me earlier with Python packages. Must make sure to reference a package only in one place.
 
 * Inspirations
 

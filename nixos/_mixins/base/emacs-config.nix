@@ -46,11 +46,6 @@
       }
     );
   };
-  # services.emacs = {
-  #   enable = true;
-  #   package = pkgs.emacs-unstable;
-  #   defaultEditor = true;
-  # };
 
   environment.systemPackages = with pkgs; [
     # applications needed for the emacs packages to hook into
@@ -60,6 +55,8 @@
     python311Packages.jedi-language-server
 
     texlive.combined.scheme-full
+
+    nixfmt
   ];
 
   #   (emacsWithPackagesFromUsePackage {
