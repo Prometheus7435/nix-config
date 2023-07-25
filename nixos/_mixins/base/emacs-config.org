@@ -78,7 +78,7 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 ;    (menu-bar-mode 0)
     (scroll-bar-mode -1)
     (tooltip-mode -1)
-    (global-linum-mode 1)
+    (setq global-linum-mode t)
     (column-number-mode t)
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;    (set-fringe-mode 10)
