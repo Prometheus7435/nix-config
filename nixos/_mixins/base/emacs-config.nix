@@ -11,9 +11,10 @@
     defaultEditor = true;
     package = with pkgs; (emacsWithPackagesFromUsePackage
       {
-      config = ./emacs-config.org;
-      package = pkgs.emacs-git;
-      alwaysEnsure = false;
+        config = ./emacs-init.el;
+        # config = ./emacs-config.org;
+        package = pkgs.emacs-git;
+        alwaysEnsure = false;
       }
     );
   };
