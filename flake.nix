@@ -41,8 +41,17 @@
     #TODO: KDE overlay
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware
-    , nix-software-center, emacs-overlay, plasma-manager, ... }@inputs:
+  outputs = {
+    self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      nixos-hardware,
+      nix-software-center,
+      emacs-overlay,
+      plasma-manager,
+      ...
+  }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

@@ -1,0 +1,3 @@
+* Starbase
+
+This is the install for my, soon to be, main home server. For the most part it'll be hosting VMs that services will run on and manage ZFS pools that said VMs will utilize. 

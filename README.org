@@ -29,16 +29,8 @@ A lot of this will be the same, as I like my KDE and ZFS. The differences will l
 
 Because I'm being cheeky; laptop is laptop, slatetop is a tablet, racktop is a server, virtualtop are VMs, handtop is a phone, and desktop is desktop.
 
-** [[./nixos/starbase/][Host Server]]
-Minimum install, just need it to be on top of ZFS and run VMs. Like with many hobbies I take up, I tend to take the hard route. This server and the VMs are on different VLANs.
-
-[TODO] clean up the files to only what's relevant.
-
-** Virtual Machines
-*** IOT
-*** Home Assistant
-*** Personal Services
-*** [[./nixos/fermi/][PiHole]]
+** Servers
+More barebones installs that are tailored to their use case.
 
 * Machine Naming Convention
 Surely the most important subject :laughing: Why do this when you should treat mass deployments like cattle? Mostly so I can easily identify them in tailscale. Also, how many servers do you admin?!
@@ -151,10 +143,10 @@ Side issue that's hit me a couple of times. If you specify a version of some pac
 
 [[https://github.com/wimpysworld/nix-config/tree/main][Wimpy's nix-config]] for the basis of all of this
 
-[[https://github.com/Misterio77/nix-starter-configs/tree/main][nix-starter-configs]] for an awesome flake templates
+[[https://github.com/Misterio77/nix-starter-configs/tree/main][nix-starter-configs]] for awesome flake templates
 
 [[https://github.com/mcdonc/p51-thinkpad-nixos/tree/main][mcdonc P51 config]] and [[https://www.youtube.com/playlist?list=PLa01scHy0YEmg8trm421aYq4OtPD8u1SN][YouTube series]] and install script
 
-[[https://www.youtube.com/playlist?list=PLa01scHy0YEmg8trm421aYq4OtPD8u1SN][Disko]] for bringing disk setup
+[[https://www.youtube.com/playlist?list=PLa01scHy0YEmg8trm421aYq4OtPD8u1SN][Disko]] for my disk setup
 
 [[https://kressle.in/articles/][Ricky Kresslein]] for a bunch of docker setups
