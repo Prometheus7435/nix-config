@@ -2,27 +2,28 @@
 
   boot = {
     loader = {
-      # grub = {
-      #   enable = true;
-      #   devices = [ "nodev" ];
-      #   efiInstallAsRemovable = true;
-      #   efiSupport = true;
-      #   useOSProber = true;
-      #   configurationLimit = 8;
-      #   # splashImage = ./bonsai.png;
-      # };
-      # timeout = 3;
-      systemd-boot = {
+      grub = {
         enable = true;
-        configurationLimit = 7;
-        # memtest86 = {
-        #   enable = true;
-        # };
-      };
-      efi = {
-        canTouchEfiVariables = true;
+        devices = [ "nodev" ];
+        efiInstallAsRemovable = true;
+        efiSupport = true;
+        useOSProber = true;
+        configurationLimit = 8;
+        # splashImage = ./bonsai.png;
       };
       timeout = 3;
+
+      # systemd-boot = {
+      #   enable = true;
+      #   configurationLimit = 7;
+      #   # memtest86 = {
+      #   #   enable = true;
+      #   # };
+      # };
+      # efi = {
+      #   canTouchEfiVariables = true;
+      # };
+      # timeout = 3;
     };
 
 #    zfs.forceImportRoot = false;
