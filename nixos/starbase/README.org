@@ -1,3 +1,18 @@
 * Starbase
 
 This is the install for my, soon to be, main home server. For the most part it'll be hosting VMs that services will run on and manage ZFS pools that said VMs will utilize.
+
+** ZFS Storage
+
+*ZFS everything!*
+
+*** OS
+As with all the other systems, the boot / root filesystem is ZFS. In this case, it's not ideal as it's a single drive. But that's why we have deploy scripts and seperate our system from the data.
+
+*** Virtual Machines
+
+It's better to host VMs on a seperate drive, if you can, from the boot drive. In my case, it's on a gen 4 M.2 nVME (in a gen 3 slot, but that's motherboard limited). I "could" create ZFS datasets for each VM and set up automatic snapshot and backup to the data drive. But as I'm treating the VMs more like cattle, I don't think this'll be needed (let's see if I regret this).
+
+*** Data
+
+This is where the good stuff lives.

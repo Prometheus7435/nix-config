@@ -2,6 +2,7 @@
   imports = [
     # inputs.plasma-manager.overlay
     ../services/networkmanager.nix
+    ./plasma-config.nix
   ];
 
   services = {
@@ -9,8 +10,8 @@
       enable = true;
 
       layout = "us";
-      xkbVariant = "dvorak,";
-      xkbOptions = "grp:win_space_toggle";
+      # xkbVariant = "dvorak,";
+      # xkbOptions = "grp:win_space_toggle";
 
       desktopManager = {
         plasma5 = {
