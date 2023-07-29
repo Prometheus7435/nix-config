@@ -19,6 +19,12 @@
       /mnt/alpha/media/tv             10.10.10.20(rw,nohide,sync,no_subtree_check)
       /mnt/alpha/media/movies         10.10.10.20(rw,nohide,sync,no_subtree_check)
       # /mnt/alpha/media/webshows       10.10.10.20(rw,nohide,sync,no_subtree_check)
+
+      ## Akira
+      /mnt/alpha/nfs/zach             akira.tail0301a.ts.net(rw,nohide,sync,no_subtree_check)
+      /mnt/alpha/iso_holder/media     akira.tail0301a.ts.net(rw,nohide,sync,no_subtree_check)
+      /mnt/alpha/media/tv             akira.tail0301a.ts.net(rw,nohide,sync,no_subtree_check)
+      /mnt/alpha/media/movies         akira.tail0301a.ts.net(rw,nohide,sync,no_subtree_check)
           '';
   };
 }
