@@ -32,6 +32,7 @@ in
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
       "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFYfJZwjC4Xdiwopc86qil1WqlLKIEyqhITphQ6ACinR/Bf15RPElPyNVkvv2GiAVhv7mmoQifZWdf0+NlxNNDpfwDT16YDmMCxB01JfrEq21Ml3P4zPAxZHoLmffc7ARKHjD8XYyibWG5Bu0AjzSfq4IDnRBEBx4JY4PAm4lSyKAfFmg== zach@phoenix"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOFJ0JftYliH/rZWkx2YLWx69pFGmSJdUNKaeTqaO//2 zach@phoenix"
     ];
     packages = [ pkgs.home-manager ];
     shell = pkgs.fish;
