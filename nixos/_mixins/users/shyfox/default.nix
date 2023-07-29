@@ -7,6 +7,7 @@ in
   imports = [
     ./packages-console.nix
     ../../services/cac.nix
+    ../../services/nfs/client.nix
   ] ++ lib.optional (builtins.isString desktop) ./packages-desktop.nix;
 
   users.users.${username} = {
