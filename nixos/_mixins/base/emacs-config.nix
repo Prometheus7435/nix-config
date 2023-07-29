@@ -14,7 +14,7 @@
         config = ./emacs-init.el;
         # config = ./emacs-config.org;
         package = pkgs.emacs;
-        # package = pkgs.emacs-unstable;
+        # package = pkgs.emacs-unstable;  # rebuilds often
         alwaysEnsure = false;
 
         extraEmacsPackages = epkgs: [

@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
+{ ... }: {
   imports = [
-
+    ./python.nix
   ];
 }
