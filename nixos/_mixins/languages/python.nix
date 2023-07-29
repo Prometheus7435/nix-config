@@ -6,12 +6,11 @@ let
     jedi
     black
     jedi-language-server
-    # other python packages
   ];
 in
 {
   environment.systemPackages = with pkgs; [
-    python3Full
-    (python3Full.withPackages my-python-packages)
+    python3
+    (python3.withPackages my-python-packages)
   ];
 }
