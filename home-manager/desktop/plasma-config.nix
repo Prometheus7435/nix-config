@@ -1,4 +1,3 @@
-{ config, lib, pkgs, plasma-manager, ... }:
 {
   programs.plasma = {
     enable = true;
