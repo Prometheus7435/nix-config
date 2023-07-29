@@ -1,6 +1,6 @@
 {config, ...}:
 let
-  nfs_folder = ""
+  nfs_folder = "";
 
 in
 {
