@@ -10,6 +10,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./_mixins/base
     ./_mixins/boxes
+    ./_mixins/languages
     ./_mixins/users/root
     ./_mixins/users/${username}
   ]
