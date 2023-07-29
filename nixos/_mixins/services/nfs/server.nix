@@ -21,8 +21,8 @@
       # /mnt/alpha/media/webshows       10.10.10.20(rw,nohide,sync,no_subtree_check)
 
       ## Akira
-      /mnt/alpha/nfs/zach             10.10.10.240(rw,nohide,sync,no_subtree_check)
-##      /mnt/alpha/nfs/zach             akira.tail0301a.ts.net(rw,nohide,sync,no_subtree_check)
+##      /mnt/alpha/nfs/zach             10.10.10.240(rw,nohide,sync,no_subtree_check)
+      /mnt/alpha/nfs/zach             akira.tail0301a.ts.net(rw,nohide,sync,no_subtree_check)
           '';
   };
 }
