@@ -172,7 +172,9 @@
             hostname = "akira";
             username = "shyfox";
           };
-          modules = [ ./home-manager ];
+          modules = [ ./home-manager
+                      inputs.plasma-manager.homeManagerModules.plasma-manager
+                    ];
         };
 
         "starfleet@starbase" = home-manager.lib.homeManagerConfiguration {
