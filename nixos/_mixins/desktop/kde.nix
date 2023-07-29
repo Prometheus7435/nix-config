@@ -2,7 +2,7 @@
   imports = [
     # inputs.plasma-manager.overlay
     ../services/networkmanager.nix
-    ./plasma-config.nix
+    # ./plasma-config.nix
   ];
 
   services = {
