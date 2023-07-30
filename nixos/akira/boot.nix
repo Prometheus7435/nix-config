@@ -33,7 +33,9 @@
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     # kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [ "mem_sleep_default=deep" "mitigations=off"];
-    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+    ];
 
     kernelModules = [
       "acpi_call"
