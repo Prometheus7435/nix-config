@@ -12,11 +12,16 @@ in
     options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
   };
 
-  ## starbase
+  ## from starbase
 ##   fileSystems."/mnt/nfs/${username}" = {  ## for future
   fileSystems."/mnt/zach" = {
     device = "10.10.10.12:/mnt/alpha/nfs/zach";
     # device = "10.10.10.12:/mnt/alpha/nfs/${username}";    # future config
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  };
+  fileSystems."/mnt/media" = {
+    device = "10.10.10.12:/mnt/alpha/media";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
   };
