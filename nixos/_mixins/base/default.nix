@@ -7,7 +7,7 @@
     ../services/fwupd.nix
     ../services/openssh.nix
     ../services/tailscale.nix
-    # ../services/zerotier.nix
+    ../services/zerotier.nix
   ];
 
   environment.systemPackages = with pkgs; [
