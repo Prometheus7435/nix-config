@@ -1,4 +1,7 @@
 { config, lib, pkgs, modulesPath, ... }: {
+  imports = [
+    ../_mixins/hardware/mobile.nix
+  ];
 
   boot = {
     loader = {
