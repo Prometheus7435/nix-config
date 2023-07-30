@@ -61,6 +61,7 @@
     libsForQt5.kdeconnect-kde
     okular
     yakuake
+    kate
   ];
 
   # services.xserver.desktopManager.plasma5.useQtScaling = true;
