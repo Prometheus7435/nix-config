@@ -35,6 +35,8 @@
     yt-dlp
     alacritty
     cpufrequtils  # allows turboing on cpu cores
+
+    makemkv
   ];
 
   programs = {
