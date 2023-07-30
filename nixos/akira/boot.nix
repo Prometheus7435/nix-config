@@ -33,8 +33,9 @@
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
 
-    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = pkgs.linuxPackages_zen;
+
     kernelParams = [ "mem_sleep_default=deep" "mitigations=off" "nohibernate" ];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
@@ -65,9 +66,12 @@
       ];
     };
   };
-
+  # environment.systemPackages = [
+  #   pkgs.linuxKernel.packages.linux_zen.zfs
+  # ];
   services = {
     zfs.autoScrub.enable = true;
     fstrim.enable = true;
   };
+  # nixpkgs.config.allowBroken = true;
 }
