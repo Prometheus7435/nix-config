@@ -160,7 +160,9 @@
             hostname = "odyssey";
             username = "shyfox";
           };
-          modules = [ ./home-manager ];
+          modules = [ ./home-manager
+                      inputs.plasma-manager.homeManagerModules.plasma-manager
+                    ];
         };
 
         # home-manager switch -b backup --flake $HOME/Zero/nix-config
