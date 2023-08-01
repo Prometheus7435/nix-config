@@ -1,5 +1,5 @@
 { config, lib, pkgs, modulesPath, ... }: {
-  import = [
+  imports = [
     ../_mixins/containers/nextcloud.nix
   ];
 
