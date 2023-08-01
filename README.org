@@ -8,7 +8,7 @@ The big things I want is to have a consistent KDE setup using ZFS for the file s
 
 | *Hostname* | *OEM*    | *Model*         | *OS*  | *Filesystem* | *Role*   | *Status* |
 |------------+----------+-----------------+-------+--------------+----------+----------|
-| phoenix    | Thinkpad | T14 AMD Gen 1   | NixOS | ZFS          | laptop   | WIP      |
+| phoenix    | Thinkpad | T14 AMD Gen 1   | NixOS | ZFS          | laptop   | TODO     |
 | [[./nixos/starbase/][starbase]]   | DIY      | AMD EPYC 7302   | NixOS | ZFS          | racktop  | DONE     |
 | [[./nixos/fermi/][fermi]]      | VM       | VM              | NixOS | ext4         | pihole   | TODO     |
 | [[./nixos/akira][akira]]      | Thinkpad | X1 tablet Gen 3 | NixOS | ZFS          | slatetop | DONE     |
