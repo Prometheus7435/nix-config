@@ -1,4 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }: {
+  import = [
+    ../_mixins/containers/nextcloud.nix
+  ];
+
   boot = {
     loader = {
       systemd-boot = {
