@@ -1,3 +1,6 @@
+* "Unstable" branch
+The main branch (currently) uses the 23.05 version of NixOS. This is where I'll be playing around with the "unstable" version of NixOS. As I understand it, the unstable branch is more like a future feature branch and is pretty stable, if changing. Creating a (slowly) rolling release.
+
 * What am I
 This is my NixOS config using flakes. I'm taking a lot of the initial setup from [[https://github.com/wimpysworld/nix-config/tree/c44a1bd13868e759bb215f54ca1f3fe49eba6dae][Whimpy's]] config. I'm quite new to this and his setup is quite close to what I wanted anyway.
 

@@ -4,20 +4,16 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-
-    # You can access packages and modules from different nixpkgs revs
-    # at the same time. Here's an working example:
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
-    # home-manager.url = "github:nix-community/home-manager";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager";
+    # home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # KDE Plasma
+    # KDE Plasma customization overlay
     plasma-manager.url = "github:pjones/plasma-manager";
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.inputs.home-manager.follows = "home-manager";
@@ -35,10 +31,7 @@
 
     nix-software-center.url = "github:vlinkz/nix-software-center";
 
-    #TODO: Emacs overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-
-    #TODO: KDE overlay
   };
 
   outputs = {
@@ -55,15 +48,11 @@
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
-        "aarch64-linux"
-        # "i686-linux"  # I don't have any 32 bit systems
+        # "aarch64-linux"  # perhaps one day I have an ARM nix system. But not today
         "x86_64-linux"
-        # "aarch64-darwin"  # no MacOS in this house
-        # "x86_64-darwin"  # no MacOS in this house
       ];
       # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-      # stateVersion = "unstable";
-      stateVersion = "23.05";
+      stateVersion = "unstable";
 
     in rec {
       # Your custom packages
@@ -99,7 +88,6 @@
             hostid = "26dce576"; # head -c 8 /etc/machine-id
             hostname = "odyssey";
             username = "shyfox";
-            # stateVersion = "unstable";
           };
           modules = [ ./nixos ];
         };
@@ -138,15 +126,6 @@
           };
           modules = [ ./nixos ];
         };
-
-        # # FIXME replace with your hostname
-        # your-hostname = nixpkgs.lib.nixosSystem {
-        #   specialArgs = { inherit inputs outputs; };
-        #   modules = [
-        #     # > Our main nixos configuration file <
-        #     ./nixos/configuration.nix
-        #   ];
-        # };
       };
 
       # Standalone home-manager configuration entrypoint
@@ -160,7 +139,9 @@
             hostname = "odyssey";
             username = "shyfox";
           };
-          modules = [ ./home-manager ];
+          modules = [ ./home-manager
+                      inputs.plasma-manager.homeManagerModules.plasma-manager
+                    ];
         };
 
         # home-manager switch -b backup --flake $HOME/Zero/nix-config
@@ -197,15 +178,6 @@
           };
           modules = [ ./home-manager ];
         };
-        # # FIXME replace with your username@hostname
-        # "your-username@your-hostname" = home-manager.lib.homeManagerConfiguration {
-        #   pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        #   extraSpecialArgs = { inherit inputs outputs; };
-        #   modules = [
-        #     # > Our main home-manager configuration file <
-        #     ./home-manager/home.nix
-        #   ];
-        # };
       };
     };
 }
