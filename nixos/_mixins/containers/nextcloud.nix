@@ -31,6 +31,7 @@
 
   # NextCloud
   virtualisation.oci-containers.containers."nextcloud" = {
+    autoStart = true;
     image = "nextcloud";
     ports = [ "8089:80" ];
     environment = {
