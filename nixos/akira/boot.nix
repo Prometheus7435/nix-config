@@ -32,7 +32,6 @@
 #    zfs.forceImportRoot = false;
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
     # supportedFilesystems = [ "btrfs" ];
@@ -68,12 +67,9 @@
       ];
     };
   };
-  # environment.systemPackages = [
-  #   pkgs.linuxKernel.packages.linux_zen.zfs
-  # ];
+
   services = {
     zfs.autoScrub.enable = true;
     fstrim.enable = true;
   };
-  # nixpkgs.config.allowBroken = true;
 }

@@ -63,4 +63,9 @@
     zfs.autoScrub.enable = true;
     fstrim.enable = true;
   };
+
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 }
