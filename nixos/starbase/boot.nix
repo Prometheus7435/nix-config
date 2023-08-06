@@ -1,6 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }: {
   imports = [
-    ../_mixins/containers/nextcloud.nix
+    # ../_mixins/containers/nextcloud.nix
   ];
 
   boot = {
