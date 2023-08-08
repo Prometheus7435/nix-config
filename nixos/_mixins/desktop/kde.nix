@@ -59,6 +59,7 @@
   environment.systemPackages = with pkgs; [
     libsForQt5.discover
     libsForQt5.kdeconnect-kde
+    libsForQt5.applet-window-buttons
     okular
     yakuake
     kate
