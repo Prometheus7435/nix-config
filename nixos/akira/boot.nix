@@ -32,10 +32,11 @@
 #    zfs.forceImportRoot = false;
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
     # supportedFilesystems = [ "btrfs" ];
     # kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_lqx;
 
     kernelParams = [ "mem_sleep_default=deep" "nohibernate" ];
     extraModulePackages = with config.boot.kernelPackages; [
