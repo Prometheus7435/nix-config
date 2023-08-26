@@ -2,7 +2,7 @@
 {
   imports = [
 
-  ]
+  ];
   # hardware.
   boot = {
     kernelParams = [ "mem_sleep_default=deep" "nohibernate" ];
@@ -37,6 +37,7 @@
       ];
     };
   };
+
   hardware = {
     opengl = {
       enable = true;
