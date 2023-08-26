@@ -104,6 +104,19 @@
           modules = [ ./nixos ];
         };
 
+        phoenix = nixpkgs.lib.nixosSystem {
+          # sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
+          specialArgs = {
+            inherit inputs outputs stateVersion;
+            desktop = "kde";
+            hostid = "d7218c78"; # head -c 8 /etc/machine-id
+            hostname = "phoenix";
+            username = "shyfox";
+            # stateVersion = "unstable";
+          };
+          modules = [ ./nixos ];
+        };
+
         akira = nixpkgs.lib.nixosSystem {
           # sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
           specialArgs = {
@@ -158,6 +171,19 @@
             inherit inputs outputs;
             desktop = "kde";
             hostname = "odyssey";
+            username = "shyfox";
+          };
+          modules = [ ./home-manager
+                      inputs.plasma-manager.homeManagerModules.plasma-manager
+                    ];
+        };
+
+        "shyfox@phoenix" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            desktop = "kde";
+            hostname = "phoenix";
             username = "shyfox";
           };
           modules = [ ./home-manager
