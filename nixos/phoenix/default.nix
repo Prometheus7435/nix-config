@@ -13,6 +13,8 @@
     # inputs.nixos-hardware.nixosModules.common-pc
     # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/services/pipewire.nix
+    ../_mixins/services/cac.nix
+    ../_mixins/services/fwupd.nix
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/mobile.nix
