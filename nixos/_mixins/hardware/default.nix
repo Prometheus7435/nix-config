@@ -54,4 +54,9 @@
       driSupport32Bit = true;
     };
   };
+
+  services = {
+    auto-cpufreq.enable = true;
+    # fwupd.enable = true;
+  };
 }
