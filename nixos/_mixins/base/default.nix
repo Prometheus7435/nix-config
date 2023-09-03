@@ -11,7 +11,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    # emacs
     binutils
     curl
     # desktop-file-utils
@@ -37,6 +36,8 @@
     cpufrequtils  # allows turboing on cpu cores
 
     makemkv
+
+    python3Full
   ];
 
   programs = {

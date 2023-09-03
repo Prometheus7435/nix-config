@@ -59,40 +59,4 @@
     nixfmt
   ];
 
-  #   (emacsWithPackagesFromUsePackage {
-  #     # package = pkgs.emacs-unstable;  # replace with pkgs.emacsPgtk, or another version if desired.
-  #     # config = /home/zach/sync/dot_files/dot_emacs.d/init.el;
-  #     config = ./emacs-config.org; # Org-Babel configs also supported
-  #     alwaysEnsure = true;
-  #     alwaysTangle = true;
-  #     defaultInitFile = true;
-
-  #     # extraEmacsPackages = epkgs: [
-  #     #   epkgs.auto-compile
-  #     #   epkgs.blacken
-  #     #   epkgs.company
-  #     #   epkgs.dashboard
-  #     #   epkgs.expand-region
-  #     #   epkgs.flycheck
-  #     #   epkgs.latex-preview-pane
-  #     #   epkgs.lsp-jedi
-  #     #   epkgs.lsp-ui
-  #     #   epkgs.minions
-  #     #   epkgs.nix-mode
-  #     #   epkgs.nix-modeline
-  #     #   epkgs.org-books
-  #     #   epkgs.org-chef
-  #     #   epkgs.popup-kill-ring
-  #     #   epkgs.rainbow-delimiters
-  #     #   epkgs.rainbow-mode
-  #     #   epkgs.spaceline
-  #     #   epkgs.treemacs-icons-dired
-  #     #   epkgs.treemacs-magit
-  #     #   epkgs.treemacs-projectile
-  #     #   epkgs.underwater-theme
-  #     #   epkgs.use-package
-  #     #   epkgs.yasnippet-snippets
-  #     # ];
-  #   })
-  # ];
 }
