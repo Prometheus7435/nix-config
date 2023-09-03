@@ -13,10 +13,7 @@ in {
 
     # You can also split up your configuration and import pieces of it here:
     ./console
-#   ./_mixins/console
   ]
-  # ++ lib.optional (builtins.isString desktop) ./_mixins/desktop
-  # ++ lib.optional (builtins.isPath (./. + "/_mixins/users/${username}")) ./_mixins/users/${username};
   ++ lib.optional (builtins.isString desktop) ./desktop
   ++ lib.optional (builtins.isPath (./. + "/users/${username}")) ./users/${username};
 
