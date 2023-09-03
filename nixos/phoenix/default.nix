@@ -32,11 +32,14 @@
   };
 
   hardware = {
-    cpu = {
-      amd = {
-        updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-      };
-    };
+
+    ## redundant, done in nixos-hardware import
+    # cpu = {
+    #   amd = {
+    #     updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    #   };
+    # };
+
     # opengl = {
     #   enable = true;
     #   extraPackages = with pkgs; [
