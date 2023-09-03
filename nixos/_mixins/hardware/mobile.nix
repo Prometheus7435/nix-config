@@ -3,14 +3,14 @@
   environment.systemPackages = with pkgs; [
     maliit-keyboard
     wacomtablet
-
   ];
+
   services = {
     xserver.libinput.enable = true;
     tlp = {
       settings = {
-        START_CHARGE_THRESH_BAT0 = "75";
-        STOP_CHARGE_THRESH_BAT0 = "95";
+        START_CHARGE_THRESH_BAT0 = "65";
+        STOP_CHARGE_THRESH_BAT0 = "90";
       };
     };
   };

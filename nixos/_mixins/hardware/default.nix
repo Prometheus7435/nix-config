@@ -5,7 +5,8 @@
   ];
   # hardware.
   boot = {
-    kernelParams = [ "mem_sleep_default=deep" "nohibernate" ];
+    kernelParams = [ ];
+    # kernelParams = [ "mem_sleep_default=deep" "nohibernate" ];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
     ];
