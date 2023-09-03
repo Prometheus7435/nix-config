@@ -37,7 +37,7 @@
 
     makemkv
 
-    python3Full
+    # python3Full
   ];
 
   programs = {
