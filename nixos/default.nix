@@ -5,9 +5,9 @@
   imports = [
     inputs.disko.nixosModules.disko
     # (./. + "/${hostname}/default.nix")
-    (./. + "/${hostname}/boot.nix")
+    # (./. + "/${hostname}/boot.nix")
     # (./. + "/${hostname}/disks.nix")
-    (./. + "/${hostname}/hardware.nix")
+    # (./. + "/${hostname}/hardware.nix")
     (modulesPath + "/installer/scan/not-detected.nix")
     ./_mixins/base
     ./_mixins/boxes
@@ -15,6 +15,9 @@
     ./_mixins/users/root
     ./_mixins/users/${username}
   ]
+  ++ lib.optional (builtins.pathExists (./. + "/${hostname}/boot.nix")) (import ./${hostname}/boot.nix { })
+  ++ lib.optional (builtins.pathExists (./. + "/${hostname}/hardware.nix")) (import ./${hostname}/hardware.nix { })
+
   ++ lib.optional (builtins.pathExists (./. + "/${hostname}/disks.nix")) (import ./${hostname}/disks.nix { })
   ++ lib.optional (builtins.isString desktop) ./_mixins/desktop;
 
