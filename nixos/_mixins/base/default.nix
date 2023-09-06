@@ -36,6 +36,7 @@
     cpufrequtils  # allows turboing on cpu cores
 
     makemkv
+    patchelf
 
     # python3Full
   ];
