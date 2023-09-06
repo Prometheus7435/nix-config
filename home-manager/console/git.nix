@@ -13,7 +13,7 @@
     git = {
       enable = true;
       userName = "Zach Bombay";
-      userEmail = "zacharybombay@gmail.com"
+      userEmail = "zacharybombay@gmail.com";
       delta = {
         enable = true;
         options = {
