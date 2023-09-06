@@ -29,7 +29,7 @@
   boot = {
     # supportedFilesystems = [ "zfs" ];
     # zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_lqx;
+    # kernelPackages = pkgs.linuxPackages_lqx;
   };
 
   hardware = {
