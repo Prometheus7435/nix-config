@@ -4,7 +4,7 @@
   # - https://nixos.wiki/wiki/Nix_Language:_Tips_%26_Tricks#Coercing_a_relative_path_with_interpolated_variables_to_an_absolute_path_.28for_imports.29
   imports = [
     inputs.disko.nixosModules.disko
-    # (./. + "/${hostname}/default.nix")
+    (./. + "/${hostname}/default.nix")
     # (./. + "/${hostname}/boot.nix")
     # (./. + "/${hostname}/disks.nix")
     # (./. + "/${hostname}/hardware.nix")
@@ -20,8 +20,6 @@
 
   ++ lib.optional (builtins.pathExists (./. + "/${hostname}/disks.nix")) (import ./${hostname}/disks.nix { })
   ++ lib.optional (builtins.isString desktop) ./_mixins/desktop;
-
-  ++ lib.optional (builtins.pathExists (./. + "/${hostname}/default.nix")) (import ./${hostname}/default.nix { })
 
   nixpkgs = {
     # You can add overlays here
