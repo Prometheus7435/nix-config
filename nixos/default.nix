@@ -15,8 +15,8 @@
     ./_mixins/users/root
     ./_mixins/users/${username}
   ]
-  ++ lib.optional (builtins.pathExists (./. + "/${hostname}/boot.nix")) (import ./${hostname}/boot.nix { })
-  ++ lib.optional (builtins.pathExists (./. + "/${hostname}/hardware.nix")) (import ./${hostname}/hardware.nix { })
+  # ++ lib.optional (builtins.pathExists (./. + "/${hostname}/boot.nix")) (import ./${hostname}/boot.nix { })
+  # ++ lib.optional (builtins.pathExists (./. + "/${hostname}/hardware.nix")) (import ./${hostname}/hardware.nix { })
 
   ++ lib.optional (builtins.pathExists (./. + "/${hostname}/disks.nix")) (import ./${hostname}/disks.nix { })
   ++ lib.optional (builtins.isString desktop) ./_mixins/desktop;
