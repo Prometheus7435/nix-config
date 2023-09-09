@@ -5,7 +5,8 @@
 # RAM: 16GB
 # NVME: 500Gb
 
-{ config, lib, pkgs, modulesPath, ... }: {
+{ config, inputs, lib, pkgs, username, modulesPath, ... }:
+{
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
     # inputs.nixos-hardware.nixosModules.common-cpu-intel
