@@ -7,11 +7,11 @@
 
 { config, lib, pkgs, modulesPath, ... }: {
   imports = [
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13
-    inputs.nixos-hardware.nixosModules.common-cpu-intel
-    inputs.nixos-hardware.nixosModules.common-gpu-intel
-    inputs.nixos-hardware.nixosModules.common-pc
-    inputs.nixos-hardware.nixosModules.common-pc-ssd
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
+    # inputs.nixos-hardware.nixosModules.common-cpu-intel
+    # inputs.nixos-hardware.nixosModules.common-gpu-intel
+    # inputs.nixos-hardware.nixosModules.common-pc
+    # inputs.nixos-hardware.nixosModules.common-pc-ssd
     (modulesPath + "/installer/scan/not-detected.nix")
     ../_mixins/hardware/mobile.nix
     ../_mixins/services/pipewire.nix
