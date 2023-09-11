@@ -9,7 +9,7 @@
     xserver = {
       enable = true;
 
-      layout = "us";
+      layout = "us,dv";
       xkbVariant = "dvorak,";
       # xkbOptions = "grp:win_space_toggle";
 
