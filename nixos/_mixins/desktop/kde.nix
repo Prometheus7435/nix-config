@@ -9,8 +9,8 @@
     xserver = {
       enable = true;
 
-      layout = "us,dv";
-      xkbVariant = "dvorak,";
+      # layout = "us";
+      # xkbVariant = "dvorak,";
       # xkbOptions = "grp:win_space_toggle";
 
       desktopManager = {

@@ -3,7 +3,10 @@
   # time.timeZone = "America/New_York";
 
   services = {
-    xserver.layout = "us";
+    xserver = {
+      layout = "us";
+      xkbVariant = "dvorak,";
+    };
     automatic-timezoned.enable = true;  # dynamic timezone
   };
   # services.xserver.layout = "us";
