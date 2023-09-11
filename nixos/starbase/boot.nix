@@ -25,7 +25,7 @@
     };
 
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    # kernelPackages = pkgs.linuxPackages;
+
 #    kernelParams = [ "mem_sleep_default=deep" ];
     kernelParams = [ "mitigations=off" ];
 #    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];

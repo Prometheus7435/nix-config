@@ -152,6 +152,17 @@
           modules = [ ./nixos ];
         };
 
+        cali = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs stateVersion;
+            desktop = null;
+            # hostid = ""; # head -c 8 /etc/machine-id
+            hostname = "cali";
+            username = "starfleet";
+          };
+          modules = [ ./nixos ];
+        };
+
         # # FIXME replace with your hostname
         # your-hostname = nixpkgs.lib.nixosSystem {
         #   specialArgs = { inherit inputs outputs; };
@@ -215,12 +226,24 @@
           };
           modules = [ ./home-manager ];
         };
+
         "starfleet@fermi" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
             desktop = null;
             hostname = "fermi";
+            username = "starfleet";
+          };
+          modules = [ ./home-manager ];
+        };
+
+        "starfleet@cali" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            desktop = null;
+            hostname = "cali";
             username = "starfleet";
           };
           modules = [ ./home-manager ];
