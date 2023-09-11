@@ -45,6 +45,7 @@
         rebuild-host = "sudo nixos-rebuild switch --flake $HOME/Zero/nix-config";
         rebuild-lock = "pushd $HOME/Zero/nix-config && nix flake lock --recreate-lock-file && popd";
         rebuild-iso = "pushd $HOME/Zero/nix-config && nix build .#nixosConfigurations.iso.config.system.build.isoImage && popd";
+        gitc = "git add . && git commit -m "; # bad practice, but I only do simple things so whatevs
       };
       shellAliases = {
         cat = "bat --paging=never";
@@ -62,7 +63,6 @@
         moon = "curl -s wttr.in/Moon";
         wttr = "curl -scurl -s wttr.in && curl -s v2.wttr.in";
         wttr-bas = "curl -s wttr.in/basingstoke && curl -s v2.wttr.in/basingstoke";
-        gitc = "git add . && git commit -m "; # bad practice, but I only do simple things so whatevs
       };
     };
   };
