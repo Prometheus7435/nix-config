@@ -14,8 +14,8 @@
 | [[https://heimdall.site/][Heimdall]]     |            | TODO    |
 | [[https://jellyfin.github.io][Jellyfin]]     | 9089       | WRITTEN |
 | [[https://nextcloud.com/][Nextcloud]]    | 8089, 3036 | WRITTEN |
-| [[https://github.com/jonaswinkler/paperless-ng][Paperless-ng]] |            |         |
-| [[https://portainer.io/][Portainer]]    |            |         |
-| [[https://syncthing.net/][Syncthing]]    |            |         |
-| [[https://transmissionbt.com/][Transmission]] |            |         |
+| [[https://github.com/jonaswinkler/paperless-ng][Paperless-ng]] |            | TODO    |
+| [[https://portainer.io/][Portainer]]    |            | TODO    |
+| [[https://syncthing.net/][Syncthing]]    |            | TODO    |
+| [[https://transmissionbt.com/][Transmission]] |            | TODO    |
 |              |            |         |
