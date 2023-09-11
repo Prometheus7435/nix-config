@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./nextcloud.nix
+    # ./nextcloud.nix
     ./gitea.nix
     ./jellyfin.nix
   ];

@@ -1,5 +1,7 @@
 # VM for running docker containers
-
+# vCPU:
+# vRAM:
+# vStorage:
 
 { config, inputs, lib, pkgs, username, modulesPath, ... }:
 {
@@ -13,25 +15,13 @@
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/systemd-boot.nix
+    ../_mixins/containers/default.nix
   ];
 
   boot = {
-    # loader = {
-    #   grub = {
-    #     enable = true;
-    #     devices = [ "nodev" ];
-    #     efiInstallAsRemovable = true;
-    #     efiSupport = true;
-    #     useOSProber = true;
-    #     configurationLimit = 8;
-    #     # splashImage = ./bonsai.png;
-    #   };
-    #   timeout = 3;
-    # };
-
-    # kernelParams = [ "mem_sleep_default=deep" ];
+    kernelPackages = pkgs.linuxPackages;
     extraModulePackages = with config.boot.kernelPackages; [
-      # acpi_call
+      acpi_call
     ];
 
     initrd = {
@@ -44,62 +34,20 @@
     };
   };
 
+  swapDevices = [ ];
+
   services = {
-    zfs.autoScrub.enable = true;
     fstrim.enable = true;
   };
 
-  swapDevices = [ ];
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.systemPackages = with pkgs; [
 
   ];
 
   hardware = {
-    # bluetooth.enable = true;
-    # bluetooth.settings = {
-    #   General = {
-    #     Enable = "Source,Sink,Media,Socket";
-    #   };
-    # };
-    # opengl = {
-    #   enable = true;
-    #   extraPackages = with pkgs; [
-    #     intel-media-driver # LIBVA_DRIVER_NAME=iHD
-    #     vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for FF/Chromium)
-    #     vaapiVdpau
-    #     libvdpau-va-gl
-    #     intel-ocl
-    #     rocm-opencl-icd
-    #   ];
-    #   driSupport = true;
-    #   driSupport32Bit = true;
-    # };
-    # sensor = {
-    #   # automatic screen orientation
-    #   iio = {
-    #     enable = true;
-    #   };
-    # };
-  };
-  # Enable touchpad support (enabled default in most desktopManager).
-  services = {
-    xserver.libinput.enable = true;
-    tlp = {
-      settings = {
-        START_CHARGE_THRESH_BAT0 = "75";
-        STOP_CHARGE_THRESH_BAT0 = "95";
-      };
-    };
-    # fingerprint reader
-    fprintd.enable = true;
 
   };
-  security = {
-    pam.services.login.fprintAuth = true;
-    pam.services.xscreensaver.fprintAuth = true;
-  };
+
 }
