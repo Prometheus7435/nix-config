@@ -4,7 +4,7 @@
 
   services = {
     xserver = {
-      layout = "us";
+      layout = "us,dv";
       xkbVariant = "dvorak,";
     };
     automatic-timezoned.enable = true;  # dynamic timezone
