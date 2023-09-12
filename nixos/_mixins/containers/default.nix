@@ -3,7 +3,7 @@
 {
   imports = [
     # ./nextcloud.nix
-    ./gitea.nix
+    # ./gitea.nix
     ./jellyfin.nix
   ];
 
@@ -11,6 +11,7 @@
   environment.systemPackages = with pkgs; [
     docker-compose
   ];
+
   # virtualisation.docker.rootless = {
   #   enable = true;
   #   setSocketVariable = true;
