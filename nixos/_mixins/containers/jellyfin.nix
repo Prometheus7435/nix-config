@@ -22,8 +22,8 @@
     ];
     environment = {
       JELLYFIN_LOG_DIR = "/log";
-      PUID=1000;
-      PGID=1000;
+      # PUID=1000;
+      # PGID=1000;
     };
   };
 
