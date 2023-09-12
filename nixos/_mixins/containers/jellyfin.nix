@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  virtualisation.oci-containers.containers."jellyfin" = {
+  virtualisation.oci-containers.containers.jellyfin = {
     autoStart = true;
     image = "lscr.io/linuxserver/jellyfin";
     volumes = [
@@ -24,9 +24,7 @@
       JELLYFIN_LOG_DIR = "/log";
       PUID=1000;
       PGID=1000;
-      # TZ=North_America/New_York;
     };
-    # restart =  unless-stopped;
   };
 
 }
