@@ -12,6 +12,8 @@
       "/mnt/alpha/media/tv:/tv"
       "/mnt/alpha/media/music:/music"
       "/mnt/alpha/media/webshows:/webshows"
+      "/etc/timezone:/etc/timezone:ro"
+      "/etc/localtime:/etc/localtime:ro"
     ];
     # only the 8086 port is required. Others are optional
     ports = [
