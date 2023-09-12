@@ -8,9 +8,8 @@
   services = {
     xserver = {
       enable = true;
-
-      # layout = "us";
-      # xkbVariant = "dvorak,";
+      layout = "us";
+      xkbVariant = "dvorak,";
       # xkbOptions = "grp:win_space_toggle";
 
       desktopManager = {

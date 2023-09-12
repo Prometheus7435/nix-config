@@ -45,8 +45,9 @@
         rebuild-host = "sudo nixos-rebuild switch --flake $HOME/Zero/nix-config";
         rebuild-lock = "pushd $HOME/Zero/nix-config && nix flake lock --recreate-lock-file && popd";
         rebuild-iso = "pushd $HOME/Zero/nix-config && nix build .#nixosConfigurations.iso.config.system.build.isoImage && popd";
-        gitc = "git add . && git commit -m "; # bad practice, but I only do simple things so whatevs
+        gitc = "git add ~/Zero/nix-config/. && git commit -m ";
       };
+
       shellAliases = {
         cat = "bat --paging=never";
         diff = "diffr";

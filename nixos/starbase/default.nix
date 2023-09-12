@@ -7,6 +7,7 @@
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.nixos-hardware.nixosModules.supermicro
     ../_mixins/services/pipewire.nix
+    ../_mixins/containers/default.nix
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/systemd-boot.nix
     (modulesPath + "/installer/scan/not-detected.nix")
