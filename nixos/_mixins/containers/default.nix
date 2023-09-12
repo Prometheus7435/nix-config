@@ -10,6 +10,7 @@
   virtualisation.docker.enable = true;
   environment.systemPackages = with pkgs; [
     docker-compose
+    podman
   ];
 
   # virtualisation.docker.rootless = {
