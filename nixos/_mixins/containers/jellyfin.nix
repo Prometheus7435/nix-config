@@ -26,7 +26,7 @@
       PGID=1000;
       # TZ=North_America/New_York;
     };
-    restart =  unless-stopped;
+    # restart =  unless-stopped;
   };
 
 }
