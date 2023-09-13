@@ -42,6 +42,11 @@ TARGET_USER="${2:-shyfox}"
 #     exit 1
 #     ;;
 # esac
+if [ ! -d "$HOME/Zero/nix-config/.git" ]; then
+  git clone https://github.com/Prometheus7435/nix-config.git "$HOME/Zero/nix-config"
+fi
+
+pushd "$HOME/Zero/nix-config"
 
 if [ ! -e "nixos/${TARGET_HOST}/disks.nix" ]; then
   echo "ERROR! $(basename "${0}") could not find the required nixos/${TARGET_HOST}/disks.nix"
