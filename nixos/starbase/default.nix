@@ -14,7 +14,6 @@
   ];
 
   boot = {
-
     supportedFilesystems = [ "zfs" ];
     zfs = {
       extraPools = [ "vmpool" "alpha"];
@@ -39,10 +38,10 @@
     fstrim.enable = true;
   };
 
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  # virtualisation.docker.rootless = {
+  #   enable = true;
+  #   setSocketVariable = true;
+  # };
 
   networking = {
     hostName = hostname;
@@ -67,18 +66,13 @@
   ];
 
   hardware = {
-    bluetooth.enable = true;
-    bluetooth.settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-      };
-    };
-
-    # opengl = {
-    #   enable = true;
-    #   driSupport = true;
-    #   driSupport32Bit = true;
+    # bluetooth.enable = true;
+    # bluetooth.settings = {
+    #   General = {
+    #     Enable = "Source,Sink,Media,Socket";
+    #   };
     # };
+
     xone.enable = true;
   };
 }
