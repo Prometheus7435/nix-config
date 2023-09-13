@@ -8,12 +8,13 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
-    # inputs.nixos-hardware.nixosModules.common-cpu-amd
-    # inputs.nixos-hardware.nixosModules.common-gpu-amd
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
     # inputs.nixos-hardware.nixosModules.common-pc
     # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/services/pipewire.nix
     ../_mixins/services/cac.nix
+    ../_mixins/services/nfs/client.nix
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/mobile.nix
