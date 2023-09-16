@@ -53,7 +53,7 @@
     macvlans = {
       iot = {
         interface = "enp132s0f0";
-        mode = "vega"; # "bridge";
+        mode = "bridge";
       };
     };
   };
