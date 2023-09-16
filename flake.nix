@@ -156,7 +156,7 @@
           specialArgs = {
             inherit inputs outputs stateVersion;
             desktop = null;
-            # hostid = ""; # head -c 8 /etc/machine-id
+            hostid = "5da79a16"; # head -c 8 /etc/machine-id
             hostname = "cali";
             username = "starfleet";
           };
