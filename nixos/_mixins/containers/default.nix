@@ -4,7 +4,7 @@
   imports = [
     # ./nextcloud.nix
     # ./gitea.nix
-    ./jellyfin.nix
+    # ./jellyfin.nix
   ];
 
   virtualisation.docker.enable = true;
