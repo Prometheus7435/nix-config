@@ -1,3 +1,4 @@
+# enp132s0f0
 {
   disko.devices = {
     disk = {
