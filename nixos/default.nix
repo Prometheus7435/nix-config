@@ -5,8 +5,8 @@
   imports = [
     inputs.disko.nixosModules.disko
     (./. + "/${hostname}/default.nix")
-    # (./. + "/${hostname}/boot.nix")
     (./. + "/${hostname}/disks.nix")
+    # (./. + "/${hostname}/boot.nix")
     # (./. + "/${hostname}/hardware.nix")
     (modulesPath + "/installer/scan/not-detected.nix")
     ./_mixins/base
