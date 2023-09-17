@@ -8,6 +8,8 @@
 { config, inputs, lib, pkgs, username, modulesPath, ... }:
 {
   imports = [
+    # ./disks.nix
+    # inputs.disko.nixosModules.disko
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
     # inputs.nixos-hardware.nixosModules.common-cpu-intel
     # inputs.nixos-hardware.nixosModules.common-gpu-intel
