@@ -55,8 +55,9 @@
     # python311Packages.jedi-language-server
 
     texlive.combined.scheme-full
-
+    # python3Full
     nixfmt
+
   ];
 
 }

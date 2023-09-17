@@ -10,7 +10,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    python3
+    python3Full
     (python3.withPackages my-python-packages)
   ];
 }

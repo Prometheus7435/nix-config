@@ -53,8 +53,8 @@
   };
 
   services = {
-    zfs.autoScrub.enable = true;
-    fstrim.enable = true;
+    # zfs.autoScrub.enable = true;
+    # fstrim.enable = true;
   };
 
   swapDevices = [ ];
@@ -67,31 +67,7 @@
   ];
 
   hardware = {
-    # bluetooth.enable = true;
-    # bluetooth.settings = {
-    #   General = {
-    #     Enable = "Source,Sink,Media,Socket";
-    #   };
-    # };
-    # opengl = {
-    #   enable = true;
-    #   extraPackages = with pkgs; [
-    #     intel-media-driver # LIBVA_DRIVER_NAME=iHD
-    #     vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for FF/Chromium)
-    #     vaapiVdpau
-    #     libvdpau-va-gl
-    #     intel-ocl
-    #     rocm-opencl-icd
-    #   ];
-    #   driSupport = true;
-    #   driSupport32Bit = true;
-    # };
-    # sensor = {
-    #   # automatic screen orientation
-    #   iio = {
-    #     enable = true;
-    #   };
-    # };
+
   };
   # Enable touchpad support (enabled default in most desktopManager).
   services = {
