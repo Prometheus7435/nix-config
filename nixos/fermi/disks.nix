@@ -1,7 +1,9 @@
-{ disks ? [ "/dev/vdb" ], ... }: {
+# { disks ? [ "/dev/vdb" ], ... }:
+{
   disk = {
     vdb = {
-      device = builtins.elemAt disks 0;
+      device = "/dev/vdb";
+      # device = builtins.elemAt disks 0;
       type = "disk";
       content = {
         type = "table";

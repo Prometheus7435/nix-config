@@ -1,9 +1,11 @@
-{ disks ? [ "/dev/sda" ], ... }: {
+# { disks ? [ "/dev/sda" ], ... }:
+{
   disko.devices = {
     disk = {
       nvme0 = {
         type = "disk";
-        device = builtins.elemAt disks 0;
+        device = "/dev/sda";
+        # device = builtins.elemAt disks 0;
         content = {
           type = "table";
           format = "gpt";
