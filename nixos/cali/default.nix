@@ -6,8 +6,8 @@
 { config, inputs, lib, pkgs, username, modulesPath, ... }:
 {
   imports = [
-    ./disks.nix
-    inputs.disko.nixosModules.disko
+    # ./disks.nix
+    # inputs.disko.nixosModules.disko
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     # inputs.nixos-hardware.nixosModules.common-gpu-intel
