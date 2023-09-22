@@ -23,6 +23,9 @@
       ## Akira
       /mnt/alpha/nfs/zach             100.82.110.9(rw,nohide,sync,no_subtree_check)
 ##      /mnt/alpha/nfs/zach             10.10.10.240(rw,nohide,sync,no_subtree_check)
+
+      ## Phoenix
+      /mnt/alpha/nfs/zach             100.123.61.88(rw,nohide,sync,no_subtree_check)
           '';
   };
 }
