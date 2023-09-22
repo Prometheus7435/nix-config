@@ -1,7 +1,7 @@
 # enp132s0f0
 
 ## Straight copy from Whimpy's vm config
-{ disks ? [ "/dev/vda" ], ... }:
+# { disks ? [ "/dev/vda" ], ... }:
 let
   defaultXfsOpts = [ "defaults" "relatime" "nodiratime" ];
 in
@@ -10,7 +10,8 @@ in
     disk = {
       vda = {
         type = "disk";
-        device = builtins.elemAt disks 0;
+        device = "/dev/vda";
+        # device = builtins.elemAt disks 0;
         content = {
           type = "table";
           format = "gpt";
