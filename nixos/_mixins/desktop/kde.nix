@@ -56,6 +56,7 @@
 
   # nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    libsForQt5.plasma-integration
     libsForQt5.discover
     libsForQt5.kdeconnect-kde
     libsForQt5.applet-window-buttons
