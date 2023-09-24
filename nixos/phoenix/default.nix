@@ -31,6 +31,7 @@
     # supportedFilesystems = [ "zfs" ];
     # zfs.requestEncryptionCredentials = true;
     # kernelPackages = pkgs.linuxPackages_lqx;
+    kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
   };
 
   hardware = {
@@ -73,4 +74,8 @@
     pam.services.login.fprintAuth = true;
     pam.services.xscreensaver.fprintAuth = true;
   };
+  environment.systemPackages = with pkgs; [
+    nvtop-amd
+  ];
+
 }
