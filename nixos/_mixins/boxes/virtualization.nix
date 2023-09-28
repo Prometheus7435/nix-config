@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     # virtualization
     libguestfs
+    guestfs-tools
     libguestfs-with-appliance
     libguestfs-appliance
     libvirt
