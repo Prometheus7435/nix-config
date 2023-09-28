@@ -45,16 +45,8 @@
     handbrake
     chromium
     libreoffice
-    # steam
     ffmpeg_6-full
     calibre
-
-    # ccid
-    # gnupg-pkcs11-scd
-    # pciutils
-    # pcsclite
-    # pcsctools
-    # opensc
   ];
 
     # use fonts specified by user rather than default ones
