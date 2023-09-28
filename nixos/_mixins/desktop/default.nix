@@ -1,7 +1,7 @@
 { desktop, pkgs, ... }: {
   imports = [
     ../services/cups.nix
-    ../services/flatpak.nix
+    # ../services/flatpak.nix
     ../services/sane.nix
     (./. + "/${desktop}.nix")
   ];

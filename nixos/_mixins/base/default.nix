@@ -5,6 +5,7 @@
     ./nano.nix
     ./emacs-config.nix
     ../services/fwupd.nix
+    ../services/flatpak.nix
     ../services/openssh.nix
     ../services/tailscale.nix
     ../services/zerotier.nix
