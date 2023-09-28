@@ -859,7 +859,7 @@
       "kwinrc"."org.kde.kdecoration2"."BorderSizeAuto" = false;
       "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "XAI";
       "kwinrc"."org.kde.kdecoration2"."ButtonsOnRight" = "SMH";
-      "kxkbrc"."Layout"."DisplayNames" = ",";
+      "kxkbrc"."Layout"."DisplayNames" = ",DV";
       "kxkbrc"."Layout"."LayoutList" = "us,us";
       "kxkbrc"."Layout"."Options" = "grp:win_space_toggle,ctrl:swapcaps";
       "kxkbrc"."Layout"."ResetOldOptions" = true;
