@@ -8,8 +8,8 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
-    inputs.nixos-hardware.nixosModules.common-cpu-amd
-    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    # inputs.nixos-hardware.nixosModules.common-cpu-amd
+    # inputs.nixos-hardware.nixosModules.common-gpu-amd
     # inputs.nixos-hardware.nixosModules.common-pc
     # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/services/pipewire.nix
@@ -77,6 +77,7 @@
   environment.systemPackages = with pkgs; [
     nvtop-amd
     cbonsai
+    xorriso
   ];
 
 }
