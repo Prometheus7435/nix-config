@@ -28,7 +28,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
-    # supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = [ "xfs" ];
     # zfs.requestEncryptionCredentials = true;
     # kernelPackages = pkgs.linuxPackages_lqx;
     kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
