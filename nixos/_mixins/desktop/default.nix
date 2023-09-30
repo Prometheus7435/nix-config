@@ -40,6 +40,10 @@
     };
   };
 
+  services = {
+    xserver.libinput.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     vlc
     handbrake
