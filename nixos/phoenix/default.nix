@@ -8,10 +8,6 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
-    # inputs.nixos-hardware.nixosModules.common-cpu-amd
-    # inputs.nixos-hardware.nixosModules.common-gpu-amd
-    # inputs.nixos-hardware.nixosModules.common-pc
-    # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/services/pipewire.nix
     ../_mixins/services/cac.nix
     ../_mixins/services/nfs/client.nix
@@ -28,7 +24,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
-    supportedFilesystems = [ "xfs" ];
+    # supportedFilesystems = [ "xfs" ];
     # zfs.requestEncryptionCredentials = true;
     # kernelPackages = pkgs.linuxPackages_lqx;
     kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
@@ -36,26 +32,6 @@
 
   hardware = {
 
-    ## redundant, done in nixos-hardware import
-    # cpu = {
-    #   amd = {
-    #     updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    #   };
-    # };
-
-    # opengl = {
-    #   enable = true;
-    #   extraPackages = with pkgs; [
-    #     intel-media-driver # LIBVA_DRIVER_NAME=iHD
-    #     vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for FF/Chromium)
-    #     vaapiVdpau
-    #     libvdpau-va-gl
-    #     intel-ocl
-    #     rocm-opencl-icd
-    #   ];
-    #   driSupport = true;
-    #   driSupport32Bit = true;
-    # };
   };
   # Enable touchpad support (enabled default in most desktopManager).
   services = {

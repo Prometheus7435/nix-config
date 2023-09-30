@@ -1,16 +1,16 @@
 { config, pkgs, callPackage, ... }: {
   environment.systemPackages = with pkgs; [
-    # virtualization
-    libguestfs
     guestfs-tools
-    libguestfs-with-appliance
+    libguestfs
     libguestfs-appliance
+    libguestfs-with-appliance
     libvirt
     qemu_full
-    virt-manager
-    virt-viewer
+    qemu-utils
     quickemu
     spice-gtk
+    virt-manager
+    virt-viewer
     virtiofsd
   ];
   virtualisation.libvirtd.enable = true;
