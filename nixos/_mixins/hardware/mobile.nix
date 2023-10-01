@@ -6,7 +6,7 @@
   ];
 
   services = {
-    xserver.libinput.enable = true;
+    # xserver.libinput.enable = true;
     tlp = {
       settings = {
         START_CHARGE_THRESH_BAT0 = "65";
