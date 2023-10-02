@@ -35,12 +35,13 @@
       availableKernelModules = [
         "sd_mod"
       ];
+    };
   };
 
   hardware = {
 
   };
-  # Enable touchpad support (enabled default in most desktopManager).
+
   services = {
     # tlp = {
     #   settings = {
@@ -57,7 +58,7 @@
     pam.services.xscreensaver.fprintAuth = true;
   };
   environment.systemPackages = with pkgs; [
-    nvtop-amd
+    # nvtop-amd
     cbonsai
     # xorriso
   ];
