@@ -46,10 +46,10 @@
 
   environment.systemPackages = with pkgs; [
     vlc
-    handbrake
+    # handbrake
     chromium
     libreoffice
-    ffmpeg_6-full
+    # ffmpeg_6-full
     calibre
   ];
 

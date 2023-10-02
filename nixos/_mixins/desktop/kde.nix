@@ -27,7 +27,7 @@
           user = "${username}";
         };
       };
-      libinput.enable = true;
+      # libinput.enable = true;
     };
 
   };
@@ -62,6 +62,7 @@
     libsForQt5.applet-window-buttons
     libsForQt5.kalk
     libsForQt5.dragon
+    libsForQt5.xdg-desktop-portal-kde
     # libsForQt5.kdecoration
     okular
     yakuake
