@@ -5,12 +5,16 @@
 
   environment.systemPackages = with pkgs; [
     unzip
+
+    # video
     ffmpeg_6-full
     yt-dlp
     makemkv
     handbrake
 
-    # python3Full
+    # audio
+    ardour
+    audacity
   ];
 
 

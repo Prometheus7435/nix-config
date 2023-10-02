@@ -10,6 +10,7 @@
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
     ../_mixins/services/pipewire.nix
     ../_mixins/services/cac.nix
+    ../_mixins/services/media-edit.nix
     ../_mixins/services/nfs/client.nix
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/network-dhcp.nix
