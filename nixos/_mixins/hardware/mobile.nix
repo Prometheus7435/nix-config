@@ -10,7 +10,7 @@
     tlp = {
       settings = {
         START_CHARGE_THRESH_BAT0 = "65";
-        STOP_CHARGE_THRESH_BAT0 = "90";
+        STOP_CHARGE_THRESH_BAT0 = "80";
       };
     };
   };
@@ -18,9 +18,9 @@
   hardware = {
     bluetooth.enable = true;
     bluetooth.settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-      };
+      # General = {
+      #   Enable = "Source,Sink,Media,Socket";
+      # };
     };
     sensor = {
       # automatic screen orientation
