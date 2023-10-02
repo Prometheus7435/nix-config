@@ -44,13 +44,15 @@
     xserver.libinput.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    vlc
-    chromium
-    libreoffice
+  environment.systemPackages = [
+    pkgs.vlc
+    pkgs.chromium
+    pkgs.libreoffice
 
     # ffmpeg_6-full
-    calibre
+    pkgs.calibre
+
+    config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
   ];
 
     # use fonts specified by user rather than default ones

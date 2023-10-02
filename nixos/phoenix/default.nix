@@ -58,12 +58,12 @@
     pam.services.login.fprintAuth = true;
     pam.services.xscreensaver.fprintAuth = true;
   };
-  # environment.systemPackages = with pkgs; [
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = [
     # nvtop-amd
-    pkgs.cbonsai
+    cbonsai
     # xorriso
-    config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
+    # config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
 
   ];
 
