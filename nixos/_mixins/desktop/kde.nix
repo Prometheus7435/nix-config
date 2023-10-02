@@ -61,6 +61,7 @@
     libsForQt5.kdeconnect-kde
     libsForQt5.applet-window-buttons
     libsForQt5.kalk
+    libsForQt5.dragon
     # libsForQt5.kdecoration
     okular
     yakuake
