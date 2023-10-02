@@ -13,8 +13,8 @@
 
     kernelModules = [
       "acpi_call"
-      "kvm-amd"
-      "kvm-intel"
+      # "kvm-amd"
+      # "kvm-intel"
     ];
 
     initrd = {
@@ -25,7 +25,7 @@
         "ahci"
         "usbhid"
         "usb_storage"
-        "sd_mod"
+        # "sd_mod"
         "virtio_balloon"
         "virtio_blk"
         "virtio_pci"
@@ -43,12 +43,12 @@
     opengl = {
       enable = true;
       extraPackages = with pkgs; [
-        intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for FF/Chromium)
-        vaapiVdpau
-        libvdpau-va-gl
-        intel-ocl
-        rocm-opencl-icd
+        # intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        # vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for FF/Chromium)
+        # vaapiVdpau
+        # libvdpau-va-gl
+        # intel-ocl
+        # rocm-opencl-icd
       ];
       driSupport = true;
       driSupport32Bit = true;

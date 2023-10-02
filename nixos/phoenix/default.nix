@@ -28,6 +28,13 @@
     # zfs.requestEncryptionCredentials = true;
     # kernelPackages = pkgs.linuxPackages_lqx;
     kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
+    kernelModules = [
+      "kvm-amd"
+    ];
+    initrd = {
+      availableKernelModules = [
+        "sd_mod"
+      ];
   };
 
   hardware = {
@@ -52,7 +59,7 @@
   environment.systemPackages = with pkgs; [
     nvtop-amd
     cbonsai
-    xorriso
+    # xorriso
   ];
 
 }
