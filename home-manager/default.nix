@@ -22,7 +22,6 @@ in {
     homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
     sessionPath = [ "$HOME/.local/bin" ];
     stateVersion = "23.05";
-    # stateVersion = state-version;
   };
 
   nixpkgs = {

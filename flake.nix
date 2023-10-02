@@ -39,6 +39,9 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     #TODO: KDE overlay
+
+    # NUR
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = {
@@ -50,6 +53,7 @@
       nix-software-center,
       emacs-overlay,
       plasma-manager,
+      nur,
       ...
   }@inputs:
     let
@@ -114,7 +118,20 @@
             username = "shyfox";
             # stateVersion = "unstable";
           };
-          modules = [ ./nixos ];
+          modules = [
+            ./nixos
+            nur.nixosModules.nur
+          #   { nixpkgs.overlays = [ nur.overlay ]; }
+          #   ({ pkgs, ... }:
+          #     let
+          #       nur-no-pkgs = import nur {
+          #         nurpkgs = import nixpkgs { system = "x86_64-linux"; };
+          #       };
+          #     in {
+          #       imports = [ nur-no-pkgs.repos.iopq.modules.xraya  ];
+          #       services.xraya.enable = true;
+          # })
+          ];
         };
 
         akira = nixpkgs.lib.nixosSystem {
