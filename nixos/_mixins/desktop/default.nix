@@ -48,6 +48,7 @@
     pkgs.vlc
     pkgs.chromium
     pkgs.google-chrome
+    pkgs.via
     pkgs.libreoffice
 
     # ffmpeg_6-full
