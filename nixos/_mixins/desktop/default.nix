@@ -1,4 +1,4 @@
-{ inputs, desktop, pkgs, ... }: {
+{ config, inputs, desktop, pkgs, ... }: {
   imports = [
     ../services/cups.nix
     ../services/flatpak.nix
@@ -47,6 +47,7 @@
   environment.systemPackages = [
     pkgs.vlc
     pkgs.chromium
+    pkgs.google-chrome
     pkgs.libreoffice
 
     # ffmpeg_6-full
