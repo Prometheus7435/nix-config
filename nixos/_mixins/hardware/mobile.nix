@@ -4,7 +4,7 @@
     maliit-keyboard
     wacomtablet
   ];
-
+  powerManagement.enable = true;
   services = {
     # xserver.libinput.enable = true;
     tlp = {

@@ -9,18 +9,14 @@
 {
   imports = [
     # ./disks.nix
-    # inputs.disko.nixosModules.disko
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
-    # inputs.nixos-hardware.nixosModules.common-cpu-intel
-    # inputs.nixos-hardware.nixosModules.common-gpu-intel
-    # inputs.nixos-hardware.nixosModules.common-pc
-    # inputs.nixos-hardware.nixosModules.common-pc-ssd
-    (modulesPath + "/installer/scan/not-detected.nix")
+    ../_mixins/hardware/default.nix
     ../_mixins/hardware/mobile.nix
-    ../_mixins/services/pipewire.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/zfs.nix
-    ../_mixins/hardware/default.nix
+    ../_mixins/services/nfs/client.nix
+    ../_mixins/services/pipewire.nix
+    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot = {
@@ -69,6 +65,7 @@
   hardware = {
 
   };
+
   # Enable touchpad support (enabled default in most desktopManager).
   services = {
     xserver.libinput.enable = true;

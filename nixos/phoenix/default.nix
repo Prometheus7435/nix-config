@@ -8,15 +8,15 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
-    ../_mixins/services/pipewire.nix
+    ../_mixins/hardware/default.nix
+    ../_mixins/hardware/mobile.nix
+    ../_mixins/hardware/network-dhcp.nix
+    ../_mixins/hardware/systemd-boot.nix
+    ../_mixins/hardware/zfs.nix
     ../_mixins/services/cac.nix
     ../_mixins/services/media-edit.nix
     ../_mixins/services/nfs/client.nix
-    ../_mixins/hardware/default.nix
-    ../_mixins/hardware/network-dhcp.nix
-    ../_mixins/hardware/mobile.nix
-    ../_mixins/hardware/zfs.nix
-    ../_mixins/hardware/systemd-boot.nix
+    ../_mixins/services/pipewire.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -50,6 +50,7 @@
     #     STOP_CHARGE_THRESH_BAT0 = "95";
     #   };
     # };
+
     # fingerprint reader
     fprintd.enable = true;
     fstrim.enable = true;
@@ -58,16 +59,12 @@
     pam.services.login.fprintAuth = true;
     pam.services.xscreensaver.fprintAuth = true;
   };
-  environment.systemPackages = with pkgs; [
-  # environment.systemPackages = [
+  # environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     # nvtop-amd
-    cbonsai
+    pkgs.cbonsai
     # xorriso
     # config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
 
   ];
-
-  # environment.systemPackages = [ config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
-  #                              ];
-
 }

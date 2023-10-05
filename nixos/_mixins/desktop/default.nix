@@ -50,6 +50,7 @@
     # pkgs.google-chrome
     pkgs.via
     pkgs.libreoffice
+    pkgs.thunderbird
 
     # ffmpeg_6-full
     pkgs.calibre
