@@ -1,7 +1,7 @@
 { config, lib, pkgs, modulesPath, ... }: {
 
   imports = [
-    ../_mixins/containers/pihole.nix
+    # ../_mixins/containers/pihole.nix
   ]
 #{ config, lib, pkgs, ... }: {
   boot = {
