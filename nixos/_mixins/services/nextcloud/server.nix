@@ -24,15 +24,15 @@
 
     secretFile = "/etc/nextcloud-secrets.json";
 
-    extraOptions = {
-      redis = {
-        host = "/run/redis/redis.sock";
-        port = 0;
-        dbindex = 0;
-        password = "secret";
-        timeout = 1.5;
-      };
-    };
+    # extraOptions = {
+    #   redis = {
+    #     host = "/run/redis/redis.sock";
+    #     port = 0;
+    #     dbindex = 0;
+    #     password = "secret";
+    #     timeout = 1.5;
+    #   };
+    # };
   };
   environment.etc."nextcloud-admin-pass".text = "SuperSecret";
   environment.etc."nextcloud-secrets.json".text = ''
