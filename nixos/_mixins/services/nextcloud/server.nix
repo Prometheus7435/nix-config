@@ -6,14 +6,14 @@
     hostName = "localhost";
     # Instead of using pkgs.nextcloud27Packages.apps,
     # we'll reference the package version specified above
-    # extraApps = with config.services.nextcloud.package.packages.apps; {
-    #   inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
-    # };
-    # extraAppsEnable = true;
+    extraApps = with config.services.nextcloud.package.packages.apps; {
+      inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
+    };
+    extraAppsEnable = true;
     configureRedis = true;
     # caching.redis = true;
     config = {
-      adminpassFile = "/etc/nextcloud-secrets.json";
+      adminpassFile = "/etc/nextcloud-admin-pass.json";
       dbtype = "pgsql";
     };
     # enableImagemagick = true;
@@ -32,6 +32,7 @@
     #   };
     # };
   };
+  environment.etc."nextcloud-admin-pass".text = "SuperSecret";
   environment.etc."nextcloud-secrets.json".text = ''
   {
     "passwordsalt": "SuperSecret",
