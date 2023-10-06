@@ -14,7 +14,7 @@
     caching.redis = true;
     config = {
       # adminpassFile = "";
-      dbtype = "pgsql";
+      dbtype = "mysql";
     };
     # enableImagemagick = true;
     autoUpdateApps.enable = true;
