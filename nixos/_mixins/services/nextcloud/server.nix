@@ -3,6 +3,7 @@
 services.nextcloud = {
   enable = true;
   package = pkgs.nextcloud27;
+  hostName = "nextcloud.bombay.cloud";
   # Instead of using pkgs.nextcloud27Packages.apps,
   # we'll reference the package version specified above
   extraApps = with config.services.nextcloud.package.packages.apps; {
