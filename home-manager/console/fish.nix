@@ -46,7 +46,7 @@
         rebuild-lock = "pushd $HOME/Zero/nix-config && nix flake lock --recreate-lock-file && popd";
         rebuild-iso = "pushd $HOME/Zero/nix-config && nix build .#nixosConfigurations.iso.config.system.build.isoImage && popd";
         gitc = "git add ~/Zero/nix-config/. && git commit -m ";
-        ytd = "yt-dlp -N 8 -o '%{title}s.%{ext}s'";
+        ytd = "yt-dlp -N 8 -o '%(title)s.%(ext)s'";
       };
 
       shellAliases = {

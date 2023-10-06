@@ -51,13 +51,6 @@
   ];
 
   hardware = {
-    # bluetooth.enable = true;
-    # bluetooth.settings = {
-    #   General = {
-    #     Enable = "Source,Sink,Media,Socket";
-    #   };
-    # };
-
     opengl = {
       enable = true;
       driSupport = true;
