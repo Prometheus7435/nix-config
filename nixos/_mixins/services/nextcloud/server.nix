@@ -1,4 +1,4 @@
-{config, pkgs, lib, inputs, ...}: {
+{config, pkgs, lib, ...}: {
 
 services.nextcloud = {
   enable = true;
@@ -6,7 +6,7 @@ services.nextcloud = {
   # Instead of using pkgs.nextcloud27Packages.apps,
   # we'll reference the package version specified above
   extraApps = with config.services.nextcloud.package.packages.apps; {
-    inherit news contacts calendar tasks;
+    inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
   };
   extraAppsEnable = true;
   configureRedis = true;
@@ -15,7 +15,10 @@ services.nextcloud = {
   };
   enableImagemagick = true;
   autoUpdateApps.enable = true;
-  datadir = "/mnt/alpha/docker/apps/nextcloud"
+  datadir = "/mnt/alpha/docker/apps/nextcloud";
+  home = "/mnt/alpha/docker/apps/nextcloud";
+  notify_push.enable = true;
+
 };
 
 }
