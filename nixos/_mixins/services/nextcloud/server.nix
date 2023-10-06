@@ -19,15 +19,15 @@ services.nextcloud = {
   datadir = "/mnt/alpha/docker/apps/nextcloud";
   home = "/mnt/alpha/docker/apps/nextcloud";
   notify_push.enable = true;
-  # extraOptions = {
-  #   redis = {
-  #        host = "/run/redis/redis.sock";
-  #        port = 0;
-  #        dbindex = 0;
-  #        password = "secret";
-  #        timeout = 1.5;
-  #   };
-  # };
+  extraOptions = {
+    redis = {
+         host = "/run/redis/redis.sock";
+         port = 0;
+         dbindex = 0;
+         password = "secret";
+         timeout = 1.5;
+    };
+  };
 };
 
 }
