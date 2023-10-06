@@ -13,7 +13,7 @@
     # configureRedis = true;
     caching.redis = true;
     config = {
-      # adminpassFile = "";
+      adminpassFile = "/etc/nextcloud-secrets.json";
       dbtype = "mysql";
     };
     # enableImagemagick = true;
