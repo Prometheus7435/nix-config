@@ -9,7 +9,8 @@ services.nextcloud = {
     inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
   };
   extraAppsEnable = true;
-  configureRedis = true;
+  # configureRedis = true;
+  caching.redis = true;
   config = {
     dbtype = "pgsql";
   };
@@ -17,7 +18,16 @@ services.nextcloud = {
   autoUpdateApps.enable = true;
   datadir = "/mnt/alpha/docker/apps/nextcloud";
   home = "/mnt/alpha/docker/apps/nextcloud";
-  # notify_push.enable = true;
+  notify_push.enable = true;
+  # extraOptions = {
+  #   redis = {
+  #        host = "/run/redis/redis.sock";
+  #        port = 0;
+  #        dbindex = 0;
+  #        password = "secret";
+  #        timeout = 1.5;
+  #   };
+  # };
 };
 
 }
