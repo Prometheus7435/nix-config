@@ -17,8 +17,7 @@ services.nextcloud = {
   autoUpdateApps.enable = true;
   datadir = "/mnt/alpha/docker/apps/nextcloud";
   home = "/mnt/alpha/docker/apps/nextcloud";
-  notify_push.enable = true;
-
+  # notify_push.enable = true;
 };
 
 }
