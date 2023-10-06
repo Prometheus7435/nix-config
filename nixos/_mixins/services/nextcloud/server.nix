@@ -6,22 +6,24 @@
     hostName = "localhost";
     # Instead of using pkgs.nextcloud27Packages.apps,
     # we'll reference the package version specified above
-    extraApps = with config.services.nextcloud.package.packages.apps; {
-      inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
-    };
-    extraAppsEnable = true;
-    configureRedis = true;
+    # extraApps = with config.services.nextcloud.package.packages.apps; {
+    #   inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
+    # };
+    # extraAppsEnable = true;
+    # configureRedis = true;
     # caching.redis = true;
     config = {
       adminpassFile = "/etc/nextcloud-admin-pass.json";
-      dbtype = "pgsql";
+      # dbtype = "pgsql";
     };
     # enableImagemagick = true;
-    autoUpdateApps.enable = true;
+    # autoUpdateApps.enable = true;
     datadir = "/mnt/alpha/docker/apps/nextcloud";
     home = "/mnt/alpha/docker/apps/nextcloud";
     # notify_push.enable = true;
-    secretFile = "/etc/nextcloud-secrets.json";
+
+    # secretFile = "/etc/nextcloud-secrets.json";
+
     # extraOptions = {
     #   redis = {
     #     host = "/run/redis/redis.sock";
