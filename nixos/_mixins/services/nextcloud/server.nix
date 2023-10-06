@@ -10,11 +10,11 @@
       inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
     };
     extraAppsEnable = true;
-    # configureRedis = true;
-    caching.redis = true;
+    configureRedis = true;
+    # caching.redis = true;
     config = {
       adminpassFile = "/etc/nextcloud-secrets.json";
-      dbtype = "mysql";
+      dbtype = "pgsql";
     };
     # enableImagemagick = true;
     autoUpdateApps.enable = true;
