@@ -3,13 +3,13 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud27;
-    # hostName = "nextcloud.bombay.cloud";
+    hostName = "localhost";
     # Instead of using pkgs.nextcloud27Packages.apps,
     # we'll reference the package version specified above
-    # extraApps = with config.services.nextcloud.package.packages.apps; {
-    #   inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
-    # };
-    # extraAppsEnable = true;
+    extraApps = with config.services.nextcloud.package.packages.apps; {
+      inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
+    };
+    extraAppsEnable = true;
     # configureRedis = true;
     caching.redis = true;
     config = {
