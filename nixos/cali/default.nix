@@ -8,10 +8,10 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     # (import ./disks.nix { })
-    inputs.nixos-hardware.nixosModules.common-cpu-amd
-    inputs.nixos-hardware.nixosModules.common-gpu-amd
-    inputs.nixos-hardware.nixosModules.common-pc
-    inputs.nixos-hardware.nixosModules.common-pc-ssd
+    # inputs.nixos-hardware.nixosModules.common-cpu-amd
+    # inputs.nixos-hardware.nixosModules.common-gpu-amd
+    # inputs.nixos-hardware.nixosModules.common-pc
+    # inputs.nixos-hardware.nixosModules.common-pc-ssd
     # (modulesPath + "/installer/scan/not-detected.nix")
     ../_mixins/services/pipewire.nix
     ../_mixins/hardware/network-dhcp.nix
@@ -21,7 +21,7 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = with config.boot.kernelPackages; [
 
     ];
@@ -46,7 +46,7 @@
   swapDevices = [ ];
 
   services = {
-    fstrim.enable = true;
+    # fstrim.enable = true;
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

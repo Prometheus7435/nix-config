@@ -1,13 +1,14 @@
 { config, inputs, lib, pkgs, username, modulesPath, ... }:{
 
   imports = [
-    inputs.nixos-hardware.nixosModules.common-pc
-    inputs.nixos-hardware.nixosModules.common-pc-ssd
+    (modulesPath + "/profiles/qemu-guest.nix")
+    # inputs.nixos-hardware.nixosModules.common-pc
+    # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/hardware/systemd-boot.nix
     ../_mixins/hardware/default.nix
     ../_mixins/services/pipewire.nix
     ../_mixins/hardware/network-dhcp.nix
-    (modulesPath + "/installer/scan/not-detected.nix")
+    # (modulesPath + "/installer/scan/not-detected.nix")
     # ../_mixins/containers/pihole.nix
   ];
   boot = {
