@@ -6,6 +6,7 @@
   ];
 
   services = {
+    accounts-daemon.enable = true;
     xserver = {
       enable = true;
       layout = "us";
