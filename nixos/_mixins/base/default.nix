@@ -37,7 +37,6 @@
     cpufrequtils  # allows turboing on cpu cores
 
     patchelf
-
     # python3Full
   ];
 

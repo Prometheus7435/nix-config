@@ -4,7 +4,7 @@
 # RAM: 32GB
 # NVME: Samsung SSD 980 1TB
 
-{ config, inputs, lib, pkgs, username, modulesPath, ... }:
+{ config, inputs, xremap-flake, lib, pkgs, username, modulesPath, ... }:
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
@@ -13,6 +13,7 @@
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/systemd-boot.nix
     ../_mixins/hardware/zfs.nix
+
     ../_mixins/services/cac.nix
     ../_mixins/services/media-edit.nix
     ../_mixins/services/nfs/client.nix
@@ -25,9 +26,6 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
-    # supportedFilesystems = [ "xfs" ];
-    # zfs.requestEncryptionCredentials = true;
-    # kernelPackages = pkgs.linuxPackages_lqx;
     kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
     kernelModules = [
       "kvm-amd"
@@ -44,6 +42,17 @@
   };
 
   services = {
+    # xremap = {
+    #   userName = "${username}";  # run as a systemd service in alice
+    #   serviceMode = "user";  # run xremap as user
+    #   config = {
+    #     modmap = [
+    #       name = "Global";
+    #       remap = { "CapsLock" = "Ctrl"; };  # globally remap CapsLock to Ctrl
+    #     ];
+    #   };
+    # };
+
     # tlp = {
     #   settings = {
     #     START_CHARGE_THRESH_BAT0 = "75";
@@ -61,10 +70,6 @@
   };
   # environment.systemPackages = with pkgs; [
   environment.systemPackages = [
-    # nvtop-amd
     pkgs.cbonsai
-    # xorriso
-    # config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
-
   ];
 }

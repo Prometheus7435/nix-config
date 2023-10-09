@@ -6,11 +6,11 @@
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.nixos-hardware.nixosModules.supermicro
-    ../_mixins/services/pipewire.nix
-    ../_mixins/services/nextcloud/server.nix
     ../_mixins/containers/default.nix
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/systemd-boot.nix
+    ../_mixins/services/nextcloud/server.nix
+    ../_mixins/services/pipewire.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -39,11 +39,6 @@
     fstrim.enable = true;
   };
 
-  # virtualisation.docker.rootless = {
-  #   enable = true;
-  #   setSocketVariable = true;
-  # };
-
   networking = {
     hostName = hostname;
     hostId = hostid;
@@ -63,7 +58,7 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.systemPackages = with pkgs; [
-    # nvtop  # top like program for gpus
+
   ];
 
   hardware = {

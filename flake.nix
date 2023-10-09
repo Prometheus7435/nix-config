@@ -42,6 +42,9 @@
 
     # NUR
     nur.url = "github:nix-community/NUR";
+
+    # customize keyboard in Wayland
+    xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = {
