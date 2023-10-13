@@ -28,6 +28,7 @@
           epkgs.lsp-jedi
           epkgs.lsp-ui
           epkgs.minions
+          epkgs.moody
           epkgs.nix-mode
           epkgs.nix-modeline
           epkgs.org-books
@@ -40,7 +41,7 @@
           epkgs.treemacs-magit
           epkgs.treemacs-projectile
           epkgs.underwater-theme
-          epkgs.misterioso-theme
+          # epkgs.misterioso-theme
           epkgs.use-package
           epkgs.yasnippet-snippets
         ];

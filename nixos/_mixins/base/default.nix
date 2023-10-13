@@ -4,9 +4,10 @@
     ./locale.nix
     ./nano.nix
     ./emacs-config.nix
-    ../services/fwupd.nix
     # ../services/flatpak.nix
+    ../services/fwupd.nix
     ../services/openssh.nix
+    # ../services/syncthing.nix
     ../services/tailscale.nix
     ../services/zerotier.nix
   ];
@@ -22,7 +23,7 @@
     man-pages
     mergerfs
     mergerfs-tools
-    nano
+    # nano
     pciutils
     rsync
     unzip
@@ -31,13 +32,11 @@
     wget
     xdg-utils
     htop
-    # ffmpeg_6-full
     yt-dlp
     alacritty
     cpufrequtils  # allows turboing on cpu cores
 
     patchelf
-    # python3Full
   ];
 
   programs = {

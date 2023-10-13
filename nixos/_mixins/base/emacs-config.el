@@ -67,12 +67,11 @@
 (global-visual-line-mode)
 
 (use-package moody
-
-      :config
-      (setq x-underline-at-descent-line t
-	    moody-mode-line-height 30)
-    (moody-replace-mode-line-buffer-identification))
-;;    (moody-replace-vc-mode))
+  :config
+  (setq x-underline-at-descent-line t
+	moody-mode-line-height 30)
+(moody-replace-mode-line-buffer-identification)
+(moody-replace-vc-mode))
 
 (use-package minions
   :ensure t
@@ -86,9 +85,14 @@
   (setq zb/default-font-size 12)
   (setq zb/current-font-size zb/default-font-size)
 
-(setq frame-title-format (system-name))
-;;  (setq frame-title-format "%b")
+;  (setq frame-title-format (system-name))
+  (setq frame-title-format "%b")
   ;; (setq frame-title-format '((:eval (projectile-project-name))))
+
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -102,38 +106,23 @@
 (setq load-prefer-newer t)
 
 (cond
-   ((string-equal system-type "windows-nt")
-    (defvar sync_folder "C:/Users/zacha/sync/"))
-   (
-    (if my-laptop-p (string-equal system-type "gnu/linux")
-     (defvar sync_folder "~/sync/")))
-   )
-;;   (if my-server-p (string-equal system-type "gnu/linux"
-;; )
-;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")
-;;    ))
+     ((string-equal system-type "windows-nt")
+      (defvar sync_folder "C:/Users/zacha/sync/"))
+     (
+      (if my-laptop-p (string-equal system-type "gnu/linux")
+       (defvar sync_folder "~/sync/"))
+)
+     )
+(defvar nix_folder "~/Zero/nix-config")
+  ;;   (if my-server-p (string-equal system-type "gnu/linux"
+  ;; )
+  ;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")
+  ;;    ))
 
 (defun zb/visit-emacs-config ()
 (interactive)
-(find-file (concat sync_folder "dot_files/dot_emacs.d/dev_config.org"))
-)
-  ;;  (cond
-    ;;    ((string-equal system-type "windows-nt")
-    ;;     (defun zb/visit-emacs-config ()
-    ;;       (interactive)
-    ;;          (find-file "C:/Users/zacha/sync/dot_files/dot_emacs.d/dev_config.org")))
-    ;;    ((string-equal system-type "gnu/linux")
-    ;;      (defun zb/visit-emacs-config ()
-    ;;        (interactive)
-    ;;          (find-file "~/Sync/dot_files/dot_emacs.d/dev_config.org")))
-    ;; )
-	  ;; (defun zb/visit-emacs-config ()
-	  ;;   (interactive)
-	  ;;   (find-file "C:/Users/zacha/sync/dot_files/dot_emacs.d/dev_config.org"))
-	  ;;   ;;
-    ;(find-file "~.emacs.d/dev_config.org"))
-
-    (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
+(find-file (concat nix_folder "nixos/_mixins/base/emacs-config.org")))
+(global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
 
 (defun zb/kill-current-buffer ()
   "Kill the current buffer without prompting."

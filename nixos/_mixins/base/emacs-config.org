@@ -114,7 +114,9 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 
 ** Load up a theme
 #+begin_src emacs-lisp
-	(load-theme 'misterioso t)
+ (use-package misterioso-theme
+   :ensure t
+  (load-theme 'misterioso t))
 #+end_src
     # misterioso-theme
     # abyss-theme
@@ -170,8 +172,8 @@ This gives me a truly lovely ribbon-based modeline.
       :config
       (setq x-underline-at-descent-line t
 	    moody-mode-line-height 30)
-    (moody-replace-mode-line-buffer-identification))
-;;    (moody-replace-vc-mode))
+    (moody-replace-mode-line-buffer-identification)
+    (moody-replace-vc-mode))
 #+end_src
 
 ** Use =minions= to hide all minor modes
@@ -209,18 +211,18 @@ The default frame title isn't useful. This binds it
 to the name of the current project:
 
 #+begin_src emacs-lisp
-  (setq frame-title-format (system-name))
-;;  (setq frame-title-format "%b")
+;  (setq frame-title-format (system-name))
+  (setq frame-title-format "%b")
   ;; (setq frame-title-format '((:eval (projectile-project-name))))
 #+end_src
 ** UTF-8 complience
 
-# #+begin_src emacs-lisp
-#   (prefer-coding-system 'utf-8)
-#   (set-default-coding-systems 'utf-8)
-#   (set-terminal-coding-system 'utf-8)
-#   (setq-default buffer-file-coding-system 'utf-8)
-# #+end_src
+#+begin_src emacs-lisp
+  (prefer-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (setq-default buffer-file-coding-system 'utf-8)
+#+end_src
 
 ** Unicode fonts
 
@@ -269,17 +271,19 @@ Always compile packages, and use the newest version available.
 * keybinding
 ** define sync folder
 #+begin_src emacs-lisp
-  (cond
-     ((string-equal system-type "windows-nt")
-      (defvar sync_folder "C:/Users/zacha/sync/"))
-     (
-      (if my-laptop-p (string-equal system-type "gnu/linux")
-       (defvar sync_folder "~/sync/")))
-     )
-  ;;   (if my-server-p (string-equal system-type "gnu/linux"
-  ;; )
-  ;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")
-  ;;    ))
+    (cond
+       ((string-equal system-type "windows-nt")
+	(defvar sync_folder "C:/Users/zacha/sync/"))
+       (
+	(if my-laptop-p (string-equal system-type "gnu/linux")
+	 (defvar sync_folder "~/sync/"))
+  )
+       )
+  (defvar nix_folder "~/Zero/nix-config")
+    ;;   (if my-server-p (string-equal system-type "gnu/linux"
+    ;; )
+    ;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")
+    ;;    ))
 #+end_src
 ** Quickly visit Emacs configuration
 
@@ -289,35 +293,9 @@ Emacs configuration file.
 #+begin_src emacs-lisp
   (defun zb/visit-emacs-config ()
   (interactive)
-  (find-file (concat sync_folder "dot_files/dot_emacs.d/dev_config.org"))
-  )
-    ;;  (cond
-      ;;    ((string-equal system-type "windows-nt")
-      ;;     (defun zb/visit-emacs-config ()
-      ;;       (interactive)
-      ;;          (find-file "C:/Users/zacha/sync/dot_files/dot_emacs.d/dev_config.org")))
-      ;;    ((string-equal system-type "gnu/linux")
-      ;;      (defun zb/visit-emacs-config ()
-      ;;        (interactive)
-      ;;          (find-file "~/Sync/dot_files/dot_emacs.d/dev_config.org")))
-      ;; )
-	    ;; (defun zb/visit-emacs-config ()
-	    ;;   (interactive)
-	    ;;   (find-file "C:/Users/zacha/sync/dot_files/dot_emacs.d/dev_config.org"))
-	    ;;   ;;
-      ;(find-file "~.emacs.d/dev_config.org"))
-
-      (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
+  (find-file (concat nix_folder "nixos/_mixins/base/emacs-config.org")))
+  (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
 #+end_src
-
-# #+begin_src emacs-lisp
-#   (defun zb/visit-emacs-config ()
-#     (interactive)
-#     (find-file "C:/Users/zacha/sync/dot_files/dot_emacs.d/dev_config.org"))
-#     ;; (find-file "~.emacs.d/dev_config.org"))
-
-#   (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
-# #+end_src
 
 ** Always kill current buffer
 
