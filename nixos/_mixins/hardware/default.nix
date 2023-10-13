@@ -14,8 +14,6 @@
 
     kernelModules = [
       "acpi_call"
-      # "kvm-amd"
-      # "kvm-intel"
     ];
 
     initrd = {
