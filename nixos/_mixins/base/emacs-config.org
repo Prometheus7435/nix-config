@@ -5,7 +5,6 @@
 #+begin_src emacs-lisp
     (require 'package)
     (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-    ;;			   ("melpa-stable" . "https://stable.melpa.org/packages/")
 			     ("elpa" . "https://elpa.gnu.org/packages/")
 			     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			     )
@@ -50,13 +49,12 @@ packages on the server version than I do for my normal computers.
   ;; (global-auto-revert-mode)  ; simplifies syncing
 #+end_src
 
-
 * Set personal information
 
 ** Who am I? Where am I?
 #+begin_src emacs-lisp
-  (setq user-full-name ""
-	user-mail-address ""
+  (setq user-full-name "Zach Bombay"
+	user-mail-address "zacharybombay@gmail.com"
 	calendar-latitude 0.0
 	calendar-longitude 0.0
 	calendar-location-name "")
@@ -64,10 +62,10 @@ packages on the server version than I do for my normal computers.
 
 * UI
 ** Highlight Line Mode
-
 #+begin_src emacs-lisp
 (global-hl-line-mode 1)
 #+end_src
+
 ** Tweak window chrome
 
 I don't usually use the scroll bar. Testing using the Menu bar again
@@ -78,28 +76,28 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 ;    (menu-bar-mode 0)
     (scroll-bar-mode -1)
     (tooltip-mode -1)
-    (setq global-linum-mode t)
-    (column-number-mode t)
+;    (setq global-linum-mode t)
+;    (column-number-mode t)
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;    (set-fringe-mode 10)
     (setq visible-bell t)
 #+end_src
+
 ** Cursor
 #+begin_src emacs-lisp
   (setq-default cursor-type 'box)
-
 #+end_src
 
 ** clock
-#+begin_src emacs-lisp
-  (defface egoge-display-time
-   '((((type x w32 mac))
-      ;; #060525 is the background colour of my default face.
-      (:foreground "#060525" :inherit bold))
-     (((type tty))
-      (:foreground "blue")))
-   "Face used to display the time in the mode line.")
-#+end_src
+# #+begin_src emacs-lisp
+#   (defface egoge-display-time
+#    '((((type x w32 mac))
+#       ;; #060525 is the background colour of my default face.
+#       (:foreground "#060525" :inherit bold))
+#      (((type tty))
+#       (:foreground "blue")))
+#    "Face used to display the time in the mode line.")
+# #+end_src
 
 #+begin_src emacs-lisp
   ;; (setq display-time-string-forms
@@ -725,34 +723,10 @@ is commented out.
     :after (treemacs magit)
     :ensure t)
 #+end_src
-
-
-# * org-mode default
-#   #+begin_src emacs-lisp
-# 	(use-package org
-# 	  :ensure t)
-#   #+end_src
-#     forcing any .org files to start in org-mode
-#     #+begin_src emacs-lisp
-# ;      (add-hook 'org-mode-hook 'org-mode)
-#     ;(setq auto-mode-alist
-#     ;  (cons '("\\.org$" . org-mode) auto-mode-alist))
-#   #+end_src
-
-
 * LaTeX
 #+begin_src emacs-lisp
-  ;  (if my-laptop-p
-  ;;  (setq-default TeX-engine 'default) ;;the default engine
     (setq-default TeX-engine 'xetex) ;;change the default engine to XeTeX
-  ;  (setq-default TeX-engine 'xelatex) ;;change the default engine to XeTeX
-    ;; (setq-default TeX-engine 'pdflatex) ;;change the default engine to XeTeX
-  ;  )
-  ;  (if my-laptop-p
+  ;; engines - xelatex, pdflatex, default
     (setq-default TeX-PDF-mode t)
-  ;  )
-  ;  (if my-laptop-p
   ;;  (latex-preview-pane-enable)`
-  ;; ;  )
-
 #+end_src

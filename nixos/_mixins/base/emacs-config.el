@@ -1,6 +1,5 @@
 (require 'package)
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-  ;;			   ("melpa-stable" . "https://stable.melpa.org/packages/")
 			   ("elpa" . "https://elpa.gnu.org/packages/")
 			   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			   )
@@ -28,8 +27,8 @@
   ;; (when my-phone-p (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
   ;; (global-auto-revert-mode)  ; simplifies syncing
 
-(setq user-full-name ""
-      user-mail-address ""
+(setq user-full-name "Zach Bombay"
+      user-mail-address "zacharybombay@gmail.com"
       calendar-latitude 0.0
       calendar-longitude 0.0
       calendar-location-name "")
@@ -41,21 +40,13 @@
 ;    (menu-bar-mode 0)
     (scroll-bar-mode -1)
     (tooltip-mode -1)
-    (setq global-linum-mode t)
-    (column-number-mode t)
+;    (setq global-linum-mode t)
+;    (column-number-mode t)
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;    (set-fringe-mode 10)
     (setq visible-bell t)
 
 (setq-default cursor-type 'box)
-
-(defface egoge-display-time
- '((((type x w32 mac))
-    ;; #060525 is the background colour of my default face.
-    (:foreground "#060525" :inherit bold))
-   (((type tty))
-    (:foreground "blue")))
- "Face used to display the time in the mode line.")
 
 ;; (setq display-time-string-forms
 ;;      '((propertize (concat " " 24-hours ":" minutes " ")
@@ -385,15 +376,7 @@
   :after (treemacs magit)
   :ensure t)
 
-;  (if my-laptop-p
-;;  (setq-default TeX-engine 'default) ;;the default engine
-  (setq-default TeX-engine 'xetex) ;;change the default engine to XeTeX
-;  (setq-default TeX-engine 'xelatex) ;;change the default engine to XeTeX
-  ;; (setq-default TeX-engine 'pdflatex) ;;change the default engine to XeTeX
-;  )
-;  (if my-laptop-p
+(setq-default TeX-engine 'xetex) ;;change the default engine to XeTeX
+;; engines - xelatex, pdflatex, default
   (setq-default TeX-PDF-mode t)
-;  )
-;  (if my-laptop-p
 ;;  (latex-preview-pane-enable)`
-;; ;  )
