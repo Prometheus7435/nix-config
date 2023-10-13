@@ -114,30 +114,9 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 
 ** Load up a theme
 #+begin_src emacs-lisp
-
-	    ;	:ensure t)
-	    ;     (load-theme 'underwater t)
-      ;      (use-package spacemacs-dark-theme)
-    ;      (if (my-laptop-p)
-  ;	 (use-package underwater-theme
-	 (use-package gruvbox-theme
-	     :ensure t
-    ;	 :if my-laptop-p
-	    )
-    ;      (if (my-laptop-p)
-	      (load-theme 'gruvbox-dark-hard t)
-;	    (load-theme 'underwater t)
-      ;      (load-theme 'spacemacs-dark t)
-    ;)
-	    ;   (if my-laptop-p
-	    ;    (use-package misterioso-theme
-	    ;      :ensure t)
-	    ;    )
-	     ; (if my-laptop-p
-	    ;    (load-theme 'misterioso t)
-	    ;    )
+	(load-theme 'misterioso t)
 #+end_src
-
+    # misterioso-theme
     # abyss-theme
     # underwater-theme
     # challenger-deep-theme
@@ -152,47 +131,48 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 #+begin_src emacs-lisp
   (setq ido-enable-flex-matching t)
   (setq ido-everywhere t)
+  (setq ido-use-filename-at-point 'guess)
   (ido-mode 1)
 #+end_src
 
 ** Visual Line Mode
-
+Line wrapping
 #+begin_src emacs-lisp
   (global-visual-line-mode)
 #+end_src
 
 ** SpaceLine
-#+begin_src emacs-lisp
-(use-package spaceline
-  :ensure t
-  :config
-  (require 'spaceline-config)
-    (setq spaceline-buffer-encoding-abbrev-p nil)
-    (setq spaceline-line-column-p nil)
-    (setq spaceline-line-p nil)
-    (setq powerline-default-separator (quote arrow))
-    (spaceline-spacemacs-theme))
-#+end_src
+Spacemacs themed mode-line
+# #+begin_src emacs-lisp
+# (use-package spaceline
+#   :ensure t
+#   :config
+#   (require 'spaceline-config)
+#     (setq spaceline-buffer-encoding-abbrev-p nil)
+#     (setq spaceline-line-column-p nil)
+#     (setq spaceline-line-p nil)
+#     (setq powerline-default-separator (quote arrow))
+#     (spaceline-spacemacs-theme))
+# #+end_src
 
-remove the seperation between the spaceline bits
+# remove the seperation between the spaceline bits
 
-#+begin_src emacs-lisp
-(setq powerline-default-separator nil)
-#+end_src
+# #+begin_src emacs-lisp
+# (setq powerline-default-separator nil)
+# #+end_src
 
 ** Use =moody= for a beautiful modeline
 
 This gives me a truly lovely ribbon-based modeline.
 
-# #+begin_src emacs-lisp
-#     (use-package moody
-
-#       :config
-#       (setq x-underline-at-descent-line t
-# 	    moody-mode-line-height 30)
-#     (moody-replace-mode-line-buffer-identification))
-# ;;    (moody-replace-vc-mode))
-# #+end_src
+#+begin_src emacs-lisp
+    (use-package moody
+      :config
+      (setq x-underline-at-descent-line t
+	    moody-mode-line-height 30)
+    (moody-replace-mode-line-buffer-identification))
+;;    (moody-replace-vc-mode))
+#+end_src
 
 ** Use =minions= to hide all minor modes
 

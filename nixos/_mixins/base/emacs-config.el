@@ -57,45 +57,22 @@
 
 (display-time-mode 1)
 
-;	:ensure t)
-	    ;     (load-theme 'underwater t)
-      ;      (use-package spacemacs-dark-theme)
-    ;      (if (my-laptop-p)
-  ;	 (use-package underwater-theme
-	 (use-package gruvbox-theme
-	     :ensure t
-    ;	 :if my-laptop-p
-	    )
-    ;      (if (my-laptop-p)
-	      (load-theme 'gruvbox-dark-hard t)
-;	    (load-theme 'underwater t)
-      ;      (load-theme 'spacemacs-dark t)
-    ;)
-	    ;   (if my-laptop-p
-	    ;    (use-package misterioso-theme
-	    ;      :ensure t)
-	    ;    )
-	     ; (if my-laptop-p
-	    ;    (load-theme 'misterioso t)
-	    ;    )
+(load-theme 'misterioso t)
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
+(setq ido-use-filename-at-point 'guess)
 (ido-mode 1)
 
 (global-visual-line-mode)
 
-(use-package spaceline
-  :ensure t
-  :config
-  (require 'spaceline-config)
-    (setq spaceline-buffer-encoding-abbrev-p nil)
-    (setq spaceline-line-column-p nil)
-    (setq spaceline-line-p nil)
-    (setq powerline-default-separator (quote arrow))
-    (spaceline-spacemacs-theme))
+(use-package moody
 
-(setq powerline-default-separator nil)
+      :config
+      (setq x-underline-at-descent-line t
+	    moody-mode-line-height 30)
+    (moody-replace-mode-line-buffer-identification))
+;;    (moody-replace-vc-mode))
 
 (use-package minions
   :ensure t

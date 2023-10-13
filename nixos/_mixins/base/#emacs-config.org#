@@ -1,0 +1,712 @@
+#+TITLE: Emacs Configuration
+
+* Start-Up Procedure
+** Repositories
+#+begin_src emacs-lisp
+    (require 'package)
+    (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			     ("elpa" . "https://elpa.gnu.org/packages/")
+			     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			     )
+	  )
+			     ;; ("dnd" . "~/DND/")))
+
+  ;; (package-initialize)
+#+end_src
+** Use-Package
+#+begin_src emacs-lisp
+  (when (not (package-installed-p 'use-package))
+	(package-refresh-contents)
+	(package-install 'use-package))
+  (require 'use-package)
+#+end_src
+
+** Emacs Server
+Starts the emacs server. If I open new files using emacsclient, also displayed as emacs (client), they will be opened in the same emacs instance. Without this, the files will be opened in a new emacs instance. Which is very annoying if you have a bunch of stuff that runs on startup, like I do here.
+#+begin_src
+  (server-start)
+#+end_src
+
+** garbage collecting
+#+begin_src emacs-lisp
+  ;; The default is 800 kilobytes.  Measured in bytes.
+  (setq gc-cons-threshold (* 511 1024 1024))
+  (setq gc-cons-percentage 0.5)
+  (run-with-idle-timer 5 t #'garbage-collect)
+  (setq garbage-collection-messages t)
+#+end_src
+
+** Identify system it's running on
+This is from Sacha Chua's dot file. Want to give it a try as I don't need a bunch of the
+packages on the server version than I do for my normal computers.
+#+begin_src emacs-lisp
+;  (defvar my-laptop-p (equal (user-login-name) "shyfox"))
+  (defvar my-laptop-p (equal (system-name) "shyfox"))
+  (defvar my-server-p (and (equal (system-name) "localhost") (equal user-login-name "sg1")))
+  ;; (defvar my-phone-p (not (null (getenv "ANDROID_ROOT")))
+  ;;   "If non-nil, GNU Emacs is running on Termux.")
+  ;; (when my-phone-p (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+  ;; (global-auto-revert-mode)  ; simplifies syncing
+#+end_src
+
+* Set personal information
+
+** Who am I? Where am I?
+#+begin_src emacs-lisp
+  (setq user-full-name "Zach Bombay"
+	user-mail-address "zacharybombay@gmail.com"
+	calendar-latitude 0.0
+	calendar-longitude 0.0
+	calendar-location-name "")
+#+end_src
+
+* UI
+** Highlight Line Mode
+#+begin_src emacs-lisp
+(global-hl-line-mode 1)
+#+end_src
+
+** Tweak window chrome
+
+I don't usually use the scroll bar. Testing using the Menu bar again
+
+#+begin_src emacs-lisp
+    (setq inhibit-startup-message t)
+    (tool-bar-mode 0)
+;    (menu-bar-mode 0)
+    (scroll-bar-mode -1)
+    (tooltip-mode -1)
+;    (setq global-linum-mode t)
+;    (column-number-mode t)
+    (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;    (set-fringe-mode 10)
+    (setq visible-bell t)
+#+end_src
+
+** Cursor
+#+begin_src emacs-lisp
+  (setq-default cursor-type 'box)
+#+end_src
+
+** clock
+# #+begin_src emacs-lisp
+#   (defface egoge-display-time
+#    '((((type x w32 mac))
+#       ;; #060525 is the background colour of my default face.
+#       (:foreground "#060525" :inherit bold))
+#      (((type tty))
+#       (:foreground "blue")))
+#    "Face used to display the time in the mode line.")
+# #+end_src
+
+#+begin_src emacs-lisp
+  ;; (setq display-time-string-forms
+  ;;      '((propertize (concat " " 24-hours ":" minutes " ")
+  ;; 		'face 'egoge-display-time)))
+
+  (setq display-time-24hr-format nil)
+  (setq display-time-format "%H:%M / %d-%b-%Y  | ")
+#+end_src
+
+#+begin_src emacs-lisp
+  (display-time-mode 1)
+#+end_src
+
+** Load up a theme
+#+begin_src emacs-lisp
+	(load-theme 'misterioso t)
+#+end_src
+    # misterioso-theme
+    # abyss-theme
+    # underwater-theme
+    # challenger-deep-theme
+    # cyberpunk-theme
+    # dakrone-theme
+    # dracula-theme
+    # espresso-theme
+    # exotica-theme
+
+** Ido mode
+
+#+begin_src emacs-lisp
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (setq ido-use-filename-at-point 'guess)
+  (ido-mode 1)
+#+end_src
+
+** Visual Line Mode
+Line wrapping
+#+begin_src emacs-lisp
+  (global-visual-line-mode)
+#+end_src
+
+** SpaceLine
+Spacemacs themed mode-line
+# #+begin_src emacs-lisp
+# (use-package spaceline
+#   :ensure t
+#   :config
+#   (require 'spaceline-config)
+#     (setq spaceline-buffer-encoding-abbrev-p nil)
+#     (setq spaceline-line-column-p nil)
+#     (setq spaceline-line-p nil)
+#     (setq powerline-default-separator (quote arrow))
+#     (spaceline-spacemacs-theme))
+# #+end_src
+
+# remove the seperation between the spaceline bits
+
+# #+begin_src emacs-lisp
+# (setq powerline-default-separator nil)
+# #+end_src
+
+** Use =moody= for a beautiful modeline
+
+This gives me a truly lovely ribbon-based modeline.
+
+#+begin_src emacs-lisp
+    (use-package moody
+      :config
+      (setq x-underline-at-descent-line t
+	    moody-mode-line-height 30)
+    (moody-replace-mode-line-buffer-identification))
+;;    (moody-replace-vc-mode))
+#+end_src
+
+** Use =minions= to hide all minor modes
+
+I never want to see a minor mode, and manually adding =:diminish= to every
+use-package declaration is a hassle. This uses =minions= to hide all the minor
+modes in the modeline. Nice!
+
+By default there's a =;-)= after the major mode; that's an adorable default, but
+I'd rather skip it.
+
+#+begin_src emacs-lisp
+  (use-package minions
+    :ensure t
+    :config
+    (setq minions-mode-line-lighter ""
+	  minions-mode-line-delimiters '("" . ""))
+    (minions-mode 1))
+#+end_src
+
+** Set default font and configure font resizing
+
+I'm partial to Source Code Pro.
+
+#+begin_src emacs-lisp
+  ;;  (setq zb/default-font "Source Code Pro")
+    (set-face-attribute 'default nil :font "Source Code Pro" :height 105)
+    (setq zb/default-font-size 12)
+    (setq zb/current-font-size zb/default-font-size)
+#+end_src
+
+** Frame name
+
+The default frame title isn't useful. This binds it
+to the name of the current project:
+
+#+begin_src emacs-lisp
+  (setq frame-title-format (system-name))
+;;  (setq frame-title-format "%b")
+  ;; (setq frame-title-format '((:eval (projectile-project-name))))
+#+end_src
+** UTF-8 complience
+
+# #+begin_src emacs-lisp
+#   (prefer-coding-system 'utf-8)
+#   (set-default-coding-systems 'utf-8)
+#   (set-terminal-coding-system 'utf-8)
+#   (setq-default buffer-file-coding-system 'utf-8)
+# #+end_src
+
+** Unicode fonts
+
+# #+begin_src emacs-lisp
+#   (require 'unicode-fonts)
+#   (unicode-fonts-setup)
+# #+end_src
+
+** change yes / no to y/n
+#+begin_src emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+* Backups
+#+begin_src emacs-lisp
+  (setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
+#+end_src
+
+* Configure =use-package=
+
+I use =use-package= to install and configure my packages.
+My =init.el= includes the initial setup for =package.el=
+and ensures that =use-package= is installed, since I
+wanna do that right away.
+
+This makes sure that =use-package= will install the
+package if it's not already available. It also means that
+I should be able to open Emacs for the first time on a
+fresh Debian box and have my whole environment automatically
+installed. I'm not /totally/ sure about that, but we're
+gettin' close.
+
+#+begin_src emacs-lisp
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+#+end_src
+
+Always compile packages, and use the newest version available.
+
+#+begin_src emacs-lisp
+  (use-package auto-compile
+    :config (auto-compile-on-load-mode))
+  (setq load-prefer-newer t)
+#+end_src
+
+* keybinding
+** define sync folder
+#+begin_src emacs-lisp
+  (cond
+     ((string-equal system-type "windows-nt")
+      (defvar sync_folder "C:/Users/zacha/sync/"))
+     (
+      (if my-laptop-p (string-equal system-type "gnu/linux")
+       (defvar sync_folder "~/sync/")))
+     )
+  ;;   (if my-server-p (string-equal system-type "gnu/linux"
+  ;; )
+  ;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")
+  ;;    ))
+#+end_src
+** Quickly visit Emacs configuration
+
+I futz around with my dotfiles a lot. This binds =C-c e= to quickly open my
+Emacs configuration file.
+
+#+begin_src emacs-lisp
+  (defun zb/visit-emacs-config ()
+  (interactive)
+  (find-file (concat sync_folder "dot_files/dot_emacs.d/dev_config.org"))
+  )
+    ;;  (cond
+      ;;    ((string-equal system-type "windows-nt")
+      ;;     (defun zb/visit-emacs-config ()
+      ;;       (interactive)
+      ;;          (find-file "C:/Users/zacha/sync/dot_files/dot_emacs.d/dev_config.org")))
+      ;;    ((string-equal system-type "gnu/linux")
+      ;;      (defun zb/visit-emacs-config ()
+      ;;        (interactive)
+      ;;          (find-file "~/Sync/dot_files/dot_emacs.d/dev_config.org")))
+      ;; )
+	    ;; (defun zb/visit-emacs-config ()
+	    ;;   (interactive)
+	    ;;   (find-file "C:/Users/zacha/sync/dot_files/dot_emacs.d/dev_config.org"))
+	    ;;   ;;
+      ;(find-file "~.emacs.d/dev_config.org"))
+
+      (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
+#+end_src
+
+# #+begin_src emacs-lisp
+#   (defun zb/visit-emacs-config ()
+#     (interactive)
+#     (find-file "C:/Users/zacha/sync/dot_files/dot_emacs.d/dev_config.org"))
+#     ;; (find-file "~.emacs.d/dev_config.org"))
+
+#   (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
+# #+end_src
+
+** Always kill current buffer
+
+Assume that I always want to kill the current buffer when hitting =C-x k=.
+
+#+begin_src emacs-lisp
+  (defun zb/kill-current-buffer ()
+    "Kill the current buffer without prompting."
+    (interactive)
+    (kill-buffer (current-buffer)))
+
+  (global-set-key (kbd "C-x k") 'zb/kill-current-buffer)
+#+end_src
+
+** iBuffer
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+#+end_src
+** Electric
+
+If you put in a completing pair (like these parenthasis or quotes), this will complete the pair when you enter the first character.
+#+begin_src emacs-lisp
+  (setq electric-pair-pairs '(
+			     (?\{ . ?\})
+			     (?\( . ?\))
+			     (?\[ . ?\])
+			     (?\" . ?\")
+			     ))
+
+#+end_src
+
+#+begin_src emacs-lisp
+  (electric-pair-mode t)
+  (show-paren-mode 1)
+#+end_src
+
+** Rainbow
+If emacs sees a hex color value, it will change its color to match that value
+#+begin_src emacs-lisp
+(use-package rainbow-mode
+  :ensure t
+  :init
+    (add-hook 'prog-mode-hook 'rainbow-mode))
+#+end_src
+
+** Rainbox Deliminators
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :ensure t
+  :init
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+end_src
+
+** Expand region
+Starts by selecting the word the curror is currently on. Hit it again
+and the selected region expands. Repeat until the whole buffer is selected
+#+begin_src emacs-lisp
+(use-package expand-region
+  :ensure t
+  :bind ("C-q" . er/expand-region))
+#+end_src
+
+** Pop-up Kill Ring
+#+begin_src emacs-lisp
+(use-package popup-kill-ring
+  :ensure t
+  :bind ("M-y" . popup-kill-ring))
+#+end_src
+
+* Org-mode
+** To-Do strikethrough Done
+#+begin_src emacs-lisp
+(setq org-fontify-done-headline t)
+(custom-set-faces
+ '(org-done ((t (:foreground "PaleGreen"
+                             :weight normal
+                             :strike-through t))))
+ '(org-headline-done
+   ((((class color) (min-colors 16) (background dark))
+     (:foreground "LightSalmon" :strike-through t)))))
+#+end_src
+** Org-keybingings
+Bind a few handy keys.
+
+#+begin_src emacs-lisp
+  ;  (define-key global-map "\C-cl" 'org-store-link)
+   ;; (define-key global-map "\C-ca" 'org-agenda)
+    (define-key global-map "\C-cc" 'org-capture)
+#+end_src
+
+** Todo custumizations
+#+begin_src emacs-lisp
+    (define-key global-map "\C-c \C-t" 'org-todo)
+    (setq org-todo-keywords
+	'((sequence "TODO(t)" "ACTIVE(a)" "|" "DONE(d)")
+	  ;; (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+	  (sequence "|" "CANCELED(c)")))
+
+  (setq org-todo-keyword-faces
+	'(("TODO" . org-warning) ("ACTIVE" . "yellow")
+	  ("CANCELED" . (:foreground "blue" :weight bold))))
+#+end_src
+
+** Org-Capture
+#+begin_src emacs-lisp
+  (defvar org-tasks (concat sync_folder "org/inbox.org"))
+;;  (defvar org-tasks (concat sync_folder "org/gtd.org"))
+  (defvar org-journal (concat sync_folder "org/journal.org"))
+  (defvar org-shopping (concat sync_folder "org/shopping.org"))
+  (defvar org-gtd (concat sync_folder "org/gtd.org"))
+  (defvar org-cookbook (concat sync_folder "org/cookbook.org"))
+  (defvar org-book-path (concat sync_folder "org/books.org" ))
+
+   (setq org-capture-templates
+     '(
+       ("t" "Todo" entry (file+headline  org-tasks "Tasks")
+    "* TODO %?\n  %i\n  %a")
+       ("j" "Journal" entry (file+datetree org-journal)
+    "* %?\nEntered on %U\n  %i\n  %a")
+       ("s" "Shopping" entry (file+headline org-shopping "Shopping")
+    "* TODO %?\n %i")
+       ("g" "Groceries" entry (file+headline org-shopping "Groceries")
+    "* TODO %?\n %i")
+       ("m" "Media" entry (file+headline org-shopping "Media")
+    "* TODO %?\n %i")
+       ("x" "testing" entry (file+headline org-gtd "Tasks")
+  "* TODO %^{prompt}\n  %a")
+   ; Org-Chef particular
+       ("c" "Cookbook" entry (file org-cookbook)
+     "%(org-chef-get-recipe-from-url)"
+     :empty-lines 1)
+       ("m" "Manual Cookbook" entry (file org-cookbook)
+     "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
+       ("bm" "Book" entry (file org-book-path)
+	 "* %^{TITLE}\n:PROPERTIES:\n:ADDED: %<[%Y-%02m-%02d]>\n:END:%^{AUTHOR}p\n%?" :empty-lines 1)
+     ("b" "Book url" entry (file org-book-path)
+	     "%(let* ((url (substring-no-properties (current-kill 0)))
+		  (details (org-book-path-get-details url)))
+	     (when details (apply #'org-book-path-format 1 details)))")
+      )
+   )
+#+end_src
+
+* Test zone
+** Org-Chef
+record and organize cooking recipes. Uses org-capture and can parse recipes from some sites
+#+begin_src emacs-lisp
+  (use-package org-chef
+    :ensure t
+    :if my-laptop-p)
+#+end_src
+
+** Org-Book
+   way to catalog what you've read / reading
+   #+begin_src emacs-lisp
+	  (use-package org-books
+	    :ensure t
+	    :if my-laptop-p)
+	  (setq org-books-file org-book-path)
+	  ;; (setq org-capture-templates
+	  ;;    '(("bl" "Book log" item (function org-books-visit-book-log)
+	  ;;        "- %U %?" :prepend t)))
+   #+end_src
+
+   # #+begin_src emacs-lisp
+   #     ;; Set path to the reading list org file
+   #   (setq org-books-file org-book-path)
+   #   ;; (setq org-books-file (concat sync_folder "org/books.org"))
+   #     ;; A basic template file can be generated using the function `org-books-create-file'.
+   # #+end_src
+
+** Yasnippet
+#+begin_src emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :config
+      (use-package yasnippet-snippets
+	:ensure t)
+      (yas-reload-all))
+(yas-global-mode t)
+#+end_src
+
+
+** Flycheck
+#+begin_src emacs-lisp
+(use-package flycheck
+  :ensure t)
+#+end_src
+
+** Company Mode
+#+begin_src emacs-lisp
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 3))
+#+end_src
+
+** Switch and rebalance windows when splitting
+
+When splitting a window, I invariably want to switch to the new window. This
+makes that automatic.
+
+#+begin_src emacs-lisp
+  (defun zb/split-window-below-and-switch ()
+    "Split the window horizontally, then switch to the new pane."
+    (interactive)
+    (split-window-below)
+    (balance-windows)
+    (other-window 1))
+
+  (defun zb/split-window-right-and-switch ()
+    "Split the window vertically, then switch to the new pane."
+    (interactive)
+    (split-window-right)
+    (balance-windows)
+    (other-window 1))
+
+  (global-set-key (kbd "C-x 2") 'zb/split-window-below-and-switch)
+  (global-set-key (kbd "C-x 3") 'zb/split-window-right-and-switch)
+#+end_src
+** Dashboard
+- [ ] thing
+#+begin_src emacs-lisp
+  (defun my/dashboard-banner ()
+    """Set a dashboard banner including information on package
+       initialization time and garbage collections."""
+    (setq dashboard-banner-logo-title
+	  (format "Emacs ready in %.2f seconds with %d garbage collections."
+		  (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
+
+  (use-package dashboard
+    :init
+    (add-hook 'after-init-hook 'dashboard-refresh-buffer)
+    (add-hook 'dashboard-mode-hook 'my/dashboard-banner)
+    :config
+    (setq dashboard-startup-banner 'logo)
+    (dashboard-setup-startup-hook))
+#+end_src
+
+** Native Compiling
+#+begin_src emacs-lisp
+;; Silence compiler warnings as they can be pretty disruptive
+(setq comp-async-report-warnings-errors nil)
+#+end_src
+
+# * Org-mode
+# ** Agenda
+# Most of this came from a [[https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html][blog post]] by aaron bieber.
+# *** Custom commands
+# #+begin_src emacs-lisp
+# (global-set-key "\C-ca" 'org-agenda)
+# #+end_src
+
+# *** Where to look
+# #+begin_src emacs-lisp
+# (setq org-agenda-files '("~/sync/Nextcloud/calendar_agenda")
+# #+end_src
+
+# *** Custom commands for filtering
+# #+begin_src emacs-lisp
+# (defun air-org-skip-subtree-if-habit ()
+#   "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
+#   (let ((subtree-end (save-excursion (org-end-of-subtree t))))
+#     (if (string= (org-entry-get nil "STYLE") "habit")
+#         subtree-end
+#       nil)))
+# #+end_src
+
+# #+begin_src emacs-lisp
+# (defun air-org-skip-subtree-if-priority (priority)
+#   "Skip an agenda subtree if it has a priority of PRIORITY.
+# PRIORITY may be one of the characters ?A, ?B, or ?C."
+#   (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+#         (pri-value (* 1000 (- org-lowest-priority priority)))
+#         (pri-current (org-get-priority (thing-at-point 'line t))))
+#     (if (= pri-value pri-current)
+#         subtree-end
+#       nil)))
+# #+end_src
+
+# *** combined view
+# #+begin_src emacs-lisp
+# (setq org-agenda-custom-commands
+#       '(("d" "Daily agenda and all TODOs"
+#          ((tags "PRIORITY=\"A\""
+#                 ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+#                  (org-agenda-overriding-header "High-priority unfinished tasks:")))
+#           (agenda "" ((org-agenda-ndays 1)))
+#           (alltodo ""
+#                    ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
+#                                                    (air-org-skip-subtree-if-priority ?A)
+#                                                    (org-agenda-skip-if nil '(scheduled deadline))))
+#                     (org-agenda-overriding-header "ALL normal priority tasks:"))))
+#          ((org-agenda-compact-blocks t)))))
+# #+end_src
+
+* Programming
+** Language Server
+Set up the lsp for other modes to hook into
+#+begin_src emacs-lisp
+  (use-package lsp-mode
+    :ensure t
+    :if my-laptop-p
+    :config
+    (add-hook 'python-mode-hook #'lsp))
+#+end_src
+
+** Python
+
+# #+begin_src emacs-lisp
+# (use-package lsp-pyright
+#   :ensure t
+#   :hook (python-mode . (lambda ()
+#                           (require 'lsp-pyright)
+#                           (lsp))))  ; or lsp-deferred
+# #+end_scr
+*** Jedi
+
+Use-package blurb that I got from the lsp-jedi GitHub.
+Currently testing python-lsp-server, so this section
+is commented out.
+
+#+begin_src emacs-lisp
+(use-package lsp-jedi
+  :ensure t
+  :config
+  (with-eval-after-load "lsp-mode"
+    (add-to-list 'lsp-disabled-clients 'pyls)
+    (add-to-list 'lsp-enabled-clients 'jedi)))
+#+end_src
+
+*** Python-lsp-server
+#+begin_src emacs-lisp
+    (use-package lsp-mode
+      :if my-laptop-p
+      :ensure t
+      :hook
+      ((python-mode . lsp)))
+
+    (use-package lsp-ui
+      :if my-laptop-p
+      :ensure t
+      :commands lsp-ui-mode)
+
+
+  (use-package lsp-mode
+    :if my-laptop-p
+    :ensure t
+    :config
+    (lsp-register-custom-settings
+     '(("pyls.plugins.pyls_mypy.enabled" t t)
+       ("pyls.plugins.pyls_mypy.live_mode" nil t)
+       ("pyls.plugins.pyls_black.enabled" t t)
+       ("pyls.plugins.pyls_isort.enabled" t t)))
+    :hook
+    ((python-mode . lsp)))
+
+#+end_src
+*** Blacken
+#+begin_src emacs-lisp
+  (use-package blacken
+    :if my-laptop-p
+    :ensure t
+    :hook
+    ((python-mode . lsp)))
+
+#+end_src
+
+* Treemacs
+#+begin_src emacs-lisp
+  (use-package treemacs
+    :ensure t)
+  (use-package treemacs-projectile
+    :after (treemacs projectile)
+    :ensure t)
+
+  (use-package treemacs-icons-dired
+    :hook (dired-mode . treemacs-icons-dired-enable-once)
+    :ensure t)
+
+  (use-package treemacs-magit
+    :after (treemacs magit)
+    :ensure t)
+#+end_src
+* LaTeX
+#+begin_src emacs-lisp
+    (setq-default TeX-engine 'xetex) ;;change the default engine to XeTeX
+  ;; engines - xelatex, pdflatex, default
+    (setq-default TeX-PDF-mode t)
+  ;;  (latex-preview-pane-enable)`
+#+end_src
