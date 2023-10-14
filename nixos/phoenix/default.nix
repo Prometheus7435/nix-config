@@ -28,6 +28,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
+    supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
     # kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
     kernelModules = [
       "kvm-amd"
