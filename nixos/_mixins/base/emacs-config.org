@@ -114,9 +114,10 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 
 ** Load up a theme
 #+begin_src emacs-lisp
- (use-package misterioso-theme
-   :ensure t
-  (load-theme 'misterioso t))
+  (use-package misterioso-theme
+    :ensure t
+    )
+   (load-theme 'misterioso t)
 #+end_src
     # misterioso-theme
     # abyss-theme
