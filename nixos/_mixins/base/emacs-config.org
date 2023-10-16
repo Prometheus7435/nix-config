@@ -11,7 +11,7 @@
 	  )
 			     ;; ("dnd" . "~/DND/")))
 
-  ;; (package-initialize)
+    (package-initialize)
 #+end_src
 ** Use-Package
 #+begin_src emacs-lisp
@@ -114,9 +114,9 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 
 ** Load up a theme
 #+begin_src emacs-lisp
-  (use-package misterioso-theme
-    :ensure t
-    )
+;  (use-package misterioso-theme
+;    :ensure t
+;    )
    (load-theme 'misterioso t)
 #+end_src
     # misterioso-theme
@@ -688,4 +688,9 @@ is commented out.
   ;; engines - xelatex, pdflatex, default
     (setq-default TeX-PDF-mode t)
   ;;  (latex-preview-pane-enable)`
+#+end_src
+
+* Tramp
+#+begin_src
+    (setq tramp-default-method "ssh")
 #+end_src

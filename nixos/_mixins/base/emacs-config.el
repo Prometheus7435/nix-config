@@ -1,12 +1,12 @@
 (require 'package)
-  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			   ("elpa" . "https://elpa.gnu.org/packages/")
-			   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-			   )
-	)
-			   ;; ("dnd" . "~/DND/")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("elpa" . "https://elpa.gnu.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			 )
+      )
+			 ;; ("dnd" . "~/DND/")))
 
-;; (package-initialize)
+(package-initialize)
 
 (when (not (package-installed-p 'use-package))
       (package-refresh-contents)
@@ -57,10 +57,10 @@
 
 (display-time-mode 1)
 
-(use-package misterioso-theme
-  :ensure t
-  )
- (load-theme 'misterioso t)
+;  (use-package misterioso-theme
+;    :ensure t
+;    )
+   (load-theme 'misterioso t)
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
