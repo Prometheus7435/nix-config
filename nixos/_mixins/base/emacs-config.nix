@@ -11,8 +11,8 @@
     defaultEditor = true;
     package = with pkgs; (emacsWithPackagesFromUsePackage
       {
-        # config = ./emacs-init.el;
-        config = ./emacs-config.org;
+        config = ./emacs-init.el;
+        # config = ./emacs-config.org;
         package = pkgs.emacs29;
         # package = pkgs.emacs-unstable;  # rebuilds often
         alwaysEnsure = true;
