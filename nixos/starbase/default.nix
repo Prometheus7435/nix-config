@@ -36,7 +36,9 @@
 
   services = {
     zfs.autoScrub.enable = true;
+
     fstrim.enable = true;
+
     syncthing = {
       guiAddress = "0.0.0.0:8384";
     };

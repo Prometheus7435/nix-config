@@ -277,7 +277,7 @@ Always compile packages, and use the newest version available.
 	(defvar sync_folder "C:/Users/zacha/sync/"))
        (
 	(if my-laptop-p (string-equal system-type "gnu/linux")
-	 (defvar sync_folder "~/sync/"))
+	 (defvar sync_folder "~/Sync/"))
   )
        )
   (defvar nix_folder "~/Zero/nix-config")
