@@ -50,6 +50,7 @@
           epkgs.underwater-theme
           # epkgs.misterioso-theme
           epkgs.use-package
+          epkgs.yaml-mode
           epkgs.yasnippet-snippets
         ];
       }
