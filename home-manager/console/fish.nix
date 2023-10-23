@@ -35,7 +35,7 @@
       set -U fish_pager_color_progress brwhite '--background=cyan'
       '';
 
-
+      # starship init fish | source
       shellAbbrs = {
         mkhostid = "head -c4 /dev/urandom | od -A none -t x4";
         # https://github.com/NixOS/nixpkgs/issues/191128#issuecomment-1246030417

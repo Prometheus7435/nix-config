@@ -99,7 +99,9 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(setq auto-save-file-name-transforms '((".*" "~/.config/emacs/emacs_autosave/" t)))
 (setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
+(setq backup-by-copying t)
 
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
@@ -247,11 +249,11 @@
 (use-package flycheck
   :ensure t)
 
-(use-package company
-  :ensure t
-  :config
+;; (use-package company
+;;   :ensure t
+;;   :config
   (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 3))
+  (setq company-minimum-prefix-length 3) ;)
 
 (defun zb/split-window-below-and-switch ()
   "Split the window horizontally, then switch to the new pane."

@@ -239,7 +239,9 @@ to the name of the current project:
 
 * Backups
 #+begin_src emacs-lisp
+  (setq auto-save-file-name-transforms '((".*" "~/.config/emacs/emacs_autosave/" t)))
   (setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
+  (setq backup-by-copying t)
 #+end_src
 
 * Configure =use-package=
@@ -488,11 +490,11 @@ record and organize cooking recipes. Uses org-capture and can parse recipes from
 
 ** Company Mode
 #+begin_src emacs-lisp
-(use-package company
-  :ensure t
-  :config
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 3))
+  ;; (use-package company
+  ;;   :ensure t
+  ;;   :config
+    (setq company-idle-delay 0)
+    (setq company-minimum-prefix-length 3) ;)
 #+end_src
 
 ** Switch and rebalance windows when splitting

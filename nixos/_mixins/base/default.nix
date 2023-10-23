@@ -37,6 +37,7 @@
     cpufrequtils  # allows turboing on cpu cores
 
     patchelf
+    starship
   ];
 
   programs = {

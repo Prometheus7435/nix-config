@@ -4,6 +4,7 @@
     ./git.nix
     ./neofetch.nix
     ./xdg.nix
+    ./starship.nix
   ];
 
   home = {

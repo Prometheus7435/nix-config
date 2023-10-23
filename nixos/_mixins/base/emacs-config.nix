@@ -21,9 +21,16 @@
           epkgs.auto-compile
           epkgs.blacken
           epkgs.company
+          epkgs.projectile
           epkgs.dashboard
           epkgs.expand-region
           epkgs.flycheck
+          epkgs.helm
+          epkgs.environ
+          epkgs.expand-region
+          epkgs.helm-core
+          epkgs.helm-org
+          epkgs.lsp-mode
           epkgs.latex-preview-pane
           epkgs.lsp-jedi
           epkgs.lsp-ui
