@@ -22,6 +22,7 @@
           epkgs.blacken
           epkgs.company
           epkgs.projectile
+          epkgs.darktooth-theme
           epkgs.dashboard
           epkgs.expand-region
           epkgs.flycheck
@@ -48,7 +49,6 @@
           epkgs.treemacs-magit
           epkgs.treemacs-projectile
           epkgs.underwater-theme
-          # epkgs.misterioso-theme
           epkgs.use-package
           epkgs.yaml-mode
           epkgs.yasnippet-snippets

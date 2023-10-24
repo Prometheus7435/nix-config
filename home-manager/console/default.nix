@@ -4,7 +4,7 @@
     ./git.nix
     ./neofetch.nix
     ./xdg.nix
-    ./starship.nix
+    # ./starship.nix
   ];
 
   home = {
@@ -35,7 +35,7 @@
       du-dust                       # Modern Unix `du`
       entr                          # Modern Unix `watch`
       fd                            # Modern Unix `find`
-      ffmpeg-headless               # Terminal video encoder
+      # ffmpeg-headless               # Terminal video encoder
       glow                          # Terminal Markdown renderer
       gping                         # Modern Unix `ping`
       grype                         # Container vulnerability scanner

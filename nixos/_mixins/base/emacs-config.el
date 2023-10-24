@@ -58,9 +58,10 @@
 (display-time-mode 1)
 
 ;  (use-package misterioso-theme
-;    :ensure t
-;    )
-   (load-theme 'misterioso t)
+  ;    :ensure t
+  ;    )
+;   (load-theme 'misterioso t)
+   (load-theme 'darktooth t)
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
