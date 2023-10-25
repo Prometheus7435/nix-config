@@ -2,7 +2,7 @@
 
   environment.systemPackages = [
     pkgs.syncthing
-    pkgs.syncthingtray
+    # pkgs.syncthingtray
   ];
 
   services = {
