@@ -21,7 +21,7 @@
     ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
 
-    ../_mixins/services/syncthing.nix
+    # ../_mixins/services/syncthing.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 

@@ -11,6 +11,7 @@
       user = "${username}";
       dataDir = "/home/${username}/Sync";    # Default folder for new synced folders
       configDir = "/home/${username}/Sync/.config/syncthing";   # Folder for Syncthing's settings and keys
+      # guiAddress = "127.0.0.1:8384";
       # overrideFolders = true;
       devices = {
         "Pixel-6a" = { id = "X4VO5OM-XASGNWQ-2MRUUWD-CU76ZIA-XTEUF2Y-TK6M2EQ-F46XW2W-4POPNQX"; };
