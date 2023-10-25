@@ -1,8 +1,6 @@
 { inputs, pkgs, username, ... }: {
   imports = [
-    # inputs.plasma-manager.overlay
-    ../services/networkmanager.nix
-    # ./plasma-config.nix
+    # ../services/networkmanager.nix
   ];
 
   services = {
@@ -10,7 +8,7 @@
     xserver = {
       enable = true;
       layout = "us";
-      xkbVariant = "dvorak,";
+      # xkbVariant = "dvorak,";
       xkbOptions = "grp:win_space_toggle";
 
       desktopManager = {
@@ -21,7 +19,7 @@
 
       displayManager = {
         # sddm.enable = true;
-        lightdm.enable = true;
+        lightdm.enable = true;  # lets me autoLogin
         defaultSession = "plasmawayland";
         autoLogin = {
           enable = true;
