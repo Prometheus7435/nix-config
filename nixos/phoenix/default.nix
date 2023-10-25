@@ -21,7 +21,6 @@
     ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
 
-    # ../_mixins/services/syncthing.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -30,7 +29,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
-    supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
+    # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
     # kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
     kernelModules = [
       "kvm-amd"

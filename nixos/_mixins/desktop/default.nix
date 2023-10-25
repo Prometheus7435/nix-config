@@ -45,14 +45,16 @@
   };
 
   environment.systemPackages = [
+    pkgs.alacritty
     pkgs.vlc
     pkgs.chromium
     # pkgs.google-chrome
-    pkgs.via
+    # pkgs.via
     pkgs.libreoffice
     pkgs.thunderbird
 
-    # ffmpeg_6-full
+    pkgs.v4l-utils  # collection of device drivers and an API for supporting realtime video capture on Linux systems
+
     pkgs.calibre
 
     config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user

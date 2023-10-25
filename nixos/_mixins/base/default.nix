@@ -13,31 +13,29 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    binutils
-    curl
     # desktop-file-utils
+    # mergerfs
+    # mergerfs-tools
+
+    binutils
+    cpufrequtils  # allows turboing on cpu cores
+    curl
     file
     git
     home-manager
+    htop
     killall
     man-pages
-    mergerfs
-    mergerfs-tools
-    # nano
     pciutils
     rsync
     unzip
     usbutils
-    v4l-utils
     wget
-    xdg-utils
-    htop
+#    xdg-utils
     yt-dlp
-    alacritty
-    cpufrequtils  # allows turboing on cpu cores
 
-    patchelf
-    starship
+    # patchelf  # might be interesting, but not seeing a current usecase
+    # starship  # research more, it looks interesting
   ];
 
   programs = {
