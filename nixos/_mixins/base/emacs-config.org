@@ -343,7 +343,7 @@ If emacs sees a hex color value, it will change its color to match that value
 (use-package rainbow-mode
   :ensure t
   :init
-    (add-hook 'prog-mode-hook 'rainbow-mode))
+  (add-hook 'prog-mode-hook 'rainbow-mode))
 #+end_src
 
 ** Rainbox Deliminators
@@ -351,7 +351,7 @@ If emacs sees a hex color value, it will change its color to match that value
 (use-package rainbow-delimiters
   :ensure t
   :init
-    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 #+end_src
 
 ** Expand region
@@ -364,11 +364,11 @@ and the selected region expands. Repeat until the whole buffer is selected
 #+end_src
 
 ** Pop-up Kill Ring
-#+begin_src emacs-lisp
-(use-package popup-kill-ring
-  :ensure t
-  :bind ("M-y" . popup-kill-ring))
-#+end_src
+# #+begin_src emacs-lisp
+# (use-package popup-kill-ring
+#   :ensure t
+#   :bind ("M-y" . popup-kill-ring))
+# #+end_src
 
 * Org-mode
 ** To-Do strikethrough Done
