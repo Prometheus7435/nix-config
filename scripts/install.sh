@@ -88,4 +88,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     popd
 
     mkdir -p "/mnt/home/${TARGET_USER}/.local/state/nix/profiles"
+
+    # folders used in my emacs config
+    mkdir -p "/mnt/home/${TARGET_USER}/.config/emacs/backups"
+    mkdir -p "/mnt/home/${TARGET_USER}/.config/emacs/emacs_autosave"
 fi

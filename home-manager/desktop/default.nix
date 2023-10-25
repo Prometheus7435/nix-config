@@ -1,11 +1,11 @@
 { config, desktop, pkgs, ... }: {
   imports = [
-    ./celluloid.nix
-    ./dconf-editor.nix
+    # ./celluloid.nix
+    # ./dconf-editor.nix
     ./emote.nix
-    ./gitkraken.nix
-    ./meld.nix
-    ./tilix.nix
+    # ./gitkraken.nix
+    # ./meld.nix
+    # ./tilix.nix
     (./. + "/${desktop}.nix")
   ];
 
