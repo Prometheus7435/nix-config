@@ -11,12 +11,18 @@
   # environment.systemPackages = with pkgs.unstable; [
     authy
     # discord
-    blender
-    gimp-with-plugins
+
+    # blender
+    # gimp-with-plugins
+
     # gitkraken
-    inkscape
+
+    # inkscape
+
     # maestral-gui
-    meld
+
+    # meld  # Visual diff and merge tool
+
     # microsoft-edge
     # netflix
     # obs-studio

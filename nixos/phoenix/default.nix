@@ -18,7 +18,7 @@
 
     ../_mixins/services/cac.nix
     ../_mixins/services/media-edit.nix
-    ../_mixins/services/nfs/client.nix
+    # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
 
     (modulesPath + "/installer/scan/not-detected.nix")
