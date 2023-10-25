@@ -152,20 +152,16 @@
 (use-package rainbow-mode
   :ensure t
   :init
-    (add-hook 'prog-mode-hook 'rainbow-mode))
+  (add-hook 'prog-mode-hook 'rainbow-mode))
 
 (use-package rainbow-delimiters
   :ensure t
   :init
-    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (use-package expand-region
   :ensure t
   :bind ("C-q" . er/expand-region))
-
-(use-package popup-kill-ring
-  :ensure t
-  :bind ("M-y" . popup-kill-ring))
 
 (setq org-fontify-done-headline t)
 (custom-set-faces
