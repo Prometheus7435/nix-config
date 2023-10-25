@@ -61,7 +61,7 @@
   ;    :ensure t
   ;    )
 ;   (load-theme 'misterioso t)
-   (load-theme 'darktooth t)
+   (load-theme 'kaolin-ocean t)
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -119,7 +119,7 @@
        (defvar sync_folder "~/Sync/"))
 )
      )
-(defvar nix_folder "~/Zero/nix-config")
+(defvar nix_folder "~/Zero/nix-config/")
   ;;   (if my-server-p (string-equal system-type "gnu/linux"
   ;; )
   ;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")

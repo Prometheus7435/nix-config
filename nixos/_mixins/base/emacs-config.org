@@ -118,7 +118,7 @@ I don't usually use the scroll bar. Testing using the Menu bar again
   ;    :ensure t
   ;    )
 ;   (load-theme 'misterioso t)
-   (load-theme 'darktooth t)
+   (load-theme 'kaolin-ocean t)
 #+end_src
     # misterioso-theme
     # abyss-theme
@@ -283,7 +283,7 @@ Always compile packages, and use the newest version available.
 	 (defvar sync_folder "~/Sync/"))
   )
        )
-  (defvar nix_folder "~/Zero/nix-config")
+  (defvar nix_folder "~/Zero/nix-config/")
     ;;   (if my-server-p (string-equal system-type "gnu/linux"
     ;; )
     ;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")
@@ -318,6 +318,7 @@ Assume that I always want to kill the current buffer when hitting =C-x k=.
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-x C-b") 'ibuffer)
 #+end_src
+
 ** Electric
 
 If you put in a completing pair (like these parenthasis or quotes), this will complete the pair when you enter the first character.

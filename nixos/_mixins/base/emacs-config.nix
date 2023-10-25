@@ -23,6 +23,7 @@
           epkgs.company
           epkgs.projectile
           epkgs.darktooth-theme
+          epkgs.kaolin-themes
           epkgs.dashboard
           epkgs.expand-region
           epkgs.flycheck
