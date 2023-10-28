@@ -45,6 +45,7 @@
           epkgs.popup-kill-ring
           epkgs.rainbow-delimiters
           epkgs.rainbow-mode
+          epkgs.reformatter
           epkgs.spaceline
           epkgs.treemacs-icons-dired
           epkgs.treemacs-magit

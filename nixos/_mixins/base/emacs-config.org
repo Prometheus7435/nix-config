@@ -610,6 +610,17 @@ Set up the lsp for other modes to hook into
 #+end_src
 
 ** Python
+*** Ruff formatter
+#+begin_src emacs-lisp
+(use-package reformatter
+  :hook
+  (python-mode . ruff-format-on-save-mode)
+  (python-ts-mode . ruff-format-on-save-mode)
+  :config
+  (reformatter-define ruff-format
+    :program "ruff"
+    :args `("format" "--stdin-filename" ,buffer-file-name "-")))
+#+end_src
 
 # #+begin_src emacs-lisp
 # (use-package lsp-pyright

@@ -10,6 +10,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
+    ruff
     python3Full
     (python3.withPackages my-python-packages)
   ];

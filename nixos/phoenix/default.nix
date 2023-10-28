@@ -77,6 +77,6 @@
     pkgs.cbonsai
     pkgs.cowsay
     pkgs.fortune
-    pkgs.transmission
+    pkgs.qbittorrent
   ];
 }
