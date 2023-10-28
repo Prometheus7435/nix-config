@@ -75,5 +75,8 @@
   # environment.systemPackages = with pkgs; [
   environment.systemPackages = [
     pkgs.cbonsai
+    pkgs.cowsay
+    pkgs.fortune
+    pkgs.transmission
   ];
 }
