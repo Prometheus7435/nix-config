@@ -67,6 +67,8 @@
     # fingerprint reader
     fprintd.enable = true;
     fstrim.enable = true;
+
+    # packagekit.enable = true;
   };
   security = {
     pam.services.login.fprintAuth = true;
@@ -84,6 +86,11 @@
     pkgs.ansible
     pkgs.sshpass
 
+    # creating cloud images
     pkgs.xorriso
+    pkgs.cloud-init
+    pkgs.openssh
+
+    # pkgs.logseq
   ];
 }

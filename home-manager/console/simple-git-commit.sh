@@ -3,13 +3,13 @@
 echo -en "Enter commit message:  "
 read COMMIT_MESSAGE
 
-# echo ${COMMIT_MESSAGE}
+echo ${COMMIT_MESSAGE}
 
-pushd ~/Zero/nix-config
+pushd ${HOME}/Zero/nix-config
 
 git add .
 
-git commit -m ${COMMIT_MESSAGE}
+git commit -m "${COMMIT_MESSAGE}"
 
 git push
 
