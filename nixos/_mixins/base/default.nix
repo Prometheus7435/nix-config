@@ -25,6 +25,7 @@
     home-manager
     htop
     killall
+    libgccjit
     man-pages
     pciutils
     rsync

@@ -130,6 +130,11 @@
 (find-file (concat nix_folder "nixos/_mixins/base/emacs-config.org")))
 (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
 
+(defun zb/visit-nixos-config ()
+(interactive)
+(find-file (concat nix_folder "flake.nix")))
+(global-set-key (kbd "C-c n") 'zb/visit-nixos-config)
+
 (defun zb/kill-current-buffer ()
   "Kill the current buffer without prompting."
   (interactive)
@@ -293,6 +298,15 @@
   :config
   (add-hook 'python-mode-hook #'lsp))
 
+(use-package reformatter
+  :hook
+  (python-mode . ruff-format-on-save-mode)
+  (python-ts-mode . ruff-format-on-save-mode)
+  :config
+  (reformatter-define ruff-format
+    :program "ruff"
+    :args `("format" "--stdin-filename" ,buffer-file-name "-")))
+
 (use-package lsp-jedi
   :ensure t
   :config
@@ -321,12 +335,6 @@
      ("pyls.plugins.pyls_mypy.live_mode" nil t)
      ("pyls.plugins.pyls_black.enabled" t t)
      ("pyls.plugins.pyls_isort.enabled" t t)))
-  :hook
-  ((python-mode . lsp)))
-
-(use-package blacken
-  :if my-laptop-p
-  :ensure t
   :hook
   ((python-mode . lsp)))
 

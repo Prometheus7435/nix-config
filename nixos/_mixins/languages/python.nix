@@ -6,6 +6,7 @@ let
     jedi
     black
     jedi-language-server
+    pip
   ];
 in
 {

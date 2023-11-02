@@ -1,4 +1,5 @@
 #+TITLE: Emacs Configuration
+#+PROPERTY: header-args:emacs-lisp :tangle yes
 
 * Start-Up Procedure
 ** Repositories
@@ -299,6 +300,18 @@ Emacs configuration file.
   (interactive)
   (find-file (concat nix_folder "nixos/_mixins/base/emacs-config.org")))
   (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
+#+end_src
+
+** Quickly visit NixOs configuration
+
+I futz around with my dotfiles a lot. This binds =C-c e= to quickly open my
+Emacs configuration file.
+
+#+begin_src emacs-lisp
+  (defun zb/visit-nixos-config ()
+  (interactive)
+  (find-file (concat nix_folder "flake.nix")))
+  (global-set-key (kbd "C-c n") 'zb/visit-nixos-config)
 #+end_src
 
 ** Always kill current buffer
@@ -672,14 +685,14 @@ is commented out.
 
 #+end_src
 *** Blacken
-#+begin_src emacs-lisp
-  (use-package blacken
-    :if my-laptop-p
-    :ensure t
-    :hook
-    ((python-mode . lsp)))
+# #+begin_src emacs-lisp
+#   (use-package blacken
+#     :if my-laptop-p
+#     :ensure t
+#     :hook
+#     ((python-mode . lsp)))
 
-#+end_src
+# #+end_src
 
 * Treemacs
 #+begin_src emacs-lisp
@@ -697,6 +710,7 @@ is commented out.
     :after (treemacs magit)
     :ensure t)
 #+end_src
+
 * LaTeX
 #+begin_src emacs-lisp
     (setq-default TeX-engine 'xetex) ;;change the default engine to XeTeX

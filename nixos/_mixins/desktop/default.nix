@@ -58,6 +58,10 @@
     pkgs.calibre
 
     config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
+
+    pkgs.logseq
+
+    # pkgs.appflowy
   ];
 
     # use fonts specified by user rather than default ones
