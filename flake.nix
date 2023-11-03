@@ -57,6 +57,7 @@
       emacs-overlay,
       plasma-manager,
       nur,
+      xremap-flake,
       ...
   }@inputs:
     let
@@ -123,6 +124,7 @@
           modules = [
             ./nixos
             nur.nixosModules.nur
+            inputs.xremap-flake.nixosModules.default
           ];
         };
 

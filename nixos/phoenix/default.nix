@@ -46,16 +46,19 @@
   };
 
   services = {
-    # xremap = {
-    #   userName = "${username}";  # run as a systemd service in alice
-    #   serviceMode = "user";  # run xremap as user
-    #   config = {
-    #     modmap = [
-    #       name = "Global";
-    #       remap = { "CapsLock" = "Ctrl"; };  # globally remap CapsLock to Ctrl
-    #     ];
-    #   };
-    # };
+    xremap = {
+      userName = username;  # run as a systemd service in alice
+      serviceMode = "user";  # run xremap as user
+      # withKDE = true;
+      config = {
+        modmap = [
+          {
+          name = "Global";
+          remap = { "CapsLock" = "Ctrl"; };  # globally remap CapsLock to Ctrl
+          }
+        ];
+      };
+    };
 
     tlp = {
       settings = {
@@ -66,6 +69,7 @@
 
     # fingerprint reader
     fprintd.enable = true;
+
     fstrim.enable = true;
 
     # packagekit.enable = true;
@@ -76,11 +80,12 @@
   };
   # environment.systemPackages = with pkgs; [
   environment.systemPackages = [
+    # just fun
     pkgs.cbonsai
     pkgs.cowsay
     pkgs.fortune
+
     pkgs.qbittorrent
-    # pkgs.nextcloud-client
 
     # need for ansible to work
     pkgs.ansible
