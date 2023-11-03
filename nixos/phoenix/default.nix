@@ -80,7 +80,7 @@
     pkgs.cowsay
     pkgs.fortune
     pkgs.qbittorrent
-    pkgs.nextcloud-client
+    # pkgs.nextcloud-client
 
     # need for ansible to work
     pkgs.ansible
