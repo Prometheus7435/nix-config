@@ -36,9 +36,9 @@
       enable = true;
       package = pkgs.firefox-wayland;
     };
-    steam = {
-      enable = true;
-    };
+    # steam = {
+    #   enable = true;
+    # };
   };
 
   services = {

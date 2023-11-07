@@ -377,9 +377,9 @@ and the selected region expands. Repeat until the whole buffer is selected
 #+end_src
 
 ** Comment Region
-#+begin_src emacs-lisp
-  (define-key global-map "\C-x \C-;" 'comment-line)
-#+end_src
+# #+begin_src emacs-lisp
+#   (define-key global-map "\C-x \C-;" 'comment-line)
+# #+end_src
 
 ** Pop-up Kill Ring
 # #+begin_src emacs-lisp

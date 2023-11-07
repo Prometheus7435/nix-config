@@ -1,10 +1,11 @@
-{
+q{
   description =
     "My NixOS config that's 'inspired' from Wimpy's NixOS and Home Manager Configuration basing from the nix-starter-config";
 
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
@@ -38,13 +39,13 @@
     #TODO: Emacs overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
-    #TODO: KDE overlay
-
     # NUR
     nur.url = "github:nix-community/NUR";
 
     # customize keyboard in Wayland
     xremap-flake.url = "github:xremap/nix-flake";
+    xremap-flake.inputs.nixpkgs.follows = "nixpkgs";
+    xremap-flake.inputs.home-manager.follows = "home-manager";
   };
 
   outputs = {
@@ -124,7 +125,7 @@
           modules = [
             ./nixos
             nur.nixosModules.nur
-            inputs.xremap-flake.nixosModules.default
+#             inputs.xremap-flake.nixosModules.default
           ];
         };
 

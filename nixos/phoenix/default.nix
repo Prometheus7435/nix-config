@@ -4,7 +4,7 @@
 # RAM: 32GB
 # NVME: Samsung SSD 980 1TB
 
-{ config, inputs, xremap-flake, lib, pkgs, username, modulesPath, ... }:
+{ config, inputs, lib, pkgs, username, modulesPath, ... }:
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
@@ -46,19 +46,19 @@
   };
 
   services = {
-    xremap = {
-      userName = username;  # run as a systemd service in alice
-      serviceMode = "user";  # run xremap as user
-      # withKDE = true;
-      config = {
-        modmap = [
-          {
-          name = "Global";
-          remap = { "CapsLock" = "Ctrl"; };  # globally remap CapsLock to Ctrl
-          }
-        ];
-      };
-    };
+    # xremap = {
+    #   userName = username;  # run as a systemd service in alice
+    #   serviceMode = "user";  # run xremap as user
+    #   # withKDE = true;
+    #   config = {
+    #     modmap = [
+    #       {
+    #       name = "Global";
+    #       remap = { "CapsLock" = "Ctrl"; };  # globally remap CapsLock to Ctrl
+    #       }
+    #     ];
+    #   };
+    # };
 
     tlp = {
       settings = {
@@ -97,5 +97,6 @@
     pkgs.openssh
 
     # pkgs.logseq
+    # pkgs.google-chrome
   ];
 }

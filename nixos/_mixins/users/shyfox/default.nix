@@ -6,7 +6,7 @@ in
    # Only include desktop components if one is supplied.
   imports = [
     ./packages-console.nix
-    ../../services/cac.nix
+#    ../../services/cac.nix
     ../../services/nfs/client.nix
   ] ++ lib.optional (builtins.isString desktop) ./packages-desktop.nix;
 

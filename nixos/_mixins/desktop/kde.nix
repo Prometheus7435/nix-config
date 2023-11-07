@@ -30,13 +30,13 @@
     };
 
   };
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
-  };
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [
+  #     fcitx5-mozc
+  #     fcitx5-gtk
+  #   ];
+  # };
 
   programs = {
     dconf = {
@@ -63,7 +63,7 @@
     libsForQt5.kfind
     libsForQt5.plasma-integration
     libsForQt5.xdg-desktop-portal-kde
-    # libsForQt5.kdecoration
+    libsForQt5.kdecoration
     okular
     yakuake
     kate

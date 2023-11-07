@@ -168,8 +168,6 @@
   :ensure t
   :bind ("C-q" . er/expand-region))
 
-(define-key global-map "\C-x \C-;" 'comment-line)
-
 (setq org-fontify-done-headline t)
 (custom-set-faces
  '(org-done ((t (:foreground "PaleGreen"
