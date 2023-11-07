@@ -214,8 +214,8 @@ The default frame title isn't useful. This binds it
 to the name of the current project:
 
 #+begin_src emacs-lisp
-;  (setq frame-title-format (system-name))
-  (setq frame-title-format "%b")
+  (setq frame-title-format (system-name))
+;  (setq frame-title-format "%b")
   ;; (setq frame-title-format '((:eval (projectile-project-name))))
 #+end_src
 ** UTF-8 complience
@@ -312,6 +312,13 @@ Emacs configuration file.
   (interactive)
   (find-file (concat nix_folder "flake.nix")))
   (global-set-key (kbd "C-c n") 'zb/visit-nixos-config)
+#+end_src
+
+#+begin_src emacs-lisp
+  (defun zb/visit-machine-nixos-config ()
+  (interactive)
+  (find-file (concat nix_folder "nixos/" (system-name) "/default.nix")))
+  (global-set-key (kbd "C-c m") 'zb/visit-machine-nixos-config)
 #+end_src
 
 ** Always kill current buffer
@@ -467,16 +474,14 @@ Bind a few handy keys.
 record and organize cooking recipes. Uses org-capture and can parse recipes from some sites
 #+begin_src emacs-lisp
   (use-package org-chef
-    :ensure t
-    :if my-laptop-p)
+    :ensure t)
 #+end_src
 
 ** Org-Book
    way to catalog what you've read / reading
    #+begin_src emacs-lisp
 	  (use-package org-books
-	    :ensure t
-	    :if my-laptop-p)
+	    :ensure t)
 	  (setq org-books-file org-book-path)
 	  ;; (setq org-capture-templates
 	  ;;    '(("bl" "Book log" item (function org-books-visit-book-log)

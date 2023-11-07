@@ -89,8 +89,8 @@
   (setq zb/default-font-size 12)
   (setq zb/current-font-size zb/default-font-size)
 
-;  (setq frame-title-format (system-name))
-  (setq frame-title-format "%b")
+(setq frame-title-format (system-name))
+;  (setq frame-title-format "%b")
   ;; (setq frame-title-format '((:eval (projectile-project-name))))
 
 (prefer-coding-system 'utf-8)
@@ -134,6 +134,11 @@
 (interactive)
 (find-file (concat nix_folder "flake.nix")))
 (global-set-key (kbd "C-c n") 'zb/visit-nixos-config)
+
+(defun zb/visit-machine-nixos-config ()
+(interactive)
+(find-file (concat nix_folder "nixos/" (system-name) "/default.nix")))
+(global-set-key (kbd "C-c m") 'zb/visit-machine-nixos-config)
 
 (defun zb/kill-current-buffer ()
   "Kill the current buffer without prompting."
@@ -229,12 +234,10 @@
    )
 
 (use-package org-chef
-  :ensure t
-  :if my-laptop-p)
+  :ensure t)
 
 (use-package org-books
-  :ensure t
-  :if my-laptop-p)
+  :ensure t)
 (setq org-books-file org-book-path)
 ;; (setq org-capture-templates
 ;;    '(("bl" "Book log" item (function org-books-visit-book-log)

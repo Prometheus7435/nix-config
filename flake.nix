@@ -1,4 +1,4 @@
-q{
+{
   description =
     "My NixOS config that's 'inspired' from Wimpy's NixOS and Home Manager Configuration basing from the nix-starter-config";
 
