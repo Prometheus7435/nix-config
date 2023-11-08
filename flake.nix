@@ -112,7 +112,7 @@
           modules = [ ./nixos ];
         };
 
-        phoenix = nixpkgs.lib.nixosSystem {
+        phoenix = nixpkgs-unstable.lib.nixosSystem {
           # sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
           specialArgs = {
             inherit inputs outputs stateVersion;
