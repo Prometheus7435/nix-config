@@ -120,10 +120,6 @@
 )
      )
 (defvar nix_folder "~/Zero/nix-config/")
-  ;;   (if my-server-p (string-equal system-type "gnu/linux"
-  ;; )
-  ;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")
-  ;;    ))
 
 (defun zb/visit-emacs-config ()
 (interactive)
@@ -154,7 +150,12 @@
 			   (?\( . ?\))
 			   (?\[ . ?\])
 			   (?\" . ?\")
+			   (?\' . ?\')
 			   ))
+(setq electric-pair-inhibit-predicate (lambda (c) (char-equal c ?<)))
+;; (setq electric-pair-inhibit-predicate
+;;     `(lambda (c)
+;;        (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
 
 (electric-pair-mode t)
 (show-paren-mode 1)

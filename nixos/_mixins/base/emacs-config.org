@@ -285,10 +285,6 @@ Always compile packages, and use the newest version available.
   )
        )
   (defvar nix_folder "~/Zero/nix-config/")
-    ;;   (if my-server-p (string-equal system-type "gnu/linux"
-    ;; )
-    ;;     (defvar sync_folder "/atlantis/docker_apps/syncthing/config/Sync/")
-    ;;    ))
 #+end_src
 ** Quickly visit Emacs configuration
 
@@ -304,8 +300,7 @@ Emacs configuration file.
 
 ** Quickly visit NixOs configuration
 
-I futz around with my dotfiles a lot. This binds =C-c e= to quickly open my
-Emacs configuration file.
+I futz around with my NixOS config a lot. This binds =C-c n= to quickly open the flake.nix configuration file.
 
 #+begin_src emacs-lisp
   (defun zb/visit-nixos-config ()
@@ -314,6 +309,7 @@ Emacs configuration file.
   (global-set-key (kbd "C-c n") 'zb/visit-nixos-config)
 #+end_src
 
+More often than not, I'm tinkering with the specific machine. Here I can directly get to the boxes default.nix
 #+begin_src emacs-lisp
   (defun zb/visit-machine-nixos-config ()
   (interactive)
@@ -348,8 +344,12 @@ If you put in a completing pair (like these parenthasis or quotes), this will co
 			     (?\( . ?\))
 			     (?\[ . ?\])
 			     (?\" . ?\")
+			     (?\' . ?\')
 			     ))
-
+  (setq electric-pair-inhibit-predicate (lambda (c) (char-equal c ?<)))
+  ;; (setq electric-pair-inhibit-predicate
+  ;;     `(lambda (c)
+  ;;        (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
 #+end_src
 
 #+begin_src emacs-lisp

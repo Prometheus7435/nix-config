@@ -98,5 +98,6 @@
 
     # pkgs.logseq
     # pkgs.google-chrome
+    pkgs.kitty
   ];
 }
