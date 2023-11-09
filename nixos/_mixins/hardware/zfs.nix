@@ -5,7 +5,7 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod;
     # kernelPackages = pkgs.linux_xanmod_stable;
 
     # kernelPackages = pkgs.linuxKernel.packages.linux_xanmod.zfs

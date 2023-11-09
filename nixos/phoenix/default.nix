@@ -14,7 +14,7 @@
     ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/systemd-boot.nix
-    ../_mixins/hardware/zfs.nix
+    # ../_mixins/hardware/zfs.nix
 
     ../_mixins/services/cac.nix
     ../_mixins/services/media-edit.nix
@@ -29,6 +29,9 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
+    supportedFilesystems = [ "zfs" ];
+    zfs.requestEncryptionCredentials = true;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
     # kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
     kernelModules = [
@@ -46,6 +49,8 @@
   };
 
   services = {
+    zfs.autoScrub.enable = true;
+    fstrim.enable = true;
     # xremap = {
     #   userName = username;  # run as a systemd service in alice
     #   serviceMode = "user";  # run xremap as user
