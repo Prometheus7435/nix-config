@@ -150,7 +150,6 @@
 			   (?\( . ?\))
 			   (?\[ . ?\])
 			   (?\" . ?\")
-			   (?\' . ?\')
 			   ))
 (setq electric-pair-inhibit-predicate (lambda (c) (char-equal c ?<)))
 ;; (setq electric-pair-inhibit-predicate

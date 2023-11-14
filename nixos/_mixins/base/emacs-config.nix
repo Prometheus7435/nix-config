@@ -46,6 +46,7 @@
           epkgs.flycheck
           epkgs.helm
           epkgs.helm-core
+          epkgs.helm-ispell
           epkgs.helm-org
           epkgs.kaolin-themes
           epkgs.latex-preview-pane
@@ -81,6 +82,8 @@
     # applications needed for the emacs packages to hook into
     texlive.combined.scheme-full
     nixfmt
+    ispell
+    aspell
   ];
 
 }

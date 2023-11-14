@@ -344,13 +344,15 @@ If you put in a completing pair (like these parenthasis or quotes), this will co
 			     (?\( . ?\))
 			     (?\[ . ?\])
 			     (?\" . ?\")
-			     (?\' . ?\')
 			     ))
   (setq electric-pair-inhibit-predicate (lambda (c) (char-equal c ?<)))
   ;; (setq electric-pair-inhibit-predicate
   ;;     `(lambda (c)
   ;;        (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
 #+end_src
+
+#+RESULTS:
+| lambda | (c) | (char-equal c 60) |
 
 #+begin_src emacs-lisp
   (electric-pair-mode t)

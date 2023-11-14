@@ -75,10 +75,8 @@
     # fingerprint reader
     fprintd.enable = true;
 
-    fstrim.enable = true;
-
-    # packagekit.enable = true;
   };
+
   security = {
     pam.services.login.fprintAuth = true;
     pam.services.xscreensaver.fprintAuth = true;
