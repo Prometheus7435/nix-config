@@ -73,6 +73,7 @@
           epkgs.use-package
           epkgs.yaml-mode
           epkgs.yasnippet-snippets
+          epkgs.which-key
         ];
       }
     );

@@ -359,3 +359,7 @@
 ;; engines - xelatex, pdflatex, default
   (setq-default TeX-PDF-mode t)
 ;;  (latex-preview-pane-enable)`
+
+(use-package which-key
+  :ensure t)
+(setq which-key-mode t)

@@ -735,3 +735,11 @@ is commented out.
 #+begin_src
     (setq tramp-default-method "ssh")
 #+end_src
+
+* [[https://github.com/justbur/emacs-which-key][Which-Key]]
+Displays the key bindings following your currently entered incomplete command (a prefix) in a popup.
+#+begin_src emacs-lisp
+  (use-package which-key
+    :ensure t)
+  (setq which-key-mode t)
+#+end_src

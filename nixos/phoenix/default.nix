@@ -49,7 +49,10 @@
   };
 
   services = {
-    zfs.autoScrub.enable = true;
+    zfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+    };
     fstrim.enable = true;
     # xremap = {
     #   userName = username;  # run as a systemd service in alice
