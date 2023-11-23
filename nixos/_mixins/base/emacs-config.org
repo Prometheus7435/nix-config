@@ -14,12 +14,39 @@
 
     (package-initialize)
 #+end_src
-** Use-Package
+
+** Configure =use-package=
+
+I use =use-package= to install and configure my packages.
+My =init.el= includes the initial setup for =package.el=
+and ensures that =use-package= is installed, since I
+wanna do that right away.
+
+This makes sure that =use-package= will install the
+package if it's not already available. It also means that
+I should be able to open Emacs for the first time on a
+fresh Debian box and have my whole environment automatically
+installed. I'm not /totally/ sure about that, but we're
+gettin' close.
+
 #+begin_src emacs-lisp
   (when (not (package-installed-p 'use-package))
 	(package-refresh-contents)
 	(package-install 'use-package))
   (require 'use-package)
+#+end_src
+
+#+begin_src emacs-lisp
+;  (require 'use-package-ensure)
+;  (setq use-package-always-ensure t)
+#+end_src
+
+Always compile packages, and use the newest version available.
+
+#+begin_src emacs-lisp
+  (use-package auto-compile
+    :config (auto-compile-on-load-mode))
+  (setq load-prefer-newer t)
 #+end_src
 
 ** Emacs Server
@@ -41,12 +68,9 @@ Starts the emacs server. If I open new files using emacsclient, also displayed a
 This is from Sacha Chua's dot file. Want to give it a try as I don't need a bunch of the
 packages on the server version than I do for my normal computers.
 #+begin_src emacs-lisp
-;  (defvar my-laptop-p (equal (user-login-name) "shyfox"))
   (defvar my-laptop-p (equal (system-name) "shyfox"))
   (defvar my-server-p (and (equal (system-name) "localhost") (equal user-login-name "sg1")))
   ;; (defvar my-phone-p (not (null (getenv "ANDROID_ROOT")))
-  ;;   "If non-nil, GNU Emacs is running on Termux.")
-  ;; (when my-phone-p (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
   ;; (global-auto-revert-mode)  ; simplifies syncing
 #+end_src
 
@@ -72,16 +96,16 @@ packages on the server version than I do for my normal computers.
 I don't usually use the scroll bar. Testing using the Menu bar again
 
 #+begin_src emacs-lisp
-    (setq inhibit-startup-message t)
-    (tool-bar-mode 0)
+ (setq inhibit-startup-message t)
+ (tool-bar-mode 0)
 ;    (menu-bar-mode 0)
-    (scroll-bar-mode -1)
-    (tooltip-mode -1)
+ (scroll-bar-mode -1)
+ (tooltip-mode -1)
 ;    (setq global-linum-mode t)
-;    (column-number-mode t)
-    (add-hook 'before-save-hook 'delete-trailing-whitespace)
+ (column-number-mode t)
+ (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;    (set-fringe-mode 10)
-    (setq visible-bell t)
+ (setq visible-bell t)
 #+end_src
 
 ** Cursor
@@ -90,21 +114,7 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 #+end_src
 
 ** clock
-# #+begin_src emacs-lisp
-#   (defface egoge-display-time
-#    '((((type x w32 mac))
-#       ;; #060525 is the background colour of my default face.
-#       (:foreground "#060525" :inherit bold))
-#      (((type tty))
-#       (:foreground "blue")))
-#    "Face used to display the time in the mode line.")
-# #+end_src
-
 #+begin_src emacs-lisp
-  ;; (setq display-time-string-forms
-  ;;      '((propertize (concat " " 24-hours ":" minutes " ")
-  ;; 		'face 'egoge-display-time)))
-
   (setq display-time-24hr-format nil)
   (setq display-time-format "%H:%M / %d-%b-%Y  | ")
 #+end_src
@@ -115,10 +125,6 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 
 ** Load up a theme
 #+begin_src emacs-lisp
-  ;  (use-package misterioso-theme
-  ;    :ensure t
-  ;    )
-;   (load-theme 'misterioso t)
    (load-theme 'kaolin-ocean t)
 #+end_src
     # misterioso-theme
@@ -202,7 +208,6 @@ I'd rather skip it.
 I'm partial to Source Code Pro.
 
 #+begin_src emacs-lisp
-  ;;  (setq zb/default-font "Source Code Pro")
     (set-face-attribute 'default nil :font "Source Code Pro" :height 105)
     (setq zb/default-font-size 12)
     (setq zb/current-font-size zb/default-font-size)
@@ -246,33 +251,6 @@ to the name of the current project:
   (setq backup-by-copying t)
 #+end_src
 
-* Configure =use-package=
-
-I use =use-package= to install and configure my packages.
-My =init.el= includes the initial setup for =package.el=
-and ensures that =use-package= is installed, since I
-wanna do that right away.
-
-This makes sure that =use-package= will install the
-package if it's not already available. It also means that
-I should be able to open Emacs for the first time on a
-fresh Debian box and have my whole environment automatically
-installed. I'm not /totally/ sure about that, but we're
-gettin' close.
-
-#+begin_src emacs-lisp
-  (require 'use-package-ensure)
-  (setq use-package-always-ensure t)
-#+end_src
-
-Always compile packages, and use the newest version available.
-
-#+begin_src emacs-lisp
-  (use-package auto-compile
-    :config (auto-compile-on-load-mode))
-  (setq load-prefer-newer t)
-#+end_src
-
 * keybinding
 ** define sync folder
 #+begin_src emacs-lisp
@@ -286,6 +264,7 @@ Always compile packages, and use the newest version available.
        )
   (defvar nix_folder "~/Zero/nix-config/")
 #+end_src
+
 ** Quickly visit Emacs configuration
 
 I futz around with my dotfiles a lot. This binds =C-c e= to quickly open my
@@ -351,9 +330,6 @@ If you put in a completing pair (like these parenthasis or quotes), this will co
   ;;        (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
 #+end_src
 
-#+RESULTS:
-| lambda | (c) | (char-equal c 60) |
-
 #+begin_src emacs-lisp
   (electric-pair-mode t)
   (show-paren-mode 1)
@@ -385,18 +361,6 @@ and the selected region expands. Repeat until the whole buffer is selected
   :bind ("C-q" . er/expand-region))
 #+end_src
 
-** Comment Region
-# #+begin_src emacs-lisp
-#   (define-key global-map "\C-x \C-;" 'comment-line)
-# #+end_src
-
-** Pop-up Kill Ring
-# #+begin_src emacs-lisp
-# (use-package popup-kill-ring
-#   :ensure t
-#   :bind ("M-y" . popup-kill-ring))
-# #+end_src
-
 * Org-mode
 ** To-Do strikethrough Done
 #+begin_src emacs-lisp
@@ -409,6 +373,7 @@ and the selected region expands. Repeat until the whole buffer is selected
    ((((class color) (min-colors 16) (background dark))
      (:foreground "LightSalmon" :strike-through t)))))
 #+end_src
+
 ** Org-keybingings
 Bind a few handy keys.
 
@@ -508,7 +473,6 @@ record and organize cooking recipes. Uses org-capture and can parse recipes from
 (yas-global-mode t)
 #+end_src
 
-
 ** Flycheck
 #+begin_src emacs-lisp
 (use-package flycheck
@@ -517,9 +481,8 @@ record and organize cooking recipes. Uses org-capture and can parse recipes from
 
 ** Company Mode
 #+begin_src emacs-lisp
-  ;; (use-package company
-  ;;   :ensure t
-  ;;   :config
+   (use-package company
+     :ensure t)
     (setq company-idle-delay 0)
     (setq company-minimum-prefix-length 3) ;)
 #+end_src
@@ -547,8 +510,9 @@ makes that automatic.
   (global-set-key (kbd "C-x 2") 'zb/split-window-below-and-switch)
   (global-set-key (kbd "C-x 3") 'zb/split-window-right-and-switch)
 #+end_src
+
 ** Dashboard
-- [ ] thing
+
 #+begin_src emacs-lisp
   (defun my/dashboard-banner ()
     """Set a dashboard banner including information on package
@@ -629,7 +593,7 @@ Set up the lsp for other modes to hook into
 #+begin_src emacs-lisp
   (use-package lsp-mode
     :ensure t
-    :if my-laptop-p
+;    :if my-laptop-p
     :config
     (add-hook 'python-mode-hook #'lsp))
 #+end_src
@@ -647,13 +611,6 @@ Set up the lsp for other modes to hook into
     :args `("format" "--stdin-filename" ,buffer-file-name "-")))
 #+end_src
 
-# #+begin_src emacs-lisp
-# (use-package lsp-pyright
-#   :ensure t
-#   :hook (python-mode . (lambda ()
-#                           (require 'lsp-pyright)
-#                           (lsp))))  ; or lsp-deferred
-# #+end_scr
 *** Jedi
 
 Use-package blurb that I got from the lsp-jedi GitHub.
@@ -696,10 +653,10 @@ is commented out.
     ((python-mode . lsp)))
 
 #+end_src
+
 *** Blacken
 # #+begin_src emacs-lisp
 #   (use-package blacken
-#     :if my-laptop-p
 #     :ensure t
 #     :hook
 #     ((python-mode . lsp)))

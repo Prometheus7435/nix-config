@@ -13,19 +13,23 @@
       (package-install 'use-package))
 (require 'use-package)
 
+;  (require 'use-package-ensure)
+;  (setq use-package-always-ensure t)
+
+(use-package auto-compile
+  :config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
+
 ;; The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 511 1024 1024))
 (setq gc-cons-percentage 0.5)
 (run-with-idle-timer 5 t #'garbage-collect)
 (setq garbage-collection-messages t)
 
-;  (defvar my-laptop-p (equal (user-login-name) "shyfox"))
-  (defvar my-laptop-p (equal (system-name) "shyfox"))
-  (defvar my-server-p (and (equal (system-name) "localhost") (equal user-login-name "sg1")))
-  ;; (defvar my-phone-p (not (null (getenv "ANDROID_ROOT")))
-  ;;   "If non-nil, GNU Emacs is running on Termux.")
-  ;; (when my-phone-p (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
-  ;; (global-auto-revert-mode)  ; simplifies syncing
+(defvar my-laptop-p (equal (system-name) "shyfox"))
+(defvar my-server-p (and (equal (system-name) "localhost") (equal user-login-name "sg1")))
+;; (defvar my-phone-p (not (null (getenv "ANDROID_ROOT")))
+;; (global-auto-revert-mode)  ; simplifies syncing
 
 (setq user-full-name "Zach Bombay"
       user-mail-address "zacharybombay@gmail.com"
@@ -36,32 +40,24 @@
 (global-hl-line-mode 1)
 
 (setq inhibit-startup-message t)
-    (tool-bar-mode 0)
+ (tool-bar-mode 0)
 ;    (menu-bar-mode 0)
-    (scroll-bar-mode -1)
-    (tooltip-mode -1)
+ (scroll-bar-mode -1)
+ (tooltip-mode -1)
 ;    (setq global-linum-mode t)
-;    (column-number-mode t)
-    (add-hook 'before-save-hook 'delete-trailing-whitespace)
+ (column-number-mode t)
+ (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;    (set-fringe-mode 10)
-    (setq visible-bell t)
+ (setq visible-bell t)
 
 (setq-default cursor-type 'box)
-
-;; (setq display-time-string-forms
-;;      '((propertize (concat " " 24-hours ":" minutes " ")
-;; 		'face 'egoge-display-time)))
 
 (setq display-time-24hr-format nil)
 (setq display-time-format "%H:%M / %d-%b-%Y  | ")
 
 (display-time-mode 1)
 
-;  (use-package misterioso-theme
-  ;    :ensure t
-  ;    )
-;   (load-theme 'misterioso t)
-   (load-theme 'kaolin-ocean t)
+(load-theme 'kaolin-ocean t)
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -84,10 +80,9 @@
 	minions-mode-line-delimiters '("" . ""))
   (minions-mode 1))
 
-;;  (setq zb/default-font "Source Code Pro")
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 105)
-  (setq zb/default-font-size 12)
-  (setq zb/current-font-size zb/default-font-size)
+(set-face-attribute 'default nil :font "Source Code Pro" :height 105)
+(setq zb/default-font-size 12)
+(setq zb/current-font-size zb/default-font-size)
 
 (setq frame-title-format (system-name))
 ;  (setq frame-title-format "%b")
@@ -103,13 +98,6 @@
 (setq auto-save-file-name-transforms '((".*" "~/.config/emacs/emacs_autosave/" t)))
 (setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
 (setq backup-by-copying t)
-
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
-
-(use-package auto-compile
-  :config (auto-compile-on-load-mode))
-(setq load-prefer-newer t)
 
 (cond
      ((string-equal system-type "windows-nt")
@@ -254,11 +242,10 @@
 (use-package flycheck
   :ensure t)
 
-;; (use-package company
-;;   :ensure t
-;;   :config
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 3) ;)
+(use-package company
+  :ensure t)
+ (setq company-idle-delay 0)
+ (setq company-minimum-prefix-length 3) ;)
 
 (defun zb/split-window-below-and-switch ()
   "Split the window horizontally, then switch to the new pane."

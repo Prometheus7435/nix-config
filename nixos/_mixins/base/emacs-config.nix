@@ -64,6 +64,7 @@
           epkgs.rainbow-delimiters
           epkgs.rainbow-mode
           epkgs.reformatter
+          # epkgs.ruff-format
           epkgs.spaceline
           epkgs.sqlite3
           epkgs.treemacs-icons-dired
