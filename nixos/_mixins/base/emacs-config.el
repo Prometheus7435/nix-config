@@ -283,10 +283,10 @@
 (setq comp-async-report-warnings-errors nil)
 
 (use-package lsp-mode
-  :ensure t
-  :if my-laptop-p
-  :config
-  (add-hook 'python-mode-hook #'lsp))
+    :ensure t
+;    :if my-laptop-p
+    :config
+    (add-hook 'python-mode-hook #'lsp))
 
 (use-package reformatter
   :hook

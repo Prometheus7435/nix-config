@@ -86,6 +86,7 @@
     nixfmt
     ispell
     aspell
+    ruff
   ];
 
 }
