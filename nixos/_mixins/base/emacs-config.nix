@@ -48,6 +48,7 @@
           epkgs.helm-core
           epkgs.helm-ispell
           epkgs.helm-org
+          epkgs.ini-mode
           epkgs.kaolin-themes
           epkgs.latex-preview-pane
           epkgs.lsp-jedi

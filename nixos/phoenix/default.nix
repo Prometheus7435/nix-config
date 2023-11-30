@@ -21,6 +21,8 @@
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
 
+    # ../_mixins/containers/default.nix
+
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 

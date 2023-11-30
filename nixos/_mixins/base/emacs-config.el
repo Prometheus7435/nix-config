@@ -350,3 +350,7 @@
 (use-package which-key
   :ensure t)
 (setq which-key-mode t)
+
+(use-package ini-mode
+  :ensure t)
+(setq which-key-mode t)
