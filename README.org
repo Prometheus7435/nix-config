@@ -6,14 +6,14 @@ The big things I want is to have a consistent KDE setup using ZFS for the file s
 
 ** File System
 
-| *Hostname* | *OEM*    | *Model*         | *OS*  | *Filesystem* | *Role*   | *Status* |
-|------------+----------+-----------------+-------+--------------+----------+----------|
-| [[./nixos/phoenix][phoenix]]    | Thinkpad | T14 AMD Gen 1   | NixOS | ZFS          | laptop   | DONE     |
-| [[./nixos/starbase/][starbase]]   | DIY      | AMD EPYC 7302   | NixOS | ZFS          | racktop  | DONE     |
-| [[./nixos/fermi/][fermi]]      | VM       | VM              | NixOS | ext4         | pihole   | TODO     |
-| [[./nixos/akira][akira]]      | Thinkpad | X1 tablet Gen 3 | NixOS | ZFS          | slatetop | DONE     |
-| [[./nixos/odyssey/][odyssey]]    | Custom   | Custom          | NixOS | ZFS          | desktop  | DONE     |
-| mars       | VM       | VM              | NixOS | ext4         | IOT VM   | TODO     |
+| *Hostname* | *OEM*    | *Model*         | *CPU*                 | *GPU*        | *OS*  | *Filesystem* | *Role*   | *Status* |
+|------------+----------+-----------------+-----------------------+--------------+-------+--------------+----------+----------|
+| [[./nixos/phoenix][phoenix]]    | Thinkpad | T14 AMD Gen 1   | AMD Ryzen 5 PRO 4650U |              | NixOS | ZFS          | laptop   | DONE     |
+| [[./nixos/starbase/][starbase]]   | DIY      | Custom          | AMD EPYC 7302         |              | NixOS | ZFS          | racktop  | DONE     |
+| [[./nixos/fermi/][fermi]]      | VM       | VM              |                       |              | NixOS | ext4         | pihole   | TODO     |
+| [[./nixos/akira][akira]]      | Thinkpad | X1 tablet Gen 3 | Intel i7              |              | NixOS | ZFS          | slatetop | DONE     |
+| [[./nixos/odyssey/][odyssey]]    | Custom   | Custom          | AMD Ryzen 7 3700X     | NVIDIA A4000 | NixOS | ZFS          | desktop  | DONE     |
+| mars       | VM       | VM              | 8 vCPU                |              | NixOS | ext4         | IOT VM   | TODO     |
 
 
 I like ZFS and NixOS seems to have the easiest and most stable implementation of it I've come across in Linux. Due to the difference in licenses, ZFS can't be added to the Linux kernel like Btrfs is. To use it in most distros, you have to set it up yourself and the risk is all on you. Not fun. But NixOS has the modules addded by default and make it super easy to implement. Here's hoping that it's as stable long term as it's been short term.
@@ -45,7 +45,7 @@ Smaller VMs are named after shuttlecraft classes, with the first being the Fermi
 
 * Installation
 
- - Depending on how much you like to pipe to bash; either clone this repo, cd into it, and run
+ - Clone this repo, cd into it, and run
 
 #+begin_src bash
   sh scripts/install.sh <hostname> <username>
