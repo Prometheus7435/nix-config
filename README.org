@@ -25,12 +25,12 @@ The only place where I won't be using ZFS is in the VMs. This is because there's
 Initially, I was using a bash script from [[https://github.com/mcdonc/.nixconfig/blob/master/prepsystem.sh][mcdonc]] to make a a basic config for a non-flake install. Now I'm using [[https://github.com/wimpysworld/nix-config/blob/c44a1bd13868e759bb215f54ca1f3fe49eba6dae/scripts/install.sh][Whimpy's install script]] that uses [[https://github.com/nix-community/disko/tree/master][Distro]] to build the root filesytem.
 
 ** Computers
-A lot of this will be the same, as I like my KDE and ZFS. The differences will largely come down to the specific hardware found in each. The status below is dependent on the status of the host config and this flake setup overall. For example, my laptop runs NixOS, but it's being managed in the more traditional configuration.nix in /etc/nixos way.
+A lot of this will be the same, as I like my KDE and ZFS. The differences will largely come down to the specific hardware found in each. The status below is dependent on the status of the host config and this flake setup overall.
 
 Because I'm being cheeky; laptop is laptop, slatetop is a tablet, racktop is a server, virtualtop are VMs, handtop is a phone, and desktop is desktop.
 
-** Servers
-More barebones installs that are tailored to their use case.
+# ** Servers
+# More barebones installs that are tailored to their use case.
 
 * Machine Naming Convention
 Surely the most important subject :laughing: Why do this when you should treat mass deployments like cattle? Mostly so I can easily identify them in tailscale. Also, how many servers do you admin?!
@@ -51,21 +51,22 @@ Smaller VMs are named after shuttlecraft classes, with the first being the Fermi
   sh scripts/install.sh <hostname> <username>
 #+end_src
 
-or
+# or
 
-#+begin_src bash
-  curl -sL https://raw.githubusercontent.com/Prometheus7435/nix-config/main/scripts/install.sh | bash -s <hostname> <username>
-#+end_src
+# #+begin_src bash
+#   curl -sL https://raw.githubusercontent.com/Prometheus7435/nix-config/main/scripts/install.sh | bash -s <hostname> <username>
+# #+end_src
 
  - The install script uses Disko to automatically partition and format the disks, then uses my flake via nixos-install to complete a full-system installation
  - This flake is copied to the target user's home directory as ~/Zero/nix-config
- - Find :coffee: in a nebula
+ - Find :coffee: in that nebula
  - Reboot
- - Login and run rebuild-home (see below) from a terminal to complete the Home Manager configuration.
+ - Login and run src_sh[:exports code]{home-manager switch -b backup --flake $HOME/Zero/nix-config} from the terminal to complete the Home Manager configuration.
+ # - Login and run src_sh[:exports code]{rebuild-home} (see below) from a terminal to complete the Home Manager configuration.
 
-#+begin_src bash
-  home-manager switch -b backup --flake $HOME/Zero/nix-config
-#+end_src
+# #+begin_src bash
+#   home-manager switch -b backup --flake $HOME/Zero/nix-config
+# #+end_src
 
 * Applying Changes
 
