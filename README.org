@@ -72,10 +72,11 @@ Smaller VMs are named after shuttlecraft classes, with the first being the Fermi
 
 This is a copy of [[https://github.com/wimpysworld/nix-config/tree/main#applying-changes-][Whimpy's]] README.
 
-I clone this repo to ~/Zero/nix-config. NixOS and Home Manager changes are applied separately because I have some non-NixOS hosts.
+I clone this repo to ~/Zero/nix-config. NixOS and Home Manager changes are applied separately.
 
 #+begin_src bash
-  gh repo clone wimpysworld/nix-config ~/Zero/nix-config
+  git clone git@github.com:Prometheus7435/nix-config.git
+  # gh repo clone wimpysworld/nix-config ~/Zero/nix-config
 #+end_src
 
 ** NixOS snowflake
@@ -94,7 +95,6 @@ A rebuild-home alias is provided that does the following:
   home-manager switch -b backup --flake $HOME/Zero/nix-config
 #+end_src
 
-
 * Troubleshooting
 ** Home-Manager
 I tried to rebuild the home-manager setup after a fresh install of starbase and it gave me an error. It said it could not find suitable profile directory even though the folder it was looking for exists. Turns out, it's looking for a different folder it doesn't tell you about. A simple
@@ -104,6 +104,8 @@ I tried to rebuild the home-manager setup after a fresh install of starbase and 
 #+end_src
 
 rerun the command, and it's all good.
+
+This "should" be solved in the install script. But it's here just in case.
 
 Citation to solution:
 https://www.reddit.com/r/Nix/comments/1443k3o/home_manager_installation_could_not_find_suitable/
@@ -134,9 +136,10 @@ This was weird as I hadn't configured any dual GPU options which, as I read the 
 So now my Nvidia config is only declared in the hardware.nix for the desktop. If I, one day, move to a system that has dual graphics I may switch it back.
 
 ** Emacs Overlay
-Oh, so many issues in getting this to work. Frustratingly, it seems to be one of those things that once you figure it out it's clear as day. But until then...
+I have this "mostly" working. I have to call the org-babel config seperately from the init file, but the flake is incorporated and it installs the emacs modules as part of the system install/update. If you wanna see a spagetti mess of an emacs config, [[./nixos/_mixins/base/emacs-config.org][check it out]].
+# Oh, so many issues in getting this to work. Frustratingly, it seems to be one of those things that once you figure it out it's clear as day. But until then...
 
-One thing is that it has to incorporate flakes in some capacitiy. This is what stopped me on my non-flake converted laptop. Second thing is that the [[https://github.com/nix-community/emacs-overlay/tree/master][emacs-overlay documentation]] is not the clearest on setting everything up together. I ended up basing it off the docs and a [[https://github.com/SheetKey/nixos-dotfiles/blob/fca59e6bb311a95d52f4bd4bbeff5d7be8266a7d/configuration.nix#L117][config]] from a [[https://www.reddit.com/r/NixOS/comments/uzcfjz/comment/iafrnlu/][reddit thread]] to get it up.
+# One thing is that it has to incorporate flakes in some capacitiy. This is what stopped me on my non-flake converted laptop. Second thing is that the [[https://github.com/nix-community/emacs-overlay/tree/master][emacs-overlay documentation]] is not the clearest on setting everything up together. I ended up basing it off the docs and a [[https://github.com/SheetKey/nixos-dotfiles/blob/fca59e6bb311a95d52f4bd4bbeff5d7be8266a7d/configuration.nix#L117][config]] from a [[https://www.reddit.com/r/NixOS/comments/uzcfjz/comment/iafrnlu/][reddit thread]] to get it up.
 
 Side issue that's hit me a couple of times. If you specify a version of some package, make sure you remove any other package references for that. For this, I had emacs as an install package in the [[./nixos/_mixins/base/default.nix][default.nix]] which overrode the specific emacs version I had set in [[./nixos/_mixins/base/emacs-config.nix][emacs-config.nix]]. This also bit me earlier with Python packages. Must make sure to reference a package only in one place.
 
