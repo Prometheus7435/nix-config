@@ -64,6 +64,7 @@
     libsForQt5.plasma-integration
     libsForQt5.xdg-desktop-portal-kde
     libsForQt5.kdecoration
+    libsForQt5.qtstyleplugin-kvantum
     okular
     yakuake
     kate
