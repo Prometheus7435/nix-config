@@ -107,5 +107,9 @@
     # pkgs.logseq
     # pkgs.google-chrome
     pkgs.kitty
+    pkgs.eagle
+    pkgs.kicad
+
+    pkgs.jupyter-all
   ];
 }

@@ -288,15 +288,6 @@
     :config
     (add-hook 'python-mode-hook #'lsp))
 
-(use-package reformatter
-  :hook
-  (python-mode . ruff-format-on-save-mode)
-  (python-ts-mode . ruff-format-on-save-mode)
-  :config
-  (reformatter-define ruff-format
-    :program "ruff"
-    :args `("format" "--stdin-filename" ,buffer-file-name "-")))
-
 (use-package lsp-jedi
   :ensure t
   :config
@@ -325,6 +316,11 @@
      ("pyls.plugins.pyls_mypy.live_mode" nil t)
      ("pyls.plugins.pyls_black.enabled" t t)
      ("pyls.plugins.pyls_isort.enabled" t t)))
+  :hook
+  ((python-mode . lsp)))
+
+(use-package blacken
+  :ensure t
   :hook
   ((python-mode . lsp)))
 

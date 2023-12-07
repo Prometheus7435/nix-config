@@ -600,16 +600,16 @@ Set up the lsp for other modes to hook into
 
 ** Python
 *** Ruff formatter
-#+begin_src emacs-lisp
-(use-package reformatter
-  :hook
-  (python-mode . ruff-format-on-save-mode)
-  (python-ts-mode . ruff-format-on-save-mode)
-  :config
-  (reformatter-define ruff-format
-    :program "ruff"
-    :args `("format" "--stdin-filename" ,buffer-file-name "-")))
-#+end_src
+# #+begin_src emacs-lisp
+# (use-package reformatter
+#   :hook
+#   (python-mode . ruff-format-on-save-mode)
+#   (python-ts-mode . ruff-format-on-save-mode)
+#   :config
+#   (reformatter-define ruff-format
+#     :program "ruff"
+#     :args `("format" "--stdin-filename" ,buffer-file-name "-")))
+# #+end_src
 
 *** Jedi
 
@@ -655,13 +655,13 @@ is commented out.
 #+end_src
 
 *** Blacken
-# #+begin_src emacs-lisp
-#   (use-package blacken
-#     :ensure t
-#     :hook
-#     ((python-mode . lsp)))
+#+begin_src emacs-lisp
+  (use-package blacken
+    :ensure t
+    :hook
+    ((python-mode . lsp)))
 
-# #+end_src
+#+end_src
 
 * Treemacs
 #+begin_src emacs-lisp

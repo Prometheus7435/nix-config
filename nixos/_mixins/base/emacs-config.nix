@@ -9,8 +9,12 @@
     enable = true;
     install = true;
     defaultEditor = true;
+  # };
+  # environment.systemPackages = [
     package = with pkgs; (emacsWithPackagesFromUsePackage
       {
+    # pkgs.emacsWithPackagesFromUsePackage
+
         config = ./emacs-init.el;
         # config = ./emacs-config.org;
         package = pkgs.emacs-pgtk;
@@ -87,7 +91,7 @@
     nixfmt
     ispell
     aspell
-    ruff
+    black
   ];
 
 }

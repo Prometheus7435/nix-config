@@ -38,6 +38,7 @@
         type = "zpool";
         rootFsOptions = {
           compression = "lz4";
+          ashift = "13";  # odd, but might be better for Samsung SSDs
           encryption = "on";
           keylocation = "prompt";
           keyformat = "passphrase";

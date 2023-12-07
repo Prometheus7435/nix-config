@@ -13,7 +13,7 @@
   };
 
   services = {
-    zfs.autoScrub.enable = true;
+    # zfs.autoScrub.enable = true;
     fstrim.enable = true;
   };
 }

@@ -35,8 +35,11 @@
 
     nix-software-center.url = "github:vlinkz/nix-software-center";
 
-    #TODO: Emacs overlay
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     # NUR
     nur.url = "github:nix-community/NUR";
