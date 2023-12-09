@@ -12,5 +12,6 @@
     gimp-with-plugins
     krita
     inkscape
+    freecad
   ];
 }
