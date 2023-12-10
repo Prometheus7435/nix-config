@@ -16,6 +16,32 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  boot = {
+#    zfs.forceImportRoot = false;
+    supportedFilesystems = [ "zfs" ];
+    zfs.requestEncryptionCredentials = true;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
+    kernelParams = [ "mitigations=off" ];
+    extraModulePackages = [];
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
+    kernelModules = [
+      "kvm-amd"
+      # "nvidia"
+      # "amdgpu"
+      # "vhost_vsock"
+    ];
+
+    initrd = {
+      availableKernelModules = [
+        # "sd_mod"
+      ];
+      kernelModules = [
+
+      ];
+    };
+  };
+
   swapDevices = [ ];
 
    # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -83,17 +109,12 @@
       };
     };
 
-    # bluetooth.enable = true;
-    # bluetooth.settings = {
-    #   General = {
-    #     Enable = "Source,Sink,Media,Socket";
-    #   };
-    # };
-    # opengl = {
-    #   enable = true;
-    #   driSupport = true;
-    #   driSupport32Bit = true;
-    # };
+    bluetooth.enable = true;
+    bluetooth.settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
+    };
 
     nvidia = {
       # Modesetting is needed for most wayland compositors
@@ -115,8 +136,15 @@
     };
   };
 
-  boot = {
-    # loader = {
+
+
+  services = {
+    # zfs.autoScrub.enable = true;
+    fstrim.enable = true;
+  };
+}
+
+      # loader = {
     #   # grub = {
     #   #   enable = true;
     #   #   device = "nodev";
@@ -140,38 +168,3 @@
     #   # };
     #   # timeout = 3;
     # };
-
-#    zfs.forceImportRoot = false;
-    supportedFilesystems = [ "zfs" ];
-    zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-
-#    kernelParams = [ "mem_sleep_default=deep" ];
-    kernelParams = [ "mitigations=off" ];
-#    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
-    extraModulePackages = [];
-
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
-    kernelModules = [
-      "kvm-amd"
-      # "nvidia"
-      # "amdgpu"
-      # "vhost_vsock"
-    ];
-
-    initrd = {
-      availableKernelModules = [
-        # "sd_mod"
-      ];
-      kernelModules = [
-
-      ];
-    };
-  };
-
-  services = {
-    # zfs.autoScrub.enable = true;
-    fstrim.enable = true;
-  };
-}

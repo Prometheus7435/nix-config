@@ -12,6 +12,8 @@
     gimp-with-plugins
     krita
     inkscape
-    freecad
+    # openscad
+    # freecad
+    # solvespace
   ];
 }
