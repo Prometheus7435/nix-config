@@ -60,6 +60,7 @@
 
     config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
 
+    pkgs.ventoy
 
     # pkgs.packagekit
     # pkgs.appflowy
