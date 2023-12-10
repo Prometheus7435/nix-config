@@ -21,6 +21,7 @@
       outputs.overlays.modifications
       # outputs.overlays.unstable-packages
       inputs.emacs-overlay.overlay
+      inputs.nur.overlay
 
       ## Figure this out later
       # inputs.plasma-manager.overlay
