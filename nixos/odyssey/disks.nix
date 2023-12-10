@@ -11,7 +11,7 @@
             {
               name = "ESP";
               start = "0";
-              end = "1024MiB";
+              end = "256MiB";
               fs-type = "fat32";
               bootable = true;
               content = {
@@ -22,7 +22,7 @@
             }
             {
               name = "zfs";
-              start = "1064MiB";
+              start = "288MiB";
               end = "100%";
               content = {
                 type = "zfs";
@@ -38,7 +38,7 @@
         type = "zpool";
         rootFsOptions = {
           compression = "lz4";
-          ashift = "13";  # odd, but might be better for Samsung SSDs
+          # ashift = "13";  # odd, but might be better for Samsung SSDs
           encryption = "on";
           keylocation = "prompt";
           keyformat = "passphrase";
