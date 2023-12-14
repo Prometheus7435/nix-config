@@ -7,7 +7,7 @@ let
     black
     jedi-language-server
     pip
-    # yt-dlp
+    yt-dlp
   ];
 in
 {

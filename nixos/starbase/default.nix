@@ -64,6 +64,8 @@
 
   environment.systemPackages = with pkgs; [
     syncthing
+
+    # snipe-it
   ];
 
   hardware = {

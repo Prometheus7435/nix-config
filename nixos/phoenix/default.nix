@@ -114,5 +114,20 @@
     pkgs.jupyter-all
 
     pkgs.haruna
+
+    # pkgs.ollama
+    pkgs.snowmachine
+
+    pkgs.appimageTools
+    pkgs.appimage-run
+    # pkgs.appimageTools.wrapType1 { # or wrapType2
+    #   name = "tagspaces";
+    #   src = pkgs.fetchurl {
+    #     url = "https://github.com/tagspaces/tagspaces/releases/download/v5.6.2/tagspaces-linux-x86_64-5.6.2.AppImage";
+    #     hash = "439137cb0484fbd7b78df2dadbca8c714acfa789f9484009390e60897243e0b8";
+    #   };
+    # }
   ];
+
+
 }
