@@ -118,8 +118,23 @@
     # pkgs.ollama
     pkgs.snowmachine
 
-    pkgs.appimageTools
+    # pkgs.appimageTools
     pkgs.appimage-run
+
+    # pkgs.samba
+    # pkgs.cifs-utils
+  ];
+
+  # # temp Samba config for Home Assistant
+  # fileSystems."/mnt/share" = {
+  #     device = "//home/shyfox/samba";
+  #     fsType = "cifs";
+  #     options = let
+  #       # this line prevents hanging on network split
+  #       automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+
+  #     in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
+  # };
     # pkgs.appimageTools.wrapType1 { # or wrapType2
     #   name = "tagspaces";
     #   src = pkgs.fetchurl {
@@ -127,7 +142,5 @@
     #     hash = "439137cb0484fbd7b78df2dadbca8c714acfa789f9484009390e60897243e0b8";
     #   };
     # }
-  ];
-
 
 }
