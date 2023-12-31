@@ -17,8 +17,8 @@
   nixpkgs = {
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
+      # outputs.overlays.additions
+      # outputs.overlays.modifications
       # outputs.overlays.unstable-packages
       inputs.emacs-overlay.overlay
       inputs.nur.overlay

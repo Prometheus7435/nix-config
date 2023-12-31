@@ -71,6 +71,7 @@
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-linux"
         # "i686-linux"  # I don't have any 32 bit systems
+        # "x86_64-v3"
         "x86_64-linux"
         # "aarch64-darwin"  # no MacOS in this house
         # "x86_64-darwin"  # no MacOS in this house
@@ -92,8 +93,9 @@
         in import ./shell.nix { inherit pkgs; });
 
       # Your custom packages and modifications, exported as overlays
-      # overlays = import ./overlays { inherit inputs; };
-      overlays = [emacs-overlay.overlay plasma-manager.overaly nur.overlay];
+      overlays = import ./overlays { inherit inputs; };
+      # emacs-overlay = inputs.emacs-overlay.overlay;
+
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
       # nixosModules = import ./modules/nixos;
@@ -113,6 +115,8 @@
             hostid = "26dce576"; # head -c 8 /etc/machine-id
             hostname = "odyssey";
             username = "shyfox";
+            arch = "znver2";
+            system = "x86_64-linux";
           };
           modules = [ ./nixos ];
         };
@@ -125,6 +129,8 @@
             hostid = "d7218c78"; # head -c 8 /etc/machine-id
             hostname = "phoenix";
             username = "shyfox";
+            arch = "znver3";
+            system = "x86_64-linux";
             # stateVersion = "unstable";
           };
           modules = [

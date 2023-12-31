@@ -1,5 +1,16 @@
 #{ hostid, hostname, lib, pkgs, ...}: {
-{ lib, pkgs, ...}: {
+{ lib, pkgs, ...}:
+# { lib, pkgs, system, arch, ...}:
+# let
+#   pkgs = import <nixpkgs> {
+#     localSystem = {
+#       gcc.arch = arch;
+#       gcc.tune = arch;
+#       system = system;
+#     };
+#   };
+# in
+{
   imports = [
     ./locale.nix
     ./nano.nix

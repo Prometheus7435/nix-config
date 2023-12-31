@@ -5,6 +5,7 @@
 # NVME: Samsung SSD 980 1TB
 
 { config, inputs, lib, pkgs, username, modulesPath, ... }:
+
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
@@ -29,6 +30,7 @@
 
   swapDevices = [ ];
 
+  # nixpkgs.hostPlatform = lib.mkDefault "x86_64-v3";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
@@ -39,6 +41,15 @@
     # kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
     kernelModules = [
       "kvm-amd"
+      "sse3"
+      "ssse3"
+      "sse4_1"
+      "sse4_2"
+      "sse4a"
+      "aes"
+      "avx"
+      "avx2"
+      "fma"
     ];
     initrd = {
       availableKernelModules = [
@@ -106,7 +117,6 @@
     pkgs.openssh
 
     # pkgs.logseq
-    # pkgs.google-chrome
     pkgs.kitty
     pkgs.eagle
     pkgs.kicad
@@ -117,12 +127,22 @@
 
     # pkgs.ollama
     pkgs.snowmachine
+    pkgs.dtc
 
-    # pkgs.appimageTools
-    pkgs.appimage-run
+    # spell checking
+    pkgs.enchant
+    pkgs.aspell
+    pkgs.aspellDicts.en
+    pkgs.aspellDicts.en-science
+    pkgs.ispell
+    pkgs.nuspell
+    pkgs.hunspell
+    # pkgs.hunspellDicts.en_US
+    pkgs.hunspellDicts.en_US-large
+    pkgs.hunspellDicts.en_GB-large
 
-    # pkgs.samba
-    # pkgs.cifs-utils
+    # weather
+    pkgs.wego
   ];
 
   # # temp Samba config for Home Assistant

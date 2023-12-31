@@ -38,7 +38,10 @@
         # which defaults `:tangle` to `yes`.
         alwaysTangle = true;
 
-        extraEmacsPackages = epkgs: [
+      # }
+    # );
+    # emacsPkgs.withPackages (epkgs: (with epkgs.melpaStablePackages; [
+      extraEmacsPackages = epkgs: [
           epkgs.auto-compile
           epkgs.blacken
           epkgs.company
@@ -48,11 +51,15 @@
           epkgs.expand-region
           epkgs.expand-region
           epkgs.flycheck
+          epkgs.flymake
+          epkgs.flymake-aspell
           epkgs.helm
           epkgs.helm-core
+          epkgs.helm-dictionary
           epkgs.helm-ispell
           epkgs.helm-org
           epkgs.ini-mode
+          epkgs.jinx
           epkgs.kaolin-themes
           epkgs.latex-preview-pane
           epkgs.lsp-jedi
@@ -80,7 +87,8 @@
           epkgs.yaml-mode
           epkgs.yasnippet-snippets
           epkgs.which-key
-        ];
+          # ]));
+      ];
       }
     );
   };

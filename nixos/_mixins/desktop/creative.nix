@@ -12,6 +12,7 @@
     gimp-with-plugins
     krita
     inkscape
+    darktable
     # openscad
     # freecad
     # solvespace
