@@ -33,6 +33,7 @@
     curl
     file
     git
+    gpart
     home-manager
     htop
     killall
