@@ -143,6 +143,7 @@
 
     # weather
     pkgs.wego
+
   ];
 
   # # temp Samba config for Home Assistant

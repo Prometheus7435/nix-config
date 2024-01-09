@@ -58,6 +58,7 @@
     libsForQt5.applet-window-buttons
     libsForQt5.discover
     libsForQt5.dragon
+    libsForQt5.filelight
     libsForQt5.kalk
     libsForQt5.kdeconnect-kde
     libsForQt5.kfind

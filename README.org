@@ -10,7 +10,7 @@ The big things I want is to have a consistent KDE setup using ZFS for the file s
 |------------+----------+-----------------+-----------------------+--------------+-------+--------------+----------+----------|
 | [[./nixos/phoenix][phoenix]]    | Thinkpad | T14 AMD Gen 1   | AMD Ryzen 5 PRO 4650U |              | NixOS | ZFS          | laptop   | DONE     |
 | [[./nixos/starbase/][starbase]]   | DIY      | Custom          | AMD EPYC 7302         |              | NixOS | ZFS          | racktop  | DONE     |
-| [[./nixos/fermi/][fermi]]      | VM       | VM              |                       |              | NixOS | ext4         | pihole   | TODO     |
+| [[./nixos/fermi/][fermi]]      | VM       | VM              |                       |              | NixOS | ext4         | test     | TODO     |
 | [[./nixos/akira][akira]]      | Thinkpad | X1 tablet Gen 3 | Intel i7              |              | NixOS | ZFS          | slatetop | DONE     |
 | [[./nixos/odyssey/][odyssey]]    | Custom   | Custom          | AMD Ryzen 7 3700X     | NVIDIA A4000 | NixOS | ZFS          | desktop  | DONE     |
 | mars       | VM       | VM              | 8 vCPU                |              | NixOS | ext4         | IOT VM   | TODO     |
