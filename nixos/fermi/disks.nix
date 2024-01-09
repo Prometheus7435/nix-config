@@ -5,7 +5,7 @@
     disk = {
       sda = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/vdb";
         # device = builtins.elemAt disks 0;
         content = {
           type = "table";
@@ -14,7 +14,7 @@
             {
               name = "ESP";
               start = "0";
-              end = "512MiB";  # way overkill because I'm tired of getting errors because I ran out of space
+              end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
               fs-type = "fat32";
               bootable = true;
               content = {
@@ -25,7 +25,7 @@
             }
             {
               name = "zfs";
-              start = "520MiB";
+              start = "265MiB";
               end = "100%";
               content = {
                 type = "zfs";
