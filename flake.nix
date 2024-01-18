@@ -11,8 +11,8 @@
 
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
-      # url = "github:nix-community/home-manager";
+      # url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -77,8 +77,8 @@
         # "x86_64-darwin"  # no MacOS in this house
       ];
       # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-      # stateVersion = "unstable";
-      stateVersion = "23.11";
+      stateVersion = "unstable";
+      # stateVersion = "23.11";
 
     in rec {
       # Your custom packages
