@@ -144,6 +144,8 @@
     # weather
     pkgs.wego
 
+    # citation manager
+    # pkgs.zotero
   ];
 
   # # temp Samba config for Home Assistant
