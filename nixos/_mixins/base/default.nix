@@ -18,7 +18,7 @@
     # ../services/flatpak.nix
     ../services/fwupd.nix
     ../services/openssh.nix
-    ../services/syncthing.nix
+    # ../services/syncthing.nix
     ../services/tailscale.nix
     ../services/zerotier.nix
   ];
