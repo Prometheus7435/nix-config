@@ -12,7 +12,8 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
+    # fonts = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono"]; })
       # joypixels
       liberation_ttf
