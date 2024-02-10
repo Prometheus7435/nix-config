@@ -39,7 +39,7 @@
     # kernelPackages = pkgs.linuxPackages_zen;
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
-    # kernelParams = [ "mem_sleep_default=deep" "nohibernate"];
+    kernelParams = [ "nohibernate"];
     kernelModules = [
       "kvm-amd"
       "sse3"
