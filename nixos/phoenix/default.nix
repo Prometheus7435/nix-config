@@ -36,7 +36,7 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_lqx;
+    kernelPackages = pkgs.linuxPackages_latest; # lqx is less frequent release version of zen
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
     kernelParams = [ "nohibernate"];
@@ -119,16 +119,16 @@
 
     # pkgs.logseq
     pkgs.kitty
-    pkgs.eagle
-    pkgs.kicad
+    # pkgs.eagle
+    # pkgs.kicad
 
-    pkgs.jupyter-all
+    # pkgs.jupyter-all
 
     pkgs.haruna
 
     # pkgs.ollama
     pkgs.snowmachine
-    pkgs.dtc
+    # pkgs.dtc
 
     # spell checking
     pkgs.enchant
