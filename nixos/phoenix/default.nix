@@ -25,7 +25,7 @@
 
     # ../_mixins/containers/default.nix
 
-    ./optimised_openssl.nix  # test with arch specifics
+    # ./optimised_openssl.nix  # test with arch specifics
 
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
