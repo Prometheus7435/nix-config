@@ -36,7 +36,7 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_latest; # lqx is less frequent release version of zen
+    kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
     kernelParams = [ "nohibernate"];
