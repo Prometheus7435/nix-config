@@ -70,12 +70,9 @@
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-linux"
-        # "i686-linux"  # I don't have any 32 bit systems
-        # "x86_64-v3"
         "x86_64-linux"
-        # "aarch64-darwin"  # no MacOS in this house
-        # "x86_64-darwin"  # no MacOS in this house
       ];
+
       # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
       stateVersion = "unstable";
       # stateVersion = "23.11";
