@@ -1,8 +1,8 @@
 let
   pkgs = import <nixpkgs> {
     localSystem = {
-      gcc.arch = "skylake";
-      gcc.tune = "skylake";
+      gcc.arch = "znver2";
+      gcc.tune = "znver2";
       system = "x86_64-linux";
     };
   };
