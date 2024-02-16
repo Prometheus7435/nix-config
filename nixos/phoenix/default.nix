@@ -23,7 +23,7 @@
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
 
-    ../_mixins/containers/gitea.nix
+    # ../_mixins/containers/gitea.nix
 
     # ../_mixins/services/keycloak.nix
     # ./optimised_openssl.nix  # test with arch specifics
