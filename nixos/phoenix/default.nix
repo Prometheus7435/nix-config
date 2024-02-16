@@ -25,6 +25,7 @@
 
     # ../_mixins/containers/default.nix
 
+    ../_mixins/services/keycloak.nix
     # ./optimised_openssl.nix  # test with arch specifics
 
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -45,7 +46,7 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_nitrous; # lqx is less frequent release version of zen
+    kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
     kernelParams = [ "nohibernate"];
