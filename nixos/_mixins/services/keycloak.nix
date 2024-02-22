@@ -52,8 +52,8 @@
       type = "postgresql";
       createLocally = true;
 
-      username = "keycloak";
-      passwordFile = "/etc/nixos/secrets/keycloak_psql_pass";
+      username = "admin";
+      passwordFile = "/home/shyfox/code/keycloak_psql_pass";
     };
 
     settings = {
@@ -61,8 +61,8 @@
       hostname-strict-backchannel = true;
     };
     initialAdminPassword = "e6Wcm0RrtegMEHl";  # change on first login
-    sslCertificate = "/run/keys/ssl_cert";
-    sslCertificateKey = "/run/keys/ssl_key";
+    # sslCertificate = "/run/keys/ssl_cert";
+    # sslCertificateKey = "/run/keys/ssl_key";
     # database.passwordFile = "/run/keys/db_password";
   };
 }

@@ -20,7 +20,7 @@
     ../services/openssh.nix
     # ../services/syncthing.nix
     ../services/tailscale.nix
-    ../services/zerotier.nix
+    # ../services/zerotier.nix
   ];
 
   environment.systemPackages = with pkgs; [

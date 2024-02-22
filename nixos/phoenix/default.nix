@@ -25,7 +25,7 @@
 
     # ../_mixins/containers/gitea.nix
 
-    # ../_mixins/services/keycloak.nix
+    ../_mixins/services/keycloak.nix
     # ./optimised_openssl.nix  # test with arch specifics
 
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -37,6 +37,13 @@
   #     gcc.tune = "znver2";
   #     system = "x86_64-linux";
   #   };
+
+  # Only install the docs I use
+  documentation.enable = true;
+  documentation.nixos.enable = false;
+  documentation.man.enable = true;
+  documentation.info.enable = false;
+  documentation.doc.enable = false;
 
   swapDevices = [ ];
 
