@@ -16,6 +16,7 @@
 
   # Containers
   virtualisation.oci-containers.containers."audiobookshelf-audiobookshelf" = {
+    autoStart = true;
     image = "ghcr.io/advplyr/audiobookshelf:latest";
     volumes = [
       "/home/shyfox/code/Audiobooks:/audiobooks:rw"
@@ -33,7 +34,7 @@
   };
   systemd.services."podman-audiobookshelf-audiobookshelf" = {
     serviceConfig = {
-      Restart = lib.mkOverride 500 "no";
+      Restart = lib.mkOverride 500 "always";
     };
     partOf = [
       "podman-compose-audiobookshelf-root.target"
@@ -46,6 +47,7 @@
     ];
   };
   virtualisation.oci-containers.containers."audiobookshelf-tailscale" = {
+    autoStart = true;
     image = "tailscale/tailscale";
     volumes = [
       "/dev/net/tun:/dev/net/tun:rw"
@@ -56,14 +58,14 @@
     extraOptions = [
       "--cap-add=net_admin"
       "--cap-add=sys_module"
-      "--hostname=books"
+      "--hostname=books.tail0301a.ts.net"
       "--network-alias=tailscale"
       "--network=audiobookshelf-default"
     ];
   };
   systemd.services."podman-audiobookshelf-tailscale" = {
     serviceConfig = {
-      Restart = lib.mkOverride 500 "no";
+      Restart = lib.mkOverride 500 "always";
     };
     after = [
       "podman-network-audiobookshelf-default.service"

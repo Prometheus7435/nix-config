@@ -28,7 +28,7 @@
     # ../_mixins/services/keycloak.nix
     # ./optimised_openssl.nix  # test with arch specifics
 
-    ../_mixins/containers/AudioBookShelf-docker.nix
+    # ../_mixins/containers/AudioBookShelf-docker.nix
 
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
