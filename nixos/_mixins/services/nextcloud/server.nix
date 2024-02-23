@@ -1,52 +1,3 @@
-# {config, pkgs, lib, ...}: {
-
-#   services.nextcloud = {
-#     enable = true;
-#     package = pkgs.nextcloud27;
-#     hostName = "localhost";
-#     # Instead of using pkgs.nextcloud27Packages.apps,
-#     # we'll reference the package version specified above
-#     extraApps = with config.services.nextcloud.package.packages.apps; {
-#       inherit bookmarks calendar contacts deck keeweb news notes onlyoffice tasks twofactor_webauthn;
-#     };
-#     extraAppsEnable = true;
-#     configureRedis = true;
-#     # caching.redis = true;
-#     config = {
-#       adminpassFile = "/etc/nextcloud-admin-pass.json";
-#       dbtype = "pgsql";
-#     };
-#     # enableImagemagick = true;
-#     autoUpdateApps.enable = true;
-#     # datadir = "/mnt/alpha/docker/apps/nextcloud";
-#     home = "/mnt/alpha/docker/apps/nextcloud";
-#     # notify_push.enable = true;
-
-#     secretFile = "/etc/nextcloud-secrets.json";
-
-#     # extraOptions = {
-#     #   redis = {
-#     #     host = "/run/redis/redis.sock";
-#     #     port = 0;
-#     #     dbindex = 0;
-#     #     password = "secret";
-#     #     timeout = 1.5;
-#     #   };
-#     # };
-#   };
-#   environment.etc."nextcloud-admin-pass".text = "SuperSecret";
-#   environment.etc."nextcloud-secrets.json".text = ''
-#   {
-#     "passwordsalt": "SuperSecret",
-#     "secret": "SuperSecret",
-#     "redis": {
-#       "password": "SuperSecret"
-#     }
-#   }
-# '';
-# }
-
-
 ## based on Jupiter Broadcasting Nextcloud
 { self, config, lib, pkgs, ... }: {
   # Based on https://carjorvaz.com/posts/the-holy-grail-nextcloud-setup-made-easy-by-nixos/
@@ -57,7 +8,7 @@
       dnsProvider = "porkbun";
       # location of your CLOUDFLARE_DNS_API_TOKEN=[value]
       # https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#EnvironmentFile=
-      environmentFile = "/REPLACE/WITH/YOUR/PATH";
+      environmentFile = "../../../../../code/porkbun-api.txt"; # why do I need relative instead of absolute paths?
     };
   };
   services = {
@@ -87,7 +38,7 @@
       extraApps = with config.services.nextcloud.package.packages.apps; {
         # List of apps we want to install and are already packaged in
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
-        inherit calendar contacts notes onlyoffice tasks cookbook qownnotesapi;
+        inherit bookmarks calendar cookbook contacts deck gpoddersync groupfolders notes notify_push onlyoffice previewgenerator qownnotesapi tasks twofactor_webauthn;
         # Custom app example.
         # socialsharing_telegram = pkgs.fetchNextcloudApp rec {
         #   url =
@@ -101,7 +52,7 @@
         defaultPhoneRegion = "US";
         dbtype = "pgsql";
         adminuser = "admin";
-        adminpassFile = "/REPLACE/WITH/YOUR/PATH";
+        adminpassFile = "../../../../../code/nextcloud-admin-password.txt";
       };
       # Suggested by Nextcloud's health check.
       phpOptions."opcache.interned_strings_buffer" = "16";
