@@ -33,13 +33,6 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  # architecture optimization
-  # nixpkgs.hostPlatform = {
-  #     gcc.arch = "znver2";
-  #     gcc.tune = "znver2";
-  #     system = "x86_64-linux";
-  #   };
-
   # Only install the docs I use
   documentation.enable = true;
   documentation.nixos.enable = false;
@@ -83,35 +76,21 @@
   };
 
   services = {
-    zfs.autoScrub = {
-      enable = true;
-      interval = "monthly";
-    };
+    # zfs.autoScrub = {
+    #   enable = true;
+    #   interval = "monthly";
+    # };
     fstrim.enable = true;
-    # xremap = {
-    #   userName = username;  # run as a systemd service in alice
-    #   serviceMode = "user";  # run xremap as user
-    #   # withKDE = true;
-    #   config = {
-    #     modmap = [
-    #       {
-    #       name = "Global";
-    #       remap = { "CapsLock" = "Ctrl"; };  # globally remap CapsLock to Ctrl
-    #       }
-    #     ];
-    #   };
-    # };
 
-    # tlp = {
-    #   settings = {
-    #     START_CHARGE_THRESH_BAT0 = "70";
-    #     STOP_CHARGE_THRESH_BAT0 = "82";
-    #   };
-    # };
+    tlp = {
+      settings = {
+        START_CHARGE_THRESH_BAT0 = "70";
+        STOP_CHARGE_THRESH_BAT0 = "82";
+      };
+    };
 
     # fingerprint reader
     fprintd.enable = true;
-
   };
 
   security = {
@@ -167,24 +146,7 @@
     # citation manager
     # pkgs.zotero
     pkgs.podman
+    # pkgs.docker
+    pkgs.docker-compose
   ];
-
-  # # temp Samba config for Home Assistant
-  # fileSystems."/mnt/share" = {
-  #     device = "//home/shyfox/samba";
-  #     fsType = "cifs";
-  #     options = let
-  #       # this line prevents hanging on network split
-  #       automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-
-  #     in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
-  # };
-    # pkgs.appimageTools.wrapType1 { # or wrapType2
-    #   name = "tagspaces";
-    #   src = pkgs.fetchurl {
-    #     url = "https://github.com/tagspaces/tagspaces/releases/download/v5.6.2/tagspaces-linux-x86_64-5.6.2.AppImage";
-    #     hash = "439137cb0484fbd7b78df2dadbca8c714acfa789f9484009390e60897243e0b8";
-    #   };
-    # }
-
 }
