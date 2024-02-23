@@ -9,16 +9,16 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
-    inputs.nixos-hardware.nixosModules.common-pc
-    inputs.nixos-hardware.nixosModules.common-pc-ssd
+    # inputs.nixos-hardware.nixosModules.common-pc
+    # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/hardware/default.nix
-    ../_mixins/hardware/mobile.nix
+    # ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/systemd-boot.nix
     # ../_mixins/hardware/zfs.nix
     ../_mixins/desktop/creative.nix
 
-    ../_mixins/services/cac.nix
+    # ../_mixins/services/cac.nix
     ../_mixins/services/media-edit.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
@@ -42,14 +42,13 @@
 
   swapDevices = [ ];
 
-  # nixpkgs.hostPlatform = lib.mkDefault "x86_64-v3";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
-    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    # kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
     kernelParams = [ "nohibernate"];
     kernelModules = [
