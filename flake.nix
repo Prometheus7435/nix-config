@@ -126,8 +126,8 @@
             hostid = "d7218c78"; # head -c 8 /etc/machine-id
             hostname = "phoenix";
             username = "shyfox";
-            arch = "znver3";
-            system = "x86_64-linux";
+            # arch = "znver3";
+            # system = "x86_64-linux";
             # stateVersion = "unstable";
           };
           modules = [

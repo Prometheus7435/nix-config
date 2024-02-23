@@ -22,7 +22,7 @@
     ../_mixins/services/media-edit.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
-    ../_mixins/services/nextcloud/server.nix
+    # ../_mixins/services/nextcloud/server.nix
     # ../_mixins/containers/gitea.nix
 
     # ../_mixins/services/keycloak.nix
