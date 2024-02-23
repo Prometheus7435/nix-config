@@ -43,12 +43,14 @@
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
     # kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
     kernelParams = [ "nohibernate"];
     kernelModules = [
