@@ -212,7 +212,7 @@
         "shyfox@phoenix" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
-            inherit inputs outputs;
+            inherit inputs outputs stateVersion;
             desktop = "kde";
             hostname = "phoenix";
             username = "shyfox";
