@@ -23,7 +23,7 @@
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
     # ../_mixins/services/nextcloud/server.nix
-    # ../_mixins/containers/gitea.nix
+    ../_mixins/containers/default.nix
 
     # ../_mixins/services/keycloak.nix
     # ./optimised_openssl.nix  # test with arch specifics
@@ -48,10 +48,10 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    # kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
+    zfs.enableUnstable = true;
+    kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    # supportedFilesystems = [ "ntfs" "xfs" "ext4" ];
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [
       "kvm-amd"
@@ -146,8 +146,5 @@
 
     # citation manager
     # pkgs.zotero
-    pkgs.podman
-    # pkgs.docker
-    pkgs.docker-compose
   ];
 }

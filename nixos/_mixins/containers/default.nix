@@ -8,26 +8,26 @@
   ];
 
   virtualisation = {
-    docker = {
-      enable = true;
-    };
+    # docker = {
+    #   enable = true;
+    # };
     podman = {
       enable = true;
-      # dockerCompat = true;
+      dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
 
-    oci-containers = {
-      backend = "podman";
+    # oci-containers = {
+    #   backend = "podman";
 
-      containers = {
-        gitea = import ./gitea.nix;
-      };
-    };
+    #   containers = {
+    #     # gitea = import ./gitea.nix;
+    #   };
+    # };
   };
 
   environment.systemPackages = with pkgs; [
-    docker-compose
+    # docker-compose
     podman
   ];
 

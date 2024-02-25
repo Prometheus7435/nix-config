@@ -121,14 +121,14 @@
         phoenix = nixpkgs-unstable.lib.nixosSystem {
           # sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
           specialArgs = {
-            inherit inputs outputs stateVersion;
+            inherit inputs outputs;
             desktop = "kde";
             hostid = "d7218c78"; # head -c 8 /etc/machine-id
             hostname = "phoenix";
             username = "shyfox";
             # arch = "znver3";
             # system = "x86_64-linux";
-            # stateVersion = "unstable";
+            stateVersion = "unstable";
           };
           modules = [
             ./nixos

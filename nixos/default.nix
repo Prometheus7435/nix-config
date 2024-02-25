@@ -60,6 +60,6 @@
 #    copySystemConfiguration = true;
 #    autoUpgrade.enable = true;
     # autoUpgrade.allowReboot = true;
-    stateVersion = "23.11";  # stateVersion;
+    stateVersion = stateVersion;
   };
 }
