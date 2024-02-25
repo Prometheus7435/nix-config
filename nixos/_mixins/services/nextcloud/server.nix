@@ -8,7 +8,7 @@
       dnsProvider = "porkbun";
       # location of your CLOUDFLARE_DNS_API_TOKEN=[value]
       # https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#EnvironmentFile=
-      environmentFile = "../../../../../code/porkbun-api.txt"; # why do I need relative instead of absolute paths?
+      environmentFile = "../../../../../code/bombayscloud.txt"; # why do I need relative instead of absolute paths?
     };
   };
   services = {
@@ -31,7 +31,7 @@
       # Let NixOS install and configure Redis caching automatically.
       configureRedis = true;
       # Increase the maximum file upload size.
-      maxUploadSize = "16G";
+      maxUploadSize = "10G";
       https = true;
       autoUpdateApps.enable = true;
       extraAppsEnable = true;
@@ -52,7 +52,7 @@
         defaultPhoneRegion = "US";
         dbtype = "pgsql";
         adminuser = "admin";
-        adminpassFile = "../../../../../code/nextcloud-admin-password.txt";
+        adminpassFile = "../../../../../code/nextcloud-admin-password.txt";  # No spilling secrets today
       };
       # Suggested by Nextcloud's health check.
       phpOptions."opcache.interned_strings_buffer" = "16";

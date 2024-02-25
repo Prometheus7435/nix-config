@@ -22,8 +22,8 @@
     ../_mixins/services/media-edit.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
-    # ../_mixins/services/nextcloud/server.nix
-    ../_mixins/containers/default.nix
+    ../_mixins/services/nextcloud/server.nix
+    # ../_mixins/containers/default.nix
 
     # ../_mixins/services/keycloak.nix
     # ./optimised_openssl.nix  # test with arch specifics
