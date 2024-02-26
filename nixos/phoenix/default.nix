@@ -16,7 +16,7 @@
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/systemd-boot.nix
     # ../_mixins/hardware/zfs.nix
-    ../_mixins/desktop/creative.nix
+    # ../_mixins/desktop/creative.nix
 
     # ../_mixins/services/cac.nix
     ../_mixins/services/media-edit.nix
