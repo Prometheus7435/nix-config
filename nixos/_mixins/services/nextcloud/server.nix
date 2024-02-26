@@ -8,7 +8,7 @@
       dnsProvider = "porkbun";
       # location of your CLOUDFLARE_DNS_API_TOKEN=[value]
       # https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#EnvironmentFile=
-      environmentFile = "../../../../../code/bombayscloud.txt"; # why do I need relative instead of absolute paths?
+      environmentFile = "/home/shyfox/code/bombayscloud.txt"; # why do I need relative instead of absolute paths?
     };
   };
   services = {
@@ -63,4 +63,7 @@
       startAt = "*-*-* 01:15:00";
     };
   };
+  # environment.systemPackages = [
+  #   pkgs.postgresql
+  # ];
 }

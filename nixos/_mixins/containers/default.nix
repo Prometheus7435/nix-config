@@ -8,14 +8,14 @@
   ];
 
   virtualisation = {
-    # docker = {
-    #   enable = true;
-    # };
-    podman = {
+    docker = {
       enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
     };
+    # podman = {
+    #   enable = true;
+    #   dockerCompat = true;
+    #   defaultNetwork.settings.dns_enabled = true;
+    # };
 
     # oci-containers = {
     #   backend = "podman";
@@ -27,8 +27,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # docker-compose
-    podman
+    docker-compose
+    # podman
   ];
 
   # systemd.services.create-podman-network = with config.virtualisation.oci-containers; {

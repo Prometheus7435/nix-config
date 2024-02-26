@@ -7,9 +7,9 @@
     accounts-daemon.enable = true;
     xserver = {
       enable = true;
-      layout = "us";
+      xkb.layout = "us";
       # xkbVariant = "dvorak,";
-      xkbOptions = "grp:win_space_toggle";
+      xkb.options = "grp:win_space_toggle";
 
       desktopManager = {
         plasma5 = {
