@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
     # ./podman.nix
-    ./virtualization.nix
+    # ./virtualization.nix
   ];
 }

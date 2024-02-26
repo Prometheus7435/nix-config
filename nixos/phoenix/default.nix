@@ -48,7 +48,7 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    zfs.enableUnstable = true;
+    # zfs.enableUnstable = true;
     kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
@@ -108,13 +108,13 @@
     pkgs.qbittorrent
 
     # need for ansible to work
-    pkgs.ansible
-    pkgs.sshpass
+    # pkgs.ansible
+    # pkgs.sshpass
 
     # creating cloud images
-    pkgs.xorriso
-    pkgs.cloud-init
-    pkgs.openssh
+    # pkgs.xorriso
+    # pkgs.cloud-init
+    # pkgs.openssh
 
     # pkgs.logseq
     pkgs.kitty
@@ -146,6 +146,6 @@
 
     # citation manager
     # pkgs.zotero
-    pkgs.postgresql
+    # pkgs.postgresql
   ];
 }
