@@ -45,6 +45,7 @@ Always compile packages, and use the newest version available.
 
 #+begin_src emacs-lisp
   (use-package auto-compile
+    :commands auto-compile-mode
     :config (auto-compile-on-load-mode))
   (setq load-prefer-newer t)
 #+end_src

@@ -17,6 +17,7 @@
 ;  (setq use-package-always-ensure t)
 
 (use-package auto-compile
+  :commands auto-compile-mode
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 

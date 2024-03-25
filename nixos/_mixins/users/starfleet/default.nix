@@ -12,15 +12,15 @@ in
   users.users.${username} = {
     description = "Server user of starfleet. Are these ever not self-referential?";
     extraGroups = [
-      "disk"
       "audio"
+      "disk"
+      "input"
+      "network"
+      "networkmanager"
+      "systemd-journal"
       "users"
       "video"
       "wheel"
-      "input"
-      "systemd-journal"
-      "networkmanager"
-      "network"
       ]
       ++ ifExists [
         "docker"

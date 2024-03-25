@@ -13,14 +13,14 @@ in
     description = "Zach";
     extraGroups = [
         "audio"
-        "networkmanager"
+        "disk"
+        "input"
         "network"
+        "networkmanager"
+        "systemd-journal"
         "users"
         "video"
         "wheel"
-        "disk"
-        "input"
-        "systemd-journal"
       ]
       ++ ifExists [
         "docker"

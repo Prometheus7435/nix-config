@@ -49,7 +49,7 @@
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
     # zfs.enableUnstable = true;
-    kernelPackages = pkgs.linuxPackages_lqx; # lqx is less frequent release version of zen
+    kernelPackages = pkgs.linuxPackages; # lqx is less frequent release version of zen
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
@@ -83,12 +83,12 @@
     # };
     fstrim.enable = true;
 
-    tlp = {
-      settings = {
-        START_CHARGE_THRESH_BAT0 = "70";
-        STOP_CHARGE_THRESH_BAT0 = "82";
-      };
-    };
+    # tlp = {
+    #   settings = {
+    #     START_CHARGE_THRESH_BAT0 = "70";
+    #     STOP_CHARGE_THRESH_BAT0 = "82";
+    #   };
+    # };
 
     # fingerprint reader
     fprintd.enable = true;
