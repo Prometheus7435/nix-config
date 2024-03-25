@@ -18,8 +18,7 @@
       xkb.options = "grp:win_space_toggle";
 
       # desktopManager = {
-      #   plasma6 = {
-      #   # plasma5 = {
+        # plasma5 = {
       #     enable = true;
       #   };
       # };
@@ -40,13 +39,6 @@
     };
 
   };
-  # i18n.inputMethod = {
-  #   enabled = "fcitx5";
-  #   fcitx5.addons = with pkgs; [
-  #     fcitx5-mozc
-  #     fcitx5-gtk
-  #   ];
-  # };
 
   programs = {
     dconf = {
@@ -55,12 +47,6 @@
     kdeconnect = {
       enable = true;
     };
-    # plasma = {
-    #   enable = true;
-    #   # shortcuts = {
-    #   #   "ksmserver"."Lock Session" = ["Meta+L" "Screensaver"];
-    #   # };
-    # };
   };
 
   # nixpkgs.config.allowUnfree = true;
@@ -93,6 +79,4 @@
     yakuake
     kate
   ];
-
-  # services.xserver.desktopManager.plasma5.useQtScaling = true;
 }
