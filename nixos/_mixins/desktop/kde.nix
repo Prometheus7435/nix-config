@@ -5,18 +5,24 @@
 
   services = {
     accounts-daemon.enable = true;
+    desktopManager = {
+      plasma6 = {
+        enable = true;
+      };
+    };
+
     xserver = {
       enable = true;
       xkb.layout = "us";
       # xkbVariant = "dvorak,";
       xkb.options = "grp:win_space_toggle";
 
-      desktopManager = {
-        plasma6 = {
-        # plasma5 = {
-          enable = true;
-        };
-      };
+      # desktopManager = {
+      #   plasma6 = {
+      #   # plasma5 = {
+      #     enable = true;
+      #   };
+      # };
 
       displayManager = {
         # sddm = {
