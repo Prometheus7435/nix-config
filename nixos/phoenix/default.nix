@@ -49,9 +49,9 @@
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
     # zfs.enableUnstable = true;
-    kernelPackages = pkgs.linuxPackages; # lqx is less frequent release version of zen
+    # kernelPackages = pkgs.linuxPackages; # lqx is less frequent release version of zen
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [
       "kvm-amd"
