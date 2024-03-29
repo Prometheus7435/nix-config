@@ -147,5 +147,6 @@
     # citation manager
     # pkgs.zotero
     # pkgs.postgresql
+    pkgs.ktailctl
   ];
 }
