@@ -22,7 +22,7 @@ The only place where I won't be using ZFS is in the VMs. This is because there's
 
 ** Install
 
-Initially, I was using a bash script from [[https://github.com/mcdonc/.nixconfig/blob/master/prepsystem.sh][mcdonc]] to make a a basic config for a non-flake install. Now I'm using [[https://github.com/wimpysworld/nix-config/blob/c44a1bd13868e759bb215f54ca1f3fe49eba6dae/scripts/install.sh][Whimpy's install script]] that uses [[https://github.com/nix-community/disko/tree/master][Distro]] to build the root filesytem.
+Initially, I was using a bash script from [[https://github.com/mcdonc/.nixconfig/blob/master/prepsystem.sh][mcdonc]] to make a a basic config for a non-flake install. Now I'm using [[https://github.com/wimpysworld/nix-config/blob/c44a1bd13868e759bb215f54ca1f3fe49eba6dae/scripts/install.sh][Whimpy's install script]] that uses [[https://github.com/nix-community/disko/tree/master][Disko]] to build the root filesytem.
 
 ** Computers
 A lot of this will be the same, as I like my KDE and ZFS. The differences will largely come down to the specific hardware found in each. The status below is dependent on the status of the host config and this flake setup overall.
