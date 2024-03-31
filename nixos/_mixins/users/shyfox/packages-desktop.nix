@@ -9,7 +9,7 @@
 
   environment.systemPackages = with pkgs; [
   # environment.systemPackages = with pkgs.unstable; [
-    authy
+    # authy
     # discord
 
     # blender
