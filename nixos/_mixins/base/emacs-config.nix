@@ -9,14 +9,9 @@
     enable = true;
     install = true;
     defaultEditor = true;
-  # };
-  # environment.systemPackages = [
     package = with pkgs; (emacsWithPackagesFromUsePackage
       {
-    # pkgs.emacsWithPackagesFromUsePackage
-
         config = ./emacs-init.el;
-        # config = ./emacs-config.org;
         defaultInitFile = true;
         package = pkgs.emacs-pgtk;
         # package = pkgs.emacs-unstable;  # rebuilds often
@@ -39,9 +34,6 @@
         # which defaults `:tangle` to `yes`.
         alwaysTangle = true;
 
-      # }
-    # );
-    # emacsPkgs.withPackages (epkgs: (with epkgs.melpaStablePackages; [
       extraEmacsPackages = epkgs: [
           epkgs.auto-compile
           epkgs.blacken
@@ -89,7 +81,6 @@
           epkgs.yaml-mode
           epkgs.yasnippet-snippets
           epkgs.which-key
-          # ]));
       ];
       }
     );
