@@ -17,6 +17,7 @@
 
         config = ./emacs-init.el;
         # config = ./emacs-config.org;
+        defaultInitFile = true;
         package = pkgs.emacs-pgtk;
         # package = pkgs.emacs-unstable;  # rebuilds often
 
@@ -69,6 +70,7 @@
           epkgs.moody
           epkgs.nix-mode
           epkgs.nix-modeline
+          epkgs.org
           epkgs.org-books
           epkgs.org-chef
           epkgs.popup-kill-ring
