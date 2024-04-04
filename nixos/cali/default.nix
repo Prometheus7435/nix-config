@@ -8,11 +8,7 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     # (import ./disks.nix { })
-    # inputs.nixos-hardware.nixosModules.common-cpu-amd
-    # inputs.nixos-hardware.nixosModules.common-gpu-amd
-    # inputs.nixos-hardware.nixosModules.common-pc
-    # inputs.nixos-hardware.nixosModules.common-pc-ssd
-    # (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/installer/scan/not-detected.nix")
     ../_mixins/services/pipewire.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/default.nix

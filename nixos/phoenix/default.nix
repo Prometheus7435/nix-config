@@ -9,8 +9,6 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
-    # inputs.nixos-hardware.nixosModules.common-pc
-    # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ../_mixins/hardware/default.nix
     # ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
@@ -25,9 +23,8 @@
     # ../_mixins/services/nextcloud/server.nix
     ../_mixins/containers/default.nix
 
+    ../_mixins/boxes/virtualization.nix
     # ../_mixins/services/keycloak.nix
-    # ./optimised_openssl.nix  # test with arch specifics
-
     # ../_mixins/containers/AudioBookShelf-docker.nix
 
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -47,7 +44,9 @@
   #  gcc.arch = "znver2"; # sys_arch;
   #  gcc.tune = "znver2"; # sys_arch;
     system = "x86_64-linux";
-    system-features = [ "gccarch-znver2" ];
+    system-features = [
+      "gccarch-znver2"
+    ];
     # requiredSystemFeatures = [ "gccarch-znver2" ];
   };
   # hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
