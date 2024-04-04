@@ -4,7 +4,7 @@
 # RAM: 32GB
 # NVME: Samsung SSD 980 1TB
 
-{ config, inputs, lib, pkgs, username, modulesPath, ... }:
+{ config, inputs, lib, pkgs, username, modulesPath, sys_arch, ... }:
 
 {
   imports = [
@@ -42,15 +42,18 @@
 
   swapDevices = [ ];
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  # nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = {
+  #  gcc.arch = "znver2"; # sys_arch;
+  #  gcc.tune = "znver2"; # sys_arch;
+    system = "x86_64-linux";
+  };
   # hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    # zfs.enableUnstable = true;
-    kernelPackages = pkgs.linuxPackages; # lqx is less frequent release version of zen
-    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages;
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [

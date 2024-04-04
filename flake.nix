@@ -112,7 +112,7 @@
             hostid = "26dce576"; # head -c 8 /etc/machine-id
             hostname = "odyssey";
             username = "shyfox";
-            arch = "znver2";
+            sys_arch = "znver2";
             system = "x86_64-linux";
           };
           modules = [ ./nixos ];

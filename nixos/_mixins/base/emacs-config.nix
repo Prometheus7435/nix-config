@@ -14,7 +14,7 @@
         config = ./emacs-init.el;
         defaultInitFile = true;
         package = pkgs.emacs-pgtk;
-        # package = pkgs.emacs-unstable;  # rebuilds often
+        # package = pkgs.commercial-emacs;  # rebuilds often
 
         # By default emacsWithPackagesFromUsePackage will only pull in
         # packages with `:ensure`, `:ensure t` or `:ensure <package name>`.
@@ -62,7 +62,6 @@
           epkgs.moody
           epkgs.nix-mode
           epkgs.nix-modeline
-          epkgs.org
           epkgs.org-books
           epkgs.org-chef
           epkgs.popup-kill-ring
@@ -89,7 +88,7 @@
   environment.systemPackages = with pkgs; [
     # applications needed for the emacs packages to hook into
     texlive.combined.scheme-full
-    nixfmt
+    nixfmt-classic
     ispell
     aspell
     black
