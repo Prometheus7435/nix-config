@@ -38,9 +38,6 @@
       enable = true;
       package = pkgs.firefox-wayland;
     };
-    # steam = {
-    #   enable = true;
-    # };
   };
 
   services = {
@@ -51,8 +48,6 @@
     pkgs.alacritty
     pkgs.vlc
     pkgs.chromium
-    # pkgs.google-chrome
-    # pkgs.via
     pkgs.libreoffice
     pkgs.thunderbird
 
@@ -60,39 +55,8 @@
 
     pkgs.calibre
 
-    config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
+    # config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
 
     pkgs.ventoy
-
-    # pkgs.packagekit
-    # pkgs.appflowy
   ];
-
-    # use fonts specified by user rather than default ones
-    # enableDefaultFonts = false;
-
-    # fontconfig = {
-    #   antialias = true;
-    #   cache32Bit = true;
-    #   defaultFonts = {
-    #     serif = [ "Work Sans" "Joypixels" ];
-    #     sansSerif = [ "Work Sans" "Joypixels" ];
-    #     monospace = [ "FiraCode Nerd Font Mono" ];
-    #     emoji = [ "Joypixels" ];
-    #   };
-    #   enable = true;
-    #   hinting = {
-    #     autohint = false;
-    #     enable = true;
-    #     style = "hintslight";
-    #   };
-    #   subpixel = {
-    #     rgba = "rgb";
-    #     lcdfilter = "light";
-    #   };
-    # };
-  # };
-
-  # Accept the joypixels license
-  # nixpkgs.config.joypixels.acceptLicense = true;
 }
