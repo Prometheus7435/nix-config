@@ -11,8 +11,10 @@
     ../_mixins/hardware/systemd-boot.nix
     # ../_mixins/services/nextcloud/server.nix
     ../_mixins/services/pipewire.nix
-
+    ../_mixins/services/nfs/server.nix
     ../_mixins/boxes/virtualization.nix
+
+
 
     (modulesPath + "/installer/scan/not-detected.nix")
   ];

@@ -7,8 +7,6 @@
 {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    # (import ./disks.nix { })
-    (modulesPath + "/installer/scan/not-detected.nix")
     ../_mixins/services/pipewire.nix
     ../_mixins/hardware/network-dhcp.nix
     # ../_mixins/hardware/default.nix
@@ -42,7 +40,7 @@
   swapDevices = [ ];
 
   services = {
-    # fstrim.enable = true;
+
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
