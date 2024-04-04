@@ -11,7 +11,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ../_mixins/services/pipewire.nix
     ../_mixins/hardware/network-dhcp.nix
-    ../_mixins/hardware/default.nix
+    # ../_mixins/hardware/default.nix
     ../_mixins/hardware/systemd-boot.nix
     ../_mixins/containers/default.nix
   ];
