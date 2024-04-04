@@ -1,13 +1,10 @@
-{ config, lib, pkgs, modulesPath, ... }:
-# { config, inputs, lib, pkgs, modulesPath, ... }:
-{
+{ config, lib, pkgs, modulesPath, ... }: {
   imports = [
-
+    ../services/fwupd.nix
   ];
-  # hardware.
+
   boot = {
     kernelParams = [ ];
-    # kernelParams = [ "mem_sleep_default=deep" "nohibernate" ];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
     ];
