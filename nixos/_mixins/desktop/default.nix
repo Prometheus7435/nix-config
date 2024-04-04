@@ -8,15 +8,11 @@
     (./. + "/${desktop}.nix")
   ];
 
-  # boot.kernelParams = [ "quiet" ];
-  # boot.plymouth.enable = true;
-
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
     # fonts = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono"]; })
-      # joypixels
       liberation_ttf
       ubuntu_font_family
       work-sans
@@ -29,7 +25,6 @@
       iosevka
       spleen
       powerline-fonts
-      # nerdfonts
     ];
   };
 
@@ -50,13 +45,8 @@
     pkgs.chromium
     pkgs.libreoffice
     pkgs.thunderbird
-
-    # pkgs.v4l-utils  # collection of device drivers and an API for supporting realtime video capture on Linux systems
-
     pkgs.calibre
-
     # config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
-
     pkgs.ventoy
   ];
 }
