@@ -47,6 +47,8 @@
   #  gcc.arch = "znver2"; # sys_arch;
   #  gcc.tune = "znver2"; # sys_arch;
     system = "x86_64-linux";
+    system-features = [ "gccarch-znver2" ];
+    # requiredSystemFeatures = [ "gccarch-znver2" ];
   };
   # hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 

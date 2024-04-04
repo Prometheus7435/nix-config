@@ -12,7 +12,7 @@
 	  )
 			     ;; ("dnd" . "~/DND/")))
 
-    (package-initialize)
+;;    (package-initialize)
 #+end_src
 
 ** Configure =use-package=
