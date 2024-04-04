@@ -6,9 +6,9 @@
     (./. + "/${hostname}/disks.nix")
     (modulesPath + "/installer/scan/not-detected.nix")
     ./_mixins/base
-    ./_mixins/boxes
+    # ./_mixins/boxes
     ./_mixins/languages
-    ./_mixins/users/root
+    # ./_mixins/users/root
     ./_mixins/users/${username}
   ]
   # Only include desktop components if one is supplied.
@@ -16,15 +16,8 @@
 
   nixpkgs = {
     overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      # outputs.overlays.additions
-      # outputs.overlays.modifications
-      # outputs.overlays.unstable-packages
       inputs.emacs-overlay.overlay
       inputs.nur.overlay
-
-      ## Figure this out later
-      # inputs.plasma-manager.overlay
     ];
     config = {
       allowUnfree = true;
@@ -46,7 +39,6 @@
     # nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     optimise.automatic = true;
-    # package = pkgs.unstable.nix;
     settings = {
       auto-optimise-store = true;
       experimental-features = [
