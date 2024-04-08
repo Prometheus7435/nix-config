@@ -222,6 +222,28 @@
       )
    )
 
+(use-package org-roam
+  ;; :ensure t  ; I use emacs-overlay to manage packages
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/Sync/personal/RoamNotes")
+  (org-roam-completion-everywhere t)
+  ;; use built in sqlite in Emacs 29+
+  (setq org-roam-database-connector 'sqlite-builtin)
+  :bind
+  (
+   ("C-c r l" . org-roam-buffer-toggle)
+   ("C-c r f" . org-roam-node-find)
+   ("C-c r i" . org-roam-node-insert)
+   :map org-mode-map
+   ("C-M-i"    . completion-at-point)
+   )
+
+  :config
+  (org-roam-setup)
+)
+
 (use-package org-chef
   :ensure t)
 

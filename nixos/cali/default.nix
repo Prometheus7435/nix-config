@@ -9,9 +9,8 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ../_mixins/services/pipewire.nix
     ../_mixins/hardware/network-dhcp.nix
-    # ../_mixins/hardware/default.nix
     ../_mixins/hardware/systemd-boot.nix
-    ../_mixins/containers/default.nix
+    ../_mixins/containers
   ];
 
   boot = {

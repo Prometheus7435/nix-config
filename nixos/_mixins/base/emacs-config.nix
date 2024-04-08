@@ -64,6 +64,7 @@
           epkgs.nix-modeline
           epkgs.org-books
           epkgs.org-chef
+          epkgs.org-roam
           epkgs.popup-kill-ring
           epkgs.projectile
           epkgs.rainbow-delimiters

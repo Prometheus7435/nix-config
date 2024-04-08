@@ -437,6 +437,35 @@ Bind a few handy keys.
    )
 #+end_src
 
+** Org-Roam
+I want to use something like the Zettlekasten method to sort all my random notes / thoughts. Keep hearing about Roam to do that, and if it can be done it can be done in Emacs.
+
+Here's something based on a [[https://systemcrafters.net/build-a-second-brain-in-emacs/getting-started-with-org-roam/][blog]] to start with.
+#+begin_src emacs-lisp
+  (use-package org-roam
+    ;; :ensure t  ; I use emacs-overlay to manage packages
+    :init
+    (setq org-roam-v2-ack t)
+    :custom
+    (org-roam-directory "~/Sync/personal/RoamNotes")
+    (org-roam-completion-everywhere t)
+    ;; use built in sqlite in Emacs 29+
+    (setq org-roam-database-connector 'sqlite-builtin)
+    :bind
+    (
+     ("C-c r l" . org-roam-buffer-toggle)
+     ("C-c r f" . org-roam-node-find)
+     ("C-c r i" . org-roam-node-insert)
+     :map org-mode-map
+     ("C-M-i"    . completion-at-point)
+     )
+
+    :config
+    (org-roam-setup)
+  )
+#+end_src
+
+
 * Test zone
 ** Org-Chef
 record and organize cooking recipes. Uses org-capture and can parse recipes from some sites
