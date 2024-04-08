@@ -1,7 +1,8 @@
 { config, desktop, inputs, lib, outputs, pkgs, username, stateVersion, ... }:
-let
-  inherit (pkgs.stdenv) isDarwin isLinux;
-in {
+# let
+#   inherit (pkgs.stdenv) isDarwin isLinux;
+# in {
+{
   # Only import desktop configuration if the host is desktop enabled
   # Only import user specific configuration if they have bespoke settings
   imports = [
@@ -19,7 +20,8 @@ in {
 
   home = {
     username = username;
-    homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
+    homeDirectory = "/home/${username}";
+    # homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
     sessionPath = [ "$HOME/.local/bin" ];
     stateVersion = stateVersion;  # "23.05";
   };
@@ -28,8 +30,8 @@ in {
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
+      # outputs.overlays.additions
+      # outputs.overlays.modifications
       # inputs.emacs-overlay.overlay
       # outputs.overlays.unstable-packages
 

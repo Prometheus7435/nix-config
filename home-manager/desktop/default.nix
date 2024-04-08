@@ -6,7 +6,7 @@
     # ./gitkraken.nix
     # ./meld.nix
     # ./tilix.nix
-    (./. + "/${desktop}.nix")
+    # (./. + "/${desktop}.nix")
   ];
 
   fonts.fontconfig.enable = true;

@@ -16,7 +16,6 @@
     # ../_mixins/hardware/zfs.nix
     # ../_mixins/desktop/creative.nix
 
-    # ../_mixins/services/cac.nix
     ../_mixins/services/media-edit.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
@@ -81,41 +80,28 @@
   };
 
   services = {
-    # zfs.autoScrub = {
-    #   enable = true;
-    #   interval = "monthly";
-    # };
     fstrim.enable = true;
-
-    # tlp = {
-    #   settings = {
-    #     START_CHARGE_THRESH_BAT0 = "70";
-    #     STOP_CHARGE_THRESH_BAT0 = "82";
-    #   };
-    # };
-
-    # fingerprint reader
-    fprintd.enable = true;
+    fprintd.enable = true; # fingerprint reader
   };
 
   security = {
     pam.services.login.fprintAuth = true;
     pam.services.xscreensaver.fprintAuth = true;
   };
-  # environment.systemPackages = with pkgs; [
+
   environment.systemPackages = [
-    # just fun
+    ## just fun
     pkgs.cbonsai
     pkgs.cowsay
     pkgs.fortune
 
     pkgs.qbittorrent
 
-    # need for ansible to work
+    ## need for ansible to work
     # pkgs.ansible
     # pkgs.sshpass
 
-    # creating cloud images
+    ## creating cloud images
     # pkgs.xorriso
     # pkgs.cloud-init
     # pkgs.openssh
@@ -133,7 +119,7 @@
     pkgs.snowmachine
     # pkgs.dtc
 
-    # spell checking
+    ## spell checking
     pkgs.enchant
     pkgs.aspell
     pkgs.aspellDicts.en
@@ -145,12 +131,12 @@
     pkgs.hunspellDicts.en_US-large
     pkgs.hunspellDicts.en_GB-large
 
-    # weather
+    ## weather
     pkgs.wego
 
     # citation manager
     # pkgs.zotero
     # pkgs.postgresql
-    pkgs.ktailctl
+    pkgs.digikam
   ];
 }

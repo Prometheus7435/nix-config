@@ -64,6 +64,7 @@
     # kdePackages.qtstyleplugin-kvantum
 
     libsForQt5.applet-window-buttons
+    libsForQt5.baloo
     libsForQt5.discover
     libsForQt5.dragon
     libsForQt5.filelight
