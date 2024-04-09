@@ -139,5 +139,6 @@
     ## playing with installing KDE themes
     pkgs.catppuccin-kde
     pkgs.arc-kde-theme
+    pkgs.nordic
   ];
 }
