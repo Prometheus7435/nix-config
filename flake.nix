@@ -196,6 +196,21 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
+        # test since shyfox always has desktop
+        "shyfox" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            desktop = "kde";
+            # hostname = "odyssey";
+            username = "shyfox";
+          };
+          modules = [ ./home-manager
+                      inputs.plasma-manager.homeManagerModules.plasma-manager
+                    ];
+        };
+
+
         "shyfox@odyssey" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {

@@ -3,7 +3,7 @@
     ./fish.nix
     ./git.nix
     ./neofetch.nix
-    ./xdg.nix
+    # ./xdg.nix
     # ./starship.nix
   ];
 

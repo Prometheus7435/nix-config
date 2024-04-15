@@ -43,6 +43,7 @@
         "*.log"
         "*.out"
         "*.pdf"
+        # "*.lock"
         ".DS_Store"
         "bin/"
         "dist/"
