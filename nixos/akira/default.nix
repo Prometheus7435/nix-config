@@ -13,7 +13,7 @@
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
-    ../_mixins/hardware/zfs.nix
+    # ../_mixins/hardware/zfs.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
     (modulesPath + "/installer/scan/not-detected.nix")
