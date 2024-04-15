@@ -9,7 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     blender
-    gimp-with-plugins
+    # gimp-with-plugins
     krita
     inkscape
     darktable
