@@ -21,16 +21,6 @@
       # inputs.emacs-overlay.overlay
       # outputs.overlays.unstable-packages
 
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-#      outputs.overlays.emacs-overlay
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -49,4 +39,5 @@
       warn-dirty = false;
     };
   };
+  programs.home-manager.enable = true;
 }

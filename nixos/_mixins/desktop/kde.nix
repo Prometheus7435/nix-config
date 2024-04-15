@@ -1,6 +1,6 @@
 { inputs, pkgs, username, ... }: {
   imports = [
-    # ../services/networkmanager.nix
+
   ];
 
   services = {
@@ -49,7 +49,6 @@
     };
   };
 
-  # nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # kdePackages.applet-window-buttons
     # kdePackages.discover

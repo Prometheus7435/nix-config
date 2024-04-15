@@ -13,19 +13,14 @@
     # ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/systemd-boot.nix
-    # ../_mixins/hardware/zfs.nix
     ../_mixins/desktop/creative.nix
 
     ../_mixins/services/media-edit.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
-    # ../_mixins/services/nextcloud/server.nix
     ../_mixins/containers/default.nix
 
     ../_mixins/boxes/virtualization.nix
-    # ../_mixins/services/keycloak.nix
-    # ../_mixins/containers/AudioBookShelf-docker.nix
-
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -38,7 +33,6 @@
 
   swapDevices = [ ];
 
-  # nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   nixpkgs.hostPlatform = {
     system = "x86_64-linux";
     system-features = [

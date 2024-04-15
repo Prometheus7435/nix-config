@@ -44,7 +44,7 @@
     # unigine-superposition
     # vivaldi
     # vivaldi-ffmpeg-codecs
-    vscode-fhs
+    # vscode-fhs
     # zoom-us
   ];
 }

@@ -13,7 +13,7 @@
             {
               name = "ESP";
               start = "0";
-              end = "512MiB";  # way overkill because I'm tired of getting errors because I ran out of space
+              end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
               fs-type = "fat32";
               bootable = true;
               content = {
@@ -24,7 +24,7 @@
             }
             {
               name = "zfs";
-              start = "520MiB";
+              start = "260MiB";
               end = "100%";
               content = {
                 type = "zfs";
@@ -44,20 +44,19 @@
           keylocation = "prompt";
           keyformat = "passphrase";
           "com.sun:auto-snapshot" = "false";
+          recordsize = "1M";
+          primarycache = "metadata"; # test field
+          atime = "off";
         };
         mountpoint = "/";
         postCreateHook = "zfs snapshot zroot@blank";
 
+        options = {
+          ashift = "12";
+          autotrim = "off";
+        };
         datasets = {
-        #   encrypted = {
-        #     type = "zfs_fs";
-        #     options = {
-        #       mountpoint = "none";
-        #       encryption = "aes-256-gcm";
-        #       keyformat = "passphrase";
-        #       keylocation = "file:///tmp/secret.key";
-        #     };
-        # };
+
         };
       };
     };

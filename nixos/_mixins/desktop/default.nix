@@ -1,8 +1,8 @@
 { config, inputs, desktop, pkgs, ... }: {
   imports = [
     ../services/cups.nix
-    ../services/flatpak.nix
-    ../services/sane.nix
+    # ../services/flatpak.nix
+    # ../services/sane.nix
     ../services/nextcloud/client.nix
     ../base/emacs-config.nix
     (./. + "/${desktop}.nix")

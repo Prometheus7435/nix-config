@@ -5,9 +5,10 @@ in
 {
    # Only include desktop components if one is supplied.
   imports = [
-    ./packages-console.nix
+    # ./packages-console.nix
     ../../services/nfs/client.nix
-  ] ++ lib.optional (builtins.isString desktop) ./packages-desktop.nix;
+  ];
+  # ++ lib.optional (builtins.isString desktop) ./packages-desktop.nix;
 
   users.users.${username} = {
     description = "Zach";
