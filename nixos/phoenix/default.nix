@@ -134,5 +134,7 @@
     pkgs.catppuccin-kde
     pkgs.arc-kde-theme
     pkgs.nordic
+
+    # pkgs.esphome
   ];
 }
