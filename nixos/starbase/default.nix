@@ -13,6 +13,7 @@
     ../_mixins/services/pipewire.nix
     ../_mixins/services/nfs/server.nix
     ../_mixins/boxes/virtualization.nix
+    ../_mixins/boxes/docker.nix
 
 
 

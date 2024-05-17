@@ -13,6 +13,7 @@
     krita
     inkscape
     darktable
+    digikam
     # openscad
     # freecad
     # solvespace

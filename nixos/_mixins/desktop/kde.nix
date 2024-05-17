@@ -12,14 +12,20 @@
         # notoPackage = true;
       };
     };
-    # displayManager = {
-    #   autoLogin = true;
-    # };
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "${username}";
+      };
+      defaultSession = "plasma"; # "plasmawayland";
+      sddm.wayland.enable = true;
+    };
+
+    libinput.enable = true;
 
     xserver = {
       enable = true;
       xkb.layout = "us";
-      # xkbVariant = "dvorak,";
       xkb.options = "grp:win_space_toggle";
 
       # desktopManager = {
@@ -28,20 +34,20 @@
       #   };
       # };
 
-      displayManager = {
-        # sddm = {
-        #   enable = true;
-        #   wayland.enable = true;
-        # };
-        # lightdm.enable = true;  # lets me autoLogin
-        defaultSession = "plasma"; # "plasmawayland";
-        sddm.wayland.enable = true; # new addition
-        # autoLogin = {
-        #   enable = true;
-        #   user = "${username}";
-        # };
-      };
-      # libinput.enable = true;
+      # displayManager = {
+      #   # sddm = {
+      #   #   enable = true;
+      #   #   wayland.enable = true;
+      #   # };
+      #   # lightdm.enable = true;  # lets me autoLogin
+      #   # defaultSession = "plasma"; # "plasmawayland";
+      #   # sddm.wayland.enable = true; # new addition
+      #   # autoLogin = {
+      #   #   enable = true;
+      #   #   user = "${username}";
+      #   # };
+      # };
+      # # libinput.enable = true;
     };
 
   };
@@ -62,11 +68,13 @@
     kdePackages.filelight
     kdePackages.kalk
     kdePackages.kdeconnect-kde
+    kdePackages.kdecoration
+    kdePackages.kdeplasma-addons
     kdePackages.kfind
     kdePackages.plasma-integration
-    kdePackages.xdg-desktop-portal-kde
-    kdePackages.kdecoration
+    kdePackages.plasma-pa
     kdePackages.qtstyleplugin-kvantum
+    kdePackages.xdg-desktop-portal-kde
 
     libsForQt5.applet-window-buttons
     # libsForQt5.baloo

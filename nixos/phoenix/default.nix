@@ -107,7 +107,7 @@
     pkgs.haruna
 
     # pkgs.ollama
-    pkgs.snowmachine
+    # pkgs.snowmachine
     # pkgs.dtc
 
     ## spell checking
@@ -128,13 +128,12 @@
     # citation manager
     # pkgs.zotero
     # pkgs.postgresql
-    pkgs.digikam
 
     ## playing with installing KDE themes
     pkgs.catppuccin-kde
     pkgs.arc-kde-theme
     pkgs.nordic
 
-    # pkgs.esphome
+    pkgs.macchina
   ];
 }

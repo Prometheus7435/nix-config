@@ -48,6 +48,7 @@
         gitc = "sh $HOME/Zero/nix-config/home-manager/console/simple-git-commit.sh";
         # "pushd ~/Zero/nix-config && git add . && git commit -m ";
         ytd = "yt-dlp -N 8 -o '%(title)s.%(ext)s'";
+        ytx = "yt-dlp -N 8 -P /home/shyfox/Videos/.WinX/new_downloads -o '%(title)s.%(ext)s'";
         weather = "wego -d 1";
       };
 
