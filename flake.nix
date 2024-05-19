@@ -151,11 +151,12 @@
 
         starbase = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs stateVersion;
+            inherit inputs outputs; # stateVersion;
             desktop = null;
             hostid = "2accc22f"; # head -c 8 /etc/machine-id
             hostname = "starbase";
             username = "starfleet";
+            stateVersion = "unstable";
           };
           modules = [ ./nixos ];
         };
