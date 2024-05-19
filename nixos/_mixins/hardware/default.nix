@@ -5,9 +5,9 @@
 
   boot = {
     kernelParams = [ ];
-    extraModulePackages = with config.boot.kernelPackages; [
-      acpi_call
-    ];
+    # extraModulePackages = with config.boot.kernelPackages; [
+    #   acpi_call
+    # ];
 
     kernelModules = [
       "acpi_call"

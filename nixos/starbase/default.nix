@@ -28,7 +28,7 @@
     };
 
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-
+    # kernelPackages = pkgs.linuxPackages;
     kernelParams = [ "mitigations=off" ];
 
     initrd = {
@@ -45,9 +45,9 @@
 
     fstrim.enable = true;
 
-    syncthing = {
-      guiAddress = "0.0.0.0:8384";
-    };
+    # syncthing = {
+    #   guiAddress = "0.0.0.0:8384";
+    # };
   };
 
   networking = {
@@ -69,7 +69,7 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.systemPackages = with pkgs; [
-    syncthing
+    # syncthing
 
     # snipe-it
   ];
