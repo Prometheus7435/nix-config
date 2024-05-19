@@ -149,7 +149,7 @@
           modules = [ ./nixos ];
         };
 
-        starbase = nixpkgs.lib.nixosSystem {
+        starbase = nixpkgs-unstable.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs; # stateVersion;
             desktop = null;
