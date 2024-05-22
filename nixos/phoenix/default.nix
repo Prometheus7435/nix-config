@@ -35,9 +35,9 @@
 
   nixpkgs.hostPlatform = {
     system = "x86_64-linux";
-    system-features = [
-      "gccarch-znver2"
-    ];
+    # system-features = [
+    #   "gccarch-znver2"
+    # ];
   };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
