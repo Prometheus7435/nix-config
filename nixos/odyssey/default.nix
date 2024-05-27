@@ -15,6 +15,11 @@
 
     ../_mixins/services/media-edit.nix
     ../_mixins/services/pipewire.nix
+
+    ../_mixins/containers/default.nix
+    ../_mixins/boxes/virtualization.nix
+
+    # ../_mixins/services/nfs/client.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 

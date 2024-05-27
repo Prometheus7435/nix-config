@@ -16,7 +16,7 @@ in
 ##   fileSystems."/mnt/nfs/${username}" = {  ## for future
   fileSystems."/mnt/zach" = {
     device = "100.126.182.65:/mnt/alpha/nfs/zach";
-    # device = "10.10.10.12:/mnt/alpha/nfs/zach";
+    # device = "starbase.tail0301a.ts.net:/mnt/alpha/nfs/zach";
     # device = "10.10.10.12:/mnt/alpha/nfs/${username}";    # future config
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" "user"];
