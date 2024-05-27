@@ -22,9 +22,10 @@
 #    zfs.forceImportRoot = false;
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
-    kernelParams = [ "mitigations=off" ];
+    # kernelParams = [ "mitigations=off" ];
     extraModulePackages = [];
     blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     kernelModules = [

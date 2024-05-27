@@ -135,5 +135,7 @@
     pkgs.nordic
 
     pkgs.macchina
+
+    pkgs.transmission
   ];
 }
