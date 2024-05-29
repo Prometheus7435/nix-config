@@ -83,8 +83,8 @@
   environment.systemPackages = [
     ## just fun
     pkgs.cbonsai
-    pkgs.cowsay
-    pkgs.fortune
+    # pkgs.cowsay
+    # pkgs.fortune
 
     pkgs.qbittorrent
 
@@ -102,11 +102,8 @@
     # pkgs.eagle
     # pkgs.kicad
 
-    # pkgs.jupyter-all
+    # pkgs.haruna
 
-    pkgs.haruna
-
-    # pkgs.ollama
     # pkgs.snowmachine
     # pkgs.dtc
 
@@ -125,7 +122,7 @@
     ## weather
     pkgs.wego
 
-    # citation manager
+    ## citation manager
     # pkgs.zotero
     # pkgs.postgresql
 
@@ -134,8 +131,6 @@
     pkgs.arc-kde-theme
     pkgs.nordic
 
-    pkgs.macchina
-
-    pkgs.transmission
+    # pkgs.macchina
   ];
 }
