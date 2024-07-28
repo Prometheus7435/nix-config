@@ -1,6 +1,6 @@
 { config, inputs, desktop, pkgs, ... }: {
   imports = [
-    ../services/cups.nix
+    # ../services/cups.nix
     # ../services/flatpak.nix
     # ../services/sane.nix
     ../services/nextcloud/client.nix
@@ -35,9 +35,9 @@
     };
   };
 
-  services = {
-    xserver.libinput.enable = true;
-  };
+  # services = {
+  #   xserver.libinput.enable = true;
+  # };
 
   environment.systemPackages = [
     pkgs.alacritty

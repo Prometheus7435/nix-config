@@ -10,7 +10,7 @@
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
     ../_mixins/hardware/default.nix
-    # ../_mixins/hardware/mobile.nix
+    ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/systemd-boot.nix
     ../_mixins/desktop/creative.nix
@@ -25,7 +25,7 @@
   ];
 
   # Only install the docs I use
-  documentation.enable = true;
+  documentation.enable = false;
   documentation.nixos.enable = false;
   documentation.man.enable = false;
   documentation.info.enable = false;
@@ -132,5 +132,6 @@
     pkgs.nordic
 
     # pkgs.macchina
+    pkgs.syncthing
   ];
 }
