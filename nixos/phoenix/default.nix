@@ -133,5 +133,7 @@
 
     # pkgs.macchina
     pkgs.syncthing
+
+    pkgs.android-tools
   ];
 }
