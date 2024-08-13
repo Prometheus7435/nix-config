@@ -70,6 +70,12 @@
 
   };
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 30;
+  };
+
   services = {
     fstrim.enable = true;
     fprintd.enable = true; # fingerprint reader
