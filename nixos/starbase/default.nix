@@ -7,13 +7,16 @@
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.nixos-hardware.nixosModules.supermicro
     ../_mixins/containers/default.nix
+
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/systemd-boot.nix
+
     # ../_mixins/services/nextcloud/server.nix
-    ../_mixins/services/pipewire.nix
     ../_mixins/services/nfs/server.nix
+    # ../_mixins/services/pipewire.nix
+
     ../_mixins/boxes/virtualization.nix
-    ../_mixins/boxes/docker.nix
+    # ../_mixins/boxes/docker.nix
 
 
 
