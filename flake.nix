@@ -75,7 +75,7 @@
 
       # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
       # stateVersion = "unstable";
-      stateVersion = "24.05";
+      stateVersion = "23.11";
 
     in rec {
       # Your custom packages

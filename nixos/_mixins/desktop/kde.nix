@@ -63,6 +63,7 @@
 
   environment.systemPackages = with pkgs; [
     # kdePackages.applet-window-buttons
+    kdePackages.baloo
     kdePackages.discover
     kdePackages.dragon
     kdePackages.filelight
@@ -77,17 +78,6 @@
     kdePackages.xdg-desktop-portal-kde
 
     libsForQt5.applet-window-buttons
-    # libsForQt5.baloo
-    # libsForQt5.discover
-    # libsForQt5.dragon
-    # libsForQt5.filelight
-    # libsForQt5.kalk
-    # libsForQt5.kdeconnect-kde
-    # libsForQt5.kfind
-    # libsForQt5.plasma-integration
-    # libsForQt5.xdg-desktop-portal-kde
-    # libsForQt5.kdecoration
-    # libsForQt5.qtstyleplugin-kvantum
 
     okular
     yakuake
