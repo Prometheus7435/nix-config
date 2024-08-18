@@ -8,13 +8,14 @@ let
     jedi-language-server
     pip
     yt-dlp
+
   ];
 in
 {
   environment.systemPackages = with pkgs; [
     ruff
     # python3Full
-    (python3.withPackages my-python-packages)
+    (python312.withPackages my-python-packages)
     # (python3.withPackages(ps:
     #   with ps; [
     #     pandas requests yt-dlp numpy
