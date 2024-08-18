@@ -5,9 +5,9 @@
     libguestfs-appliance
     libguestfs-with-appliance
     libvirt
-    qemu_full
-    qemu-utils
-    quickemu
+    # qemu_full
+    # qemu-utils
+    # quickemu
     spice-gtk
     virt-manager
     virt-viewer
