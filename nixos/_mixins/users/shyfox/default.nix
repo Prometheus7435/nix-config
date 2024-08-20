@@ -22,6 +22,7 @@ in
         "users"
         "video"
         "wheel"
+        "nextcloud"
       ]
       ++ ifExists [
         "docker"
