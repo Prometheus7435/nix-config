@@ -235,7 +235,6 @@
           };
           modules = [ ./home-manager
                       inputs.plasma-manager.homeManagerModules.plasma-manager
-                      inputs.emacs-overlay.homeManagerModules.emacs-overlay
                     ];
         };
 

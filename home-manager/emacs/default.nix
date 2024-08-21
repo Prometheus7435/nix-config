@@ -4,16 +4,17 @@
   imports = [
 
   ];
-
-  services.emacs = {
-    enable = true;
-    install = true;
-    defaultEditor = true;
-    package = with pkgs; (emacsWithPackagesFromUsePackage
-      {
-        config = ./emacs-init.el;
-        defaultInitFile = true;
-        package = pkgs.emacs-pgtk;
+  environment.systemPackages = [
+    (pkgs.emacsWithPackagesFromUsePackage {
+  # services.emacs = {
+      enable = true;
+      install = true;
+      defaultEditor = true;
+    #package = with pkgs; (emacsWithPackagesFromUsePackage
+    #  {
+      config = ./emacs-init.el;
+      defaultInitFile = true;
+      package = pkgs.emacs-pgtk;
         # package = pkgs.commercial-emacs;  # rebuilds often
 
         # By default emacsWithPackagesFromUsePackage will only pull in
@@ -23,7 +24,7 @@
         # `:ensure nil` or `:disabled`.
         # Note that this is NOT recommended unless you've actually set
         # `use-package-always-ensure` to `t` in your config.
-        alwaysEnsure = true;
+      alwaysEnsure = true;
 
         # For Org mode babel files, by default only code blocks with
         # `:tangle yes` are considered. Setting `alwaysTangle` to `true`
@@ -32,7 +33,7 @@
         # Note that this is NOT recommended unless you have something like
         # `#+PROPERTY: header-args:emacs-lisp :tangle yes` in your config,
         # which defaults `:tangle` to `yes`.
-        alwaysTangle = true;
+      alwaysTangle = true;
 
       extraEmacsPackages = epkgs: [
           epkgs.auto-compile
@@ -83,16 +84,15 @@
           epkgs.which-key
       ];
       }
-    );
-  };
+    )];
+  #};
 
-  environment.systemPackages = with pkgs; [
-    # applications needed for the emacs packages to hook into
-    texlive.combined.scheme-full
-    # nixfmt-classic
-    ispell
-    aspell
-    black
-  ];
-
+  #environment.systemPackages = with pkgs; [
+  # # applications needed for the emacs packages to hook into
+  #  texlive.combined.scheme-full
+  #  # nixfmt-classic
+  #  ispell
+  #  aspell
+  #  black
+  #];
 }
