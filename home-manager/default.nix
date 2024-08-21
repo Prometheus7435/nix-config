@@ -27,7 +27,7 @@
 
   nix = {
     # package = lib.mkDefault pkgs.nix;
-    package = lib.mkDefault pkgs.unstable.nix;
+    package = lib.mkDefault pkgs.nixpkgs-unstable; #.nix;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
