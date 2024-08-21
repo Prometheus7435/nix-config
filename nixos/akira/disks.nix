@@ -9,29 +9,24 @@
         content = {
           type = "table";
           format = "gpt";
-          partitions = [
-            {
-              name = "ESP";
-              start = "0";
-              end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
-              fs-type = "fat32";
-              bootable = true;
+          partitions = {
+            ESP = {
+              size = "256M";
+              type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
               };
-            }
-            {
-              name = "zfs";
-              start = "260MiB";
-              end = "100%";
+            };
+            zfs = {
+              size = "100%";
               content = {
                 type = "zfs";
                 pool = "zroot";
               };
-            }
-          ];
+            };
+          };
         };
       };
     };
@@ -45,7 +40,7 @@
           keyformat = "passphrase";
           "com.sun:auto-snapshot" = "false";
           recordsize = "1M";
-          primarycache = "metadata"; # test field
+          # primarycache = "metadata"; # test field
           atime = "off";
         };
         mountpoint = "/";
