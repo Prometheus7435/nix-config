@@ -6,10 +6,7 @@
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
     kernelPackages = pkgs.linuxPackages_xanmod;
-    # kernelPackages = pkgs.linux_xanmod_stable;
-
-    # kernelPackages = pkgs.linuxKernel.packages.linux_xanmod.zfs
-    # kernelPackages = pkgs.linuxPackages_lqx; # zen like kernel
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   };
 
   services = {

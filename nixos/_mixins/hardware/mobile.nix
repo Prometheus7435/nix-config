@@ -5,7 +5,7 @@
     wacomtablet
   ];
 
-  #powerManagement.enable = true;
+  # powerManagement.enable = true;
   # services = {
   #   # xserver.libinput.enable = true;
   #   tlp = {

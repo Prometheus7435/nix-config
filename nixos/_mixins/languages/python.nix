@@ -8,7 +8,6 @@ let
     jedi-language-server
     pip
     yt-dlp
-    cryptography
   ];
 in
 {

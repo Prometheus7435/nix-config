@@ -35,10 +35,6 @@
     };
   };
 
-  # services = {
-  #   xserver.libinput.enable = true;
-  # };
-
   environment.systemPackages = [
     pkgs.alacritty
     pkgs.vlc

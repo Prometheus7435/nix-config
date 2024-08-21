@@ -27,27 +27,6 @@
       enable = true;
       xkb.layout = "us";
       xkb.options = "grp:win_space_toggle";
-
-      # desktopManager = {
-      #   plasma5 = {
-      #     enable = true;
-      #   };
-      # };
-
-      # displayManager = {
-      #   # sddm = {
-      #   #   enable = true;
-      #   #   wayland.enable = true;
-      #   # };
-      #   # lightdm.enable = true;  # lets me autoLogin
-      #   # defaultSession = "plasma"; # "plasmawayland";
-      #   # sddm.wayland.enable = true; # new addition
-      #   # autoLogin = {
-      #   #   enable = true;
-      #   #   user = "${username}";
-      #   # };
-      # };
-      # # libinput.enable = true;
     };
 
   };
