@@ -1,4 +1,4 @@
-{config, pkgs, ...}: {
+{config, pkgs, username, ...}: {
   imports = [
 
   ];
@@ -25,6 +25,8 @@
     #   };
     # };
   };
+
+  users.users.${username}.extraGroups = [ "docker" ];
 
   environment.systemPackages = with pkgs; [
     docker-compose
