@@ -1,4 +1,4 @@
-{ config, desktop, inputs, lib, outputs, pkgs, username, stateVersion, ... }:
+{ config, desktop, inputs, lib, outputs, pkgs, username, stateVersion, emacs-overlay, ... }:
 {
   imports = [
     ./console

@@ -5,38 +5,11 @@
 
   boot = {
     kernelParams = [ ];
-    # extraModulePackages = with config.boot.kernelPackages; [
-    #   acpi_call
-    # ];
-
-    # kernelModules = [
-    #   "acpi_call"
-    # ];
-
-    # initrd = {
-    #   availableKernelModules = [
-    #     "rtsx_pci_sdmmc"
-    #     "xhci_pci"
-    #     "ehci_pci"
-    #     "ahci"
-    #     "usbhid"
-    #     "usb_storage"
-    #     # "sd_mod"
-    #     "virtio_balloon"
-    #     "virtio_blk"
-    #     "virtio_pci"
-    #     "virtio_ring"
-    #     "mpt3sas"
-    #     "nvme"
-    #   ];
-    #   kernelModules = [
-
-    #   ];
-    # };
   };
 
   hardware = {
-    opengl = {
+    graphics = {
+    # opengl = {
       enable = true;
       extraPackages = with pkgs; [
         # intel-media-driver # LIBVA_DRIVER_NAME=iHD

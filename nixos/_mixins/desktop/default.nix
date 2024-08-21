@@ -4,7 +4,7 @@
     # ../services/flatpak.nix
     # ../services/sane.nix
     ../services/nextcloud/client.nix
-    # ../base/emacs-config.nix
+    ../base/emacs-config.nix
     (./. + "/${desktop}.nix")
   ];
 
@@ -48,14 +48,5 @@
     pkgs.calibre
     # config.nur.repos.wolfangaukang.vdhcoapp # to get it to work, you need to run path/to/net.downloadhelper.coapp install --user
     pkgs.ventoy
-
-
-    # applications needed for the emacs packages to hook into
-    pkgs.texliveFull
-    # texlive.combined.scheme-full
-    # nixfmt-classic
-    pkgs.ispell
-    pkgs.aspell
-    pkgs.black
   ];
 }

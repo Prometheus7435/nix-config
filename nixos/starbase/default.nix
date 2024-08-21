@@ -16,9 +16,6 @@
     # ../_mixins/services/pipewire.nix
 
     ../_mixins/boxes/virtualization.nix
-    # ../_mixins/boxes/docker.nix
-
-
 
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
