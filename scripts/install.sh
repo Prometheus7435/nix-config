@@ -53,10 +53,10 @@ if [ ! -e "nixos/${TARGET_HOST}/disks.nix" ]; then
   exit 1
 fi
 
-if [ "$(id -u)" -eq 0 ]; then
-  echo "ERROR! $(basename "${0}") should be run as a regular user"
-  exit 1
-fi
+# if [ "$(id -u)" -eq 0 ]; then
+#   echo "ERROR! $(basename "${0}") should be run as a regular user"
+#   exit 1
+# fi
 
 echo "WARNING! The disks in ${TARGET_HOST} are about to get wiped"
 echo "         NixOS will be re-installed"
@@ -89,7 +89,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
     mkdir -p "/mnt/home/${TARGET_USER}/.local/state/nix/profiles"
 
-    # folders used in my emacs config
-    mkdir -p "/mnt/home/${TARGET_USER}/.config/emacs/backups"
-    mkdir -p "/mnt/home/${TARGET_USER}/.config/emacs/emacs_autosave"
+    ## folders used in my emacs config
+    # mkdir -p "/mnt/home/${TARGET_USER}/.config/emacs/backups"
+    # mkdir -p "/mnt/home/${TARGET_USER}/.config/emacs/emacs_autosave"
+    mkdir -p "/mnt/home/${TARGET_USER}/.config/emacs/{backups,emacs_autosave}"
 fi

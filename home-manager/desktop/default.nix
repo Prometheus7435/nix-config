@@ -6,7 +6,7 @@
     # ./gitkraken.nix
     # ./meld.nix
     # ./tilix.nix
-    # (./. + "/${desktop}.nix")
+    ../emacs/default.nix
   ];
 
   fonts.fontconfig.enable = true;
