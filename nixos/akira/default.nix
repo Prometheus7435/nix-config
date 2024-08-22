@@ -13,30 +13,33 @@
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
-    # ../_mixins/hardware/zfs.nix
+    ../_mixins/hardware/systemd-boot.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
+
+    ../_mixins/containers/default.nix
+
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages;
-    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = pkgs.linuxPackages;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
-    kernelModules = [
-      "kvm-amd"
-      "sse3"
-      "ssse3"
-      "sse4_1"
-      "sse4_2"
-      "sse4a"
-      "aes"
-      "avx"
-      "avx2"
-      "fma"
-    ];
+    # kernelModules = [
+    #   "kvm-amd"
+    #   "sse3"
+    #   "ssse3"
+    #   "sse4_1"
+    #   "sse4_2"
+    #   "sse4a"
+    #   "aes"
+    #   "avx"
+    #   "avx2"
+    #   "fma"
+    # ];
     initrd = {
       availableKernelModules = [
         "sd_mod"
