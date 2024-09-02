@@ -59,6 +59,7 @@
           epkgs.lsp-mode
           epkgs.lsp-ui
           epkgs.minions
+          epkgs.matlab-mode
           epkgs.moody
           epkgs.nix-mode
           epkgs.nix-modeline

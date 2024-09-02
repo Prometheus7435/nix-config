@@ -145,5 +145,7 @@
     pkgs.syncthing
 
     pkgs.android-tools
+
+    pkgs.octaveFull
   ];
 }
