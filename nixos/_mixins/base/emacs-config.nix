@@ -9,12 +9,13 @@
     enable = true;
     install = true;
     defaultEditor = true;
+    # package = with pkgs; (emacsWithPackagesFor emacsPgtkNativeComp
     package = with pkgs; (emacsWithPackagesFromUsePackage
       {
         config = ./emacs-init.el;
         defaultInitFile = true;
         package = pkgs.emacs-pgtk;
-        # package = pkgs.commercial-emacs;  # rebuilds often
+        # package = pkgs.commercial-emacs;
 
         # By default emacsWithPackagesFromUsePackage will only pull in
         # packages with `:ensure`, `:ensure t` or `:ensure <package name>`.
@@ -34,7 +35,8 @@
         # which defaults `:tangle` to `yes`.
         alwaysTangle = true;
 
-      extraEmacsPackages = epkgs: [
+        # emacsWithPackages = epkgs: [
+        extraEmacsPackages = epkgs: [
           epkgs.auto-compile
           epkgs.blacken
           epkgs.company

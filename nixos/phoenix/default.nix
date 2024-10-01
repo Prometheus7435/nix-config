@@ -53,15 +53,15 @@
     kernelParams = [ "nohibernate"];
     kernelModules = [
       "kvm-amd"
-      "sse3"
-      "ssse3"
-      "sse4_1"
-      "sse4_2"
-      "sse4a"
-      "aes"
-      "avx"
-      "avx2"
-      "fma"
+      # "sse3"
+      # "ssse3"
+      # "sse4_1"
+      # "sse4_2"
+      # "sse4a"
+      # "aes"
+      # "avx"
+      # "avx2"
+      # "fma"
     ];
     initrd = {
       availableKernelModules = [
@@ -123,14 +123,14 @@
     pkgs.aspellDicts.en
     pkgs.aspellDicts.en-science
     pkgs.ispell
-    pkgs.nuspell
-    pkgs.hunspell
+    # pkgs.nuspell
+    # pkgs.hunspell
     # pkgs.hunspellDicts.en_US
     pkgs.hunspellDicts.en_US-large
     pkgs.hunspellDicts.en_GB-large
 
     ## weather
-    pkgs.wego
+    # pkgs.wego
 
     ## citation manager
     # pkgs.zotero
@@ -144,8 +144,10 @@
     # pkgs.macchina
     pkgs.syncthing
 
-    pkgs.android-tools
+    # pkgs.android-tools
 
     pkgs.octaveFull
+
+    pkgs.tmux
   ];
 }
