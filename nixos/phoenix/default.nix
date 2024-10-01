@@ -48,20 +48,11 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    # kernelPackages = pkgs.linuxPackages;
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = pkgs.linuxPackages;
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [
       "kvm-amd"
-      # "sse3"
-      # "ssse3"
-      # "sse4_1"
-      # "sse4_2"
-      # "sse4a"
-      # "aes"
-      # "avx"
-      # "avx2"
-      # "fma"
     ];
     initrd = {
       availableKernelModules = [
