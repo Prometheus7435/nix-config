@@ -2,7 +2,6 @@
   imports = [
     ./locale.nix
     ./nano.nix
-    # ./emacs-config.nix
     ../services/openssh.nix
     ../services/tailscale.nix
   ];

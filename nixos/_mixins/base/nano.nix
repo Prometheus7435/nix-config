@@ -3,7 +3,7 @@
     pkgs.nano
   ];
   programs.nano = {
-    # enable = true;
+    enable = true;
     syntaxHighlight = true;
   # programs.nano.syntaxHighlight = true;
     # programs.nano.nanorc = ''

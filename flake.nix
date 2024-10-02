@@ -4,14 +4,14 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       # url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -75,7 +75,7 @@
 
       # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
       # stateVersion = "unstable";
-      stateVersion = "23.11";
+      stateVersion = "24.05";
 
     in rec {
       # Your custom packages
