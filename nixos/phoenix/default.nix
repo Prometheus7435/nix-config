@@ -48,7 +48,8 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_6_10;
+    # kernelPackages = pkgs.linuxPackages_hardened;
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [
@@ -140,5 +141,7 @@
     pkgs.octaveFull
 
     pkgs.tmux
+
+    pkgs.libhugetlbfs
   ];
 }
