@@ -22,10 +22,6 @@
 
     ../_mixins/boxes/virtualization.nix
     (modulesPath + "/installer/scan/not-detected.nix")
-
-    # ../_mixins/services/nextcloud/server.nix
-
-    # ../_mixins/users/nextcloud
   ];
 
   # Only install the docs I use
@@ -39,9 +35,6 @@
 
   nixpkgs.hostPlatform = {
     system = "x86_64-linux";
-    # system-features = [
-    #   "gccarch-znver2"
-    # ];
   };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
@@ -49,7 +42,6 @@
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
     kernelPackages = pkgs.linuxPackages_6_10;
-    # kernelPackages = pkgs.linuxPackages_hardened;
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [
@@ -89,25 +81,7 @@
     # pkgs.fortune
 
     pkgs.qbittorrent
-
-    ## need for ansible to work
-    # pkgs.ansible
-    # pkgs.sshpass
-
-    ## creating cloud images
-    # pkgs.xorriso
-    # pkgs.cloud-init
-    # pkgs.openssh
-
-    # pkgs.logseq
     pkgs.kitty
-    # pkgs.eagle
-    # pkgs.kicad
-
-    # pkgs.haruna
-
-    # pkgs.snowmachine
-    # pkgs.dtc
 
     ## spell checking
     pkgs.enchant
@@ -115,14 +89,8 @@
     pkgs.aspellDicts.en
     pkgs.aspellDicts.en-science
     pkgs.ispell
-    # pkgs.nuspell
-    # pkgs.hunspell
-    # pkgs.hunspellDicts.en_US
     pkgs.hunspellDicts.en_US-large
     pkgs.hunspellDicts.en_GB-large
-
-    ## weather
-    # pkgs.wego
 
     ## citation manager
     # pkgs.zotero
@@ -135,8 +103,6 @@
 
     # pkgs.macchina
     pkgs.syncthing
-
-    # pkgs.android-tools
 
     pkgs.octaveFull
 
