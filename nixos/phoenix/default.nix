@@ -60,11 +60,11 @@
 
   };
 
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 30;
-  };
+  # zramSwap = {
+  #   enable = true;
+  #   algorithm = "zstd";
+  #   memoryPercent = 30;
+  # };
 
   services = {
     fstrim.enable = true;
