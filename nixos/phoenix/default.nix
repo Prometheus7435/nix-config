@@ -21,6 +21,8 @@
     ../_mixins/containers/default.nix
 
     ../_mixins/boxes/virtualization.nix
+
+    # ../_mixins/services/nextcloud/server.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -108,6 +110,6 @@
 
     pkgs.tmux
 
-    pkgs.libhugetlbfs
+    # pkgs.libhugetlbfs
   ];
 }

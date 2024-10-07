@@ -57,7 +57,7 @@
         defaultPhoneRegion = "US";
         dbtype = "sqlite";
         # dbtype = "pgsql";
-        # adminuser = "admin";
+        adminuser = "admin";
         adminpassFile = "/home/shyfox/Zero/nix-config/nixos/_mixins/services/nextcloud/nextcloud_password.txt";
         # adminpassFile = "../../../../../code/nextcloud-admin-password.txt";  # No spilling secrets today
       };
@@ -72,6 +72,6 @@
   };
   environment.systemPackages = [
     # pkgs.mysql
-    # pkgs.postgresql
+
   ];
 }
