@@ -14,15 +14,18 @@
           partitions = {
             ESP = {
               # name = "ESP";
-              start = "0";
-              end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
-              fs-type = "fat32";
-              bootable = true;
+              size = "256MiB";
+              # start = "0";
+              # end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
+              # fs-type = "fat32";
+              # bootable = true;
+              type = "EF00";
               priority = 1;
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
               };
             };
             # {
