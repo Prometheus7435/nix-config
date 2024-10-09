@@ -7,8 +7,9 @@
         device = "/dev/nvme0n1";
         # device = builtins.elemAt disks 0;
         content = {
-          type = "table";
-          format = "gpt";
+          type = "gpt";
+          # type = "table";
+          # format = "gpt";
           partitions = [
             {
               name = "ESP";
@@ -16,6 +17,7 @@
               end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
               fs-type = "fat32";
               bootable = true;
+              priority = 1;
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -26,6 +28,7 @@
               name = "zfs";
               start = "260MiB";
               end = "100%";
+              priority = 2;
               content = {
                 type = "zfs";
                 pool = "zroot";

@@ -51,7 +51,7 @@
     ];
     initrd = {
       availableKernelModules = [
-        "sd_mod"
+        # "sd_mod"
       ];
     };
   };
@@ -78,7 +78,7 @@
 
   environment.systemPackages = [
     ## just fun
-    pkgs.cbonsai
+    # pkgs.cbonsai
     # pkgs.cowsay
     # pkgs.fortune
 
