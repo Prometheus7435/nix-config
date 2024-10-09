@@ -10,9 +10,10 @@
           type = "gpt";
           # type = "table";
           # format = "gpt";
-          partitions = [
-            {
-              name = "ESP";
+          # partitions = [
+          partitions = {
+            ESP = {
+              # name = "ESP";
               start = "0";
               end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
               fs-type = "fat32";
@@ -23,18 +24,21 @@
                 format = "vfat";
                 mountpoint = "/boot";
               };
-            }
-            {
-              name = "zfs";
-              start = "260MiB";
-              end = "100%";
+            };
+            # {
+            zfs = {
+              # name = "zfs";
+              # start = "260MiB";
+              # end = "100%";
+              size = "100%";
               priority = 2;
               content = {
                 type = "zfs";
                 pool = "zroot";
               };
-            }
-          ];
+            };
+          };
+          # ];
         };
       };
     };
