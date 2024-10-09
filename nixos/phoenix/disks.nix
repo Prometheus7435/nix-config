@@ -10,10 +10,11 @@
           type = "gpt";
           # type = "table";
           # format = "gpt";
-          partitions = [
-          # partitions = {
-            # ESP = {
-              name = "ESP";
+          # partitions = [
+            # {
+          partitions = {
+            ESP = {
+              # name = "ESP";
               size = "256MiB";
               # start = "0";
               # end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
@@ -27,10 +28,10 @@
                 mountpoint = "/boot";
                 mountOptions = [ "umask=0077" ];
               };
-            # };
-            {
-            # zfs = {
-              name = "zfs";
+            };
+            # {
+            zfs = {
+              # name = "zfs";
               # start = "260MiB";
               # end = "100%";
               size = "100%";
@@ -40,8 +41,8 @@
                 pool = "zroot";
               };
             };
-          # };
-          ];
+          };
+          # ];
         };
       };
     };
