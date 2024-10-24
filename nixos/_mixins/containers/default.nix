@@ -1,21 +1,21 @@
 {config, pkgs, username, ...}: {
   imports = [
-
+    ./podman
   ];
 
-  virtualisation = {
-    docker = {
-      enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
-  };
+  # virtualisation = {
+  #   docker = {
+  #     enable = true;
+  #     rootless = {
+  #       enable = true;
+  #       setSocketVariable = true;
+  #     };
+  #   };
+  # };
 
-  users.users.${username}.extraGroups = [ "docker" ];
+  # users.users.${username}.extraGroups = [ "docker" ];
 
-  environment.systemPackages = with pkgs; [
-    docker-compose
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   docker-compose
+  # ];
 }
