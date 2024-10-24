@@ -55,8 +55,8 @@
       config = {
         overwriteProtocol = "https";
         defaultPhoneRegion = "US";
-        dbtype = "sqlite";
-        # dbtype = "pgsql";
+        # dbtype = "sqlite";
+        dbtype = "mysql";
         adminuser = "admin";
         adminpassFile = "/home/shyfox/Zero/nix-config/nixos/_mixins/services/nextcloud/nextcloud_password.txt";
         # adminpassFile = "../../../../../code/nextcloud-admin-password.txt";  # No spilling secrets today

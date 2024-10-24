@@ -20,7 +20,8 @@
               # end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
               # fs-type = "fat32";
               # bootable = true;
-              type = "EF00";
+              # type = "fat32";
+              # type = "EF00";
               priority = 1;
               content = {
                 type = "filesystem";
