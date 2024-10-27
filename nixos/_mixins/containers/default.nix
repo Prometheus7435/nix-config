@@ -1,6 +1,6 @@
 {config, pkgs, username, ...}: {
   imports = [
-    ./podman
+    ./podman.nix
   ];
 
   # virtualisation = {
