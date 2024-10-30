@@ -7,43 +7,44 @@
         device = "/dev/nvme0n1";
         # device = builtins.elemAt disks 0;
         content = {
-          type = "gpt";
-          # type = "table";
-          # format = "gpt";
-          # partitions = [
-            # {
-          partitions = {
-            ESP = {
-              # name = "ESP";
-              size = "256MiB";
+          # type = "gpt";
+          type = "table";
+          format = "gpt";
+          partitions = [
+            {
+          # partitions = {
+            # ESP = {
+              name = "ESP";
+              size = "500MiB";
               # start = "0";
               # end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
-              # fs-type = "fat32";
-              # bootable = true;
+              fs-type = "fat32";
+              bootable = true;
               # type = "fat32";
               # type = "EF00";
-              priority = 1;
+              # priority = 1;
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                # mountOptions = [ "umask=0077" ];
               };
-            };
-            # {
-            zfs = {
-              # name = "zfs";
-              # start = "260MiB";
+            }
+            # };
+            {
+            # zfs = {
+              name = "zfs";
+              start = "520MiB";
               # end = "100%";
               size = "100%";
-              priority = 2;
+              # priority = 2;
               content = {
                 type = "zfs";
                 pool = "zroot";
               };
             };
-          };
-          # ];
+            # };
+          ];
         };
       };
     };
