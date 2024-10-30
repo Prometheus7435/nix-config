@@ -36,8 +36,8 @@
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = {
-    gcc.arch = "skylake";
-    gcc.tune = "skylake";
+    gcc.arch = "x86-64-v3";
+    gcc.tune = "x86-64-v3";
     system = "x86_64-linux";
   };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -54,6 +54,7 @@
     initrd = {
       availableKernelModules = [
         # "sd_mod"
+
       ];
     };
   };
