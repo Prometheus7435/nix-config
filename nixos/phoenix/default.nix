@@ -36,8 +36,8 @@
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = {
-    gcc.arch = "znver1";
-    gcc.tune = "znver1";
+    gcc.arch = "skylake";
+    gcc.tune = "skylake";
     system = "x86_64-linux";
   };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
