@@ -15,9 +15,9 @@
           # partitions = {
             # ESP = {
               name = "ESP";
-              size = "500MiB";
-              # start = "0";
-              # end = "256MiB";  # way overkill because I'm tired of getting errors because I ran out of space
+              # size = "500MiB";
+              start = "0";
+              end = "500MiB";  # way overkill because I'm tired of getting errors because I ran out of space
               fs-type = "fat32";
               bootable = true;
               # type = "fat32";
@@ -35,8 +35,8 @@
             # zfs = {
               name = "zfs";
               start = "520MiB";
-              # end = "100%";
-              size = "100%";
+              end = "100%";
+              # size = "100%";
               # priority = 2;
               content = {
                 type = "zfs";
