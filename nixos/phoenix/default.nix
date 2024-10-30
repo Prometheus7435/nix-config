@@ -50,6 +50,7 @@
     kernelParams = [ "nohibernate"];
     kernelModules = [
       "kvm-amd"
+      "znver2"
     ];
     initrd = {
       availableKernelModules = [
