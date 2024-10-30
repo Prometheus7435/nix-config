@@ -22,7 +22,7 @@
 
     ../_mixins/boxes/virtualization.nix
 
-    ../_mixins/services/nextcloud/server.nix
+    # ../_mixins/services/nextcloud/server.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
