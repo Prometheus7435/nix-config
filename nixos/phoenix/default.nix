@@ -36,8 +36,8 @@
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = {
-    gcc.arch = "znver2";
-    gcc.tune = "znver2";
+    gcc.arch = "znver1";
+    gcc.tune = "znver1";
     system = "x86_64-linux";
   };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -50,7 +50,6 @@
     kernelParams = [ "nohibernate"];
     kernelModules = [
       "kvm-amd"
-      "znver2"
     ];
     initrd = {
       availableKernelModules = [
