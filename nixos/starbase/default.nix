@@ -85,4 +85,10 @@
 
     xone.enable = true;
   };
+
+  filesystems."samba_share" = {
+    device = "/mnt/alpha/samba";
+    fsType = "virtiofs";
+
+  };
 }

@@ -36,8 +36,8 @@
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = {
-    gcc.arch = "x86-64-v3";
-    gcc.tune = "x86-64-v3";
+    # gcc.arch = "x86-64-v3";
+    # gcc.tune = "x86-64-v3";
     system = "x86_64-linux";
   };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -45,8 +45,9 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_6_10;
-    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = pkgs.linuxPackages_6_11;
+    # kernelPackages = pkgs.linuxKernel.packages.linux_zen.zfs;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [
       "kvm-amd"
@@ -114,5 +115,7 @@
     pkgs.tmux
 
     # pkgs.libhugetlbfs
+    pkgs.palemoon-bin
+    pkgs.librewolf-bin
   ];
 }
