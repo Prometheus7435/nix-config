@@ -56,8 +56,8 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    # kernelPackages = pkgs.linuxPackages_6_11;
-    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
+    kernelPackages = pkgs.linuxPackages_6_12;
+    # kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [
