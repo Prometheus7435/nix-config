@@ -36,7 +36,7 @@
 
   swapDevices = [ ];
 
-  nix.settings.system-features = [ "nixos-test" "benchmark" "big-parallel" "gcc-znver2" ];
+  nix.settings.system-features = [ "nixos-test" "benchmark" "big-parallel" "gcc-znver2" "gccarch-znver2"];
 
   nixpkgs = {
     hostPlatform = {
@@ -50,12 +50,7 @@
       # gcc.tune = "znver2";
     };
   };
-  # nixpkgs.buildPlatform.system = "x86_64-linux";
-  # nixpkgs.buildPlatform.gcc.arch = "tigerlake";
-  # nixpkgs.buildPlatform.gcc.tune = "tigerlake";
-  # nixpkgs.hostPlatform.system = "x86_64-linux";
-  # nixpkgs.hostPlatform.gcc.arch = "tigerlake";
-  # nixpkgs.hostPlatform.gcc.tune = "tigerlake";
+
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   boot = {
