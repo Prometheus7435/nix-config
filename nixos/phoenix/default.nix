@@ -41,13 +41,13 @@
   nixpkgs = {
     hostPlatform = {
       system = "x86_64-linux";
-      gcc.arch = "znver2";
-      gcc.tune = "znver2";
+      # gcc.arch = "znver2";
+      # gcc.tune = "znver2";
     };
     buildPlatform = {
       system = "x86_64-linux";
-      gcc.arch = "znver2";
-      gcc.tune = "znver2";
+      # gcc.arch = "znver2";
+      # gcc.tune = "znver2";
     };
   };
 
