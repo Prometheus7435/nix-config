@@ -36,18 +36,18 @@
 
   swapDevices = [ ];
 
-  nix.settings.system-features = [ "nixos-test" "benchmark" "big-parallel" "znver2" ];
+  nix.settings.system-features = [ "nixos-test" "benchmark" "big-parallel" "gcc-znver2" ];
 
   nixpkgs = {
     hostPlatform = {
       system = "x86_64-linux";
-      gcc.arch = "znver2";
-      gcc.tune = "znver2";
+      # gcc.arch = "znver2";
+      # gcc.tune = "znver2";
     };
     buildPlatform = {
       system = "x86_64-linux";
-      gcc.arch = "znver2";
-      gcc.tune = "znver2";
+      # gcc.arch = "znver2";
+      # gcc.tune = "znver2";
     };
   };
   # nixpkgs.buildPlatform.system = "x86_64-linux";
