@@ -47,7 +47,7 @@
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
     # kernelPackages = pkgs.linuxPackages_6_11;
-    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+    kernelPackages = pkgs.linuxKernel.packages.linux_lqx;
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
     kernelModules = [
