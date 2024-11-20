@@ -36,7 +36,7 @@
 
   swapDevices = [ ];
 
-  nix.settings.system-features = [ "nixos-test" "benchmark" "big-parallel" "gccarch-znver2" ];
+  nix.settings.system-features = [ "nixos-test" "benchmark" "big-parallel" "znver2" ];
 
   nixpkgs = {
     hostPlatform = {
