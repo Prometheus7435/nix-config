@@ -6,7 +6,8 @@
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.nixos-hardware.nixosModules.supermicro
-    ../_mixins/containers/default.nix
+    # ../_mixins/containers/default.nix
+    ../_mixins/containers/docker.nix
 
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/systemd-boot.nix
