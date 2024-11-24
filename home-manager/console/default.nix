@@ -17,7 +17,8 @@
       bmon                          # Modern Unix `iftop`
       breezy                        # Terminal bzr client
       btop                          # Modern Unix `top`
-      butler                        # Terminal Itch.io API client
+      # butler                        # Terminal Itch.io API client
+      build-news
       chafa                         # Terminal image viewer
       chroma                        # Code syntax highlighter
       clinfo                        # Terminal OpenCL info
@@ -149,7 +150,7 @@
     };
     eza = {
       enable = true;
-      enableAliases = true;
+      # enableAliases = true;
       icons = true;
     };
     gpg.enable = true;
@@ -187,7 +188,7 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      pinentryFlavor = "curses";
+      # pinentryFlavor = "curses";
     };
     kbfs = {
       enable = true;
