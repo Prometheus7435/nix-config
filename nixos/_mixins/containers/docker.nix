@@ -3,7 +3,7 @@
 
   ];
 
-virtualisation = {
+  virtualisation = {
     docker = {
       enable = true;
       rootless = {

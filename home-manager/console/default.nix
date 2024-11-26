@@ -18,7 +18,7 @@
       breezy                        # Terminal bzr client
       btop                          # Modern Unix `top`
       # butler                        # Terminal Itch.io API client
-      build-news
+      # build-news
       chafa                         # Terminal image viewer
       chroma                        # Code syntax highlighter
       clinfo                        # Terminal OpenCL info
