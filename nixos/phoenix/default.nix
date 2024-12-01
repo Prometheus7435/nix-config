@@ -19,10 +19,11 @@
     ../_mixins/services/media-edit.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
-    ../_mixins/containers/default.nix
+    ../_mixins/containers/docker.nix
 
     ../_mixins/boxes/virtualization.nix
 
+    # ../_mixins/containers/nextcloud-aio-docker.nix    # test docker setup for nextcloud aio
     # ../_mixins/services/nextcloud/server.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -128,5 +129,7 @@
     # pkgs.libhugetlbfs
     pkgs.palemoon-bin
     pkgs.librewolf-bin
+
+    pkgs.compose2nix
   ];
 }

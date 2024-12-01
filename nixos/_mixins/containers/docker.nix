@@ -13,7 +13,7 @@
     };
   };
 
-  users.users.${username}.extraGroups = [ "docker" ];
+  # users.users.${username}.extraGroups = [ "docker" ];
 
   environment.systemPackages = with pkgs; [
     docker-compose

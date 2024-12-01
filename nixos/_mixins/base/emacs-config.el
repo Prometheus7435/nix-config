@@ -9,8 +9,8 @@
 ;;    (package-initialize)
 
 (when (not (package-installed-p 'use-package))
-      (package-refresh-contents)
-      (package-install 'use-package))
+	(package-refresh-contents)
+	(package-install 'use-package))
 (require 'use-package)
 
 ;  (require 'use-package-ensure)
@@ -23,7 +23,7 @@
 
 ;; The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 511 1024 1024))
-(setq gc-cons-percentage 0.5)
+(setq gc-cons-percentage 0.9)
 (run-with-idle-timer 5 t #'garbage-collect)
 (setq garbage-collection-messages t)
 
@@ -33,10 +33,10 @@
 ;; (global-auto-revert-mode)  ; simplifies syncing
 
 (setq user-full-name "Zach Bombay"
-      user-mail-address "zacharybombay@gmail.com"
-      calendar-latitude 0.0
-      calendar-longitude 0.0
-      calendar-location-name "")
+	user-mail-address "zacharybombay@gmail.com"
+	calendar-latitude 0.0
+	calendar-longitude 0.0
+	calendar-location-name "")
 
 (global-hl-line-mode 1)
 
@@ -70,7 +70,7 @@
 (use-package moody
   :config
   (setq x-underline-at-descent-line t
-	moody-mode-line-height 30)
+	    moody-mode-line-height 30)
 (moody-replace-mode-line-buffer-identification)
 (moody-replace-vc-mode))
 
@@ -78,7 +78,7 @@
   :ensure t
   :config
   (setq minions-mode-line-lighter ""
-	minions-mode-line-delimiters '("" . ""))
+	  minions-mode-line-delimiters '("" . ""))
   (minions-mode 1))
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 105)
@@ -102,10 +102,10 @@
 
 (cond
      ((string-equal system-type "windows-nt")
-      (defvar sync_folder "C:/Users/zacha/sync/"))
+	(defvar sync_folder "C:/Users/zacha/sync/"))
      (
-      (if my-laptop-p (string-equal system-type "gnu/linux")
-       (defvar sync_folder "~/Sync/"))
+	(if my-laptop-p (string-equal system-type "gnu/linux")
+	 (defvar sync_folder "~/Sync/"))
 )
      )
 (defvar nix_folder "~/Zero/nix-config/")
@@ -135,11 +135,11 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (setq electric-pair-pairs '(
-			   (?\{ . ?\})
-			   (?\( . ?\))
-			   (?\[ . ?\])
-			   (?\" . ?\")
-			   ))
+			     (?\{ . ?\})
+			     (?\( . ?\))
+			     (?\[ . ?\])
+			     (?\" . ?\")
+			     ))
 (setq electric-pair-inhibit-predicate (lambda (c) (char-equal c ?<)))
 ;; (setq electric-pair-inhibit-predicate
 ;;     `(lambda (c)
@@ -177,13 +177,13 @@
 
 (define-key global-map "\C-c \C-t" 'org-todo)
   (setq org-todo-keywords
-      '((sequence "TODO(t)" "ACTIVE(a)" "|" "DONE(d)")
-	;; (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
-	(sequence "|" "CANCELED(c)")))
+	'((sequence "TODO(t)" "ACTIVE(a)" "|" "DONE(d)")
+	  ;; (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+	  (sequence "|" "CANCELED(c)")))
 
 (setq org-todo-keyword-faces
-      '(("TODO" . org-warning) ("ACTIVE" . "yellow")
-	("CANCELED" . (:foreground "blue" :weight bold))))
+	'(("TODO" . org-warning) ("ACTIVE" . "yellow")
+	  ("CANCELED" . (:foreground "blue" :weight bold))))
 
 (defvar org-tasks (concat sync_folder "org/inbox.org"))
 ;;  (defvar org-tasks (concat sync_folder "org/gtd.org"))
@@ -291,8 +291,8 @@
   """Set a dashboard banner including information on package
      initialization time and garbage collections."""
   (setq dashboard-banner-logo-title
-	(format "Emacs ready in %.2f seconds with %d garbage collections."
-		(float-time (time-subtract after-init-time before-init-time)) gcs-done)))
+	  (format "Emacs ready in %.2f seconds with %d garbage collections."
+		  (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
 
 (use-package dashboard
   :init
