@@ -12,8 +12,10 @@
     fontDir.enable = true;
     packages = with pkgs; [
     # fonts = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono"]; })
+      # (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono"]; })
       liberation_ttf
+      nerd-fonts._0xproto
+      nerd-fonts.droid-sans-mono
       ubuntu_font_family
       work-sans
       source-code-pro
