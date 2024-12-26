@@ -4,7 +4,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
@@ -39,6 +39,11 @@
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
       # inputs.home-manager.follows = "home-manager";
+    };
+
+    tagstudio = {
+      url = "github:TagStudioDev/TagStudio";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # NUR
@@ -132,7 +137,8 @@
           };
           modules = [
             ./nixos
-            nur.nixosModules.nur
+            # nur.nixosModules.nur
+            nur.modules.nixos.default
 #             inputs.xremap-flake.nixosModules.default
           ];
         };

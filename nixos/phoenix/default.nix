@@ -131,5 +131,6 @@
     pkgs.librewolf-bin
 
     pkgs.compose2nix
+
   ];
 }
