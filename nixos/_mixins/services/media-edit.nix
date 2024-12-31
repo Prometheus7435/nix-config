@@ -12,9 +12,9 @@
     makemkv
     handbrake
 
-    # audio
-    ardour
-    audacity
+    ### audio
+    # ardour
+    # audacity
   ];
 
 
