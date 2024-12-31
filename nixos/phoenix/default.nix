@@ -129,7 +129,7 @@
     pkgs.librewolf-bin
 
     pkgs.compose2nix
-    # pkgs.ghostty
+    pkgs.ghostty
     # pkgs.tagstudio
   ];
 }
