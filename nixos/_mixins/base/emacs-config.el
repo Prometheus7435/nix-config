@@ -58,7 +58,7 @@
 
 (display-time-mode 1)
 
-(load-theme 'kaolin-ocean t)
+(load-theme 'modus-vivendi-deuteranopia t)
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)

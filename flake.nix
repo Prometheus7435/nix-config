@@ -5,10 +5,8 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
-
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -69,6 +67,7 @@
       plasma-manager,
       nur,
       xremap-flake,
+      # tagstudio,
       ...
   }@inputs:
     let
@@ -137,8 +136,8 @@
           };
           modules = [
             ./nixos
-            # nur.nixosModules.nur
             nur.modules.nixos.default
+            # inputs.tagstudio
 #             inputs.xremap-flake.nixosModules.default
           ];
         };

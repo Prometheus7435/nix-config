@@ -23,8 +23,6 @@
 
     ../_mixins/boxes/virtualization.nix
 
-    # ../_mixins/containers/nextcloud-aio-docker.nix    # test docker setup for nextcloud aio
-    # ../_mixins/services/nextcloud/server.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -131,6 +129,7 @@
     pkgs.librewolf-bin
 
     pkgs.compose2nix
-
+    pkgs.ghostty
+    # pkgs.tagstudio
   ];
 }
