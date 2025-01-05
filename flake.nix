@@ -41,7 +41,7 @@
 
     tagstudio = {
       url = "github:TagStudioDev/TagStudio";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      # inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # NUR
@@ -67,7 +67,7 @@
       plasma-manager,
       nur,
       xremap-flake,
-      # tagstudio,
+      tagstudio,
       ...
   }@inputs:
     let

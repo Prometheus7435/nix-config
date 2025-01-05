@@ -4,7 +4,7 @@
 # RAM: 32GB
 # NVME: Samsung SSD 980 1TB
 
-{ config, inputs, lib, pkgs, username, modulesPath, sys_arch, ... }:
+{ config, inputs, lib, pkgs, username, modulesPath, sys_arch, tagstudio, ... }:
 
 {
   imports = [
@@ -131,5 +131,9 @@
     pkgs.compose2nix
     pkgs.ghostty
     # pkgs.tagstudio
+
+    pkgs.openssl
+
+    pkgs.android-tools
   ];
 }
