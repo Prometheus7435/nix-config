@@ -19,6 +19,8 @@
     ../_mixins/services/media-edit.nix
     # ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
+    ../_mixins/services/silly.nix
+
     ../_mixins/containers/docker.nix
 
     ../_mixins/boxes/virtualization.nix
@@ -91,11 +93,6 @@
   };
 
   environment.systemPackages = [
-    ## just fun
-    # pkgs.cbonsai
-    # pkgs.cowsay
-    # pkgs.fortune
-
     pkgs.qbittorrent
     pkgs.kitty
 
@@ -110,7 +107,6 @@
 
     ## citation manager
     # pkgs.zotero
-    # pkgs.postgresql
 
     ## playing with installing KDE themes
     pkgs.catppuccin-kde
@@ -134,6 +130,6 @@
 
     pkgs.openssl
 
-    pkgs.android-tools
+    # pkgs.android-tools
   ];
 }

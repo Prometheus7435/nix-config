@@ -7,11 +7,11 @@
     enable = true;
     exports = ''
       ## Laptop
-      /mnt/alpha/nfs                  10.10.10.251(rw,nohide,sync,no_subtree_check)
-      /mnt/alpha/nfs/zach             10.10.10.251(rw,nohide,sync,no_subtree_check)
-      /mnt/alpha/media                10.10.10.251(rw,nohide,sync,no_subtree_check)
-      /mnt/alpha/media/tv             10.10.10.251(rw,nohide,sync,no_subtree_check)
-      /mnt/alpha/iso_holder/media     10.10.10.251(rw,nohide,sync,no_subtree_check)
+      # /mnt/alpha/nfs                  10.10.10.251(rw,nohide,sync,no_subtree_check)
+      # /mnt/alpha/nfs/zach             10.10.10.251(rw,nohide,sync,no_subtree_check)
+      # /mnt/alpha/media                10.10.10.251(rw,nohide,sync,no_subtree_check)
+      # /mnt/alpha/media/tv             10.10.10.251(rw,nohide,sync,no_subtree_check)
+      # /mnt/alpha/iso_holder/media     10.10.10.251(rw,nohide,sync,no_subtree_check)
 
       ## Desktop - Odyssey
       # /mnt/alpha/media/webshows       10.107.0.10(rw,nohide,sync,no_subtree_check)
