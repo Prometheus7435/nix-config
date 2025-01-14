@@ -47,8 +47,9 @@
         rebuild-iso = "pushd $HOME/Zero/nix-config && nix build .#nixosConfigurations.iso.config.system.build.isoImage && popd";
         gitc = "sh $HOME/Zero/nix-config/home-manager/console/simple-git-commit.sh";
         # "pushd ~/Zero/nix-config && git add . && git commit -m ";
-        ytd = "yt-dlp -N 8 -o '%(title)s.%(ext)s'";
-        ytx = "yt-dlp -N 8 -P /home/shyfox/Videos/.WinX/new_downloads -o '%(title)s.%(ext)s'";
+        ytd = "yt-dlp -o '%(title)s.%(ext)s'";
+        yty = "yt-dlp -f 'bv*+ba[acodec=opus]/b[ext=mp4] / bv*+ba*/b' --cookies-from-browser Firefox --embed-metadata --sponsorblock-remove 'sponsor,selfpromo,preview,filler,interaction' -o '$HOME/Videos/webshows/%(channel)s [%(channel_id)s]/%(upload_date)s %(title)s/%(title)s [%(id)s].%(ext)s'";
+        ytx = "yt-dlp -N 8 -o '$HOME/Videos/.WinX/new_downloads/%(title)s.%(ext)s'";
         xdl = "python ~/code/x_download/xdl.py ";
         weather = "wego -d 1";
       };
@@ -57,14 +58,14 @@
         cat = "bat --paging=never";
         diff = "diffr";
         glow = "glow --pager";
-        htop = "btm --basic --tree --hide_table_gap --dot_marker --mem_as_value";
+        htop = "btm --basic --tree --hide_table_gap --dot_marker";
         ip = "ip --color --brief";
         less = "bat --paging=always";
         more = "bat --paging=always";
         open = "xdg-open";
         pubip = "curl -s ifconfig.me/ip";
         #pubip = "curl -s https://api.ipify.org";
-        top = "btm --basic --tree --hide_table_gap --dot_marker --mem_as_value";
+        top = "btm --tree --dot_marker"; # "btm --basic --tree --hide_table_gap --dot_marker --mem_as_value";
         tree = "exa --tree";
         moon = "curl -s wttr.in/Moon";
         wttr = "curl -scurl -s wttr.in && curl -s v2.wttr.in";
