@@ -38,7 +38,7 @@ gettin' close.
 
 #+begin_src emacs-lisp
 ;  (require 'use-package-ensure)
-;  (setq use-package-always-ensure t)
+  (setq use-package-always-ensure t)
 #+end_src
 
 Always compile packages, and use the newest version available.
@@ -236,10 +236,10 @@ to the name of the current project:
 
 ** Unicode fonts
 
-# #+begin_src emacs-lisp
-#   (require 'unicode-fonts)
-#   (unicode-fonts-setup)
-# #+end_src
+#+begin_src emacs-lisp
+  (require 'unicode-fonts)
+  (unicode-fonts-setup)
+#+end_src
 
 ** change yes / no to y/n
 #+begin_src emacs-lisp

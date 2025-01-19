@@ -14,7 +14,7 @@
 (require 'use-package)
 
 ;  (require 'use-package-ensure)
-;  (setq use-package-always-ensure t)
+  (setq use-package-always-ensure t)
 
 (use-package auto-compile
   :commands auto-compile-mode
@@ -93,6 +93,9 @@
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (setq-default buffer-file-coding-system 'utf-8)
+
+(require 'unicode-fonts)
+(unicode-fonts-setup)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 

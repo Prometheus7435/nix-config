@@ -37,6 +37,7 @@
 
       # starship init fish | source
       shellAbbrs = {
+        ec = "emacsclient -nw" # I emacs too much
         mkhostid = "head -c4 /dev/urandom | od -A none -t x4";
         # https://github.com/NixOS/nixpkgs/issues/191128#issuecomment-1246030417
         nix-hash-sha256 = "nix-hash --flat --base32 --type sha256";

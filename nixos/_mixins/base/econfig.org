@@ -1,0 +1,281 @@
+#+TITLE: Emacs Configuration
+#+PROPERTY: header-args:emacs-lisp :tangle yes
+
+* Startup
+** garbage collecting
+#+begin_src emacs-lisp
+  ;; The default is 800 kilobytes.  Measured in bytes.
+  (setq gc-cons-threshold (* 511 1024 1024))
+;  (setq gc-cons-percentage 0.9)
+;  (run-with-idle-timer 5 t #'garbage-collect)
+  (setq garbage-collection-messages nil)
+#+end_src
+
+** Emacs Server
+Starts the emacs server. If I open new files using emacsclient, also displayed as emacs (client), they will be opened in the same emacs instance. Without this, the files will be opened in a new emacs instance. Which is very annoying if you have a bunch of stuff that runs on startup, like I do here.
+#+begin_src
+  (server-start)
+#+end_src
+
+** Package Management
+*** Repos
+#+begin_src emacs-lisp
+  (require 'package)
+  ;  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (setq package-archives '(
+  		   ("melpa" . "https://melpa.org/packages/")
+       		     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+  			     )
+  	  )
+  (package-initialize)
+#+end_src
+
+*** Disable Native Compilation Warning
+#+begin_src emacs-lisp
+(setq native-comp-async-report-warnings-errors nil)
+#+end_src
+
+*** Package Pinning
+
+*** Configure =use-package=
+
+I use =use-package= to install and configure my packages.
+My =init.el= includes the initial setup for =package.el=
+and ensures that =use-package= is installed, since I
+wanna do that right away.
+
+This makes sure that =use-package= will install the
+package if it's not already available. It also means that
+I should be able to open Emacs for the first time on a
+fresh Debian box and have my whole environment automatically
+installed. I'm not /totally/ sure about that, but we're
+gettin' close.
+
+#+begin_src emacs-lisp
+  (when (not (package-installed-p 'use-package))
+	(package-refresh-contents)
+	(package-install 'use-package))
+  (require 'use-package)
+#+end_src
+
+#+begin_src emacs-lisp
+;  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+#+end_src
+
+Always compile packages, and use the newest version available.
+
+#+begin_src emacs-lisp
+  (use-package auto-compile
+    :commands auto-compile-mode
+    :config (auto-compile-on-load-mode))
+  (setq load-prefer-newer t)
+#+end_src
+** Native Compiling
+Silence compiler warnings as they can be pretty disruptive
+#+begin_src emacs-lisp
+  (setq comp-async-report-warnings-errors nil)
+#+end_src
+* Personal Info
+** Who am I?
+#+begin_src emacs-lisp
+  (setq user-full-name "Zach Bombay"
+	user-mail-address "zacharybombay@gmail.com")
+;	calendar-latitude 0.0
+;	calendar-longitude 0.0
+;	calendar-location-name "")
+#+end_src
+
+* Editing
+** Yasnippet
+#+begin_src emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :config
+      (use-package yasnippet-snippets
+	:ensure t)
+      (yas-reload-all))
+(yas-global-mode t)
+#+end_src
+
+** Backup Files
+I don't have a need to backup my files as I use Git or it wasn't that important.
+# #+begin_src emac-lisp
+#   (setq make-backup-files nil)
+# #+end_src
+
+** Visit Emacs configuration
+
+I futz around with my dotfiles a lot. This binds =C-c e= to quickly open my
+Emacs configuration file.
+
+#+begin_src emacs-lisp
+  (defun zb/visit-emacs-config ()
+    (interactive)
+;    (find-file "~/Zero/nixos/_mixins/base/emacs-config.org")
+  (find-file (concat nix_folder "nixos/_mixins/base/econfig.org")))
+;    )
+  (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
+#+end_src
+
+** Always kill current buffer
+
+Assume that I always want to kill the current buffer when hitting =C-x k=.
+
+#+begin_src emacs-lisp
+  (defun zb/kill-current-buffer ()
+    "Kill the current buffer without prompting."
+    (interactive)
+    (kill-buffer (current-buffer)))
+
+  (global-set-key (kbd "C-x k") 'zb/kill-current-buffer)
+#+end_src
+
+** Electric
+If you put in a completing pair (like these parenthasis or quotes), this will complete the pair when you enter the first character. An exection to this is the "<>" characters as I use them seperately far too often.
+#+begin_src emacs-lisp
+  (setq electric-pair-pairs '(
+			     (?\{ . ?\})
+			     (?\( . ?\))
+			     (?\[ . ?\])
+			     (?\" . ?\")
+			     ))
+  (setq electric-pair-inhibit-predicate (lambda (c) (char-equal c ?<)))
+#+end_src
+
+#+begin_src emacs-lisp
+  (electric-pair-mode t)
+  (show-paren-mode 1)
+#+end_src
+
+** Sync Folder
+#+begin_src emacs-lisp
+  ;;   (cond
+  ;;      ((string-equal system-type "windows-nt")
+  ;; 	(defvar sync_folder "C:/Users/zacha/sync/"))
+  ;;      (
+  ;; 	(if my-laptop-p (string-equal system-type "gnu/linux")
+  ;; 	 (defvar sync_folder "~/Sync/"))
+  ;; )
+  ;;      )
+  (defvar nix_folder "~/Zero/nix-config/")
+  (defvar sync_folder "~/Nextcloud/org")
+#+end_src
+
+* Appearance
+** Tweak window chrome
+I don't usually use the scroll bar. Testing using the Menu bar again
+
+#+begin_src emacs-lisp
+ (setq inhibit-startup-message t)
+ (tool-bar-mode 0)
+;    (menu-bar-mode 0)
+ (scroll-bar-mode -1)
+ (tooltip-mode -1)
+;    (setq global-linum-mode t)
+ (column-number-mode t)
+ (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;    (set-fringe-mode 10)
+ (setq visible-bell t)
+#+end_src
+
+** Cursor
+#+begin_src emacs-lisp
+  (setq-default cursor-type 'box)
+#+end_src
+
+** Load up a theme
+#+begin_src emacs-lisp
+  (load-theme 'modus-vivendi-deuteranopia t)
+#+end_src
+    # kaolin-ocean
+    # misterioso-theme
+    # abyss-theme
+    # underwater-theme
+    # challenger-deep-theme
+    # cyberpunk-theme
+    # dakrone-theme
+    # dracula-theme
+    # espresso-theme
+    # exotica-theme
+** Fonts
+I'm partial to Source Code Pro.
+
+#+begin_src emacs-lisp
+    (set-face-attribute 'default nil :font "Source Code Pro" :height 105)
+    (setq zb/default-font-size 12)
+    (setq zb/current-font-size zb/default-font-size)
+#+end_src
+
+#+begin_src emacs-lisp
+    (use-package org-fancy-priorities
+      :ensure t
+      :init
+   ;    (require 'unicode-fonts)
+      (unicode-fonts-setup)
+      )
+#+end_src
+
+** change yes / no to y/n
+#+begin_src emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+* Org-Mode
+** Built in only
+#+begin_src emacs-lisp
+(setq package-pinned-packages '((org . "built-in")))
+#+end_src
+
+** Fanciness
+#+begin_src emacs-lisp
+  (use-package org-bullets
+  :ensure t
+  :hook (org-mode . org-bullets-mode)
+   )
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package org-fancy-priorities
+  :diminish
+  :ensure t
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
+#+end_src
+
+# #+begin_src emacs-lisp
+#   (prettify-mode 'org-mode-hook
+#                          '(("[ ]" . "☐")
+#                            ("[X]" . "☑" )
+#                            ("[-]" . "❍" )))
+
+#   ;; Also here is `isamert/prettify-mode' macro.
+#   ;; You don't need this but it's a bit more convinient if you make use of
+#   ;; prettify-symbols minor mode a lot
+#   (defmacro isamert/prettify-mode (mode pairs)
+#     "Prettify given PAIRS in given MODE. Just a simple wrapper around `prettify-symbols-mode`"
+#     `(add-hook ,mode (lambda ()
+#                        (mapc (lambda (pair)
+#                                (push pair prettify-symbols-alist))
+#                              ,pairs)
+#                        (prettify-symbols-mode))))
+# #+end_src
+
+** Todo Customization
+* Programming
+** Language Server
+** Python
+* Writing
+** LaTeX
+Engines - xelatex, pdflatex, default
+#+begin_src emacs-lisp
+    (setq-default TeX-engine 'pdflatex)
+    (setq-default TeX-PDF-mode t)
+;    (latex-preview-pane-enable)`
+#+end_src
+
+* Project Managment
+** Capture
+* Window Management
+* Completion
