@@ -186,7 +186,8 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 
 ** Load up a theme
 #+begin_src emacs-lisp
-  (load-theme 'modus-vivendi-deuteranopia t)
+  (load-theme 'monokai t)
+;  (load-theme 'modus-vivendi-deuteranopia t)
 #+end_src
     # kaolin-ocean
     # misterioso-theme
@@ -266,6 +267,10 @@ I'm partial to Source Code Pro.
 * Programming
 ** Language Server
 ** Python
+#+begin_src emacs-lisp
+
+#+end_src
+
 * Writing
 ** LaTeX
 Engines - xelatex, pdflatex, default

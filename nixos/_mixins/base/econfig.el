@@ -93,7 +93,8 @@
 
 (setq-default cursor-type 'box)
 
-(load-theme 'modus-vivendi-deuteranopia t)
+(load-theme 'monokai t)
+;  (load-theme 'modus-vivendi-deuteranopia t)
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 105)
 (setq zb/default-font-size 12)

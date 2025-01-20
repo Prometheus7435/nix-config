@@ -122,7 +122,7 @@
 
     # pkgs.libhugetlbfs
     pkgs.palemoon-bin
-    pkgs.librewolf-bin
+#    pkgs.librewolf-bin
 
     pkgs.compose2nix
     pkgs.ghostty

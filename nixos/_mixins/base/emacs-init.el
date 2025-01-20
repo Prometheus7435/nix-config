@@ -1,4 +1,3 @@
-;;
 ;; (org-babel-load-file "./emacs-config.org")
 ;-*- lexical-binding: t; -*-
 
