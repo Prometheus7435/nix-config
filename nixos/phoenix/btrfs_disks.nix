@@ -1,15 +1,15 @@
-# blanket copy from disko example
+# blanket copy from disko example with minor tweaks to match device
 {
   disko.devices = {
     disk = {
       main = {
         type = "disk";
-        device = "/dev/vdb";
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "512M";
+              size = "1024M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -24,10 +24,10 @@
                 type = "luks";
                 name = "crypted";
                 # disable settings.keyFile if you want to use interactive password entry
-                #passwordFile = "/tmp/secret.key"; # Interactive
+                passwordFile = "/tmp/secret.key"; # Interactive
                 settings = {
                   allowDiscards = true;
-                  keyFile = "/tmp/secret.key";
+#                  keyFile = "/tmp/secret.key";
                 };
                 additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
                 content = {
@@ -48,7 +48,7 @@
                     };
                     "/swap" = {
                       mountpoint = "/.swapvol";
-                      swap.swapfile.size = "20M";
+                      swap.swapfile.size = "16G";
                     };
                   };
                 };
