@@ -53,17 +53,6 @@
 
   swapDevices = [ ];
 
-   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  # networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eno2.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp132s0f0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp132s0f1.useDHCP = lib.mkDefault true;
-
-
   # networking = {
   #   interfaces = {
   #     enp39s0.useDHPC = lib.mkDefault true;  # motherboard ethernet
@@ -97,7 +86,6 @@
 
   environment.systemPackages = with pkgs; [
     nvtop  # top like program for gpus
-    # cudaPackages.cudatoolkit
   ];
 
   # NVIDIA drivers are unfree.
@@ -115,13 +103,6 @@
     cpu = {
       amd = {
         updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-      };
-    };
-
-    bluetooth.enable = true;
-    bluetooth.settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
       };
     };
 
@@ -145,35 +126,7 @@
     };
   };
 
-
-
   services = {
-    # zfs.autoScrub.enable = true;
     fstrim.enable = true;
   };
 }
-
-      # loader = {
-    #   # grub = {
-    #   #   enable = true;
-    #   #   device = "nodev";
-    #   #   # devices = [ "nodev" ];
-    #   #   efiInstallAsRemovable = true;
-    #   #   efiSupport = true;
-    #   #   useOSProber = true;
-    #   #   configurationLimit = 8;
-    #   #   # splashImage = ./bonsai.png;
-    #   # };
-    #   timeout = 3;
-    #   systemd-boot = {
-    #     enable = true;
-    #     configurationLimit = 10;
-    #     # memtest86 = {
-    #     #   enable = true;
-    #     # };
-    #   };
-    #   # efi = {
-    #   #   canTouchEfiVariables = true;
-    #   # };
-    #   # timeout = 3;
-    # };
