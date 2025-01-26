@@ -1,19 +1,17 @@
-(setq org-babel-default-header-args:emacs-lisp '((:lexical . "yes")))
-
 ;; The default is 800 kilobytes.  Measured in bytes.
   (setq gc-cons-threshold (* 511 1024 1024))
-  (setq gc-cons-percentage 0.6)
+;  (setq gc-cons-percentage 0.9)
 ;  (run-with-idle-timer 5 t #'garbage-collect)
   (setq garbage-collection-messages nil)
 
 (require 'package)
-  ;  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (setq package-archives '(
-  		   ("melpa" . "https://melpa.org/packages/")
-       		     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-  			     )
-  	  )
-;  (package-initialize)
+;  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(setq package-archives '(
+		   ("melpa" . "https://melpa.org/packages/")
+     		     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			     )
+	  )
+(package-initialize)
 
 (setq native-comp-async-report-warnings-errors nil)
 
@@ -94,35 +92,30 @@
 
 (setq inhibit-startup-message t)
  (tool-bar-mode 0)
-; (menu-bar-mode 0)
+;    (menu-bar-mode 0)
  (scroll-bar-mode -1)
  (tooltip-mode -1)
-; (setq global-linum-mode t)
+;    (setq global-linum-mode t)
  (column-number-mode t)
  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-; (set-fringe-mode 10)
+;    (set-fringe-mode 10)
  (setq visible-bell t)
 
 (setq-default cursor-type 'box)
 
 (load-theme 'monokai t)
-;  (load-theme 'catppuccin t)
-;    (load-theme 'cyberpunk t)
+;  (load-theme 'modus-vivendi-deuteranopia t)
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 105)
 (setq zb/default-font-size 12)
 (setq zb/current-font-size zb/default-font-size)
 
-(use-package unicode-fonts
-  :ensure t
- )
-
 (use-package org-fancy-priorities
-  :ensure t
-  :init
-  (require 'unicode-fonts)
-  (unicode-fonts-setup)
-  )
+   :ensure t
+   :init
+;    (require 'unicode-fonts)
+   (unicode-fonts-setup)
+   )
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -140,33 +133,8 @@
   :config
   (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
 
-(use-package lsp-mode
-    :ensure t
-;    :if my-laptop-p
-    :config
-    (add-hook 'python-mode-hook #'lsp)
-    )
 
-
-
-(use-package nix-mode
-  :ensure t
-  :mode "\\.nix\\'")
 
 (setq-default TeX-engine 'pdflatex)
     (setq-default TeX-PDF-mode t)
 ;    (latex-preview-pane-enable)`
-
-(use-package treemacs
-  :ensure t)
-(use-package treemacs-projectile
-  :after (treemacs projectile)
-  :ensure t)
-
-(use-package treemacs-icons-dired
-  :hook (dired-mode . treemacs-icons-dired-enable-once)
-  :ensure t)
-
-(use-package treemacs-magit
-  :after (treemacs magit)
-  :ensure t)

@@ -2,11 +2,16 @@
 #+PROPERTY: header-args:emacs-lisp :tangle yes
 
 * Startup
+** lexical binding
+#+begin_src emacs-lisp
+  (setq org-babel-default-header-args:emacs-lisp '((:lexical . "yes")))
+#+end_src
+
 ** garbage collecting
 #+begin_src emacs-lisp
   ;; The default is 800 kilobytes.  Measured in bytes.
   (setq gc-cons-threshold (* 511 1024 1024))
-;  (setq gc-cons-percentage 0.9)
+  (setq gc-cons-percentage 0.6)
 ;  (run-with-idle-timer 5 t #'garbage-collect)
   (setq garbage-collection-messages nil)
 #+end_src
@@ -27,12 +32,12 @@ Starts the emacs server. If I open new files using emacsclient, also displayed a
        		     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
   			     )
   	  )
-  (package-initialize)
+;  (package-initialize)
 #+end_src
 
 *** Disable Native Compilation Warning
 #+begin_src emacs-lisp
-(setq native-comp-async-report-warnings-errors nil)
+  (setq native-comp-async-report-warnings-errors nil)
 #+end_src
 
 *** Package Pinning
@@ -117,6 +122,24 @@ Emacs configuration file.
 ;    )
   (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
 #+end_src
+** Quickly visit NixOs configuration
+
+I futz around with my NixOS config a lot. This binds =C-c n= to quickly open the flake.nix configuration file.
+
+#+begin_src emacs-lisp
+  (defun zb/visit-nixos-config ()
+  (interactive)
+  (find-file (concat nix_folder "flake.nix")))
+  (global-set-key (kbd "C-c n") 'zb/visit-nixos-config)
+#+end_src
+
+More often than not, I'm tinkering with the specific machine. Here I can directly get to the boxes default.nix
+#+begin_src emacs-lisp
+  (defun zb/visit-machine-nixos-config ()
+  (interactive)
+  (find-file (concat nix_folder "nixos/" (system-name) "/default.nix")))
+  (global-set-key (kbd "C-c m") 'zb/visit-machine-nixos-config)
+#+end_src
 
 ** Always kill current buffer
 
@@ -169,13 +192,13 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 #+begin_src emacs-lisp
  (setq inhibit-startup-message t)
  (tool-bar-mode 0)
-;    (menu-bar-mode 0)
+; (menu-bar-mode 0)
  (scroll-bar-mode -1)
  (tooltip-mode -1)
-;    (setq global-linum-mode t)
+; (setq global-linum-mode t)
  (column-number-mode t)
  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-;    (set-fringe-mode 10)
+; (set-fringe-mode 10)
  (setq visible-bell t)
 #+end_src
 
@@ -187,7 +210,8 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 ** Load up a theme
 #+begin_src emacs-lisp
   (load-theme 'monokai t)
-;  (load-theme 'modus-vivendi-deuteranopia t)
+;  (load-theme 'catppuccin t)
+;    (load-theme 'cyberpunk t)
 #+end_src
     # kaolin-ocean
     # misterioso-theme
@@ -209,10 +233,16 @@ I'm partial to Source Code Pro.
 #+end_src
 
 #+begin_src emacs-lisp
+ (use-package unicode-fonts
+   :ensure t
+  )
+#+end_src
+
+#+begin_src emacs-lisp
     (use-package org-fancy-priorities
       :ensure t
       :init
-   ;    (require 'unicode-fonts)
+      (require 'unicode-fonts)
       (unicode-fonts-setup)
       )
 #+end_src
@@ -225,7 +255,7 @@ I'm partial to Source Code Pro.
 * Org-Mode
 ** Built in only
 #+begin_src emacs-lisp
-(setq package-pinned-packages '((org . "built-in")))
+  (setq package-pinned-packages '((org . "built-in")))
 #+end_src
 
 ** Fanciness
@@ -245,30 +275,28 @@ I'm partial to Source Code Pro.
   (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
 #+end_src
 
-# #+begin_src emacs-lisp
-#   (prettify-mode 'org-mode-hook
-#                          '(("[ ]" . "☐")
-#                            ("[X]" . "☑" )
-#                            ("[-]" . "❍" )))
-
-#   ;; Also here is `isamert/prettify-mode' macro.
-#   ;; You don't need this but it's a bit more convinient if you make use of
-#   ;; prettify-symbols minor mode a lot
-#   (defmacro isamert/prettify-mode (mode pairs)
-#     "Prettify given PAIRS in given MODE. Just a simple wrapper around `prettify-symbols-mode`"
-#     `(add-hook ,mode (lambda ()
-#                        (mapc (lambda (pair)
-#                                (push pair prettify-symbols-alist))
-#                              ,pairs)
-#                        (prettify-symbols-mode))))
-# #+end_src
-
 ** Todo Customization
 * Programming
 ** Language Server
+Set up the lsp for other modes to hook into
+#+begin_src emacs-lisp
+    (use-package lsp-mode
+      :ensure t
+  ;    :if my-laptop-p
+      :config
+      (add-hook 'python-mode-hook #'lsp)
+      )
+#+end_src
+
 ** Python
 #+begin_src emacs-lisp
 
+#+end_src
+* Nixos
+#+begin_src emacs-lisp
+  (use-package nix-mode
+    :ensure t
+    :mode "\\.nix\\'")
 #+end_src
 
 * Writing
@@ -282,5 +310,22 @@ Engines - xelatex, pdflatex, default
 
 * Project Managment
 ** Capture
+** Treemacs
+#+begin_src emacs-lisp
+  (use-package treemacs
+    :ensure t)
+  (use-package treemacs-projectile
+    :after (treemacs projectile)
+    :ensure t)
+
+  (use-package treemacs-icons-dired
+    :hook (dired-mode . treemacs-icons-dired-enable-once)
+    :ensure t)
+
+  (use-package treemacs-magit
+    :after (treemacs magit)
+    :ensure t)
+#+end_src
+
 * Window Management
 * Completion

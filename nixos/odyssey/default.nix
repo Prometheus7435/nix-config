@@ -25,10 +25,11 @@
 
   boot = {
 #    zfs.forceImportRoot = false;
-    supportedFilesystems = [ "zfs" ];
-    zfs.requestEncryptionCredentials = true;
-    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # supportedFilesystems = [ "zfs" ];
+    # supportedFilesystems = [ "zfs" ];
+    # zfs.requestEncryptionCredentials = true;
+    kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
     # kernelParams = [ "mitigations=off" ];
     extraModulePackages = [];
