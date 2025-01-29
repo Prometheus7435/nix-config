@@ -116,7 +116,7 @@
     # pkgs.macchina
     pkgs.syncthing
 
-    pkgs.octaveFull
+#     pkgs.octaveFull
 
     pkgs.tmux
 
@@ -131,5 +131,6 @@
     pkgs.openssl
 
     # pkgs.android-tools
+    pkgs.openvpn
   ];
 }
