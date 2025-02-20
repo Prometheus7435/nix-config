@@ -6,11 +6,11 @@ in
 {
   # NFS drives
   ## sg1
-  fileSystems."/mnt/nfs/zach" = {
-    device = "10.10.10.11:/atlantis/nfs/zach";
-    fsType = "nfs";
-    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
-  };
+  # fileSystems."/mnt/nfs/zach" = {
+  #   device = "10.10.10.11:/atlantis/nfs/zach";
+  #   fsType = "nfs";
+  #   options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  # };
 
   ## from starbase
 ##   fileSystems."/mnt/nfs/${username}" = {  ## for future

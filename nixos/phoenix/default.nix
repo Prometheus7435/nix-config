@@ -17,7 +17,7 @@
     ../_mixins/desktop/steam.nix
 
     ../_mixins/services/media-edit.nix
-    # ../_mixins/services/nfs/client.nix
+    ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
     ../_mixins/services/silly.nix
 

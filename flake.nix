@@ -79,7 +79,7 @@
 
       # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
       # stateVersion = "unstable";
-      stateVersion = "24.05";
+      stateVersion = "24.11";
 
     in rec {
       # Your custom packages
@@ -132,7 +132,7 @@
             username = "shyfox";
             # arch = "znver3";
             # system = "x86_64-linux";
-            stateVersion = "unstable";
+            stateVersion = "25.05";
           };
           modules = [
             ./nixos
