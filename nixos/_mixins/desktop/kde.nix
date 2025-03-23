@@ -59,7 +59,7 @@
 
     libsForQt5.applet-window-buttons
 
-    yakuake
-    kate
+    kdePackages.yakuake
+    kdePackages.kate
   ];
 }
