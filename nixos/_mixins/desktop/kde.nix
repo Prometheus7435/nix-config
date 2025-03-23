@@ -51,6 +51,7 @@
     kdePackages.kdecoration
     kdePackages.kdeplasma-addons
     kdePackages.kfind
+    kdePackages.okular
     kdePackages.plasma-integration
     kdePackages.plasma-pa
     kdePackages.qtstyleplugin-kvantum
@@ -58,7 +59,6 @@
 
     libsForQt5.applet-window-buttons
 
-    okular
     yakuake
     kate
   ];
