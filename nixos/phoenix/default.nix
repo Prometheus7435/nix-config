@@ -132,5 +132,7 @@
 
     # pkgs.android-tools
     pkgs.openvpn
+
+    pkgs.kanata # Tool to improve keyboard comfort and usability with advanced customization
   ];
 }

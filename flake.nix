@@ -161,7 +161,7 @@
             hostid = "2accc22f"; # head -c 8 /etc/machine-id
             hostname = "starbase";
             username = "starfleet";
-            stateVersion = "unstable";
+            stateVersion = "25.05";
           };
           modules = [ ./nixos ];
         };
