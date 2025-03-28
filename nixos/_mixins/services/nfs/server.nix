@@ -17,10 +17,12 @@
       # /mnt/alpha/media/webshows       10.107.0.10(rw,nohide,sync,no_subtree_check)
 
       ## Desktop - Windows
-      /mnt/alpha/iso_holder/media     10.107.0.10(rw,nohide,sync,no_subtree_check)
-      /mnt/alpha/media/tv             10.107.0.10(rw,nohide,sync,no_subtree_check)
-      /mnt/alpha/media/movies         10.107.0.10(rw,nohide,sync,no_subtree_check)
-      /mnt/alpha/nfs/zach             10.107.0.10(rw,nohide,sync,no_subtree_check)
+        ## 100.109.81.2
+        ## 10.107.0.10
+      /mnt/alpha/iso_holder/media     100.109.81.2(rw,nohide,sync,no_subtree_check)
+      /mnt/alpha/media/tv             100.109.81.2(rw,nohide,sync,no_subtree_check)
+      /mnt/alpha/media/movies         100.109.81.2(rw,nohide,sync,no_subtree_check)
+      /mnt/alpha/nfs/zach             100.109.81.2(rw,nohide,sync,no_subtree_check)
 
       ## Akira
       /mnt/alpha/nfs/zach             100.82.110.9(rw,nohide,sync,no_subtree_check)
