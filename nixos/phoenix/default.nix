@@ -126,7 +126,7 @@
 
     pkgs.compose2nix
     pkgs.ghostty
-    # pkgs.tagstudio
+    pkgs.tagstudio
 
     pkgs.openssl
 
