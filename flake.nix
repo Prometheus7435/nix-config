@@ -137,7 +137,7 @@
           modules = [
             ./nixos
             nur.modules.nixos.default
-            inputs.tagstudio
+            inputs.tagstudio.modules.nixos.default
 #             inputs.xremap-flake.nixosModules.default
           ];
         };
