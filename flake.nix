@@ -60,7 +60,6 @@
   outputs = {
     self,
       nixpkgs,
-      nixpkgs-unstable,
       home-manager,
       nixos-hardware,
       nix-software-center,
@@ -109,7 +108,7 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
-        odyssey = nixpkgs-unstable.lib.nixosSystem {
+        odyssey = nixpkgs.lib.nixosSystem {
           # sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
           specialArgs = {
             inherit inputs outputs stateVersion;
@@ -123,7 +122,7 @@
           modules = [ ./nixos ];
         };
 
-        phoenix = nixpkgs-unstable.lib.nixosSystem {
+        phoenix = nixpkgs.lib.nixosSystem {
           # sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
           specialArgs = {
             inherit inputs outputs;
@@ -155,7 +154,7 @@
           modules = [ ./nixos ];
         };
 
-        starbase = nixpkgs-unstable.lib.nixosSystem {
+        starbase = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs; # stateVersion;
             desktop = null;
