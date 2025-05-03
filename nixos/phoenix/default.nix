@@ -4,7 +4,7 @@
 # RAM: 32GB
 # NVME: Samsung SSD 980 1TB
 
-{ config, inputs, lib, pkgs, username, modulesPath, sys_arch, tagstudio, ... }:
+{ config, inputs, lib, pkgs, username, modulesPath, sys_arch, ... }:
 
 {
   imports = [
@@ -126,7 +126,8 @@
 
     pkgs.compose2nix
     pkgs.ghostty
-    pkgs.tagstudio
+
+    inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
 
     pkgs.openssl
 
