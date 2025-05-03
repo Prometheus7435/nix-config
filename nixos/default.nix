@@ -40,6 +40,6 @@
   };
 
   system = {
-    stateVersion = stateVersion;
+    # stateVersion = stateVersion;
   };
 }
