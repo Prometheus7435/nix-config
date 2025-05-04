@@ -33,4 +33,6 @@
     };
   };
   programs.home-manager.enable = true;
+
+  # programs.eza.icons = "auto";
 }

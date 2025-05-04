@@ -11,7 +11,8 @@
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono"]; })
+    # (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono"]; })
+    # nerd-fonts.UbuntuMono
     work-sans
     # joypixels
     ubuntu_font_family

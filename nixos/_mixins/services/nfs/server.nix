@@ -2,8 +2,6 @@
 
 {
   services.nfs.server = {
-  # services.nfs.server.enable = true;
-    # services.nfs.server.exports = ''
     enable = true;
     exports = ''
       ## Desktop - Windows
@@ -16,6 +14,17 @@
 
       ## Phoenix
       /mnt/alpha/nfs/zach             100.123.61.88(rw,nohide,sync,no_subtree_check)
+
+      ## Odyssey
+      /mnt/alpha/nfs/zach             100.78.103.103(rw,nohide,sync,no_subtree_check)
           '';
+    settings = {
+      nfsd.udp = false;
+      nfsd.vers3 = false;
+      nfsd.vers4 = true;
+      nfsd."vers4.0" = false;
+      nfsd."vers4.1" = false;
+      nfsd."vers4.2" = true;
+    };
   };
 }

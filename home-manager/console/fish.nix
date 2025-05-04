@@ -43,7 +43,7 @@
         nix-hash-sha256 = "nix-hash --flat --base32 --type sha256";
         nix-gc = "sudo nix-collect-garbage --delete-older-than 14d";
         rebuild-home = "home-manager boot -b backup --flake $HOME/Zero/nix-config";
-        rebuild-host = "sudo nixos-rebuild switch --flake $HOME/Zero/nix-config";
+        rebuild-host = "sudo nixos-rebuild boot --flake $HOME/Zero/nix-config";
         rebuild-lock = "pushd $HOME/Zero/nix-config && nix flake lock --recreate-lock-file && popd";
         rebuild-iso = "pushd $HOME/Zero/nix-config && nix build .#nixosConfigurations.iso.config.system.build.isoImage && popd";
         gitc = "sh $HOME/Zero/nix-config/home-manager/console/simple-git-commit.sh";

@@ -151,7 +151,7 @@
     eza = {
       enable = true;
       # enableAliases = true;
-      icons = true;
+      icons = "auto";
     };
     gpg.enable = true;
     home-manager.enable = true;
