@@ -136,6 +136,7 @@
 
     pkgs.kanata # Tool to improve keyboard comfort and usability with advanced customization
 
-    pkgs.ulauncher
+    pkgs.rar
+    pkgs.unrar
   ];
 }
