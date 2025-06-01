@@ -14,6 +14,6 @@
   services.pipewire.alsa.support32Bit = true;
 
   environment.systemPackages = [
-    steam-tui
+    pkgs.steam-tui
   ];
 }
