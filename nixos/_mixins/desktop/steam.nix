@@ -12,4 +12,8 @@
   };
   services.jack.alsa.support32Bit = true;
   services.pipewire.alsa.support32Bit = true;
+
+  environment.systemPackages = [
+    steam-tui
+  ];
 }
