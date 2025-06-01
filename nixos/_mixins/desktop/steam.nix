@@ -15,5 +15,6 @@
 
   environment.systemPackages = [
     pkgs.steam-tui
+    pkgs.steamcmd
   ];
 }
