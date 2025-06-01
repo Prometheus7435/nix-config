@@ -138,5 +138,11 @@
 
     pkgs.rar
     pkgs.unrar
+
+    # -- TUI challenge
+    pkgs.ytui-music
+    pkgs.ueberzugpp
+    pkgs.ytfzf
+
   ];
 }
