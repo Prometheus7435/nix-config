@@ -143,6 +143,5 @@
     pkgs.ytui-music
     pkgs.ueberzugpp
     pkgs.ytfzf
-
   ];
 }
