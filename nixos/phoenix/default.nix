@@ -143,5 +143,7 @@
     pkgs.ytui-music
     pkgs.ueberzugpp
     pkgs.ytfzf
+    pkgs.lynx
+    pkgs.tmuxPlugins.resurrect
   ];
 }
