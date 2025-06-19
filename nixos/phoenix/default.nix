@@ -136,14 +136,20 @@
 
     pkgs.kanata # Tool to improve keyboard comfort and usability with advanced customization
 
-    pkgs.rar
-    pkgs.unrar
-
     # -- TUI challenge
     pkgs.ytui-music
     pkgs.ueberzugpp
     pkgs.ytfzf
     pkgs.lynx
     pkgs.tmuxPlugins.resurrect
+    pkgs.wiki-tui
+    pkgs.lf
+    pkgs.ttyper
+    pkgs.jellyfin-tui
+    pkgs.meli
+    pkgs.neomutt
+    pkgs.himalaya
+    # pkgs.steamcmd
+    # pkgs.steam-tui
   ];
 }

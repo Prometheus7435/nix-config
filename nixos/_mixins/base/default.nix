@@ -19,8 +19,10 @@
     libgccjit
     man-pages
     pciutils
+    rar
     rsync
     unzip
+    unrar
     usbutils
     wget
     yt-dlp
