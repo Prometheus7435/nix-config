@@ -4,6 +4,7 @@
     ./nano.nix
     ../services/openssh.nix
     ../services/tailscale.nix
+    ./tmux.nix
   ];
 
   environment.systemPackages = with pkgs; [
