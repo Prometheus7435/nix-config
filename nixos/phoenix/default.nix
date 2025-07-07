@@ -118,7 +118,7 @@
 
 #     pkgs.octaveFull
 
-    pkgs.tmux
+#    pkgs.tmux
 
     # pkgs.libhugetlbfs
     pkgs.palemoon-bin
@@ -141,7 +141,7 @@
     pkgs.ueberzugpp
     pkgs.ytfzf
     pkgs.lynx
-    pkgs.tmuxPlugins.resurrect
+#    pkgs.tmuxPlugins.resurrect
     pkgs.wiki-tui
     pkgs.lf
     pkgs.ttyper

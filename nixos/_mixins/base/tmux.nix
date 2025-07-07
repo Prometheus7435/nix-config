@@ -4,7 +4,7 @@
   ];
   programs.tmux = {
     enable = true;
-    shortcut = "o";
+    # shortcut = "o";
     # aggressiveResize = true; -- Disabled to be iTerm-friendly
     clock24 = true;
     baseIndex = 1;
