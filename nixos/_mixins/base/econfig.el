@@ -140,6 +140,11 @@
   :config
   (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
 
+(setq org-todo-keyword-faces
+      '(("TODO" . org-warning) ("ACTIVE" . "yellow")
+        ("CANCELED" . (:foreground "blue" :weight bold))
+	  ("DONE" . "green")))
+
 (use-package lsp-mode
     :ensure t
 ;    :if my-laptop-p

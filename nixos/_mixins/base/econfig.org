@@ -185,6 +185,12 @@ If you put in a completing pair (like these parenthasis or quotes), this will co
   (defvar sync_folder "~/Nextcloud/org")
 #+end_src
 
+# ** Change comment-line shortcut
+# #+begin_src emacs-lisp
+#   (keymap-global-set "C-c ;" 'comment-line)
+# #+end_src
+
+
 * Appearance
 ** Tweak window chrome
 I don't usually use the scroll bar. Testing using the Menu bar again
@@ -276,6 +282,13 @@ I'm partial to Source Code Pro.
 #+end_src
 
 ** Todo Customization
+#+begin_src emacs-lisp
+    (setq org-todo-keyword-faces
+          '(("TODO" . org-warning) ("ACTIVE" . "yellow")
+            ("CANCELED" . (:foreground "blue" :weight bold))
+  	  ("DONE" . "green")))
+#+end_src
+
 * Programming
 ** Language Server
 Set up the lsp for other modes to hook into

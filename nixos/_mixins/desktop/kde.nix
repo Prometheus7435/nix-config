@@ -41,7 +41,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # kdePackages.applet-window-buttons
+    kdePackages.applet-window-buttons
     kdePackages.baloo
     kdePackages.discover
     kdePackages.dragon
@@ -56,8 +56,6 @@
     kdePackages.plasma-pa
     kdePackages.qtstyleplugin-kvantum
     kdePackages.xdg-desktop-portal-kde
-
-    libsForQt5.applet-window-buttons
 
     kdePackages.yakuake
     kdePackages.kate

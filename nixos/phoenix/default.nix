@@ -151,5 +151,7 @@
     pkgs.himalaya
     # pkgs.steamcmd
     # pkgs.steam-tui
+
+    pkgs.qmk
   ];
 }
