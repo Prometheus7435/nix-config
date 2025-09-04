@@ -1,8 +1,8 @@
 {pkgs, lib, ...}:
 {
   environment.systemPackages = with pkgs; [
-    maliit-keyboard
-    wacomtablet
+    # maliit-keyboard
+    # wacomtablet
   ];
 
   # powerManagement.enable = true;
