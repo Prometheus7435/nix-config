@@ -146,7 +146,7 @@
     pkgs.lf
     pkgs.ttyper
 #    pkgs.jellyfin-tui
-    pkgs.meli
+#    pkgs.meli
 #    pkgs.neomutt
 #    pkgs.himalaya
     # pkgs.steamcmd
