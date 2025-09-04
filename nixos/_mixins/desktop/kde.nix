@@ -41,7 +41,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kdePackages.applet-window-buttons
+    kdePackages.applet-window-buttons6
     kdePackages.baloo
     kdePackages.discover
     kdePackages.dragon
