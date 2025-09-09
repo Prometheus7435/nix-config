@@ -127,8 +127,8 @@
     pkgs.compose2nix
     pkgs.ghostty
 
-    inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
-    pkgs.python313Packages.jxlpy # pkg for tagstudio
+#    inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
+#    pkgs.python313Packages.jxlpy # pkg for tagstudio
 
     pkgs.openssl
 
