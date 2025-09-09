@@ -127,7 +127,7 @@
     pkgs.compose2nix
     pkgs.ghostty
 
-#    inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
+    inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
 
     pkgs.openssl
 
