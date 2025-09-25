@@ -18,6 +18,7 @@
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.resurrect
       tmuxPlugins.catppuccin
+      tmuxPlugins.tmux-battery
     ];
 
     extraConfig = ''
@@ -42,6 +43,9 @@
       unbind C-b
       set-option -g prefix C-t
       bind-key C-t send-prefix
+
+      # Add battery
+      set -g status-right '#{battery_status_bg} Batt: #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M '
     '';
   };
 }
