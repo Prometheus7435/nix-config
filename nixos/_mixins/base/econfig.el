@@ -80,6 +80,17 @@
 (electric-pair-mode t)
 (show-paren-mode 1)
 
+(defun my/cmmt ()
+    (interactive)
+;    (comment-line)
+    (comment-region
+     (line-beginning-position)
+     (line-end-position)
+            )
+    )
+
+  (global-set-key (kbd "C-c ;") 'my/cmmt)
+
 ;;   (cond
 ;;      ((string-equal system-type "windows-nt")
 ;; 	(defvar sync_folder "C:/Users/zacha/sync/"))

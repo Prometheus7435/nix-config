@@ -66,7 +66,7 @@
       emacs-overlay,
       plasma-manager,
       nur,
-      xremap-flake,
+#       xremap-flake,
       tagstudio,
       ...
   }@inputs:

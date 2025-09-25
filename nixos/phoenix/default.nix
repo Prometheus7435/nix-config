@@ -21,9 +21,9 @@
     ../_mixins/services/pipewire.nix
     ../_mixins/services/silly.nix
 
-    ../_mixins/containers/docker.nix
+#    ../_mixins/containers/docker.nix
 
-    ../_mixins/boxes/virtualization.nix
+   # ../_mixins/boxes/virtualization.nix
 
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
