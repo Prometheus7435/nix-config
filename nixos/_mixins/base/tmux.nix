@@ -32,6 +32,15 @@
       bind | split-window -h -c "#{pane_current_path}"
       bind -  split-window -v -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
+
+      # Configure the catppuccin plugin
+      set -g @catppuccin_flavor "mocha" # latte, frappe, macchiato, or mocha
+      set -g @catppuccin_window_status_style "rounded" # basic, rounded, slanted, custom, or none
+
+      # Change prefix from 'Ctrl+b' to 'Ctrl+t'
+      unbind C-b
+      set-option -g prefix C-t
+      bind-key C-t send-prefix
     '';
   };
 }

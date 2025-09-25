@@ -40,8 +40,6 @@ Starts the emacs server. If I open new files using emacsclient, also displayed a
   (setq native-comp-async-report-warnings-errors nil)
 #+end_src
 
-*** Package Pinning
-
 *** Configure =use-package=
 
 I use =use-package= to install and configure my packages.
@@ -78,9 +76,9 @@ Always compile packages, and use the newest version available.
 #+end_src
 ** Native Compiling
 Silence compiler warnings as they can be pretty disruptive
-#+begin_src emacs-lisp
-  (setq comp-async-report-warnings-errors nil)
-#+end_src
+# #+begin_src emacs-lisp
+#   (setq comp-async-report-warnings-errors nil)
+# #+end_src
 * Personal Info
 ** Who am I?
 #+begin_src emacs-lisp
@@ -105,9 +103,9 @@ Silence compiler warnings as they can be pretty disruptive
 
 ** Backup Files
 I don't have a need to backup my files as I use Git or it wasn't that important.
-# #+begin_src emac-lisp
-#   (setq make-backup-files nil)
-# #+end_src
+#+begin_src emac-lisp
+  (setq make-backup-files nil)
+#+end_src
 
 ** Visit Emacs configuration
 
@@ -122,6 +120,7 @@ Emacs configuration file.
 ;    )
   (global-set-key (kbd "C-c e") 'zb/visit-emacs-config)
 #+end_src
+
 ** Quickly visit NixOs configuration
 
 I futz around with my NixOS config a lot. This binds =C-c n= to quickly open the flake.nix configuration file.
@@ -158,11 +157,12 @@ Assume that I always want to kill the current buffer when hitting =C-x k=.
 If you put in a completing pair (like these parenthasis or quotes), this will complete the pair when you enter the first character. An exection to this is the "<>" characters as I use them seperately far too often.
 #+begin_src emacs-lisp
   (setq electric-pair-pairs '(
-			     (?\{ . ?\})
-			     (?\( . ?\))
-			     (?\[ . ?\])
-			     (?\" . ?\")
-			     ))
+  			     (?\{ . ?\})
+  			     (?\( . ?\))
+  			     (?\[ . ?\])
+  			     (?\" . ?\")
+  			     ))
+  ;; I use < as a prefix in yasnippet calls. This stops the autocomplete <>
   (setq electric-pair-inhibit-predicate (lambda (c) (char-equal c ?<)))
 #+end_src
 
@@ -198,7 +198,7 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 #+begin_src emacs-lisp
  (setq inhibit-startup-message t)
  (tool-bar-mode 0)
-; (menu-bar-mode 0)
+ (menu-bar-mode 0)
  (scroll-bar-mode -1)
  (tooltip-mode -1)
 ; (setq global-linum-mode t)
@@ -215,9 +215,9 @@ I don't usually use the scroll bar. Testing using the Menu bar again
 
 ** Load up a theme
 #+begin_src emacs-lisp
-  (load-theme 'monokai t)
+;  (load-theme 'monokai t)
 ;  (load-theme 'catppuccin t)
-;    (load-theme 'cyberpunk t)
+    (load-theme 'cyberpunk t)
 #+end_src
     # kaolin-ocean
     # misterioso-theme
@@ -244,14 +244,14 @@ I'm partial to Source Code Pro.
   )
 #+end_src
 
-#+begin_src emacs-lisp
-    (use-package org-fancy-priorities
-      :ensure t
-      :init
-      (require 'unicode-fonts)
-      (unicode-fonts-setup)
-      )
-#+end_src
+# #+begin_src emacs-lisp
+#     (use-package org-fancy-priorities
+#       :ensure t
+#       :init
+#       (require 'unicode-fonts)
+#       (unicode-fonts-setup)
+#       )
+# #+end_src
 
 ** change yes / no to y/n
 #+begin_src emacs-lisp
@@ -273,12 +273,15 @@ I'm partial to Source Code Pro.
 #+end_src
 
 #+begin_src emacs-lisp
-(use-package org-fancy-priorities
-  :diminish
-  :ensure t
-  :hook (org-mode . org-fancy-priorities-mode)
-  :config
-  (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
+  (use-package org-fancy-priorities
+    :diminish
+    :ensure t
+    :init
+    (require 'unicode-fonts)
+    (unicode-fonts-setup)
+    :hook (org-mode . org-fancy-priorities-mode)
+    :config
+    (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
 #+end_src
 
 ** Todo Customization
@@ -295,7 +298,6 @@ Set up the lsp for other modes to hook into
 #+begin_src emacs-lisp
     (use-package lsp-mode
       :ensure t
-  ;    :if my-laptop-p
       :config
       (add-hook 'python-mode-hook #'lsp)
       )
@@ -303,8 +305,10 @@ Set up the lsp for other modes to hook into
 
 ** Python
 #+begin_src emacs-lisp
-
+(use-package lsp-jedi
+  :ensure t)
 #+end_src
+
 * Nixos
 #+begin_src emacs-lisp
   (use-package nix-mode

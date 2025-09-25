@@ -57,8 +57,8 @@
           # epkgs.jinx
           # epkgs.kaolin-themes
           # epkgs.latex-preview-pane
-          # epkgs.lsp-jedi
-          # epkgs.lsp-mode
+          epkgs.lsp-jedi
+          epkgs.lsp-mode
           # epkgs.lsp-ui
           # epkgs.minions
           # epkgs.matlab-mode
@@ -96,6 +96,8 @@
     ispell
     aspell
     black
+    python313Packages.jedi
+
   ];
 
 }

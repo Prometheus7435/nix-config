@@ -30,8 +30,6 @@
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 
-(setq comp-async-report-warnings-errors nil)
-
 (setq user-full-name "Zach Bombay"
 	user-mail-address "zacharybombay@gmail.com")
 ;	calendar-latitude 0.0
@@ -76,6 +74,7 @@
 			     (?\[ . ?\])
 			     (?\" . ?\")
 			     ))
+;; I use < as a prefix in yasnippet calls. This stops the autocomplete <>
 (setq electric-pair-inhibit-predicate (lambda (c) (char-equal c ?<)))
 
 (electric-pair-mode t)
@@ -94,7 +93,7 @@
 
 (setq inhibit-startup-message t)
  (tool-bar-mode 0)
-; (menu-bar-mode 0)
+ (menu-bar-mode 0)
  (scroll-bar-mode -1)
  (tooltip-mode -1)
 ; (setq global-linum-mode t)
@@ -105,9 +104,9 @@
 
 (setq-default cursor-type 'box)
 
-(load-theme 'monokai t)
+;  (load-theme 'monokai t)
 ;  (load-theme 'catppuccin t)
-;    (load-theme 'cyberpunk t)
+    (load-theme 'cyberpunk t)
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 105)
 (setq zb/default-font-size 12)
@@ -116,13 +115,6 @@
 (use-package unicode-fonts
   :ensure t
  )
-
-(use-package org-fancy-priorities
-  :ensure t
-  :init
-  (require 'unicode-fonts)
-  (unicode-fonts-setup)
-  )
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -136,6 +128,9 @@
 (use-package org-fancy-priorities
   :diminish
   :ensure t
+  :init
+  (require 'unicode-fonts)
+  (unicode-fonts-setup)
   :hook (org-mode . org-fancy-priorities-mode)
   :config
   (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
@@ -146,13 +141,13 @@
 	  ("DONE" . "green")))
 
 (use-package lsp-mode
-    :ensure t
-;    :if my-laptop-p
-    :config
-    (add-hook 'python-mode-hook #'lsp)
-    )
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook #'lsp)
+  )
 
-
+(use-package lsp-jedi
+  :ensure t)
 
 (use-package nix-mode
   :ensure t
