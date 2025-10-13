@@ -148,11 +148,14 @@
     pkgs.ttyper
 #    pkgs.jellyfin-tui
 #    pkgs.meli
-#    pkgs.neomutt
-#    pkgs.himalaya
+   pkgs.neomutt
+   # pkgs.himalaya
     # pkgs.steamcmd
     # pkgs.steam-tui
 
-    pkgs.qmk
+#    pkgs.qmk
+    # pkgs.go
+    pkgs.microfetch
+    pkgs.video2x
   ];
 }

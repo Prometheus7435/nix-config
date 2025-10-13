@@ -173,16 +173,16 @@ If you put in a completing pair (like these parenthasis or quotes), this will co
 
 ** Change Comment-Line Keybinding
 #+begin_src emacs-lisp
-    (defun my/cmmt ()
-      (interactive)
-  ;    (comment-line)
-      (comment-region
-       (line-beginning-position)
-       (line-end-position)
-              )
-      )
+  ;;   (defun my/cmmt ()
+  ;;     (interactive)
+  ;; ;    (comment-line)
+  ;;     (comment-region
+  ;;      (line-beginning-position)
+  ;;      (line-end-position)
+  ;;             )
+  ;;     )
 
-    (global-set-key (kbd "C-c ;") 'my/cmmt)
+    (global-set-key (kbd "C-x ;") #'comment-line)
 #+end_src
 
 
@@ -205,22 +205,22 @@ If you put in a completing pair (like these parenthasis or quotes), this will co
 #   (keymap-global-set "C-c ;" 'comment-line)
 # #+end_src
 
-
 * Appearance
 ** Tweak window chrome
 I don't usually use the scroll bar. Testing using the Menu bar again
 
 #+begin_src emacs-lisp
- (setq inhibit-startup-message t)
- (tool-bar-mode 0)
- (menu-bar-mode 0)
- (scroll-bar-mode -1)
- (tooltip-mode -1)
-; (setq global-linum-mode t)
- (column-number-mode t)
- (add-hook 'before-save-hook 'delete-trailing-whitespace)
-; (set-fringe-mode 10)
- (setq visible-bell t)
+  (setq inhibit-startup-message t)
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+  (scroll-bar-mode -1)
+  (tooltip-mode -1)
+  ; (setq global-linum-mode t)
+  (column-number-mode t)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  ; (set-fringe-mode 10)
+  (setq visible-bell t)
+  (display-battery-mode t)
 #+end_src
 
 ** Cursor

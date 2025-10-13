@@ -80,16 +80,16 @@
 (electric-pair-mode t)
 (show-paren-mode 1)
 
-(defun my/cmmt ()
-    (interactive)
-;    (comment-line)
-    (comment-region
-     (line-beginning-position)
-     (line-end-position)
-            )
-    )
+;;   (defun my/cmmt ()
+;;     (interactive)
+;; ;    (comment-line)
+;;     (comment-region
+;;      (line-beginning-position)
+;;      (line-end-position)
+;;             )
+;;     )
 
-  (global-set-key (kbd "C-c ;") 'my/cmmt)
+  (global-set-key (kbd "C-x ;") #'comment-line)
 
 ;;   (cond
 ;;      ((string-equal system-type "windows-nt")
@@ -103,15 +103,16 @@
 (defvar sync_folder "~/Nextcloud/org")
 
 (setq inhibit-startup-message t)
- (tool-bar-mode 0)
- (menu-bar-mode 0)
- (scroll-bar-mode -1)
- (tooltip-mode -1)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode -1)
+(tooltip-mode -1)
 ; (setq global-linum-mode t)
- (column-number-mode t)
- (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(column-number-mode t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 ; (set-fringe-mode 10)
- (setq visible-bell t)
+(setq visible-bell t)
+(display-battery-mode t)
 
 (setq-default cursor-type 'box)
 

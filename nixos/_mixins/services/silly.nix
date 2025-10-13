@@ -12,5 +12,6 @@
     cowsay
     fortune
     cmatrix
+    # csol
   ];
 }
