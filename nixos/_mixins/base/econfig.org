@@ -324,6 +324,13 @@ Set up the lsp for other modes to hook into
   :ensure t)
 #+end_src
 
+#+begin_src emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+#+end_src
+
+
 * Nixos
 #+begin_src emacs-lisp
   (use-package nix-mode

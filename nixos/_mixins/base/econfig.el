@@ -161,6 +161,10 @@
 (use-package lsp-jedi
   :ensure t)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
 (use-package nix-mode
   :ensure t
   :mode "\\.nix\\'")

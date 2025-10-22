@@ -76,9 +76,6 @@
         "aarch64-linux"
         "x86_64-linux"
       ];
-
-      # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-      # stateVersion = "unstable";
       stateVersion = "25.05";
 
     in rec {

@@ -93,5 +93,8 @@
   #   options = [
 
   #   ];
+  environment.systemPackages = with pkgs; [
+    cpufrequtils  # allows turboing on cpu cores
+  ];
   # };
 }

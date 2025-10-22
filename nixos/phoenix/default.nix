@@ -157,5 +157,7 @@
     # pkgs.go
     pkgs.microfetch
     pkgs.video2x
+
+    pkgs.virt-manager
   ];
 }
