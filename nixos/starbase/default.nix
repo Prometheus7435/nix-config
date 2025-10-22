@@ -72,7 +72,7 @@
   powerManagement.enable = true;
   environment.systemPackages = with pkgs; [
     # syncthing
-
+    cpufrequtils  # allows turboing on cpu cores
     # snipe-it
   ];
 
@@ -93,8 +93,5 @@
   #   options = [
 
   #   ];
-  environment.systemPackages = with pkgs; [
-    cpufrequtils  # allows turboing on cpu cores
-  ];
   # };
 }
