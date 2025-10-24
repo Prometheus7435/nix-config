@@ -1,7 +1,7 @@
 {config, username, ...}:
 let
   nfs_folder = "";
-  serverIP = "100.126.182.65"
+  serverIP = "100.126.182.65";
 in
 {
   # NFS drives
