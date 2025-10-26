@@ -13,6 +13,7 @@
     ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
     ../_mixins/hardware/systemd-boot.nix
+
     ../_mixins/desktop/creative.nix
     ../_mixins/desktop/steam.nix
 

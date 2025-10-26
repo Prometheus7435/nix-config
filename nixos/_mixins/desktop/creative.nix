@@ -1,9 +1,9 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    blender
-    krita
-    inkscape
+    # blender
+    # krita
+    # inkscape
     darktable
-    digikam
+    # digikam
   ];
 }
