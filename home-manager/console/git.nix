@@ -1,5 +1,14 @@
 { pkgs, ... }: {
   programs = {
+    delta = {
+      enable = true;
+      options = {
+        features = "decorations";
+        navigate = true;
+        side-by-side = true;
+      };
+    };
+
     gh = {
       enable = true;
       extensions = with pkgs; [ gh-markdown-preview ];
@@ -12,22 +21,13 @@
 
     git = {
       enable = true;
-      userName = "Zach Bombay";
-      userEmail = "zacharybombay@gmail.com";
-      delta = {
-        enable = true;
-        options = {
-          features = "decorations";
-          navigate = true;
-          side-by-side = true;
+
+      settings = {
+        userName = "Zach Bombay";
+        userEmail = "zacharybombay@gmail.com";
+        aliases = {
+          lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
         };
-      };
-
-      aliases = {
-        lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-      };
-
-      extraConfig = {
         push = {
           default = "matching";
         };
@@ -38,6 +38,10 @@
           defaultBranch = "main";
         };
       };
+
+      # extraConfig = {
+
+      # };
 
       ignores = [
         "*.log"
