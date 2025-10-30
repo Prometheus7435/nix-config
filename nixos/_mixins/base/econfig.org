@@ -185,7 +185,6 @@ If you put in a completing pair (like these parenthasis or quotes), this will co
     (global-set-key (kbd "C-x ;") #'comment-line)
 #+end_src
 
-
 ** Sync Folder
 #+begin_src emacs-lisp
   ;;   (cond
@@ -215,6 +214,7 @@ I don't usually use the scroll bar. Testing using the Menu bar again
   (menu-bar-mode 0)
   (scroll-bar-mode -1)
   (tooltip-mode -1)
+  (display-time-mode 0)
   ; (setq global-linum-mode t)
   (column-number-mode t)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -329,7 +329,6 @@ Set up the lsp for other modes to hook into
  'org-babel-load-languages
  '((python . t)))
 #+end_src
-
 
 * Nixos
 #+begin_src emacs-lisp

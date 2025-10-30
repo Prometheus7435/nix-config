@@ -107,6 +107,7 @@
 (menu-bar-mode 0)
 (scroll-bar-mode -1)
 (tooltip-mode -1)
+(display-time-mode 0)
 ; (setq global-linum-mode t)
 (column-number-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

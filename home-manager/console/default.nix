@@ -68,7 +68,7 @@
       playerctl                     # Terminal media controller
       procs                         # Modern Unix `ps`
       pulsemixer                    # Terminal PulseAudio mixer
-      python310Packages.gpustat     # Terminal GPU info
+      # python310Packages.gpustat     # Terminal GPU info
       quilt                         # Terminal patch manager
       rclone                        # Terminal cloud storage client
       ripgrep                       # Modern Unix `grep`
