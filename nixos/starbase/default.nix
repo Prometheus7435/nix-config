@@ -28,8 +28,8 @@
       requestEncryptionCredentials = true;
     };
 
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    # kernelPackages = pkgs.linuxPackages;
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = pkgs.linuxPackages;
     kernelParams = [ "mitigations=off" ];
 
     initrd = {
