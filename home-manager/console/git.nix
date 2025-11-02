@@ -21,23 +21,23 @@
 
     git = {
       enable = true;
-
-      settings = {
-        userName = "Zach Bombay";
-        userEmail = "zacharybombay@gmail.com";
-        aliases = {
-          lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-        };
-        push = {
-          default = "matching";
-        };
-        pull = {
-          rebase = true;
-        };
-        init = {
-          defaultBranch = "main";
-        };
+      userName = "Zach Bombay";
+      userEmail = "zacharybombay@gmail.com";
+      # settings = {
+      aliases = {
+        lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
       };
+      # config = {
+      #   push = {
+      #     default = "matching";
+      #   };
+      #   pull = {
+      #     rebase = true;
+      #   };
+      #   init = {
+      #     defaultBranch = "main";
+      #   };
+      # };
 
       # extraConfig = {
 
