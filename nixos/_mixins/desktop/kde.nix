@@ -51,6 +51,7 @@
     kdePackages.kdecoration
     kdePackages.kdeplasma-addons
     kdePackages.kfind
+    kdePackages.kwallet-pam
     kdePackages.okular
     kdePackages.plasma-integration
     kdePackages.plasma-pa
