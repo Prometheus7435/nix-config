@@ -341,9 +341,10 @@ Set up the lsp for other modes to hook into
 ** LaTeX
 Engines - xelatex, pdflatex, default
 #+begin_src emacs-lisp
-    (setq-default TeX-engine 'pdflatex)
-    (setq-default TeX-PDF-mode t)
-;    (latex-preview-pane-enable)`
+  (setq-default TeX-engine 'pdflatex)
+  (setq-default TeX-PDF-mode t)
+  ;      (latex-preview-pane-enable t)
+  (setq +latex-viewers '(pdf-tools))
 #+end_src
 
 * Project Managment

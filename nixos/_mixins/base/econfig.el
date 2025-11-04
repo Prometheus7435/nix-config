@@ -171,8 +171,9 @@
   :mode "\\.nix\\'")
 
 (setq-default TeX-engine 'pdflatex)
-    (setq-default TeX-PDF-mode t)
-;    (latex-preview-pane-enable)`
+(setq-default TeX-PDF-mode t)
+;      (latex-preview-pane-enable t)
+(setq +latex-viewers '(pdf-tools))
 
 (use-package treemacs
   :ensure t)
