@@ -46,11 +46,11 @@
       gcc.arch = "znver2";
       gcc.tune = "znver2";
     };
-    buildPlatform = {
-      system = "x86_64-linux";
-      # gcc.arch = "znver2";
-      # gcc.tune = "znver2";
-    };
+    # buildPlatform = {
+    #   system = "x86_64-linux";
+    #   # gcc.arch = "znver2";
+    #   # gcc.tune = "znver2";
+    # };
   };
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -58,7 +58,7 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     zfs.requestEncryptionCredentials = true;
-    kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages;
     # kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate"];
