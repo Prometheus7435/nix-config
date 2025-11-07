@@ -160,5 +160,6 @@
     pkgs.video2x
 
     pkgs.virt-manager
+    pkgs.foot
   ];
 }
