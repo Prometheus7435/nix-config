@@ -30,7 +30,10 @@
 
     # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelPackages = pkgs.linuxPackages;
-    kernelParams = [ "mitigations=off" ];
+    kernelParams = [
+      "mitigations=off"
+      "zfs.zfs_arc_max=85899345920" # set arc limit to 80GB
+    ];
 
     initrd = {
       kernelModules = [

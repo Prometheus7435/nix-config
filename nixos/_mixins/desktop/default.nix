@@ -16,7 +16,7 @@
       liberation_ttf
       nerd-fonts._0xproto
       nerd-fonts.droid-sans-mono
-      ubuntu_font_family
+      ubuntu-classic
       work-sans
       source-code-pro
       fira-code
@@ -33,7 +33,7 @@
   programs = {
     firefox = {
       enable = true;
-      package = pkgs.firefox-wayland;
+      package = pkgs.firefox;
     };
   };
 

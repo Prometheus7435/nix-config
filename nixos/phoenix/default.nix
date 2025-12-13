@@ -128,7 +128,7 @@
     pkgs.compose2nix
     pkgs.ghostty
 
-    inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
+    # inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
 #    pkgs.python313Packages.jxlpy # pkg for tagstudio
 
     pkgs.openssl
@@ -159,7 +159,13 @@
     pkgs.microfetch
     pkgs.video2x
 
-    pkgs.virt-manager
+    # pkgs.virt-manager
     pkgs.foot
+
+    pkgs.dosbox
+    pkgs.itch
+    pkgs.itch-dl
+
+    pkgs.solaar # logitech receiver controller / configuration
   ];
 }

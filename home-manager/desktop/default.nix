@@ -15,7 +15,7 @@
     # nerd-fonts.UbuntuMono
     work-sans
     # joypixels
-    ubuntu_font_family
+    ubuntu-classic
     source-code-pro
   ];
   # Accept the joypixels license
