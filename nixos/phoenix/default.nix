@@ -144,7 +144,7 @@
     pkgs.ytfzf
 #    pkgs.lynx
 #    pkgs.tmuxPlugins.resurrect
-    pkgs.wiki-tui
+    # pkgs.wiki-tui
     pkgs.lf
     pkgs.ttyper
 #    pkgs.jellyfin-tui
@@ -166,6 +166,10 @@
     pkgs.itch
     pkgs.itch-dl
 
-    pkgs.solaar # logitech receiver controller / configuration
+    # pkgs.solaar # logitech receiver controller / configuration
+
+    pkgs.rustmission  # https://github.com/intuis/rustmission
+
+    pkgs.hugo  # for building my personal blog
   ];
 }
