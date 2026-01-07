@@ -67,7 +67,7 @@
     ];
     initrd = {
       availableKernelModules = [
-        # "sd_mod"
+        "sd_mod"
 
       ];
     };
