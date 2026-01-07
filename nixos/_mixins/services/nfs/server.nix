@@ -16,7 +16,7 @@
 
            ## Phoenix
            /mnt/alpha/nfs/zach             100.123.61.88(rw,nohide,sync,no_subtree_check)
-           /mnt/alpha/media                100.109.81.2(rw,nohide,sync,no_subtree_check)
+           /mnt/alpha/media                100.123.61.88(rw,nohide,sync,no_subtree_check)
 
            ## Odyssey
            # /mnt/alpha/nfs/zach             100.78.103.103(rw,nohide,sync,no_subtree_check)
