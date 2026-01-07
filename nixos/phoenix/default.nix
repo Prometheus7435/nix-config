@@ -8,7 +8,7 @@
 
 {
   imports = [
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
     ../_mixins/hardware/default.nix
     ../_mixins/hardware/mobile.nix
     ../_mixins/hardware/network-dhcp.nix
