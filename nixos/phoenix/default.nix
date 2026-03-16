@@ -18,7 +18,7 @@
     ../_mixins/desktop/steam.nix
 
     ../_mixins/services/media-edit.nix
-    ../_mixins/services/nfs/client.nix
+#    ../_mixins/services/nfs/client.nix
     ../_mixins/services/pipewire.nix
     ../_mixins/services/silly.nix
 
@@ -68,7 +68,11 @@
     initrd = {
       availableKernelModules = [
         "sd_mod"
-
+        "nvme"
+        "ehci_pci"
+        "xhci_pci_renesas"
+        "xhci_pci"
+        "rtsx_pci_sdmmc"
       ];
     };
   };
@@ -122,7 +126,7 @@
 #    pkgs.tmux
 
     # pkgs.libhugetlbfs
-    pkgs.palemoon-bin
+    # pkgs.palemoon-bin
 #    pkgs.librewolf-bin
 
     pkgs.compose2nix
