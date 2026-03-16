@@ -16,7 +16,7 @@
   nixpkgs = {
     overlays = [
       inputs.emacs-overlay.overlay
-      inputs.nur.overlay
+#      inputs.nur.overlay
     ];
     config = {
       allowUnfree = true;
