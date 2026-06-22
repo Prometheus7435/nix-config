@@ -175,5 +175,7 @@
     pkgs.rustmission  # https://github.com/intuis/rustmission
 
     pkgs.hugo  # for building my personal blog
+
+    pkgs.prusa-slicer
   ];
 }
