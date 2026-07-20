@@ -121,16 +121,7 @@
     # pkgs.macchina
     pkgs.syncthing
 
-#     pkgs.octaveFull
-
-#    pkgs.tmux
-
-    # pkgs.libhugetlbfs
-    # pkgs.palemoon-bin
-#    pkgs.librewolf-bin
-
     # pkgs.compose2nix
-    # pkgs.ghostty
 
     # inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
 #    pkgs.python313Packages.jxlpy # pkg for tagstudio
@@ -159,9 +150,7 @@
     # pkgs.steam-tui
 
 #    pkgs.qmk
-    # pkgs.go
     # pkgs.microfetch
-    # pkgs.video2x
 
     # pkgs.virt-manager
     # pkgs.foot
@@ -178,5 +167,7 @@
 
     pkgs.prusa-slicer
     pkgs.freecad
+
+    pkgs.calibre
   ];
 }
