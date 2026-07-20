@@ -129,8 +129,8 @@
     # pkgs.palemoon-bin
 #    pkgs.librewolf-bin
 
-    pkgs.compose2nix
-    pkgs.ghostty
+    # pkgs.compose2nix
+    # pkgs.ghostty
 
     # inputs.tagstudio.packages.${pkgs.stdenv.hostPlatform.system}.tagstudio
 #    pkgs.python313Packages.jxlpy # pkg for tagstudio
@@ -140,7 +140,7 @@
     # pkgs.android-tools
     pkgs.openvpn
 
-    pkgs.kanata # Tool to improve keyboard comfort and usability with advanced customization
+    # pkgs.kanata # Tool to improve keyboard comfort and usability with advanced customization
 
     # -- TUI challenge
 #    pkgs.ytui-music
@@ -153,29 +153,30 @@
     pkgs.ttyper
 #    pkgs.jellyfin-tui
 #    pkgs.meli
-   pkgs.neomutt
+   # pkgs.neomutt
    # pkgs.himalaya
     # pkgs.steamcmd
     # pkgs.steam-tui
 
 #    pkgs.qmk
     # pkgs.go
-    pkgs.microfetch
-    pkgs.video2x
+    # pkgs.microfetch
+    # pkgs.video2x
 
     # pkgs.virt-manager
-    pkgs.foot
+    # pkgs.foot
 
-    pkgs.dosbox
-    pkgs.itch
-    pkgs.itch-dl
+    # pkgs.dosbox
+    # pkgs.itch
+    # pkgs.itch-dl
 
     # pkgs.solaar # logitech receiver controller / configuration
 
     pkgs.rustmission  # https://github.com/intuis/rustmission
 
-    pkgs.hugo  # for building my personal blog
+    # pkgs.hugo  # for building my personal blog
 
     pkgs.prusa-slicer
+    pkgs.freecad
   ];
 }
