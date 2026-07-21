@@ -9,8 +9,9 @@
     # video
     ffmpeg_6-full
     yt-dlp
-    makemkv
-    handbrake
+
+    # makemkv
+    # handbrake
 
     ### audio
     # ardour
